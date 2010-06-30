@@ -299,5 +299,4 @@ vmap <C-Right> x<Space>P`[v`]
 "  Modelines: {{{1
 " vim: nowrap fdm=marker
 " }}}
-
-colorscheme ir_black 
+color ir_black
