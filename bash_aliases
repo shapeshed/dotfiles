@@ -142,5 +142,4 @@ function setenv () {
 }
 
 ########
-
-alias flashlog='tail -f ~/Library/Preferences/Macromedia/Flash\ Player/Logs/flashlog.txt'
+alias todo='vim /Users/george/Documents/TODO/TODO.md'
