@@ -142,4 +142,4 @@ function setenv () {
 }
 
 ########
-alias todo='vim /Users/george/Documents/TODO/TODO.md'
+alias todo='mvim /Users/george/Documents/TODO/TODO.md'
