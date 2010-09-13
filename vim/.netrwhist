@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/george/Sites/jobsite.stink.tv/app/models'
-let g:netrw_dirhist_2='/Users/george/Sites/jobsite.stink.tv/app'
-let g:netrw_dirhist_3='/Users/george/Sites/jobsite.stink.tv/app/controllers'
-let g:netrw_dirhist_4='/Users/george/Sites/jobsite.stink.tv/app'
-let g:netrw_dirhist_5='/Users/george/Sites/jobsite.stink.tv/app/models'
-let g:netrw_dirhist_6='/Users/george/Sites/istink/db/seeds'
