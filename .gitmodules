@@ -34,9 +34,3 @@
 [submodule "vim/bundle/vim-liquid"]
 	path = vim/bundle/vim-liquid
 	url = git://github.com/tpope/vim-liquid.git
-[submodule "node_libraries/haml.js"]
-	path = node_libraries/haml.js
-	url = git://github.com/visionmedia/haml.js.git
-[submodule "node_libraries/redis-node-client"]
-	path = node_libraries/redis-node-client
-	url = http://github.com/fictorial/redis-node-client.git
