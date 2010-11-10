@@ -300,3 +300,8 @@ vmap <C-Right> x<Space>P`[v`]
 " vim: nowrap fdm=marker
 " }}}
 color ir_black
+
+if $VIM_CRONTAB == 'true'
+    set nobackup
+    set nowritebackup
+endif

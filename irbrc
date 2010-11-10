@@ -13,10 +13,10 @@ rescue LoadError
 end
            
 # Draw ASCII tables
-require 'hirb'
-require 'hirb/import_object'
-Hirb.enable
-extend Hirb::Console
+#require 'hirb'
+#require 'hirb/import_object'
+#Hirb.enable
+#extend Hirb::Console
 
 # Log SQL queries to irb
 if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')

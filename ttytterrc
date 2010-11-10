@@ -1,0 +1,5 @@
+ansi=1
+verify=1
+notifytype=growl
+notifies=dm,me,reply,search,default
+urlopen open %U
