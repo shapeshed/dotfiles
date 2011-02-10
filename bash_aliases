@@ -144,3 +144,4 @@ function setenv () {
 ########
 alias todo='vim /Users/george/Documents/TODO/TODO.md'
 alias crontab="VIM_CRONTAB=true crontab"
+alias r='rails'
