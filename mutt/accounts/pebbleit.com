@@ -12,7 +12,6 @@ set spoolfile = "+INBOX"
 set postponed = "+/Drafts"
 set record = "+/Sent Items"
 set trash = "+/Deleted Items"
-set pgp_autosign = "yes"
 
 set signature = "~/.mutt/signatures/pebbleit.com.txt"
 set header_cache =~/.mutt/cache/pebble.it/headers
