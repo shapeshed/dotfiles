@@ -1,5 +1,5 @@
 ansi=1
 verify=1
 notifytype=growl
-notifies=dm,me,reply,search,default
+notifies=dm,me,reply
 urlopen open %U

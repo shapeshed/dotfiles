@@ -305,3 +305,4 @@ if $VIM_CRONTAB == 'true'
     set nobackup
     set nowritebackup
 endif
+let g:liquid_highlight_types=["html","bash","jade", "css", "scss", "sass"]
