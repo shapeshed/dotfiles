@@ -2,6 +2,7 @@
 source ~/.mutt/authentication/george@pebbleit.com                 
 source ~/.mutt/colors/ir_black.mutt                  
 
+set query_command="/usr/local/bin/lbdbq '%s'"
 set sort=threads 
 set sort_browser=reverse-date 
 set sort_aux=last-date-received 
