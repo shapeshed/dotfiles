@@ -2,6 +2,8 @@
 source ~/.mutt/authentication/george@pebbleit.com                 
 source ~/.mutt/colors/ir_black.mutt                  
 
+set pgp_sign_as="george@pebbleit.com"
+
 set query_command="/usr/local/bin/lbdbq '%s'"
 set sort=threads 
 set sort_browser=reverse-date 
@@ -21,4 +23,5 @@ set certificate_file =~/.mutt/certificates
 bind editor <space> noop
 set imap_keepalive = 900
 
+set sendmail="/usr/local/bin/msmtp"
 
