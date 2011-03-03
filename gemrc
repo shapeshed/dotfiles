@@ -10,3 +10,4 @@
 - http://gems.github.com
 - http://gemcutter.org/
 - http://gemcutter.org/
+:gem: --no-ri --no-rdoc
