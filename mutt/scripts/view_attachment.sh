@@ -31,23 +31,23 @@
 #
 # Examples:  These are typical .mailcap entries which use this program.
 #
-#     Image/JPEG; /Users/vdanen/.mutt/view_attachment %s
-#     Image/PNG; /Users/vdanen/.mutt/view_attachment %s
-#     Image/GIF; /Users/vdanen/.mutt/view_attachment %s
+#     Image/JPEG; /usr/local/bin/view_attachment %s
+#     Image/PNG; /usr/local/bin/view_attachment %s
+#     Image/GIF; /usr/local/bin/view_attachment %s
 # 
-#     Application/PDF; /Users/vdanen/.mutt/view_attachment %s
+#     Application/PDF; /usr/local/bin/view_attachment %s
 #
 #         #This HTML example passes the type because file doesn't always work and 
 #         #there aren't always extensions.
 #
-#     text/html; /Users/vdanen/.mutt/view_attachment %s html
+#     text/html; /usr/local/bin/view_attachment %s html
 #
 #         # If your Start OpenOffice.org.app is spelled with a space like this one, <--
 #         # then you'll need to precede the space with a \ .  I found that too painful
 #         # and renamed it with an _.   
 #
-#     Application/vnd.ms-excel; /Users/vdanen/.mutt/view_attachment %s "-" '/Applications/OpenOffice.org1.1.2/Start_OpenOffice.org.app'
-#     Application/msword; /Users/vdanen/.mutt/view_attachment %s "-" '/Applications/OpenOffice.org1.1.2/Start_OpenOffice.org.app'
+#     Application/vnd.ms-excel; /usr/local/bin/view_attachment %s "-" '/Applications/OpenOffice.org1.1.2/Start_OpenOffice.org.app'
+#     Application/msword; /usr/local/bin/view_attachment %s "-" '/Applications/OpenOffice.org1.1.2/Start_OpenOffice.org.app'
 # 
 #
 # Debugging:  If you have problems set debug to 'yes'.  That will cause a debug file
@@ -57,14 +57,14 @@
 #
 
 # the tmp directory to use.
-tmpdir="$HOME/tmp/mutt_attach"
+tmpdir="/tmp/mutt_attach"
 
 # the name of the debug file if debugging is turned on.
 debug_file=$tmpdir/debug
 
 # debug.  yes or no.  
-#debug="no"
-debug="yes"
+debug="no"
+#debug="yes"
 
 type=$2
 open_with=$3
@@ -91,8 +91,12 @@ if [ $debug = "yes" ]; then
 fi
 
 # if the type is empty then try to figure it out.
-if [ -z $type ]; then
-    type=`file -bi $1 | cut -d"/" -f2`
+if [ -z "$type" ]; then
+    if [ ${osxversion} -lt 1060 ]; then #OS X 10.5 or lower
+        type=`file -b --mime "$1" | cut -d"/" -f2`
+    else # For 10.6, you need the following instead
+        type=`file -b --mime-type "$1" | cut -d"/" -f2`
+    fi
 fi
 
 # if the type is '-' then we don't want to mess with type.
