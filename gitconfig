@@ -1,3 +1,8 @@
 [user]
 	name = George Ornbo
 	email = george@shapeshed.com
+
+[github]
+    user = shapeshed
+    token = `gpg -d ~/.auth/github_token.gpg`
+ 
