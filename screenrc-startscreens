@@ -1,0 +1,10 @@
+startup_message off
+chdir
+autodetach on
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+
+screen -t bash 0 /usr/local/bin/bash 
+screen -t irssi 1 /usr/local/bin/irssi
+screen -t ttytter 2 /usr/local/bin/ttytter
+screen -t mutt 3 /usr/local/bin/mutt
