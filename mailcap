@@ -1,1 +1,4 @@
+image/jpg; /Users/george/.mutt/scripts/view_attachment.sh %s
 image/jpeg; /Users/george/.mutt/scripts/view_attachment.sh %s
+image/gif; /Users/george/.mutt/scripts/view_attachment.sh %s
+image/png; /Users/george/.mutt/scripts/view_attachment.sh %s
