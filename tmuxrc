@@ -1,0 +1,32 @@
+
+# Colours
+set-option -g status-utf8 on
+# set-option -g status-bg blue
+
+setw -g monitor-activity on
+set -g visual-activity on
+
+setw -g automatic-rename
+
+bind | split-window -h
+bind - split-window -v
+
+
+# use "v" and "s" to do vertical/horizontal splits, like vim
+bind s split-window -v
+bind v split-window -h
+
+# use the vim motion keys to move between panes
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# use vim motion keys while in copy mode
+setw -g mode-keys vi
+# use the vim resize keys.
+# the number at the end is how much the pane will be resized,
+# and 1 is fairly small -- you might want to tweak this.
+bind < resize-pane -L 1
+bind > resize-pane -R 1
+
