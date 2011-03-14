@@ -3,6 +3,15 @@
 set-option -g status-utf8 on
 # set-option -g status-bg blue
 
+# Remap C-a to C-b
+set -g prefix C-a
+unbind C-b
+bind C-a send-prefix
+
+# force a reload of the config file
+unbind r
+bind r source-file ~/.tmux.conf
+
 setw -g monitor-activity on
 set -g visual-activity on
 
