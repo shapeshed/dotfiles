@@ -1,7 +1,7 @@
 #!/bin/bash
 tmux start-server
 tmux new-session -d -s shapeshed -n bash
-tmux new-session -d -s shapeshed:1 -n mutt
+tmux new-window -t shapeshed:1 -n mutt
 tmux new-window -t shapeshed:2 -n irssi
 tmux new-window -t shapeshed:3 -n ttyytter
 tmux new-window -t shapeshed:4 -n apu
