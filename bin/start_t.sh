@@ -22,5 +22,3 @@ tmux select-pane -t shapeshed:0.0
 tmux attach-session -d -t shapeshed
 
 
-
-
