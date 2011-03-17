@@ -12,6 +12,7 @@
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 export CLICOLOR=1
+export GREP_OPTIONS="--color"
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export PS1='\[\e[1;34m\][\u@\h \W]\$\[\e[0m\] '
 export NODE_PATH="/usr/local/lib/node"
