@@ -21,4 +21,3 @@ LOCAL_PATH="/Users/george/Sites/shapeshed.com/_site/"
 REMOTE_PATH="shapeshed.com:/var/www/vhosts/shapeshed.com/httpdocs"
 
 cd $WEBSITE_PATH && /Users/george/.rvm/gems/ree-1.8.7-2011.03/bin/jekyll --lsi && rsync -avz -e "ssh" --delete $LOCAL_PATH $REMOTE_PATH
-
