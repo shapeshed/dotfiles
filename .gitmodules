@@ -40,3 +40,6 @@
 [submodule "vim/bundle/vim-ruby"]
 	path = vim/bundle/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
+[submodule "vim/bundle/vim-jade"]
+	path = vim/bundle/vim-jade
+	url = https://github.com/digitaltoad/vim-jade.git
