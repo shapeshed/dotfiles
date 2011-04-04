@@ -25,3 +25,6 @@ set imap_keepalive = 900
 
 set sendmail="/usr/local/bin/msmtp"
 
+save-hook '~s \[Dev\]' +lists/dev
+save-hook '~s \[Management\]' +lists/management
+save-hook '~s \[Office\]' +lists/office
