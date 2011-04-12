@@ -28,3 +28,4 @@ set sendmail="/usr/local/bin/msmtp"
 save-hook '~s \[Dev\]' +lists/dev
 save-hook '~s \[Management\]' +lists/management
 save-hook '~s \[Office\]' +lists/office
+save-hook '~s \[ideapi\]' +lists/ideapi
