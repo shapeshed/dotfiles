@@ -1,0 +1,9 @@
+# Be 8 bit clean.
+set meta-flag on
+set input-meta on
+set output-meta on
+set convert-meta off
+
+# mode in everything that uses readline
+set editing-mode vi
+set keymap vi
