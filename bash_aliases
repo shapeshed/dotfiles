@@ -32,4 +32,16 @@ function psg {
 alias todo='vim /Users/george/Documents/TODO/TODO.md'
 alias crontab="VIM_CRONTAB=true crontab"
 alias r='rails'
-alias ss='start_screens.sh'
+alias st='start_tmux.sh'
+
+# ------------------------
+# Git 
+# ------------------------
+alias g='git'
+alias gs='git status'
+alias ga='git add .'
+alias gl='git pull'
+alias gp='git push'
+alias gc='git commit'
+
+
