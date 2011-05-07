@@ -299,7 +299,7 @@ vmap <C-Right> x<Space>P`[v`]
 "  Modelines: {{{1
 " vim: nowrap fdm=marker
 " }}}
-color ir_black
+color solarized
 
 if $VIM_CRONTAB == 'true'
     set nobackup
