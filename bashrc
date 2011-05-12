@@ -19,3 +19,11 @@ export PS1='\[\e[1;34m\][\u@\h \W]\$\[\e[0m\] '
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"
 
 export NODE_PATH="/usr/local/lib/node_modules"
+
+if [ "$PS1" != "" -a "${STARTED_TMUX:-x}" = x -a "${SSH_TTY:-x}" != x ]
+then
+    STARTED_TMUX=1; export STARTED_TMUX
+    sleep 1
+    ( (tmux has-session -t george && tmux attach-session -t george) || (tmux new-session -s george) ) && exit 0
+    echo "tmux failed to start"
+fi

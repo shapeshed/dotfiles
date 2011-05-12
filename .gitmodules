@@ -46,3 +46,9 @@
 [submodule "vim/bundle/vim-stylus"]
 	path = vim/bundle/vim-stylus
 	url = https://github.com/wavded/vim-stylus.git
+[submodule "vim/bundle/vim-colors-solarized"]
+	path = vim/bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/bundle/tabular"]
+	path = vim/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git

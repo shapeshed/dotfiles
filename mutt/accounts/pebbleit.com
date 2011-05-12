@@ -25,7 +25,8 @@ set imap_keepalive = 900
 
 set sendmail="/usr/local/bin/msmtp"
 
-save-hook '~s \[Dev\]' +lists/dev
-save-hook '~s \[Management\]' +lists/management
-save-hook '~s \[Office\]' +lists/office
-save-hook '~s \[ideapi\]' +lists/ideapi
+save-hook '~s "^.*\\[Management\\].*"' +lists/management
+save-hook '~s "^.*\\[Office\\].*"' +lists/office
+save-hook '~s "^.*\\[Dev\\].*"' +lists/dev
+save-hook '~s "^.*\\[ideapi.*\\].*"' +clients/ideapi
+save-hook '~s "^.*\\[pebble\\.it.*ideapi.*\\].*"' +clients/ideapi
