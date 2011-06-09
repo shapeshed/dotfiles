@@ -6,6 +6,7 @@ SAVEHIST=1000
 
 # Enable vi keybindings
 bindkey -v
+bindkey '^R' history-incremental-search-backward
 
 # Add bin folder to path
 [ -d ~/bin ] && export PATH=~/bin:$PATH
@@ -25,9 +26,9 @@ update_git_branch_prompt() {
 
 # Colors
 export CLICOLOR=1;
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"
 
 # Customize prompt
-# PROMPT=$'[%n@%m %~]$ '
 PROMPT=$'\e[0;35m[%n@%m %~]$ \e[0m'
 
 # Enable completion
