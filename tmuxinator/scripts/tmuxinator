@@ -1,0 +1,2 @@
+alias start_default='$SHELL /Users/george/.tmuxinator/default.tmux'
+alias start_istink='$SHELL /Users/george/.tmuxinator/istink.tmux'

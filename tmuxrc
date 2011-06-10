@@ -39,3 +39,5 @@ setw -g mode-keys vi
 bind < resize-pane -L 1
 bind > resize-pane -R 1
 
+# fix for tmuxinator starting from 1
+set -g base-index 1

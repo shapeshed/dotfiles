@@ -1,0 +1,8 @@
+project_name: default
+project_root: ~/
+tabs:
+  - zsh: 
+  - mutt: mutt
+  - irssi: irssi
+  - ttytter: ttytter
+  - apu: ssh apu.pebbleit.com
