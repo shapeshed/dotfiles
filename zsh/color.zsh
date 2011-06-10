@@ -1,0 +1,1 @@
+export CLICOLOR=1;
