@@ -55,3 +55,6 @@
 [submodule "vim/bundle/vim-coffee-script"]
 	path = vim/bundle/vim-coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
+[submodule "vim/bundle/vim-puppet"]
+	path = vim/bundle/vim-puppet
+	url = git://github.com/johnbintz/vim-puppet.git

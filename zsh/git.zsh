@@ -1,3 +1,4 @@
+export GIT_EDITOR='vim'
 
 typeset -ga precmd_functions
 precmd_functions+='update_git_branch_prompt'
