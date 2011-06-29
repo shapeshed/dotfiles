@@ -2,13 +2,14 @@
 # you can make as many tabs as you wish...
 
 project_name: istink
-project_root: ~/Sites/istink
+project_root: ~/Sites/istink.stink.tv
 # rvm: ree@istink
 # pre: "rake ts:start"
 tabs:
   - vim: vim .
   - git: git pull
+  - server: script/server
   - console: script/console
   - logs: tail -f log/development.log
   - capistrano:
-  - server: ssh apu.pebbleit.com
+  - remote: ssh apu.pebbleit.com

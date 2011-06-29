@@ -1,2 +1,3 @@
 alias start_default='$SHELL /Users/george/.tmuxinator/default.tmux'
 alias start_istink='$SHELL /Users/george/.tmuxinator/istink.tmux'
+alias start_taxiapp='$SHELL /Users/george/.tmuxinator/taxiapp.tmux'

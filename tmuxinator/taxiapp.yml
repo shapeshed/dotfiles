@@ -1,0 +1,10 @@
+project_name: taxiapp
+project_root: ~/Sites/londontaxiapp.com
+tabs:
+  - zsh: 
+  - vim: vim .
+  - git: git pull
+  - console: r c
+  - logs: tail -f log/development.log
+  - capistrano:
+  - server: ssh addapps-001.vm.brightbox.net
