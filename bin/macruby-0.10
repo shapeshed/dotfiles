@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+export GEM_HOME="${GEM_HOME:-/Users/george/.rvm/gems/macruby-0.10}"
+export GEM_PATH="${GEM_PATH:-/Users/george/.rvm/gems/macruby-0.10:/Users/george/.rvm/gems/macruby-0.10@global}"
+export MY_RUBY_HOME="/Users/george/.rvm/rubies/macruby-0.10"
+export PATH="/Users/george/.rvm/gems/macruby-0.10/bin:/Users/george/.rvm/gems/macruby-0.10@global/bin:/Users/george/.rvm/rubies/macruby-0.10/bin:$PATH"
+
+exec "/Library/Frameworks/MacRuby.framework/Versions/0.10/usr/bin/macruby" "$@"
