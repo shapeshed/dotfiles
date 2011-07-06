@@ -4,9 +4,8 @@ tmux start-server
 if ! $(tmux has-session -t 'istink'); then
 cd ~/Sites/istink.stink.tv
 
-tmux new-session -d -s 'istink' -n 'vim'
-tmux set default-path ~/Sites/istink.stink.tv
-tmux set-option base-index 1
+env TMUX= tmux start-server \; set-option -g base-index 1 \; new-session -d -s 'istink' -n 'vim'
+tmux set-option -t 'istink' default-path ~/Sites/istink.stink.tv
 
 
 tmux new-window -t 'istink':2 -n 'git'
@@ -50,6 +49,8 @@ tmux send-keys -t 'istink':5 'tail -f log/development.log' C-m
 
 
 # tab "capistrano"
+
+tmux send-keys -t 'istink':6 '' C-m
 
 
 # tab "remote"

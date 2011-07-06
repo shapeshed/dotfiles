@@ -4,9 +4,8 @@ tmux start-server
 if ! $(tmux has-session -t 'default'); then
 cd ~/
 
-tmux new-session -d -s 'default' -n 'zsh'
-tmux set default-path ~/
-tmux set-option base-index 1
+env TMUX= tmux start-server \; set-option -g base-index 1 \; new-session -d -s 'default' -n 'zsh'
+tmux set-option -t 'default' default-path ~/
 
 
 tmux new-window -t 'default':2 -n 'mutt'
@@ -21,6 +20,8 @@ tmux new-window -t 'default':5 -n 'apu'
 # set up tabs and panes
 
 # tab "zsh"
+
+tmux send-keys -t 'default':1 '' C-m
 
 
 # tab "mutt"

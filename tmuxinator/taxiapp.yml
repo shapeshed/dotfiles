@@ -3,8 +3,9 @@ project_root: ~/Sites/londontaxiapp.com
 tabs:
   - zsh: 
   - vim: vim .
+  - foreman: bundle exec foreman start
   - git: git pull
-  - console: r c
+  - console: rails console
+  - server: rails server
   - logs: tail -f log/development.log
   - capistrano:
-  - server: ssh addapps-001.vm.brightbox.net
