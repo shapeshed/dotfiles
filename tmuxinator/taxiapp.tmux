@@ -12,15 +12,17 @@ tmux new-window -t 'taxiapp':2 -n 'vim'
 
 tmux new-window -t 'taxiapp':3 -n 'foreman'
 
-tmux new-window -t 'taxiapp':4 -n 'git'
+tmux new-window -t 'taxiapp':4 -n 'guard'
 
-tmux new-window -t 'taxiapp':5 -n 'console'
+tmux new-window -t 'taxiapp':5 -n 'git'
 
-tmux new-window -t 'taxiapp':6 -n 'server'
+tmux new-window -t 'taxiapp':6 -n 'console'
 
-tmux new-window -t 'taxiapp':7 -n 'logs'
+tmux new-window -t 'taxiapp':7 -n 'thin'
 
-tmux new-window -t 'taxiapp':8 -n 'capistrano'
+tmux new-window -t 'taxiapp':8 -n 'logs'
+
+tmux new-window -t 'taxiapp':9 -n 'capistrano'
 
 
 # set up tabs and panes
@@ -40,29 +42,34 @@ tmux send-keys -t 'taxiapp':2 'vim .' C-m
 tmux send-keys -t 'taxiapp':3 'bundle exec foreman start' C-m
 
 
+# tab "guard"
+
+tmux send-keys -t 'taxiapp':4 'bundle exec guard' C-m
+
+
 # tab "git"
 
-tmux send-keys -t 'taxiapp':4 'git pull' C-m
+tmux send-keys -t 'taxiapp':5 'git pull' C-m
 
 
 # tab "console"
 
-tmux send-keys -t 'taxiapp':5 'rails console' C-m
+tmux send-keys -t 'taxiapp':6 'rails console' C-m
 
 
-# tab "server"
+# tab "thin"
 
-tmux send-keys -t 'taxiapp':6 'rails server' C-m
+tmux send-keys -t 'taxiapp':7 'bundle exec thin -C config/thin/development.yml start' C-m
 
 
 # tab "logs"
 
-tmux send-keys -t 'taxiapp':7 'tail -f log/development.log' C-m
+tmux send-keys -t 'taxiapp':8 'tail -f log/development.log' C-m
 
 
 # tab "capistrano"
 
-tmux send-keys -t 'taxiapp':8 '' C-m
+tmux send-keys -t 'taxiapp':9 '' C-m
 
 
 

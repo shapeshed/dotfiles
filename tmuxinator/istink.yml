@@ -1,15 +1,12 @@
-# ~/.tmuxinator/istink.yml
-# you can make as many tabs as you wish...
-
 project_name: istink
 project_root: ~/Sites/istink.stink.tv
-# rvm: ree@istink
-# pre: "rake ts:start"
 tabs:
+  - zsh:
   - vim: vim .
+  - foreman: bundle exec foreman start
+  - guard: bundle exec guard
   - git: git pull
-  - server: script/server
+  - thin: bundle exec thin -C config/thin/development.yml start
   - console: script/console
   - logs: tail -f log/development.log
   - capistrano:
-  - remote: ssh apu.pebbleit.com
