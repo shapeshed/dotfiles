@@ -1,10 +1,10 @@
-folder-hook 'pebbleit.com' 'source ~/.mutt/accounts/pebbleit.com'
-folder-hook 'gmail.com' 'source ~/.mutt/accounts/shapeshed.com'
-
-source ~/.mutt/accounts/pebbleit.com
+source ~/.mutt/accounts/shapeshed.com
+source ~/.mutt/accounts/gmail.com
+source ~/.mutt/accounts/pebblecode.com
 source ~/.mutt/gpg/gpgrc
 
-macro index 1 '<sync-mailbox><enter-command>source ~/.mutt/accounts/pebbleit.com<enter><change-folder>!<enter>'
+macro index 1 '<sync-mailbox><enter-command>source ~/.mutt/accounts/pebblecode.com<enter><change-folder>!<enter>'
 macro index 2 '<sync-mailbox><enter-command>source ~/.mutt/accounts/shapeshed.com<enter><change-folder>!<enter>'
+macro index 3 '<sync-mailbox><enter-command>source ~/.mutt/accounts/gmail.com<enter><change-folder>!<enter>'
 macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 set pager_index_lines=10
