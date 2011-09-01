@@ -54,12 +54,12 @@ tmux send-keys -t 'taxiapp':5 'git pull' C-m
 
 # tab "console"
 
-tmux send-keys -t 'taxiapp':6 'rails console' C-m
+tmux send-keys -t 'taxiapp':6 'bundle exec rails console' C-m
 
 
 # tab "thin"
 
-tmux send-keys -t 'taxiapp':7 'bundle exec thin -C config/thin/development.yml start' C-m
+tmux send-keys -t 'taxiapp':7 'bundle exec unicorn -c config/unicorn.rb' C-m
 
 
 # tab "logs"

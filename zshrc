@@ -13,6 +13,8 @@
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"
 
+# export NODE_PATH="/usr/local/lib/node_modules" 
+
 # Load other zsh config
 for zsh_file ($HOME/.zsh/*.zsh) source $zsh_file
 

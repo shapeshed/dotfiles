@@ -6,7 +6,7 @@ tabs:
   - foreman: bundle exec foreman start
   - guard: bundle exec guard
   - git: git pull
-  - console: rails console
-  - thin: bundle exec thin -C config/thin/development.yml start
+  - console: bundle exec rails console
+  - thin: bundle exec unicorn -c config/unicorn.rb
   - logs: tail -f log/development.log
   - capistrano:
