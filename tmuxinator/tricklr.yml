@@ -1,12 +1,13 @@
 project_name: taxiapp
 project_root: ~/Sites/tricklrapp.com
+rvm: 1.9.2@tricklr
 tabs:
   - zsh: 
   - vim: vim .
   - foreman: bundle exec foreman start
   - guard: bundle exec guard
   - git: git pull
-  - console: rails console
-  - thin: bundle exec thin -C config/thin/development.yml start
+  - console: bundle exec rails console
+  - unicorn: bundle exec unicorn -c config/unicorn.rb -D
   - logs: tail -f log/development.log
-  - capistrano:
+  - postgres: psql -d tricklr_development
