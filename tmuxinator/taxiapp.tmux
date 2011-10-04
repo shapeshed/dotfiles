@@ -3,7 +3,6 @@ tmux start-server
 
 if ! $(tmux has-session -t 'taxiapp'); then
 cd ~/Sites/londontaxiapp.com
-
 env TMUX= tmux start-server \; set-option -g base-index 1 \; new-session -d -s 'taxiapp' -n 'zsh'
 tmux set-option -t 'taxiapp' default-path ~/Sites/londontaxiapp.com
 
@@ -69,7 +68,7 @@ tmux send-keys -t 'taxiapp':8 'tail -f log/development.log' C-m
 
 # tab "capistrano"
 
-tmux send-keys -t 'taxiapp':9 '' C-m
+tmux send-keys -t 'taxiapp':9 'rvm use 1.9.2@taxiapp' C-m
 
 
 
