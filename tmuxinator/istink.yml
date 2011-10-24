@@ -7,6 +7,6 @@ tabs:
   - guard: bundle exec guard
   - git: git pull
   - thin: bundle exec thin -C config/thin/development.yml start
-  - console: script/console
+  - console: bundle exec rails c
   - logs: tail -f log/development.log
   - capistrano:
