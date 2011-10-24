@@ -9,7 +9,6 @@ tmux new-window -t shapeshed:5 -n shed
 
 tmux send-keys -t shapeshed:1 'mutt' C-m
 tmux send-keys -t shapeshed:2 'irssi' C-m
-tmux send-keys -t shapeshed:3 'ttytter' C-m
 tmux send-keys -t shapeshed:4 'ssh apu.pebbleit.com' C-m
 tmux send-keys -t shapeshed:5 'ssh shapeshed.com' C-m
 
