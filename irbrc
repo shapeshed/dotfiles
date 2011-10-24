@@ -1,10 +1,10 @@
 require 'irb/ext/save-history'
 
-%w(rubygems wirble hirb interactive_editor).each do |gem|
+%w(rubygems hirb interactive_editor).each do |gem|
   begin
     require gem
   rescue LoadError => err
-    %x{gem install #{gem} --no-ri --no-rdoc} unless Gem.available?(gem)
+    %x{gem install #{gem} --no-ri --no-rdoc} unless Gem::Specification::find_by_name(gem)
     Gem.refresh 
     require gem
   end
