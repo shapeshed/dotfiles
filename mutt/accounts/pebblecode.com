@@ -21,6 +21,6 @@ set realname="George Ornbo"
 set from="george@pebblecode.com"
 set spoolfile = "+INBOX"
 set postponed = "+[Gmail]/Drafts"
-set record = "+[Gmail]/Sent Mail"
+set record = /dev/null
 set trash = "+[Gmail]/All Mail"
 
