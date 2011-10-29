@@ -5,7 +5,6 @@
 # TODO - create zsh specific file
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
-
 # tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
@@ -14,6 +13,9 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/shar
 # Rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# npm completion
+. <(npm completion)
 
 # Load other zsh config
 for zsh_file ($HOME/.zsh/*.zsh) source $zsh_file
