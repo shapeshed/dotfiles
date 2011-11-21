@@ -320,4 +320,8 @@ function! s:align()
     endif
 endfunction
 
+" Alias for saving when not editing as sudo
 cmap w!! %!sudo tee > /dev/null %
+
+" JavaScript editing inline with node.js conventions
+au FileType javascript setl sw=2 sts=2 et
