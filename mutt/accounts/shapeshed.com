@@ -1,6 +1,6 @@
 
 source ~/.mutt/authentication/george@shapeshed.com                 
-source ~/.mutt/colors/ir_black.mutt                  
+source ~/.mutt/colors/mutt-colors-solarized-dark-16.muttrc                
 
 set pgp_sign_as="george@shapeshed.com"
 
