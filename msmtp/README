@@ -2,3 +2,6 @@ Add encrytped password files to this folder
 
 * mail.pebbleit.com.gpg
 * shapeshed.com.gpg
+
+
+  gpg --encrypt -r george@shapeshed.com gmail.com 
