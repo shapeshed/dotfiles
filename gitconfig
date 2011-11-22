@@ -1,6 +1,7 @@
 [user]
 	name = George Ornbo
 	email = george@shapeshed.com
+    signingkey = 80040E5D
 
 [github]
     user = shapeshed
