@@ -6,4 +6,4 @@ Add the encrypted passwords file to this folder:
 
 Encrypt file using this command
 
-  gpg --encrypt gmail.com -r george@shapeshed.com
+  gpg --encrypt -r george@shapeshed.com gmail.com 
