@@ -1,8 +1,8 @@
 Add the encrypted passwords file to this folder:
 
-* imap.gmail.com.gpg
-* mail.pebbleit.com.gpg
+* gmail.com.gpg
 * pebblecode.com.gpg
+* shapeshed.com.gpg
 
 Encrypt file using this command
 
