@@ -21,11 +21,3 @@ IRB.conf[:AUTO_INDENT]= true
 
 # Save History between irb sessions
 IRB.conf[:SAVE_HISTORY] = 100
-
-# Enable Wirble
-Wirble.init
-
-# Enable Wirble Colors
-Wirble.colorize
-
-
