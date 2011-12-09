@@ -15,6 +15,10 @@ function gemdoc {
 }
 
 alias r='rails'
+alias b="bundle"
+alias be="bundle exec"
+alias gi="gem install"
+alias giv="gem install -v"
 
 # ------------------------
 # Vim
