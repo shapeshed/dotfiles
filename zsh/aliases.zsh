@@ -30,7 +30,7 @@ alias v="vim"
 # ------------------------
 
 # Start a tmux session with my layout
-alias st='start_tmux.sh'
+alias st='start_tmux'
 
 # ------------------------
 # Unix
