@@ -1,5 +1,0 @@
-export rvm_path="/Users/george/.rvm"
-rvm_install_on_use_flag=1
-rvm_gemset_create_on_use_flag=1
-rvm_archflags="-arch x86_64"
-rvm_trust_rvmrcs_flag=1
