@@ -1,6 +1,5 @@
 project_name: taxiapp
 project_root: ~/Sites/tricklrapp.com
-rvm: 1.9.2@tricklr
 tabs:
   - zsh: 
   - vim: vim .
