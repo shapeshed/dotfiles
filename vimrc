@@ -12,6 +12,9 @@ filetype plugin indent on
 " http://ethanschoonover.com/solarized
 color solarized
 
+" Show line numbers
+set number
+
 " Alias for saving when not editing as sudo
 cmap w!! %!sudo tee > /dev/null %
 
@@ -26,3 +29,7 @@ hi link coffeeReservedError NONE
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
+set tabstop=4
+set shiftwidth=4
+set expandtab
