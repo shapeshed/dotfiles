@@ -10,6 +10,7 @@ filetype plugin indent on
 
 " Solarized color scheme
 " http://ethanschoonover.com/solarized
+set background=dark
 color solarized
 
 " Show line numbers
