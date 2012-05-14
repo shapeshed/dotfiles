@@ -1,1 +1,1 @@
-PROMPT=$'\e[0;35m☞  \e[0m' 
+PROMPT=$'\e[0;35m♣  \e[0m' 
