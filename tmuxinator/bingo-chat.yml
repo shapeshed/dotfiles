@@ -1,0 +1,9 @@
+project_name: bingo-chat
+project_root: ~/code/bingo-chat
+tabs:
+  - zsh: 
+  - nodemon: nodemon app.js 
+  - vim:  vim .
+  - redis-monitor: redis-cli MONITOR
+  - redis: redis-cli 
+  - mocha: ./node_modules/mocha/bin/mocha --watch
