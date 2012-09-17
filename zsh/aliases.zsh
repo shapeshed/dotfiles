@@ -59,3 +59,8 @@ alias gc='git commit'
 # Node.js
 # ------------------------
 alias pj='pretty-json'
+
+# ------------------------
+# Ubuntu
+# ------------------------
+alias update='sudo apt-get update && sudo apt-get upgrade'
