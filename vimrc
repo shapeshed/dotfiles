@@ -35,3 +35,5 @@ au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+ au BufWritePost *.js :JSHint
