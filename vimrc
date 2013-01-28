@@ -50,3 +50,4 @@ set shiftwidth=2
 set expandtab
 
  au BufWritePost *.js :JSHint
+ au! BufRead,BufNewFile *.json set filetype=json 
