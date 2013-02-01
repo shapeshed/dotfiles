@@ -63,4 +63,7 @@
 	url = git://github.com/sunaku/vim-ruby-minitest.git
 [submodule "vim/bundle/jshint.vim"]
 	path = vim/bundle/jshint.vim
-	url = git://github.com/walm/jshint.vim.git
+	url = https://github.com/walm/jshint.vim
+[submodule "vim/bundle/json.vim"]
+	path = vim/bundle/json.vim
+	url = git://github.com/vim-scripts/JSON.vim.git
