@@ -1,0 +1,6 @@
+project_name: flim
+project_root: ~/code/flim
+tabs:
+  - zsh: 
+  - vim: vim .
+  - grunt: grunt watch
