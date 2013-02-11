@@ -1,0 +1,6 @@
+project_name: flim
+project_root: ~/code/node-sgp-client
+tabs:
+  - zsh: 
+  - vim: vim .
+  - grunt: grunt watch
