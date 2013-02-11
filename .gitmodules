@@ -67,3 +67,6 @@
 [submodule "vim/bundle/json.vim"]
 	path = vim/bundle/json.vim
 	url = git://github.com/vim-scripts/JSON.vim.git
+[submodule "vim/bundle/vim-powerline"]
+	path = vim/bundle/vim-powerline
+	url = git://github.com/Lokaltog/vim-powerline.git

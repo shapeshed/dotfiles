@@ -1,19 +1,6 @@
-" Use pathogen to manage plugins
+" Us pathogen to manage plugins
 " https://github.com/tpope/vim-pathogen
 call pathogen#infect()
-
-set laststatus=2
-set statusline=   " clear the statusline for when vimrc is reloaded
-set statusline+=%-3.3n\                      " buffer number
-set statusline+=%f\                          " file name
-set statusline+=%h%m%r%w                     " flags
-set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
-set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
-set statusline+=%{&fileformat}]              " file format
-set statusline+=%=                           " right align
-set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
-set statusline+=%b,0x%-8B\                   " current char
-set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 
 " Syntax Highlighting on
 syntax on
@@ -51,3 +38,7 @@ set expandtab
 
  au BufWritePost *.js :JSHint
  au! BufRead,BufNewFile *.json set filetype=json 
+
+ set laststatus=2
+ let g:Powerline_symbols = 'fancy'
+ set encoding=utf-8
