@@ -2,8 +2,8 @@ project_name: chat-server
 project_root: ~/code/chat-server
 tabs:
   - zsh: 
-  - nodemon: nodemon app.js 
+  - nodemon: WORKERS=1 nodemon cluster.js 
   - vim:  vim .
   - redis-monitor: redis-cli MONITOR
   - redis: redis-cli 
-  - tests: npm test
+  - tests: grunt watch
