@@ -61,6 +61,11 @@ alias gc='git commit'
 alias pj='pretty-json'
 
 # ------------------------
-# Ubuntu
+# Platform specific aliases
 # ------------------------
-alias update='sudo apt-get update && sudo apt-get upgrade'
+if [[ `uname` == 'linux' ]]; then
+  alias update='sudo apt-get update && sudo apt-get upgrade'
+elif [[ `uname` == 'Darwin' ]]; then
+  alias update='brew update && brew upgrade'
+fi
+
