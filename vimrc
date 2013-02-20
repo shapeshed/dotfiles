@@ -42,3 +42,7 @@ set expandtab
  set laststatus=2
  let g:Powerline_symbols = 'fancy'
  set encoding=utf-8
+
+ if has("autocmd")
+   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+ endif
