@@ -59,6 +59,7 @@ alias gc='git commit'
 # Node.js
 # ------------------------
 alias pj='pretty-json'
+alias grunt='grunt --stack'
 
 # ------------------------
 # Platform specific aliases
