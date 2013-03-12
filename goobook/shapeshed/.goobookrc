@@ -1,0 +1,7 @@
+
+[DEFAULT]
+email: george@shapeshed.com
+passwordeval: gpg -d ~/.msmtp/shapeshed.com.gpg
+
+cache_filename: ~/.goobook/shapeshed/.goobook_cache
+

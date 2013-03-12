@@ -2,7 +2,7 @@ source ~/.mutt/authentication/gornbo@gmail.com
 source ~/.mutt/colors/mutt-colors-solarized-dark-16.muttrc                  
 
 set pgp_sign_as     =   "george@gmail.com"
-set query_command   =   "/usr/local/bin/lbdbq '%s'"
+set query_command   =   "/usr/local/share/python/goobook -c /Users/george/.goobook/gmail/.goobookrc query '%s'"
 set signature       =   "~/.mutt/signatures/shapeshed.com.txt"
 set header_cache    =   ~/.mutt/cache/pebblecode/headers
 set message_cachedir =  ~/.mutt/cache/pebblecode/bodies
