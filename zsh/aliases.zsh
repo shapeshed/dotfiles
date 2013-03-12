@@ -54,6 +54,7 @@ alias ga='git add .'
 alias gl='git pull'
 alias gp='git push'
 alias gc='git commit'
+alias gd='git diff'
 
 # ------------------------
 # Node.js
