@@ -1,12 +1,6 @@
-[submodule "vim/bundle/gist-vim"]
-	path = vim/bundle/gist-vim
-	url = git://github.com/mattn/gist-vim.git
 [submodule "vim/bundle/vim-javascript"]
 	path = vim/bundle/vim-javascript
 	url = git://github.com/pangloss/vim-javascript.git
-[submodule "vim/bundle/vim-blackboard"]
-	path = vim/bundle/vim-blackboard
-	url = git://github.com/nelstrom/vim-blackboard.git
 [submodule "vim/bundle/textile.vim"]
 	path = vim/bundle/textile.vim
 	url = git://github.com/timcharper/textile.vim.git
@@ -73,6 +67,3 @@
 [submodule "tmux/tmux-powerline"]
 	path = tmux/tmux-powerline
 	url = git://github.com/erikw/tmux-powerline.git
-[submodule "vim/bundle/vim-gitgutter"]
-	path = vim/bundle/vim-gitgutter
-	url = git://github.com/airblade/vim-gitgutter.git
