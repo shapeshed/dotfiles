@@ -25,5 +25,9 @@ hdr_order Date From To Cc
 bind editor <Tab> complete-query
 bind editor ^T complete
 bind editor <space> noop
+
 bind pager v view-attachments
+bind pager j next-line
+bind pager k previous-line
+bind pager q exit
 
