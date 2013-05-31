@@ -2,6 +2,8 @@ source ~/.mutt/authentication/george@pebblecode.com
 source ~/.mutt/colors/mutt-colors-solarized-dark-16.muttrc                
 
 set pgp_sign_as     =   "george@pebblecode.com"
+set pgp_mime_signature_filename = "signature.asc"
+set crypt_autosign
 set query_command   =   "/usr/local/share/python/goobook -c /Users/george/.goobook/pebble/.goobookrc query '%s'"
 set signature       =   "~/.mutt/signatures/pebblecode.com.txt"
 set header_cache    =   ~/.mutt/cache/pebblecode/headers
