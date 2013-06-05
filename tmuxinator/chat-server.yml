@@ -1,9 +1,6 @@
 project_name: chat-server
-project_root: ~/code/chat-server
+project_root: ~/Vagrant/chat/apps/chat-server
 tabs:
-  - zsh: 
-  - nodemon: WORKERS=1 nodemon cluster.js 
+  - zsh:  vagrant up && vagrant ssh
   - vim:  vim .
-  - redis-monitor: redis-cli MONITOR
-  - redis: redis-cli 
-  - tests: grunt watch
+  - git:  
