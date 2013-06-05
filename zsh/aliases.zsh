@@ -68,6 +68,6 @@ alias grunt='grunt --stack'
 if [[ `uname` == 'linux' ]]; then
   alias update='sudo apt-get update && sudo apt-get upgrade'
 elif [[ `uname` == 'Darwin' ]]; then
-  alias update='brew update && brew upgrade'
+  alias update='brew update && brew upgrade && getchromium'
 fi
 
