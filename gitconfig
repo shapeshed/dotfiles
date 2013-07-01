@@ -11,3 +11,5 @@
 	ui = true
 [pull]
 	rebase = true
+[clean]
+	requireForce = false
