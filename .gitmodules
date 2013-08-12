@@ -55,9 +55,6 @@
 [submodule "vim/bundle/vim-ruby-minitest"]
 	path = vim/bundle/vim-ruby-minitest
 	url = git://github.com/sunaku/vim-ruby-minitest.git
-[submodule "vim/bundle/jshint.vim"]
-	path = vim/bundle/jshint.vim
-	url = https://github.com/walm/jshint.vim
 [submodule "vim/bundle/json.vim"]
 	path = vim/bundle/json.vim
 	url = git://github.com/vim-scripts/JSON.vim.git
@@ -70,3 +67,6 @@
 [submodule "vim/bundle/editorconfig-vim"]
 	path = vim/bundle/editorconfig-vim
 	url = git@github.com:editorconfig/editorconfig-vim.git
+[submodule "vim/bundle/jshint.vim"]
+	path = vim/bundle/jshint.vim
+	url = git@github.com:walm/jshint.vim.git
