@@ -65,8 +65,9 @@ alias grunt='grunt --stack'
 # ------------------------
 # Platform specific aliases
 # ------------------------
-if [[ `uname` == 'linux' ]]; then
+if [[ `uname` == 'Linux' ]]; then
   alias update='sudo apt-get update && sudo apt-get upgrade'
+  alias ls='ls --color'
 elif [[ `uname` == 'Darwin' ]]; then
   alias update='brew update && brew upgrade && getchromium'
 fi
