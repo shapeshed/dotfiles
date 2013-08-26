@@ -31,7 +31,8 @@ set expandtab
  au! BufRead,BufNewFile *.json set filetype=json 
 
  set laststatus=2
- let g:Powerline_symbols = 'fancy'
+ "let g:Powerline_symbols = 'fancy'
+ let g:airline_powerline_fonts = 1
  set encoding=utf-8
 
  if has("autocmd")
