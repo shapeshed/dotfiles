@@ -1,8 +1,7 @@
-project_name: default
-project_root: ~/
-tabs:
+name: default
+root: ~/
+socket_name: default
+windows:
   - zsh: 
-  - mutt: mutt
   - irssi: irssi
-  - ttytter: ttytter
-  - apu: ssh apu.pebbleit.com
+  - camper_van: camper_van
