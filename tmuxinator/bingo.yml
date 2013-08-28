@@ -1,0 +1,8 @@
+name: bingo
+root: ~/code/BingoV3
+socket_name: bingo
+windows:
+  - vim: vim .
+  - git: gs
+  - server: node bin/dev
+  - test: grunt watch
