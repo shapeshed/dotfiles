@@ -1,8 +1,0 @@
-# lbdb config file
-
-# methods to search
-METHODS="m_muttalias m_osx_addressbook"
-# modules location
-MODULES_PATH="/usr/local/lib"
-# ldap nicks
-LDAP_NICKS="ldap"
