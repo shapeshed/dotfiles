@@ -4,9 +4,7 @@ This repo holds my dotfiles. They are specific to my needs but if you are a Ruby
 
 ## Installation
 
-You need Ruby to install the files. 
-
-    ruby install.rb
+    bash install.sh
 
 This symlinks the dotfiles folders and files into your home folder.
 
