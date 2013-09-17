@@ -13,3 +13,5 @@
 	rebase = true
 [clean]
 	requireForce = false
+[url "git@github.com:"]
+	insteadOf = git://github.com/
