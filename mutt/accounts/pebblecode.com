@@ -1,15 +1,15 @@
 source ~/.mutt/authentication/george@pebblecode.com                 
-source ~/.mutt/colors/mutt-colors-solarized-dark-16.muttrc                
+source ~/.mutt/colors/mutt-colors-solarized-dark-256.muttrc
 
 set pgp_sign_as     =   "george@pebblecode.com"
-set pgp_mime_signature_filename = "signature.asc"
+# set pgp_mime_signature_filename = "signature.asc"
 set crypt_autosign
 set query_command   =   "/usr/local/share/python/goobook -c /Users/george/.goobook/pebble/.goobookrc query '%s'"
 set signature       =   "~/.mutt/signatures/pebblecode.com.txt"
 set header_cache    =   ~/.mutt/cache/pebblecode/headers
 set message_cachedir =  ~/.mutt/cache/pebblecode/bodies
 set certificate_file =  ~/.mutt/certificates
-set sendmail        =   "/usr/local/bin/msmtp -a pebblecode"
+set sendmail        =   "/usr/bin/msmtp -a pebblecode"
 set envelope_from   =   "yes"
 set sort            =   reverse-threads
 set sort_aux        =   last-date-received
