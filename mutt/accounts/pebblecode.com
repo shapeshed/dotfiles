@@ -21,6 +21,7 @@ set record          =   /dev/null
 set move            =   no
 set include
 set auto_tag        =   yes
+set beep_new
 
 hdr_order Date From To Cc
 bind editor <Tab> complete-query
