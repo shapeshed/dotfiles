@@ -1,5 +1,5 @@
 name: bingo
-root: ~/code/BingoV3
+root: ~/code/bingo-client
 socket_name: bingo
 windows:
   - vim: vim .
