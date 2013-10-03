@@ -18,6 +18,9 @@ alias gp='git push'
 alias gc='git commit'
 alias gd='git diff'
 
+# Radio 
+alias playr4="mplayer -playlist 'http://bbc.co.uk/radio/listen/live/r4.asx'"
+
 # Node.js
 alias pj='pretty-json'
 alias grunt='grunt --stack'
