@@ -50,13 +50,13 @@ mono  error         bold
 #color index         color166        color8        ~=                         # duplicate messages
 #color index         color240        color8        "~A!~N!~T!~p!~Q!~F!~D!~P"  # the rest
 #color index         J_base          color8        "~A~N!~T!~p!~Q!~F!~D"      # the rest, new
-#color index         color160        color8        "~A"                        # all messages
-color index         color160        color160        "~A"                        # all messages
+#color index         color160        color8        "~A"                       # all messages
+color index         color160        color160      "~A"                      # all messages
 color index         color166        color8        "~E"                        # expired messages
-color index         color3         color8        "~N"                        # new messages
+color index         color3          color8        "~N"                        # new messages
 color index         color33         color8        "~O"                        # old messages
-color index         color8         color8        "~Q"                        # messages that have been replied to
-color index         color240        color8        "~R"                        # read messages
+color index         color8          color8        "~Q"                        # messages that have been replied to
+color index         color10        color8        "~R"                        # read messages
 color index         color33         color8        "~U"                        # unread messages
 color index         color33         color8        "~U~$"                      # unread, unreferenced messages
 color index         color241        color8        "~v"                        # messages part of a collapsed thread
@@ -64,14 +64,14 @@ color index         color241        color8        "~P"                        # 
 color index         color37         color8        "~p!~F"                     # messages to me
 color index         color37         color8        "~N~p!~F"                   # new messages to me
 color index         color37         color8        "~U~p!~F"                   # unread messages to me
-color index         color240        color8        "~R~p!~F"                   # messages to me
+color index         color10        color8        "~R~p!~F"                   # messages to me
 color index         color160        color8        "~F"                        # flagged messages
 color index         color160        color8        "~F~p"                      # flagged messages to me
 color index         color160        color8        "~N~F"                      # new flagged messages
 color index         color160        color8        "~N~F~p"                    # new flagged messages to me
 color index         color160        color8        "~U~F~p"                    # new flagged messages to me
-color index         color235        color160        "~D"                        # deleted messages
-color index         color245        color8        "~v~(!~N)"                  # collapsed thread with no unread
+color index         color235        color1        "~D"                        # deleted messages
+color index         color0          color8        "~v~(!~N)"                  # collapsed thread with no unread
 color index         color136        color8        "~v~(~N)"                   # collapsed thread with some unread
 color index         color64         color8        "~N~v~(~N)"                 # collapsed thread with unread parent
 # statusbg used to indicated flagged when foreground color shows other status
