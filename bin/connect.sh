@@ -4,18 +4,24 @@
 : "${nick:=$USER}"
 
 # server info functions
+bitlbee() {
+  server='127.0.0.1'
+  channels="#twitter_shapeshed"
+  port=6668
+}
+
+campfire() {
+  server='localhost'
+  channels="#bede_bingo_team"
+}
+
 freenode() {
 	server='irc.freenode.net'
 	channels="#archlinux #node.js"
 }
 
-campfire() {
-	server='localhost'
-	channels="#bede_bingo_team"
-}
-
 # these match the functions above
-networks="freenode"
+networks="freenode campfire"
 
 # some privacy please, thanks
 chmod 700 "$ircdir"
