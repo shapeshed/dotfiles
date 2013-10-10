@@ -1,2 +1,0 @@
-IIPASS=pebbleit:3057aaf5474d8ecfe10b3282a408ca7487b692d4 ii -s localhost -k IIPASS -f 'George Ornbo' -n 'shapeshed'
-echo '/j #bede_bingo_team' > /home/george/irc/localhost/in
