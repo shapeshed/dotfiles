@@ -4,7 +4,8 @@ mutt/cache
 mutt/certificates
 *.gpg
 auth
-elinks/globhist
-elinks/gotohist
-elinks/cookies
 .goobook_cache
+w3m/history
+w3m/w3mcache*
+w3m/w3msrc*
+w3m/w3mtmp*
