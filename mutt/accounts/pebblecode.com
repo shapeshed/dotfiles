@@ -22,6 +22,7 @@ set move            =   no
 set include
 set auto_tag        =   yes
 set beep_new
+set editor          =   "vim -c 'set spell spelllang=en_gb'"
 
 hdr_order Date From To Cc
 bind editor <Tab> complete-query
