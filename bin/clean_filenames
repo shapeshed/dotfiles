@@ -1,5 +1,7 @@
-#!/bin/bash
- 
+#!/usr/bin/env sh
+# George Ornbo (shapeshed) http://shapeshed.com
+# License - http://unlicense.org
+#
 # Replaces spaces in filenames with underscores and converts filenames to lowercase
 # Run within a directory to convert all files
  
