@@ -1,20 +1,8 @@
-
 # Images
-image/jpg; /Users/george/.mutt/scripts/view_attachment.sh %s
-image/jpeg; /Users/george/.mutt/scripts/view_attachment.sh %s
-image/gif; /Users/george/.mutt/scripts/view_attachment.sh %s
-image/png; /Users/george/.mutt/scripts/view_attachment.sh %s
-
-# MS Excel
-application/x-msexcel; /Users/george/.mutt/scripts/view_attachment.sh %s
-application/ms-exc; /Users/george/.mutt/scripts/view_attachment.sh %s
-application/excel; /Users/george/.mutt/scripts/view_attachment.sh %s
-application/msexcel; /Users/george/.mutt/scripts/view_attachment.sh %s
-application/vnd.ms-exc; /Users/george/.mutt/scripts/view_attachment.sh %s
-application/vnd.ms-excel; /Users/george/.mutt/scripts/view_attachment.sh %s
+image/*; feh %s
 
 # PDF
-application/pdf; /Users/george/.mutt/scripts/view_attachment.sh %s pdf
+application/pdf; mupdf %s
 
-# Unidentified.
-application/octet-stream; /Users/george/.mutt/scripts/view_attachment.sh %s "-"
+# Videos
+video/quicktime; mplayer %s
