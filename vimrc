@@ -27,6 +27,9 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+
+nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
+
  au BufWritePost *.js :JSHint
  au! BufRead,BufNewFile *.json set filetype=json 
 
