@@ -15,3 +15,5 @@
 	requireForce = false
 [url "git@github.com:"]
 	insteadOf = git://github.com/
+[push]
+	default = simple
