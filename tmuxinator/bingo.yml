@@ -5,5 +5,5 @@ windows:
   - vim: vim .
   - git: gs
   - server: node bin/dev
-  - test: while true; do inotifywait --exclude .swp --exclude app/compiled/* -e modify app/**/* -e modify assets/**/*; grunt lintblame karma less:development dependencies_builder template_builder; done
+  - test: while true; do inotifywait --exclude .swp --exclude app/compiled/* -e modify app/**/* -e modify assets/**/*; grunt lintblame karma:dev less:development dependencies_builder template_builder; done
 
