@@ -20,8 +20,15 @@ freenode() {
 	channels="#archlinux #node.js"
 }
 
+bedegaming() {
+  server='irc.bedegaming.com'
+  channels="#team-bingo"
+  port=6697
+  ssl=true
+}
+
 # these match the functions above
-networks="freenode campfire"
+networks="freenode bedegaming"
 
 # some privacy please, thanks
 chmod 700 "$ircdir"
@@ -35,9 +42,14 @@ for network in $networks; do
 		# cleanup
 		rm -f "$ircdir/$server/in"
 
-		# connect to netwrok -- password is set through the env var synonym to the network name
-		# iim -i "$ircdir" -n "$nick" -k "$network" -s "$server" -p "${port:-6667}" &
-		ii -i "$ircdir" -n "$nick" -k "$network" -s "$server" -p "${port:-6667}" &
+    # connect to netwrok -- password is set through the env var synonym to the network name
+    # iim -i "$ircdir" -n "$nick" -k "$network" -s "$server" -p "${port:-6667}" &
+    if [[ $ssl ]]
+    then 
+      ii -e ssl -i "$ircdir" -n "$nick" -k "$network" -s "$server" -p "${port:-6667}" &
+    else
+      ii -i "$ircdir" -n "$nick" -k "$network" -s "$server" -p "${port:-6667}" &
+    fi 
 		pid="$!"
 
 		# wait for the connection
