@@ -16,15 +16,15 @@ campfire() {
 }
 
 freenode() {
-	server='irc.freenode.net'
-	channels="#archlinux #node.js"
+  server='173.255.248.188'
+  port=6557
+  channels="#archlinux #node.js"
 }
 
 bedegaming() {
-  server='irc.bedegaming.com'
-  channels="#team-bingo"
-  port=6697
-  ssl=true
+  server='173.255.248.188'
+  channels="#team-bingo #_SOS"
+  port=6557
 }
 
 # these match the functions above
