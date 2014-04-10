@@ -1,19 +1,23 @@
 [user]
-    name = George Ornbo
-    email = george@shapeshed.com
-    signingkey = 80040E5D
+  name = George Ornbo
+  email = george@shapeshed.com
+  signingkey = 80040E5D
 
 [github]
-    user = shapeshed
-    token = `gpg -d ~/.auth/github_token.gpg`
- 
+  user = shapeshed
+  token = `gpg -d ~/.auth/github_token.gpg`
+
 [color]
-	ui = true
+  ui = true
+
 [pull]
-	rebase = true
+  rebase = true
+
 [clean]
-	requireForce = false
+  requireForce = false
+
 [url "git@github.com:"]
-	insteadOf = git://github.com/
+  insteadOf = git://github.com/
+
 [push]
-	default = simple
+  default = simple
