@@ -3,16 +3,10 @@
 : "${ircdir:=$HOME/irc}"
 : "${nick:=$USER}"
 
-# server info functions
-bitlbee() {
-  server='127.0.0.1'
-  channels="#twitter_shapeshed"
-  port=6668
-}
-
-campfire() {
-  server='localhost'
-  channels="#bede_bingo_team"
+bouncer() {
+  server='173.255.248.188'
+  channels="#team-bingo #_SOS"
+  port=6557
 }
 
 freenode() {
@@ -21,14 +15,8 @@ freenode() {
   channels="#archlinux #node.js"
 }
 
-bedegaming() {
-  server='173.255.248.188'
-  channels="#team-bingo #_SOS"
-  port=6557
-}
-
 # these match the functions above
-networks="freenode bedegaming"
+networks="bouncer freenode"
 
 # some privacy please, thanks
 chmod 700 "$ircdir"
