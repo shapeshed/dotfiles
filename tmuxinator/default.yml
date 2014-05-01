@@ -1,7 +1,0 @@
-name: default
-root: ~/
-socket_name: default
-windows:
-  - zsh: 
-  - irssi: irssi
-  - camper_van: camper_van

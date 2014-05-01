@@ -1,6 +1,0 @@
-project_name: chat-server
-project_root: ~/Vagrant/chat/apps/chat-server
-tabs:
-  - zsh:  vagrant up && vagrant ssh
-  - vim:  vim .
-  - git:  
