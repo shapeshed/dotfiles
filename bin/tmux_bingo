@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+cd $HOME/code/bingo-client
+
+tmux new-session -d -s bingo -n vim 
+tmux new-window -n git -t bingo:2
+tmux new-window -n node -t bingo:3
+tmux new-window -n test -t bingo:4
+
+tmux send-keys -t bingo:1 'vim .' C-m
+tmux send-keys -t bingo:2 'gs' C-m
+tmux send-keys -t bingo:3 'node bin/dev' C-m
+tmux send-keys -t bingo:4 'while true; do inotifywait --exclude .swp --exclude app/compiled/* -e modify app/**/* -e modify assets/**/* -e modify tests/**/*; grunt lintblame karma:dev less:development dependencies_builder template_builder; done' C-m
+
+tmux select-window -t bingo:1
+tmux attach-session -t bingo
