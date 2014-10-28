@@ -1,2 +1,2 @@
 set imap_user = "gornbo@gmail.com"
-source "gpg -dq ~/.mutt/authentication/gmail.com.gpg |"
+set imap_pass = `pass show email/tokens/gmail.com`

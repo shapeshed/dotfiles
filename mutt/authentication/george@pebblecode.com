@@ -1,2 +1,2 @@
 set imap_user = "george@pebblecode.com"
-source "gpg -dq ~/.mutt/authentication/pebblecode.com.gpg |"
+set imap_pass = `pass show email/tokens/pebblecode.com`
