@@ -40,9 +40,6 @@
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "vim/bundle/tabular"]
-	path = vim/bundle/tabular
-	url = git://github.com/godlygeek/tabular.git
 [submodule "vim/bundle/vim-coffee-script"]
 	path = vim/bundle/vim-coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
