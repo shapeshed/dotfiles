@@ -58,9 +58,6 @@
 [submodule "tmux/tmux-powerline"]
 	path = tmux/tmux-powerline
 	url = git://github.com/erikw/tmux-powerline.git
-[submodule "vim/bundle/editorconfig-vim"]
-	path = vim/bundle/editorconfig-vim
-	url = git@github.com:editorconfig/editorconfig-vim.git
 [submodule "vim/bundle/jshint.vim"]
 	path = vim/bundle/jshint.vim
 	url = git@github.com:walm/jshint.vim.git
