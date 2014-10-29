@@ -7,9 +7,6 @@
 [submodule "vim/bundle/vim-shoulda"]
 	path = vim/bundle/vim-shoulda
 	url = git://github.com/tsaleh/vim-shoulda.git
-[submodule "vim/bundle/ack.vim"]
-	path = vim/bundle/ack.vim
-	url = git://github.com/mileszs/ack.vim.git
 [submodule "vim/bundle/vim-rails"]
 	path = vim/bundle/vim-rails
 	url = git://github.com/tpope/vim-rails.git
