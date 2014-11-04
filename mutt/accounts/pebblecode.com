@@ -4,7 +4,7 @@ source ~/.mutt/colors/mutt-colors-solarized-dark-256.muttrc
 # set pgp_sign_as     =   "george@pebblecode.com"
 # set crypt_autosign
 set query_command   =   "/usr/bin/goobook -c /home/george/.goobook/pebble/.goobookrc query '%s'"
-set my_msmtp_pass   =   `gpg --use-agent --quiet --batch -d ~/.msmtp/pebblecode.com.gpg`
+set my_msmtp_pass   =   `passwordeval pass show email/tokens/shapeshed.com`
 set signature       =   "~/.mutt/signatures/pebblecode.com.txt"
 set header_cache    =   ~/.mutt/cache/pebblecode/headers
 set message_cachedir =  ~/.mutt/cache/pebblecode/bodies
