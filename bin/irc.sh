@@ -1,6 +1,4 @@
-# ensure camper_van is running locally (systemd)
-# connect to networks
-# start notification daemon
-connect.sh > /dev/null
-notifiii.sh  > /dev/null &
+#!/bin/bash
+bouncer=`pass show work/slack-bouncer` ~/bin/connect.sh > /dev/null
+~/bin/notifiii.sh  > /dev/null &
 tmux new-session -s IRC 

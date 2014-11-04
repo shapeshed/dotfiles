@@ -5,8 +5,9 @@
 
 bouncer() {
   server='173.255.248.188'
-  channels="#team-bingo #_SOS"
+  channels="#general"
   port=6557
+  nick="shapeshed"
 }
 
 freenode() {
@@ -16,7 +17,7 @@ freenode() {
 }
 
 # these match the functions above
-networks="bouncer freenode"
+networks="bouncer"
 
 # some privacy please, thanks
 chmod 700 "$ircdir"
