@@ -31,6 +31,3 @@
 [submodule "vim/bundle/golang"]
 	path = vim/bundle/golang
 	url = git@github.com:jnwhiteh/vim-golang.git
-[submodule "vim/bundle/rust.vim"]
-	path = vim/bundle/rust.vim
-	url = git@github.com:wting/rust.vim.git
