@@ -1,3 +1,4 @@
+if [[ $- != *i* ]] return
 if command -v tmux > /dev/null; then
-  [[ -z $TMUX ]] && exec tmux
+  [[ -z $TMUX ]] && (tmux attach || tmux new-session)
 fi
