@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+for update in `cower -uq`; do
+  cowerd $update
+done
