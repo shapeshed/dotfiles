@@ -17,12 +17,12 @@ alias gl='git pull'
 alias gp='git push'
 alias gc='git commit'
 alias gd='git diff'
+alias git commit='git commit -S'
 
 # Radio 
 alias playr4="mplayer -playlist 'http://bbc.co.uk/radio/listen/live/r4.asx'"
 
 # Node.js
-alias pj='pretty-json'
 alias grunt='grunt --stack'
 
 # Platform specific aliases
@@ -33,3 +33,4 @@ elif [[ `uname` == 'Darwin' ]]; then
   alias update='brew update && brew upgrade && getchromium'
 fi
 
+alias pj='python -m json.tool | less'
