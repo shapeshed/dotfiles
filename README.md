@@ -7,10 +7,3 @@ This repo holds my dotfiles. They are specific to my needs but if you are a Ruby
     bash install.sh
 
 This symlinks the dotfiles folders and files into your home folder.
-
-
-
-
-
-
-
