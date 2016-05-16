@@ -41,3 +41,5 @@ nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
  if has("autocmd")
    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
  endif
+
+ autocmd BufRead,BufNewFile *.md setlocal spell
