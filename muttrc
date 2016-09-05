@@ -1,6 +1,6 @@
-#source ~/.mutt/accounts/shapeshed.com
-#source ~/.mutt/accounts/gmail.com
-source ~/.mutt/accounts/pebblecode.com
+source ~/.mutt/accounts/shapeshed.com
+# source ~/.mutt/accounts/gmail.com
+#  source ~/.mutt/accounts/pebblecode.com
 source ~/.mutt/gpg/gpgrc
 source /etc/Muttrc.gpg.dist
 
