@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+BUCKET=$1
+CWD=$(pwd)
+
+if [[ -n $1 ]]; then
+  aws s3 sync s3://$BUCKET/cf-logs .
+  cat *.gz > combined.log.gz
+  find $CWD ! -name 'combined.log.gz' -name '*.gz' -type f -exec rm -f {} +
+  gzip -d combined.log.gz
+  sed -i '/^#/ d' combined.log
+  exit 0
+else
+  echo "Error: no bucket name provided"
+  exit 1
+fi
+
