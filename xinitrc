@@ -2,11 +2,12 @@
 
 xset +fp /usr/share/fonts/local
 xset fp rehash
+xbindkeys
 xautolock -locker slock -time 2 -killer "systemctl suspend" -killtime 10 &
 
-PACMANICON=$(echo -e '\uE00F')
-AURICON=$(echo -e '\uE00E')
-BATTICON=$(echo -e '\uE033')
+PACMANICON=$(echo -e '\u2691')
+AURICON=$(echo -e '\u2690')
+BATTICON=$(echo -e '\u26A1')
 BATTSTATUS=''
 
 while true; do
