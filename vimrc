@@ -12,6 +12,7 @@ filetype plugin indent on
 " http://ethanschoonover.com/solarized
 set background=dark
 color solarized
+let g:airline_theme='solarized'
 
 " Show line numbers
 set number
