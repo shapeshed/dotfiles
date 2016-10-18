@@ -7,6 +7,7 @@ syntax on
 
 " Let plugins determine indentation
 filetype plugin indent on
+let g:netrw_banner = 0
 
 " Solarized color scheme
 " http://ethanschoonover.com/solarized
@@ -28,19 +29,12 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+set laststatus=2
 
-nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
+set encoding=utf-8
 
- au BufWritePost *.js :JSHint
- au! BufRead,BufNewFile *.json set filetype=json 
+if has("autocmd")
+ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
 
- set laststatus=2
- "let g:Powerline_symbols = 'fancy'
- let g:airline_powerline_fonts = 1
- set encoding=utf-8
-
- if has("autocmd")
-   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
- endif
-
- autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile *.md setlocal spell
