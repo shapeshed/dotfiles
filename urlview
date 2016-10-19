@@ -1,1 +1,1 @@
-COMMAND surf %s
+COMMAND w3m %s
