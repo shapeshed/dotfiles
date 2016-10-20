@@ -1,40 +1,53 @@
-" Us pathogen to manage plugins
-" https://github.com/tpope/vim-pathogen
-call pathogen#infect()
+" welcome to the future
+set nocompatible
 
-" Syntax Highlighting on
+" enable syntax highlighting
 syntax on
 
-" Let plugins determine indentation
-filetype plugin indent on
+" allow plugins to determine indentation
+filetype plugin indent on 
+
+" set leader to ,
+let mapleader = ","
+
+" disable_banner in filebrowser
 let g:netrw_banner = 0
 
-" Solarized color scheme
-" http://ethanschoonover.com/solarized
-set background=dark
+" use solarized dark color scheme
 color solarized
-let g:airline_theme='solarized'
+set background=dark
 
-" Show line numbers
-set number
+" faster editing and sourcing of `.vimrc`
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+:nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Alias for saving when not editing as sudo
 cmap w!! %!sudo tee > /dev/null %
 
-" JavaScript editing inline with node.js conventions
-au FileType javascript setl sw=2 sts=2 et
-au FileType html setl sw=2 sts=2 et
-
-set tabstop=2
-set shiftwidth=2
-set expandtab
-
-set laststatus=2
-
-set encoding=utf-8
+" Lightweight ruler
+set ruler
+set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 
 if has("autocmd")
- au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  " Open files in last saved position
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  au BufRead,BufNewFile *.go set noet ts=4 sw=4
+  au BufRead,BufNewFile *.md setlocal spell
 endif
 
-autocmd BufRead,BufNewFile *.md setlocal spell
+set encoding=utf-8
+set number                      
+set showmatch                   
+set incsearch                   
+set hlsearch                    
+set ignorecase                  
+set smartcase                   
+
+set autoindent                  
+set expandtab                   
+set tabstop=2                   
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set nojoinspaces
+
