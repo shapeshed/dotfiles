@@ -3,5 +3,6 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
-map <buffer> <Leader>< :s/^\(.*\)$/<!-- \1 -->/<CR>:nohlsearch<CR>
-abbreviate <buffer> ![] ![Alt text][1]
+nnoremap <buffer> <Leader>< :s/^\(.*\)$/<!-- \1 -->/<CR>:nohlsearch<CR>
+iabbrev <buffer> ![] ![Alt text][1]
+setlocal spell
