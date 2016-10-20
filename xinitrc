@@ -1,4 +1,5 @@
-#!/usr/bin/env sh
+#!/bin/sh
+# vim: filetype=sh
 
 xset +fp /usr/share/fonts/local
 xset fp rehash
@@ -30,4 +31,5 @@ while true; do
 
 done &
 eval $(gpg-agent --daemon --enable-ssh-support --write-env-file ${HOME}/.gpg-agent-info)
+setxkbmap -layout uk
 exec dwm
