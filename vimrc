@@ -19,20 +19,22 @@ set background=dark
 
 " faster editing and sourcing of `.vimrc`
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-:nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Alias for saving when not editing as sudo
 cmap w!! %!sudo tee > /dev/null %
 
-" Lightweight ruler
+" Lightweight ruler using ruler rather than statusbar
+set laststatus=0
 set ruler
-set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+set rulerformat=%80(%=B:%n\ %f%m\ %y\ %{&fileencoding?&fileencoding:&encoding}\[%{&fileformat}\]\ %p%%\ \ %l:%c%)
 
 if has("autocmd")
   " Open files in last saved position
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-  au BufRead,BufNewFile *.go set noet ts=4 sw=4
-  au BufRead,BufNewFile *.md setlocal spell
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  autocmd BufRead,BufNewFile *.go set noet ts=4 sw=4
+  autocmd BufRead,BufNewFile *.md setlocal spell
+  autocmd FileType help wincmd L
 endif
 
 set encoding=utf-8
