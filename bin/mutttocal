@@ -1,0 +1,5 @@
+#!/bin/bash
+
+/usr/bin/bash -c "echo 'Importing invite...' ; \
+    gcalcli --calendar='Home' import -v \"$1\" ; \
+    read -p 'press enter to exit: '"

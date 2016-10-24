@@ -5,4 +5,7 @@ image/*; feh %s
 application/pdf; mupdf %s
 
 # Videos
-video/quicktime; mplayer %s
+video/quicktime; mpv %s
+
+# ical
+application/ics; mutttocal %s
