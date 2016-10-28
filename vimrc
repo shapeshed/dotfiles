@@ -39,12 +39,11 @@ set softtabstop=2                     " Number of tabs that a <Tab> counts for
 set smartcase                         " Override 'ignorecase' if search has uppercase
 set statusline=                       " Custom status line
 set statusline+=%#PmenuSel#
-set statusline+=\%{StatuslineGit()}
+set statusline+=%{StatuslineGit()}
 set statusline+=%#LineNr#
 set statusline+=\ %f
 set statusline+=%m\ 
 set statusline+=%=
-set statusline+=\ %#CursorLineNr#
 set statusline+=%#CursorColumn#
 set statusline+=\ %y
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
