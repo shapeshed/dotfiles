@@ -6,18 +6,14 @@ color solarized                       " Use solarized dark color scheme
 
 let mapleader = ","                   " Set leader to ,
 let g:netrw_banner = 0                " disable_banner in filebrowser
-let g:statusline_left_separator = ''
-let g:statusline_right_separator = ''
-let g:statusline_linenr = ''
-let g:statusline_lines = '≣'
-let g:statusline_branch = ""
 
 function! GitBranch()
   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
 endfunction
 
 function! StatuslineGit()
-  return g:statusline_branch . ' ' . GitBranch()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 endfunction
 
 set autoindent                        " Copy indent from current line on <CR>
@@ -43,9 +39,8 @@ set softtabstop=2                     " Number of tabs that a <Tab> counts for
 set smartcase                         " Override 'ignorecase' if search has uppercase
 set statusline=                       " Custom status line
 set statusline+=%#PmenuSel#
-set statusline+=\ %{StatuslineGit()}
-set statusline+=\ %#LineNr#
-set statusline+=%{g:statusline_left_separator}
+set statusline+=\%{StatuslineGit()}
+set statusline+=%#LineNr#
 set statusline+=\ %f
 set statusline+=%m\ 
 set statusline+=%=
@@ -54,9 +49,7 @@ set statusline+=%#CursorColumn#
 set statusline+=\ %y
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
-set statusline+=\ %{g:statusline_lines}
 set statusline+=\ %p%%
-set statusline+=\ %{g:statusline_linenr}
 set statusline+=\ %l:%c
 set statusline+=\ 
 set tabstop=2                         " The number of spaces that a <Tab> counts for
