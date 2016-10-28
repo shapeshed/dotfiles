@@ -19,7 +19,6 @@ set hlsearch                " Highlight search matches
 set ignorecase              " Ignore case when searching
 set incsearch               " Show matches when searching
 set laststatus=2            " Show statusbar all the time
-" Show characters for tabs and trailing spaces
 set listchars=tab:>-        " Set tab character
 set listchars+=trail:~      " Set trailing character
 set list                    " Show list characters
