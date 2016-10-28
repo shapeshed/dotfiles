@@ -10,7 +10,6 @@ let g:statusline_left_separator = ''
 let g:statusline_right_separator = ''
 let g:statusline_linenr = ''
 let g:statusline_lines = '≣'
-let g:statusline_lines = '≣'
 let g:statusline_branch = ""
 
 function! GitBranch()
