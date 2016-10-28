@@ -13,7 +13,6 @@ set belloff=all             " Silence terminal bell
 set cursorline              " Highlight cursor line
 set encoding=utf-8          " Set character encoding
 set expandtab               " Expand tabs to spaces
-set filetype                " Trigger FileType autocommand
 set history=1000            " Keep a bigger history of commands
 set hlsearch                " Highlight search matches
 set ignorecase              " Ignore case when searching
