@@ -31,6 +31,7 @@ set listchars=tab:>-                  " Set tab character
 set listchars+=trail:~                " Set trailing character
 set list                              " Show list characters
 set number                            " Print line numbers in front of each line
+set path+=**                          " Search recursively for file related tasks
 set ruler                             " Show line number and column number
 set scrolloff=1                       " Keep one line below the cursor
 set showmatch                         " Show matching bracket
@@ -38,18 +39,18 @@ set shiftwidth=2                      " Number of spaces to use for (auto) inden
 set softtabstop=2                     " Number of tabs that a <Tab> counts for
 set smartcase                         " Override 'ignorecase' if search has uppercase
 set statusline=                       " Custom status line
-set statusline+=%#PmenuSel#
+set statusline+=%#PmenuSel#           " Show git branch if it exists
 set statusline+=%{StatuslineGit()}
 set statusline+=%#LineNr#
-set statusline+=\ %f
-set statusline+=%m\ 
-set statusline+=%=
+set statusline+=\ %f                  " Show file name
+set statusline+=%m\                   " Show whether file has been modified
+set statusline+=%=                    " Right align the following
 set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
-set statusline+=\ %p%%
-set statusline+=\ %l:%c
+set statusline+=\ %y                  " Filetype
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding} " File encoding
+set statusline+=\[%{&fileformat}\]    " File format
+set statusline+=\ %p%%                " Percentage through file
+set statusline+=\ %l:%c               " Line number:Column number
 set statusline+=\ 
 set tabstop=2                         " The number of spaces that a <Tab> counts for
 set ttimeout                          " Timeout key sequences
@@ -58,6 +59,7 @@ set wildmenu                          " Enable command-line completion
 set wrap                              " Wrap long lines
 
 if has("autocmd")
+  " Open file at last saved position
   augroup resCur
     autocmd!
     autocmd BufReadPost * call setpos(".", getpos("'\""))
