@@ -33,8 +33,10 @@ alias grunt='grunt --stack'
 if [[ `uname` == 'Linux' ]]; then
   alias ls='ls --color'
   alias less='less -R'
+  alias cb='xclip -selection clipboard' 
 elif [[ `uname` == 'Darwin' ]]; then
   alias update='brew update && brew upgrade && getchromium'
+  alias cb='pbcopy' 
 fi
 
-alias pj='python -m json.tool | less'
+
