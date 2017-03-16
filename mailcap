@@ -9,3 +9,6 @@ video/quicktime; mpv %s
 
 # ical
 application/ics; mutttocal %s
+
+# text/html
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
