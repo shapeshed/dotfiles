@@ -24,14 +24,15 @@ set encoding=utf-8                    " Set character encoding
 set expandtab                         " Expand tabs to spaces
 set history=1000                      " Keep a bigger history of commands
 set hlsearch                          " Highlight search matches
+set grepprg=git\ grep\ -n\ $*         " Use git grep for searching
 set ignorecase                        " Ignore case when searching
 set incsearch                         " Show matches when searching
 set laststatus=2                      " Show statusbar all the time
-set listchars=tab:>-                  " Set tab character
-set listchars+=trail:~                " Set trailing character
-set list                              " Show list characters
+"set listchars=tab:>-                  " Set tab character
+"set listchars+=trail:~                " Set trailing character
+"set list                              " Show list characters
 set number                            " Print line numbers in front of each line
-set path+=**                          " Search recursively for file related tasks
+set path=$PWD/**                      " Search recursively for file related tasks
 set ruler                             " Show line number and column number
 set scrolloff=1                       " Keep one line below the cursor
 set showmatch                         " Show matching bracket
@@ -55,6 +56,9 @@ set statusline+=\
 set tabstop=2                         " The number of spaces that a <Tab> counts for
 set ttimeout                          " Timeout key sequences
 set ttimeoutlen=50                    " Timout after 50 milliseconds
+set wildignore+=*node_modules/**      " Ignore node_modules
+set wildignore+=.git
+set wildignore+=*~,*.swp,*.swo,*.tmp
 set wildmenu                          " Enable command-line completion
 set wrap                              " Wrap long lines
 
@@ -75,3 +79,6 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
 " Alias for saving when not editing as sudo
 cmap w!! %!sudo tee > /dev/null %
+
+" Plugin settings
+let g:go_fmt_command = "goimports"
