@@ -1,0 +1,3 @@
+[submodule "vim/pack/shapeshed/start/vim-go"]
+	path = vim/pack/shapeshed/start/vim-go
+	url = https://github.com/fatih/vim-go.git
