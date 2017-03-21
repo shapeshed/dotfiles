@@ -3,7 +3,6 @@
 vim/.netrwhist
 mutt/cache
 mutt/certificates
-*.gpg
 auth
 .goobook_cache
 w3m/history

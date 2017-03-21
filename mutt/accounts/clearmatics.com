@@ -2,8 +2,6 @@
 source ~/.mutt/authentication/go@clearmatics.com                 
 source ~/.mutt/colors/mutt-colors-solarized-dark-256.muttrc
 
-# set pgp_sign_as     =   "go@clearmatics.com"
-# set crypt_autosign
 set pgp_sign_as     =   "C8520BF2"
 set query_command   =   "/usr/bin/goobook -c /home/george/.goobook/clearmatics/.goobookrc query '%s'"
 set signature       =   "~/.mutt/signatures/clearmatics.com.txt"
@@ -25,6 +23,9 @@ set include
 set auto_tag        =   yes
 set beep_new
 set editor          =   "vim -c 'set spell spelllang=en_gb'"
+set sort_alias      =   alias
+set reverse_alias   =   yes
+source "gpg --decrypt --quiet ~/.mutt/aliases/clearmatics.gpg |"
 
 hdr_order Date From To Cc
 bind editor <Tab> complete-query
