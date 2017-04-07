@@ -28,9 +28,12 @@ set grepprg=git\ grep\ -n\ $*         " Use git grep for searching
 set ignorecase                        " Ignore case when searching
 set incsearch                         " Show matches when searching
 set laststatus=2                      " Show statusbar all the time
-"set listchars=tab:>-                  " Set tab character
-"set listchars+=trail:~                " Set trailing character
-"set list                              " Show list characters
+set swapfile                          " Save a swapfile
+set backupdir=/tmp                    " Location for backup files
+set dir=/tmp                          " Location for swapfiles
+"set listchars=tab:>-                 " Set tab character
+"set listchars+=trail:~               " Set trailing character
+"set list                             " Show list characters
 set number                            " Print line numbers in front of each line
 set path=$PWD/**                      " Search recursively for file related tasks
 set ruler                             " Show line number and column number
