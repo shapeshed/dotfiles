@@ -10,3 +10,14 @@ w3m/w3mcache*
 w3m/w3msrc*
 w3m/w3mtmp*
 config/chromium
+config/QtProject
+config/VirtualBox
+config/configstore
+config/heroku
+config/htop
+config/menus
+config/spotify
+config/gtk-2.0
+config/systemd
+vim/spell
+config/QtProject.conf
