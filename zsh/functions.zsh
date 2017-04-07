@@ -30,3 +30,9 @@ fg() {
 function gr {
     grep -R "$*" .
 }
+
+# Saves repeating ps aux | grep foo
+function psg {
+  ps wwwaux | egrep "($1|%CPU)" | grep -v grep
+}
+

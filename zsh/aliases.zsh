@@ -1,11 +1,6 @@
 # Vim
 alias v="vim"
 
-# Saves repeating ps aux | grep foo
-function psg {
-  ps wwwaux | egrep "($1|%CPU)" | grep -v grep
-}
-
 # Always edit crontab with Vim
 alias crontab="VIM_CRONTAB=true crontab"
 
