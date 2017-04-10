@@ -36,3 +36,11 @@ function psg {
   ps wwwaux | egrep "($1|%CPU)" | grep -v grep
 }
 
+compdef _pass workpass
+zstyle ':completion::complete:workpass::' prefix "$HOME/.work-password-store"
+workpass() {
+  PASSWORD_STORE_DIR=$HOME/.work-password-store/ pass $@
+}
+
+
+
