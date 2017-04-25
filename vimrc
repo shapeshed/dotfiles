@@ -67,6 +67,9 @@ set wrap                              " Wrap long lines
 
 if has("autocmd")
   " Open file at last saved position
+  augroup skel
+    autocmd BufNewFile  *.sh	0r ~/.vim/templates/skeleton.sh
+  augroup END
   augroup resCur
     autocmd!
     autocmd BufReadPost * call setpos(".", getpos("'\""))
@@ -82,6 +85,8 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
 " Alias for saving when not editing as sudo
 cmap w!! %!sudo tee > /dev/null %
+
+
 
 " Plugin settings
 let g:go_fmt_command = "goimports"
