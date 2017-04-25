@@ -3,7 +3,6 @@ source ~/.mutt/authentication/go@clearmatics.com
 source ~/.mutt/colors/mutt-colors-solarized-dark-256.muttrc
 
 set pgp_sign_as     =   "C8520BF2"
-set query_command   =   "/usr/bin/goobook -c /home/george/.goobook/clearmatics/.goobookrc query '%s'"
 set signature       =   "~/.mutt/signatures/clearmatics.com.txt"
 set header_cache    =   ~/.mutt/cache/clearmatics/headers
 set message_cachedir =  ~/.mutt/cache/clearmatics/bodies
