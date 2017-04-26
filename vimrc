@@ -67,7 +67,7 @@ set wrap                              " Wrap long lines
 
 if has("autocmd")
   " Open file at last saved position
-  augroup skel
+  augroup templates
     autocmd BufNewFile  *.sh	0r ~/.vim/templates/skeleton.sh
   augroup END
   augroup resCur
