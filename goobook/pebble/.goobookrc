@@ -1,7 +1,0 @@
-
-[DEFAULT]
-email: george@pebblecode.com
-passwordeval: gpg -d ~/.msmtp/pebblecode.com.gpg
-
-cache_filename: ~/.goobook/pebble/.goobook_cache
-

@@ -1,7 +1,0 @@
-
-[DEFAULT]
-email: go@clearmatics.com
-passwordeval: pass show email/tokens/clearmatics.com
-
-cache_filename: ~/.goobook/clearmatics/.goobook_cache
-

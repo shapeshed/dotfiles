@@ -3,7 +3,6 @@ source ~/.mutt/colors/mutt-colors-solarized-dark-256.muttrc
 
 set pgp_sign_as     =   "george@shapeshed.com"
 set crypt_autosign
-set query_command   =   "/usr/bin/goobook -c /home/george/.goobook/shapeshed/.goobookrc query '%s'"
 set signature       =   "~/.mutt/signatures/shapeshed.com.txt"
 set header_cache    =   ~/.mutt/cache/shapeshed/headers
 set message_cachedir =  ~/.mutt/cache/shapeshed/bodies
@@ -23,8 +22,6 @@ set include
 set auto_tag        =   yes
 set beep_new
 set editor          =   "vim -c 'set spell spelllang=en_gb'"
-
-macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
 
 hdr_order Date From To Cc
 bind editor <Tab> complete-query

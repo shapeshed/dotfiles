@@ -1,7 +1,0 @@
-
-[DEFAULT]
-email: gornbo@gmail.com
-passwordeval: gpg -d ~/.msmtp/gmail.com.gpg
-
-cache_filename: ~/.goobook/gmail/.goobook_cache
-
