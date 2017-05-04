@@ -22,7 +22,6 @@ set include
 set auto_tag        =   yes
 
 hdr_order Date From To Cc
-bind editor <Tab> complete-query
 bind editor ^T complete
 bind editor <space> noop
 

@@ -22,12 +22,11 @@ set include
 set auto_tag        =   yes
 set beep_new
 set editor          =   "vim -c 'set spell spelllang=en_gb'"
+source "gpg --decrypt --quiet ~/.mutt/aliases/clearmatics.gpg |"
 set sort_alias      =   alias
 set reverse_alias   =   yes
-source "gpg --decrypt --quiet ~/.mutt/aliases/clearmatics.gpg |"
 
 hdr_order Date From To Cc
-bind editor <Tab> complete-query
 bind editor ^T complete
 bind editor <space> noop
 
