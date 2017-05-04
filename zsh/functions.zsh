@@ -5,25 +5,9 @@
 # pwd
 # /some/path/that/does/not/exist
 #
-function mkcd {
+function mkdircd {
     mkdir -p "$*"
     cd "$*"
-}
-
-# fg - make zsh behave like bash
-#
-# By default zsh has the following behaviour
-# fg %1
-#
-# This function makes fg behave like the bash builtin
-# fg 1
-#
-fg() {
-  if [[ $# -eq 1 && $1 = - ]]; then
-    builtin fg %-
-  else
-    builtin fg %"$@"
-  fi
 }
 
 # gr - search recursively with grep
