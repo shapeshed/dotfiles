@@ -32,6 +32,16 @@ bind editor ^T complete
 bind editor <space> noop
 
 bind pager v view-attachments
+
 bind pager j next-line
 bind pager k previous-line
+bind pager / search
+bind pager ? search-reverse
+bind pager n search-next
+bind pager N search-opposite
+bind pager gg top
+bind pager G bottom
+bind pager \Cd half-down
+bind pager \Cu half-up
+
 bind pager q exit
