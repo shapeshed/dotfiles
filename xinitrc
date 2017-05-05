@@ -4,6 +4,7 @@
 xset +fp /usr/share/fonts/local
 xset fp rehash
 xbindkeys
+xsetroot -solid "#333333"
 xautolock -locker slock -time 2 -killer "systemctl suspend" -killtime 10 &
 
 PACMANICON=$(echo -e '\u2691')
