@@ -1,0 +1,24 @@
+#!/bin/sh
+# elvis: godoc		-- Search golang documentation
+. surfraw || exit 1
+
+w3_usage_hook () {
+    cat <<EOF
+Usage: $w3_argv0 [search words]...
+Description:
+  Search Golang documentation at godoc.org 
+Example:
+  godoc net/http
+EOF
+    w3_global_usage
+}
+
+w3_config
+w3_parse_args "$@"
+# w3_args now contains a list of arguments
+if test -z "$w3_args"; then
+    w3_browse_url "https://godoc.org/"
+else
+    escaped_args=`w3_url_of_arg $w3_args`
+    w3_browse_url "https://godoc.org/?q=${escaped_args}"
+fi
