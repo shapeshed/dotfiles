@@ -15,6 +15,10 @@ function gr {
     grep -R "$*" .
 }
 
+function weather {
+  curl wttr.in/$1
+}
+
 # Saves repeating ps aux | grep foo
 function psg {
   ps wwwaux | egrep "($1|%CPU)" | grep -v grep
