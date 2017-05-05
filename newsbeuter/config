@@ -5,6 +5,7 @@ bind-key j down
 bind-key k up
 bind-key ^D pagedown
 bind-key ^U pageup
+bind-key h quit
 
 color listnormal          color12 color8
 color listfocus           color11 color0
