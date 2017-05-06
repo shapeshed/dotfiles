@@ -1,11 +1,21 @@
 https://blog.golang.org/feed.atom golang
+https://golangweekly.com/rss/19if8e2m golang
+
 http://alvinalexander.com/rss.xml progamming "~Alvin Alexander"
-https://medium.com/feed/usevim vim "~UseVim"
 http://jasonwryan.com/atom.xml programming
-http://planet.centos.org/atom.xml linux
-http://remysharp.com/feed/ programming
 http://spf13.com/index.xml "~Steve Francia" programming
+http://remysharp.com/feed/ programming
 https://shapeshed.com/atom/index.xml programming
+https://scotthelme.co.uk/rss/ programming
+
+https://medium.com/feed/usevim vim "~UseVim"
+
 http://velonews.competitor.com/feed cycling 
 http://feeds2.feedburner.com/cyclingnews/news cycling "~Cyclingnews"
+http://www.bicycling.com/rss.xml cycling
+http://feeds2.feedburner.com/LondonCyclist cycling
+http://www.cyclingweekly.co.uk/news/feed cycling "~Cycling Weekly"
+https://www.archlinux.org/feeds/news/ linux
+http://planet.centos.org/atom.xml linux
+
 http://podcast.hospitalrecords.com/HospitalRecordsPodcast.xml
