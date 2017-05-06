@@ -1,10 +1,11 @@
 https://blog.golang.org/feed.atom golang
-http://alvinalexander.com/rss.xml progamming
-https://medium.com/feed/usevim vim
+http://alvinalexander.com/rss.xml progamming "~Alvin Alexander"
+https://medium.com/feed/usevim vim "~UseVim"
 http://jasonwryan.com/atom.xml programming
 http://planet.centos.org/atom.xml linux
 http://remysharp.com/feed/ programming
 http://spf13.com/index.xml "~Steve Francia" programming
 https://shapeshed.com/atom/index.xml programming
-http://velonews.competitor.com/feed cycling
+http://velonews.competitor.com/feed cycling 
+http://feeds2.feedburner.com/cyclingnews/news cycling "~Cyclingnews"
 http://podcast.hospitalrecords.com/HospitalRecordsPodcast.xml
