@@ -1,20 +1,35 @@
+auto-reload         yes
+
 unbind-key j
 unbind-key k
-
 bind-key j down
 bind-key k up
 bind-key ^D pagedown
 bind-key ^U pageup
 bind-key h quit
 
-color listnormal          color12 color8
-color listfocus           color11 color0
-color listnormal_unread   default color8 bold
-color listfocus_unread    color11 color0 bold
- 
- color background          color12 color8
- color info                color10 color0 bold
- color article             color12 color8
 
- download-path "~/music/podcasts/%h/%n"
- player "mpv"
+browser             $BROWSER
+color background   default   default
+color listnormal   default   default
+color listfocus    black     yellow
+color listnormal_unread blue default bold
+color listfocus_unread black yellow 
+color info         default   black
+color article      default   default
+
+# highlights
+# highlight article "^(Title):.*$" blue default
+highlight article "https?://[^ ]+" red default
+highlight article "\\[image\\ [0-9]+\\]" green default
+download-path       "~/music/podcasts/%h/%n"
+
+goto-first-unread   yes
+goto-next-feed      yes
+show-read-feeds     no
+text-width          80
+
+feed-sort-order     unreadarticlecount-asc
+
+player "mpv"
+
