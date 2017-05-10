@@ -22,6 +22,9 @@ set include
 set auto_tag        =   yes
 set beep_new
 set editor          =   "vim -c 'set spell spelllang=en_gb'"
+source "gpg --decrypt --quiet ~/.mutt/aliases/shapeshed.gpg |"
+set sort_alias      =   alias
+set reverse_alias   =   yes
 
 hdr_order Date From To Cc
 bind editor ^T complete
