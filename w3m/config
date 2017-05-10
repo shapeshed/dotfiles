@@ -78,7 +78,7 @@ urimethodmap ~/.w3m/urimethodmap, /usr/etc/w3m/urimethodmap
 editor /usr/bin/vi
 mailto_options 1
 mailer /usr/bin/mail
-extbrowser /usr/bin/mozilla
+extbrowser /usr/bin/chromium
 extbrowser2 
 extbrowser3 
 extbrowser4 
