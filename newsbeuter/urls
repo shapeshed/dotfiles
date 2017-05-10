@@ -9,7 +9,8 @@ https://shapeshed.com/atom/index.xml programming
 https://scotthelme.co.uk/rss/ programming
 
 https://medium.com/feed/usevim vim "~UseVim"
-https://groups.google.com/forum/feed/vim_announce/msgs/rss.xml vim
+https://groups.google.com/forum/feed/vim_announce/msgs/rss.xml vim "~Vim Announce"
+https://www.reddit.com/r/vim/.rss "~Reddit Vim"
 
 http://velonews.competitor.com/feed cycling 
 http://feeds2.feedburner.com/cyclingnews/news cycling "~Cyclingnews"
@@ -22,3 +23,7 @@ https://www.archlinux.org/feeds/news/ linux
 http://planet.centos.org/atom.xml linux
 
 http://podcast.hospitalrecords.com/HospitalRecordsPodcast.xml
+https://ninjatune.net/solidsteel/rss.xml
+
+https://www.reddit.com/r/golang/.rss "~Reddit Golang"
+https://www.reddit.com/r/archlinux/.rss "~Reddit Arch Linux"
