@@ -7,6 +7,10 @@ http://spf13.com/index.xml "~Steve Francia" programming
 http://remysharp.com/feed/ programming
 https://shapeshed.com/atom/index.xml programming
 https://scotthelme.co.uk/rss/ programming
+https://www.youtube.com/feeds/videos.xml?channel_id=UCkf4VIqu3Acnfzuk3kRIFwA programming youtube "gotbletu"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC3s0BtrBJpwNDaflRSoiieQ programming youtube "Hak5"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC6Om9kAkl32dWlDSNlDS9Iw programming youtube "DEFCONConference"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCJ6q9Ie29ajGqKApbLqfBOg programming youtube "Black Hat"
 
 https://medium.com/feed/usevim vim "~UseVim"
 https://groups.google.com/forum/feed/vim_announce/msgs/rss.xml vim "~Vim Announce"
@@ -17,6 +21,11 @@ http://feeds2.feedburner.com/cyclingnews/news cycling "~Cyclingnews"
 http://www.bicycling.com/rss.xml cycling
 http://feeds2.feedburner.com/LondonCyclist cycling
 http://www.cyclingweekly.co.uk/news/feed cycling "~Cycling Weekly"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCuTaETsuCOkJ0H_GAztWt0Q cycling youtube "~GCN Show" 
+https://www.youtube.com/feeds/videos.xml?channel_id=UCP7VdHbliZLl2N_5R2zNxEA cycling youtube "~Cogs and Punches" 
+https://www.youtube.com/feeds/videos.xml?channel_id=UCjcANXkXDbYqQ34F_UTql5w cycling youtube "~Juliet Elliot" 
+https://www.youtube.com/feeds/videos.xml?channel_id=UCpn6aFvwAI_hK9WuHcdvQGA cycling youtube "~The Vegan Cyclist" 
+https://www.youtube.com/feeds/videos.xml?channel_id=UCyR3pFHGQZbHTXxsqLaC-oA cycling youtube "~Durianrider" 
 
 https://www.cyberciti.biz/feed/ linux
 https://www.archlinux.org/feeds/news/ linux
