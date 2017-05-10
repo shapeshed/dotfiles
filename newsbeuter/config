@@ -33,3 +33,5 @@ feed-sort-order     unreadarticlecount-asc
 
 player "mpv"
 
+macro r set browser "tmux split-window && tmux send-keys 'rtv -l %u && tmux kill-pane\n'"; open-in-browser ; set browser "$BROWSER %u"
+
