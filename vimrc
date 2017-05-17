@@ -86,7 +86,8 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 " Alias for saving when not editing as sudo
 cmap w!! %!sudo tee > /dev/null %
 
+inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
 
-" Plugin settings
-let g:go_fmt_command = "goimports"
+
