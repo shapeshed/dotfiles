@@ -6,6 +6,8 @@ bind-key j down
 bind-key k up
 bind-key ^D pagedown
 bind-key ^U pageup
+bind-key g home
+bind-key G end
 bind-key h quit
 
 
