@@ -60,6 +60,7 @@ set tabstop=2                         " The number of spaces that a <Tab> counts
 set ttimeout                          " Timeout key sequences
 set ttimeoutlen=50                    " Timout after 50 milliseconds
 set wildignore+=*node_modules/**      " Ignore node_modules
+set wildignore+=*vendor/**      " Ignore node_modules
 set wildignore+=.git
 set wildignore+=*~,*.swp,*.swo,*.tmp
 set wildmenu                          " Enable command-line completion
@@ -88,6 +89,11 @@ cmap w!! %!sudo tee > /dev/null %
 
 inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|
+
 
 
 
