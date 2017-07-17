@@ -1,5 +1,3 @@
-auto-reload         yes
-
 unbind-key j
 unbind-key k
 bind-key j down

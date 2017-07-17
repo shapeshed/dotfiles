@@ -19,7 +19,6 @@ config/htop
 config/menus
 config/spotify
 config/gtk-2.0
-config/systemd
 config/google-chrome
 vim/spell
 config/QtProject.conf
@@ -45,4 +44,5 @@ newsbeuter/history.cmdline
 newsbeuter/history.search
 newsbeuter/queue
 zsh/gvm.zsh
+config/rtv
 

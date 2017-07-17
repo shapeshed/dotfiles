@@ -1,0 +1,11 @@
+[Unit]
+Description=Run my job every 6 minutes
+
+[Timer]
+OnCalendar=*:0/20 #I will explain that later
+OnBootSec=5min
+OnUnitActiveSec=1h
+Unit=newsbeuter.service
+
+[Install]
+WantedBy=timers.target

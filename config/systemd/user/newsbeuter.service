@@ -1,0 +1,9 @@
+[Unit]
+Description=Script to update newsbeuter
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/newsbeuter -x reload
+
+[Install]
+WantedBy=default.target
