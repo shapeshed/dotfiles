@@ -29,8 +29,8 @@ set ignorecase                        " Ignore case when searching
 set incsearch                         " Show matches when searching
 set laststatus=2                      " Show statusbar all the time
 set swapfile                          " Save a swapfile
-set backupdir=/tmp                    " Location for backup files
-set dir=/tmp                          " Location for swapfiles
+"set backupdir=/tmp                    " Location for backup files
+"set dir=/tmp                          " Location for swapfiles
 "set listchars=tab:>-                 " Set tab character
 "set listchars+=trail:~               " Set trailing character
 "set list                             " Show list characters
