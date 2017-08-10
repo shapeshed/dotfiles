@@ -1,8 +1,8 @@
 [Unit]
-Description=Run my job every 6 minutes
+Description=Update newsbeuter every 20 minutes
 
 [Timer]
-OnCalendar=*:0/20 #I will explain that later
+OnCalendar=*:0/20
 OnBootSec=5min
 OnUnitActiveSec=1h
 Unit=newsbeuter.service
