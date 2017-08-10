@@ -8,14 +8,14 @@ http://remysharp.com/feed/ programming
 https://shapeshed.com/atom/index.xml programming
 https://blog.afoolishmanifesto.com/index.xml programming "fREW Schmidt"
 https://scotthelme.co.uk/rss/ programming
-https://www.youtube.com/feeds/videos.xml?channel_id=UCkf4VIqu3Acnfzuk3kRIFwA programming youtube "gotbletu"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC3s0BtrBJpwNDaflRSoiieQ programming youtube "Hak5"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC6Om9kAkl32dWlDSNlDS9Iw programming youtube "DEFCONConference"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCJ6q9Ie29ajGqKApbLqfBOg programming youtube "Black Hat"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCkf4VIqu3Acnfzuk3kRIFwA programming youtube "~gotbletu"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC3s0BtrBJpwNDaflRSoiieQ programming youtube "~Hak5"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC6Om9kAkl32dWlDSNlDS9Iw programming youtube "~DEFCONConference"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCJ6q9Ie29ajGqKApbLqfBOg programming youtube "~Black Hat"
 https://www.reddit.com/r/golang/.rss programming "~Reddit Golang"
 
-http://feeds.feedburner.com/bitcoinpodcast blockchain "The Bitcoin Podcast"
-https://medium.com/feed/@VitalikButerin blockchain "Vitalik Buterin"
+http://feeds.feedburner.com/bitcoinpodcast blockchain "~The Bitcoin Podcast"
+https://medium.com/feed/@VitalikButerin blockchain "~Vitalik Buterin"
 https://www.reddit.com/r/ethereum/.rss blockchain "~Reddit Ethereum"
 
 https://medium.com/feed/usevim vim "~UseVim"
