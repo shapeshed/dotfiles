@@ -32,5 +32,5 @@ while true; do
 
 done &
 eval $(gpg-agent --daemon --enable-ssh-support --write-env-file ${HOME}/.gpg-agent-info)
-setxkbmap -layout uk
+setxkbmap -layout gb
 exec dwm
