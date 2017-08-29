@@ -4,6 +4,7 @@ Description=Script to update newsbeuter
 [Service]
 Type=simple
 ExecStart=/usr/bin/castget -1
+ExecStartPost=/usr/bin/castget -c
 
 [Install]
 WantedBy=default.target
