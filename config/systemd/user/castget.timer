@@ -1,8 +1,8 @@
 [Unit]
-Description=Update castget every 20 minutes
+Description=Update castget every 30 minutes
 
 [Timer]
-OnCalendar=*:0/20
+OnCalendar=*:0/30
 OnBootSec=5min
 OnUnitActiveSec=1h
 Unit=castget.service
