@@ -1,5 +1,6 @@
 [Unit]
 Description=Script to update castget
+After=network.target network-online.target dbus.socket
 
 [Service]
 Type=simple
