@@ -1,0 +1,32 @@
+IMAPAccount clearmatics
+# Address to connect to
+Host imap.gmail.com
+User go@clearmatics.com 
+PassCmd "pass show email/tokens/clearmatics.com"
+SSLType IMAPS
+
+IMAPStore clearmatics-remote
+Account clearmatics
+
+MaildirStore clearmatics-local
+Path ~/.mail/clearmatics/
+Inbox ~/.mail/clearmatics/Inbox
+
+Channel clearmatics
+Master :clearmatics-remote:
+Slave :clearmatics-local:
+Patterns *
+# Patterns * ![Gmail]* "[Gmail]/All Mail"
+Create Slave
+Expunge Slave
+Sync All
+
+# Exclude everything under the internal [Gmail] folder, except the interesting folders
+#Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
+# Or include everything
+#Patterns *
+# Automatically create missing mailboxes, both locally and on the server
+# Create Both
+# Save the synchronization state files in the relevant directory
+SyncState *
+
