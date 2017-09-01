@@ -1,0 +1,79 @@
+[*]
+playlist=/home/go/.config/mpd/playlists/podcasts.m3u
+
+[Test Match Special]
+url=http://podcasts.files.bbci.co.uk/p02nrsl2.rss 
+spool=/home/go/music/podcasts/tms
+
+[This American Life]
+url=http://feeds.thisamericanlife.org/talpodcast
+spool=/home/go/music/podcasts/this-american-life
+
+[Hospital Records]
+url=http://podcast.hospitalrecords.com/HospitalRecordsPodcast.xml
+spool=/home/go/music/podcasts/hospital
+
+[Solid Steel]
+url=https://ninjatune.net/solidsteel/rss.xml 
+spool=/home/go/music/podcasts/solid-steel
+
+
+[Drumcode]
+url=http://drumcode.libsyn.com/rss
+spool=/home/go/music/podcasts/drumcode
+
+[Metalheadz]
+url=http://www.metalheadz.co.uk/podcast/podcast2010.xml
+spool=/home/go/music/podcasts/metalheadz
+
+[Data Transmission]
+url=http://datatransmission.libsyn.com/rss
+spool=/home/go/music/podcasts/datatransmission
+
+[Expansion Podcast]
+url=http://feeds.feedburner.com/ExpansionPodcast
+spool=/home/go/music/podcasts/expansion
+
+[Juno Minimal]
+url=http://mp3.juno.co.uk/podcasts/junominimal.xml
+spool=/home/go/music/podcasts/juno-minimal
+
+[John B]
+url=http://feeds2.feedburner.com/JohnBPodcasts
+spool=/home/go/music/podcasts/johnb
+
+[Shogun Audio]
+url=http://www.shogunaudio.co.uk/Podcast/podcast.xml
+spool=/home/go/music/podcasts/shogun-audio
+
+[Deep Focus]
+url=http://feeds.feedburner.com/deepfocus?format=xml
+spool=/home/go/music/podcasts/deepfocus
+
+[White Noise]
+url=http://www.rte.ie/radio1/podcast/podcast_whitenoise.xml
+spool=/home/go/music/podcasts/whitenoise
+
+[ResidentAdvisor]
+url=http://www.residentadvisor.net/xml/podcast.xml
+spool=/home/go/music/podcasts/resident
+
+[UKF]
+url=http://feeds.feedburner.com/ukfmusic
+spool=/home/go/music/podcasts/ukf
+
+[RinseFM]
+url=http://rinse.fm/podcasts/feed/
+spool=/home/go/music/podcasts/rinsefm
+
+[Cognicast]
+url=http://feeds.feedburner.com/cognicast
+spool=/home/go/music/podcasts/cognicast
+
+[Functional Geekery]
+url=http://www.functionalgeekery.com/feed/podcast/
+spool=/home/go/music/podcasts/functional-geekery
+
+[Hansel Minutes]
+url=http://feeds.podtrac.com/9dPm65vdpLL1
+spool=/home/go/music/podcasts/hansel-minutes
