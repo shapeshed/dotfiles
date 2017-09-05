@@ -7,16 +7,25 @@ set signature       =   "~/.mutt/signatures/clearmatics.com.txt"
 set header_cache    =   ~/.mutt/cache/clearmatics/headers
 set message_cachedir =  ~/.mutt/cache/clearmatics/bodies
 set certificate_file =  ~/.mutt/certificates
-set sendmail        =   "/usr/bin/msmtp -a clearmatics"
+set sendmail        =   "/usr/local/bin/msmtpq -a clearmatics"
 set envelope_from   =   "yes"
 set sort            =   reverse-threads
 set sort_aux        =   last-date-received
-set folder          =   "imaps://imap.gmail.com:993"
+
+set folder          =   "~/.mail/clearmatics"
+set mbox            =   "+[Gmail]/.All Mail"
+set spoolfile       =   "~/.mail/clearmatics/Inbox"
+set mask            =   ".*" 
+set timeout         =   30
+
+# set folder        =   "imaps://imap.gmail.com:993"
+# set spoolfile     =   "+INBOX"
+# set record        =   /dev/null
+
 set realname        =   "George Ornbo"
 set from            =   "go@clearmatics.com"
-set spoolfile       =   "+INBOX"
-set postponed       =   "+[Gmail]/Drafts"
-set record          =   /dev/null
+set postponed       =   "+[Gmail]/.Drafts"
+set record          =   "+[Gmail]/.Sent Mail"
 set move            =   no
 set include
 set auto_tag        =   yes
@@ -44,3 +53,13 @@ bind pager \Cd half-down
 bind pager \Cu half-up
 
 bind pager q exit
+
+macro index <F8> \
+"<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt --prompt search<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>" \
+"notmuch: search mail"
+macro index <F9> \
+"<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt thread<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter><enter-command>set wait_key<enter>" \
+"notmuch: reconstruct thread"
+macro index <F6> \
+"<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt tag -inbox<enter>" \
+"notmuch: remove message from inbox"
