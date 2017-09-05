@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+find ~/music/podcasts ! -name 'playlist' -type f -printf '%T+ %p\n' | \
+  sort -nr | \
+  head  -n 5 | \
+  cut -d " " -f 2 | \
+  xargs -I $ sh -c 'stat --printf="%y\n" $; id3 $ | grep "^Artist\|^Title\|^File"' |\
+  sed 's/\(^Artist.*\).*/\0\n/'g
+
