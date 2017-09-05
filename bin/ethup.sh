@@ -2,7 +2,7 @@
 
 set -eEu -o pipefail
 
-NODES=(node0 node1)
+NODES=(node0 node1 node2)
 ETHDATA=~/.ethraft
 GETH=$GOPATH/src/github.com/ethereum/go-ethereum/build/bin/geth
 VERBOSITY=9
@@ -11,7 +11,10 @@ for n in ${NODES[@]}; do
 
   # clear any chain data and re-init
   rm -Rf ${ETHDATA}/${n}/geth/chaindata
-  ${GETH} --datadir ${ETHDATA}/${n}/ init ${ETHDATA}/genesis.json
+  rm -Rf ${ETHDATA}/${n}/geth/lightchaindata
+  rm -Rf ${ETHDATA}/${n}/geth/transactions.rlp
+  rm -Rf ${ETHDATA}/${n}/geth/ethash/*
+  ${GETH} --datadir ${ETHDATA}/${n} init ${ETHDATA}/genesis.json
 
   if [[ ${NODES[0]} == ${n} ]]; then
     tmux new -s ethraft -d
