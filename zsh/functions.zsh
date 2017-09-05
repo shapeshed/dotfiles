@@ -30,5 +30,8 @@ workpass() {
   PASSWORD_STORE_DIR=$HOME/.work-password-store/ pass $@
 }
 
+function wifi {
+    sudo wpa_supplicant -c /etc/wpa_supplicant/"$*".conf -i wlp4s0 -B
+}
 
 
