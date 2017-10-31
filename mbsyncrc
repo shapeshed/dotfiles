@@ -1,5 +1,4 @@
 IMAPAccount clearmatics
-# Address to connect to
 Host imap.gmail.com
 User go@clearmatics.com 
 PassCmd "pass show email/tokens/clearmatics.com"
@@ -11,12 +10,13 @@ Account clearmatics
 MaildirStore clearmatics-local
 Path ~/.mail/clearmatics/
 Inbox ~/.mail/clearmatics/Inbox
+SubFolders Verbatim
 
 Channel clearmatics
 Master :clearmatics-remote:
 Slave :clearmatics-local:
-Patterns *
-# Patterns * ![Gmail]* "[Gmail]/All Mail"
+# Patterns *
+Patterns * ![Gmail]* "[Gmail]/All Mail"
 Create Slave
 Expunge Slave
 Sync All
