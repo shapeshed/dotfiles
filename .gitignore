@@ -45,4 +45,12 @@ newsbeuter/history.search
 newsbeuter/queue
 zsh/gvm.zsh
 config/rtv
-
+config/mpd/database
+config/mpd/pid
+config/mpd/playlists/podcasts.m3u
+config/mpd/state
+config/mpd/sticker.sql
+config/pavucontrol.ini
+newsboat/cache.db
+newsboat/history.cmdline
+newsboat/history.search
