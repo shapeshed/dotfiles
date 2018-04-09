@@ -33,7 +33,7 @@ feed-sort-order     unreadarticlecount-asc
 
 player "mpv"
 
-macro r set browser "tmux split-window && tmux send-keys 'rtv -l %u && tmux kill-pane\n'"; open-in-browser ; set browser "$BROWSER %u"
+macro r set browser "tmux split-window && tmux send-keys 'rtv %u && tmux kill-pane\n'"; open-in-browser ; set browser "$BROWSER %u"
 macro y set browser "mpv %u"; open-in-browser ; set browser "$BROWSER %u"
 macro d set browser "youtube-dl %u"; open-in-browser ; set browser "$BROWSER %u"
 macro o set browser "w3m"; open-in-browser ; set browser $BROWSER
