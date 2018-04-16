@@ -1,5 +1,6 @@
 https://blog.golang.org/feed.atom golang
 https://golangweekly.com/rss/19if8e2m golang
+https://www.reddit.com/r/golang/.rss programming "~Reddit Golang"
 
 http://alvinalexander.com/rss.xml programming "~Alvin Alexander"
 http://jasonwryan.com/atom.xml programming
@@ -12,11 +13,15 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCkf4VIqu3Acnfzuk3kRIFwA pro
 https://www.youtube.com/feeds/videos.xml?channel_id=UC3s0BtrBJpwNDaflRSoiieQ programming youtube "~Hak5"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC6Om9kAkl32dWlDSNlDS9Iw programming youtube "~DEFCONConference"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCJ6q9Ie29ajGqKApbLqfBOg programming youtube "~Black Hat"
-https://www.reddit.com/r/golang/.rss programming "~Reddit Golang"
 
 http://feeds.feedburner.com/bitcoinpodcast blockchain "~The Bitcoin Podcast"
 https://medium.com/feed/@VitalikButerin blockchain "~Vitalik Buterin"
 https://www.reddit.com/r/ethereum/.rss blockchain "~Reddit Ethereum"
+https://themerkle.com/feed/ "blockchain" 
+https://feeds.feedburner.com/CoinDesk "blockchain"
+https://www.ccn.com/feed/ "blockchain"
+https://bitcoinmagazine.com/feed "blockchain"
+https://www.newsbtc.com/feed/ "blockchain"
 
 https://medium.com/feed/usevim vim "~UseVim"
 https://groups.google.com/forum/feed/vim_announce/msgs/rss.xml vim "~Vim Announce"
