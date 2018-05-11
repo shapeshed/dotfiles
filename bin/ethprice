@@ -6,7 +6,7 @@ PRICE=`curl -s "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&
 
 if [[ $PRICE = *"-"* ]] 
 then
-  echo "#[fg=red]$PRICE"
+  echo "#[fg=red]$PRICE 🡻"
 else
-  echo "#[fg=cyan]$PRICE"
+  echo "#[fg=cyan]$PRICE 🡹"
 fi
