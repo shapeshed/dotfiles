@@ -2,26 +2,49 @@ https://blog.golang.org/feed.atom golang
 https://golangweekly.com/rss/19if8e2m golang
 https://www.reddit.com/r/golang/.rss programming "~Reddit Golang"
 
-http://alvinalexander.com/rss.xml programming "~Alvin Alexander"
 http://jasonwryan.com/atom.xml programming
 http://spf13.com/index.xml "~Steve Francia" programming
 http://remysharp.com/feed/ programming
 https://shapeshed.com/atom/index.xml programming
-https://blog.afoolishmanifesto.com/index.xml programming "~fREW Schmidt"
 https://scotthelme.co.uk/rss/ programming
+
 https://www.youtube.com/feeds/videos.xml?channel_id=UCkf4VIqu3Acnfzuk3kRIFwA programming youtube "~gotbletu"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC3s0BtrBJpwNDaflRSoiieQ programming youtube "~Hak5"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC6Om9kAkl32dWlDSNlDS9Iw programming youtube "~DEFCONConference"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCJ6q9Ie29ajGqKApbLqfBOg programming youtube "~Black Hat"
 
-http://feeds.feedburner.com/bitcoinpodcast blockchain "~The Bitcoin Podcast"
 https://medium.com/feed/@VitalikButerin blockchain "~Vitalik Buterin"
+https://medium.com/feed/@Vlad_Zamfir blockchain "~Vlad Zamfir"
+https://medium.com/feed/@FEhrsam blockchain "~Fred Ehrsam"
 https://www.reddit.com/r/ethereum/.rss blockchain "~Reddit Ethereum"
 https://themerkle.com/feed/ "blockchain" 
 https://feeds.feedburner.com/CoinDesk "blockchain"
 https://www.ccn.com/feed/ "blockchain"
 https://bitcoinmagazine.com/feed "blockchain"
 https://www.newsbtc.com/feed/ "blockchain"
+https://cryptodisrupt.com/feed/ "blockchain"
+http://www.ofnumbers.com/feed/ "blockchain"
+http://feeds.feedburner.com/avc "blockchain"
+https://ethresear.ch/latest.rss "blockchain" "~Ethereum Research"
+https://www.bitguru.co.uk/feed/ "blockchain" "~Bitguru"
+https://blog.cosmos.network/feed "blockchain" "~Cosmos"
+https://medium.com/feed/@dfinity "blockchain" "~Dfinity"
+https://blog.omisego.network/feed "blockchain" "~OmiseGO"
+https://medium.com/feed/@ConsenSys "blockchain" "~ConsenSys"
+https://blog.golemproject.net/feed "blockchain" "~Golum"
+https://medium.com/feed/@eosio "blockchain" "~EOS"
+https://blog.z.cash/feed/ "blockchain" "~Zcash"
+
+https://paritytech.io/rss/ "blockchain"
+
+"query:[blockchain] Ethereum:tags =~ \"blockchain\" and ( title =~ \"Ethereum\" )" "blockchain"
+"query:[blockchain] Interoperability:tags =~ \"blockchain\" and ( title =~ \"exchange\" or content =~ \"Binance\" )" "blockchain"
+"query:[blockchain] Privacy:tags =~ \"blockchain\" and ( title =~ \"Privacy\" or content =~ \"Privacy\" )" "blockchain"
+"query:[blockchain] London:tags =~ \"blockchain\" and ( title =~ \"London\" or content =~ \"London\" )" "blockchain"
+"query:[blockchain] Network Economics:tags =~ \"blockchain\" and ( title =~ \"Economics\" or content =~ \"Economics\" )" "blockchain"
+"query:[blockchain] Consensus:tags =~ \"blockchain\" and ( title =~ \"Consensus\" or content =~ \"consensus\" )" "blockchain"
+"query:.Read later:flags # \"s\""
+
 
 https://medium.com/feed/usevim vim "~UseVim"
 https://groups.google.com/forum/feed/vim_announce/msgs/rss.xml vim "~Vim Announce"
