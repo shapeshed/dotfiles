@@ -1,0 +1,22 @@
+[calendars]
+
+[[clearmatics]]
+path = /home/go/.local/share/clearmatics/go@clearmatics.com
+type = discover
+color = light magenta 
+
+[locale]
+timeformat = %H:%M
+dateformat = %Y-%m-%d
+longdateformat = %Y-%m-%d
+datetimeformat = %Y-%m-%d %H:%M
+longdatetimeformat = %Y-%m-%d %H:%M
+unicode_symbols = false
+
+[view]
+event_view_weighting = 2
+dynamic_days = false
+theme = dark
+event_view_always_visible = true
+agenda_event_format = {calendar-color}{cancelled}{start-end-time-style} {title}{repeat-symbol}{reset}
+frame = color
