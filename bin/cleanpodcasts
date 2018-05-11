@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -eEu -o pipefail
+
+for dir in ~/music/podcasts/*/
+do
+  cd $dir
+  ls -1 | sort -r | tail +5 | xargs -i rm {}
+done
