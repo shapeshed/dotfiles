@@ -18,6 +18,7 @@ config/heroku
 config/htop
 config/menus
 config/spotify
+config/skypeforlinux
 config/Mist
 config/gtk-2.0
 config/google-chrome
