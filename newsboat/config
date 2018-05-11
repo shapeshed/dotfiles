@@ -13,7 +13,7 @@ browser             $BROWSER
 color background   default   default
 color listnormal   default   default
 color listfocus    black     yellow
-color listnormal_unread blue default bold
+color listnormal_unread blue default 
 color listfocus_unread black yellow 
 color info         default   black
 color article      default   default
@@ -28,8 +28,14 @@ goto-first-unread   yes
 goto-next-feed      yes
 show-read-feeds     no
 text-width          80
+refresh-on-startup  no
+prepopulate-query-feeds yes
 
-feed-sort-order     unreadarticlecount-asc
+#feed-sort-order     unreadarticlecount-asc
+feed-sort-order     title-desc
+
+auto-reload yes
+reload-time 15
 
 player "mpv"
 
@@ -37,4 +43,5 @@ macro r set browser "tmux split-window && tmux send-keys 'rtv %u && tmux kill-pa
 macro y set browser "mpv %u"; open-in-browser ; set browser "$BROWSER %u"
 macro d set browser "youtube-dl %u"; open-in-browser ; set browser "$BROWSER %u"
 macro o set browser "w3m"; open-in-browser ; set browser $BROWSER
+macro e set browser "tmux split-window && tmux send-keys '$EDITOR ~/.newsboat/config && tmux kill-pane\n'"; open-in-browser ; set browser "$BROWSER %u"
 
