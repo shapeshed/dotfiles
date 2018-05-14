@@ -56,3 +56,11 @@ config/pavucontrol.ini
 newsboat/cache.db
 newsboat/history.cmdline
 newsboat/history.search
+config/autostart/
+config/evince/
+config/gconf/
+config/khard/
+config/systemd/user/default.target.wants/
+config/systemd/user/timers.target.wants/
+config/wireshark/
+config/zoomus.conf
