@@ -1,0 +1,10 @@
+[Unit]
+Description=Script to update newsboat
+After=network.target network-online.target dbus.socket
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/newsboat -x reload
+
+[Install]
+WantedBy=default.target

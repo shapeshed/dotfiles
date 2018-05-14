@@ -1,0 +1,11 @@
+[Unit]
+Description=Update newsboat every 20 minutes
+
+[Timer]
+OnCalendar=*:0/20
+OnBootSec=5min
+OnUnitActiveSec=1h
+Unit=newsboat.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Script to flush msmtpq queue
+After=network.target network-online.target dbus.socket
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/msmtp-runqueue.sh -a clearmatics
+
+[Install]
+WantedBy=default.target
