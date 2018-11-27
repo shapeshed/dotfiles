@@ -2,8 +2,8 @@
 
 set -eEu -o pipefail
 
-NODES=(node0 node1 node2)
-ETHDATA=~/.ethraft
+NODES=(node0 node1)
+ETHDATA=~/.eth-dev
 GETH=$GOPATH/src/github.com/ethereum/go-ethereum/build/bin/geth
 VERBOSITY=9
 
@@ -17,10 +17,10 @@ for n in ${NODES[@]}; do
   ${GETH} --datadir ${ETHDATA}/${n} init ${ETHDATA}/genesis.json
 
   if [[ ${NODES[0]} == ${n} ]]; then
-    tmux new -s ethraft -d
-    tmux rename-window -t ethraft cluster
+    tmux new -s eth-dev -d
+    tmux rename-window -t eth-dev cluster
     tmux send-keys -t cluster "${GETH} --config ${ETHDATA}/${n}/config.toml --verbosity ${VERBOSITY}" C-m
-    tmux new-window -n console -t ethraft:2
+    tmux new-window -n console -t eth-dev:2
     tmux send-keys -t console "sleep 5 && ${GETH} --exec 'loadScript(\"${ETHDATA}/${n}/scripts/unlock.js\")' attach ipc:${ETHDATA}/${n}/geth.ipc" C-m
     tmux send-keys -t console "${GETH} attach ipc:${ETHDATA}/${n}/geth.ipc" C-m
   else
@@ -33,4 +33,4 @@ for n in ${NODES[@]}; do
 
 done
 
-tmux attach -t ethraft
+tmux attach -t eth-dev
