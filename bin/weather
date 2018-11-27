@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -eEu -o pipefail
+
+# Cheddington
+LONGLAT="51.847875,-0.664398"
+
+# New York
+# LONGLAT="40.758896,-73.985130"
+
+DATA=`curl -s "https://api.darksky.net/forecast/17b1e8cae7b68e290659b438557def7e/$LONGLAT?exclude=minutely,hourly,daily,alerts,flags&units=si"`
+echo $DATA
+TEMP=`echo $DATA | jq -r '.currently.temperature'`
+ICON=`echo $DATA | jq -r '.currently.icon'`
+FORMATTEMP=`printf "%.0f\n" "$TEMP"`
+ICONSYMBOL=""
+
+# clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night.
+case "$ICON" in
+  "clear-day") ICONSYMBOL="🌣 ";;
+  "clear-night") ICONSYMBOL="🌜";;
+  "rain") ICONSYMBOL="☔";;
+  "snow") ICONSYMBOL="⛇ ";;
+  "sleet") ICONSYMBOL="🌣 ";;
+  "wind") ICONSYMBOL="🌬";;
+  "fog") ICONSYMBOL="🌫";;
+  "cloudy") ICONSYMBOL="☁ ";;
+  "partly-cloudy-day") ICONSYMBOL="🌥";;
+  "partly-cloudy-night") ICONSYMBOL="🌥";;
+esac
+
+
+echo "$ICONSYMBOL $FORMATTEMP°C"
+
+
