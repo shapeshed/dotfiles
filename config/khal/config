@@ -20,3 +20,6 @@ theme = dark
 event_view_always_visible = true
 agenda_event_format = {calendar-color}{cancelled}{start-end-time-style} {title}{repeat-symbol}{reset}
 frame = color
+
+[default]
+default_calendar = go@clearmatics.com 
