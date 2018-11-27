@@ -15,8 +15,8 @@ BATTSTATUS=''
 while true; do
 
   if which acpi &> /dev/null; then
-    BATT=$( acpi -b | sed 's/.*[charging|unknown], \([0-9]*\)%.*/\1/gi' )
-    STATUS=$( acpi -b | sed 's/.*: \([a-zA-Z]*\),.*/\1/gi' )
+    BATT=$( acpi -b | tail -n 1 | sed 's/.*[charging|unknown], \([0-9]*\)%.*/\1/gi' )
+    STATUS=$( acpi -b | tail -n 1 | sed 's/.*: \([a-zA-Z]*\),.*/\1/gi' )
 
     if [ $STATUS == 'Discharging' ]; then
       BATTSTATUS="$BATTICON $BATT"
