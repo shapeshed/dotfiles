@@ -1,5 +1,6 @@
 [Unit]
 Description=bugwarrior-pull
+After=network.target network-online.target dbus.socket
 
 [Service]
 Environment="DISPLAY=:0"
