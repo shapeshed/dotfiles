@@ -1,7 +1,9 @@
 [user]
   name = George Ornbo
-  email = george@shapeshed.com
-  signingkey = 8B63285980040E5D
+  #email = george@shapeshed.com
+  #signingkey = 8B63285980040E5D
+  email = go@clearmatics.com
+  signingkey = 8B4C8A62C8520BF2
 
 [github]
   user = shapeshed
@@ -19,7 +21,7 @@
 [url "git@github.com:"]
   insteadOf = git://github.com/
 
-[url "ssh://git@github.com/"]
+[url "git@github.com:"]
   insteadOf = https://github.com/
 
 [push]
