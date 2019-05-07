@@ -1,12 +1,16 @@
 auth
+config/airtame-application/
 config/autostart/
 config/chromium
 config/compiz-1/
 config/configstore
 config/dconf/
 config/easytag/
+config/enchant/
 config/evince/
 config/evolution/
+config/gatsby/
+config/GIMP/
 config/gconf/
 config/google-chrome
 config/gtk-2.0
@@ -15,6 +19,7 @@ config/heroku
 config/htop
 config/ibus/
 config/khard/
+config/Ledger Live/
 config/libaccounts-glib/
 config/libreoffice/
 config/menus
@@ -27,6 +32,7 @@ config/mpd/playlists/podcasts.m3u
 config/mpd/state
 config/mpd/sticker.sql
 config/nautilus/
+config/neofetch/
 config/pavucontrol.ini
 config/pulse/
 config/QtProject
@@ -37,6 +43,7 @@ config/spotify
 config/systemd/user/default.target.wants/
 config/systemd/user/timers.target.wants/
 config/transmission/
+config/truffle/
 config/unity/
 config/update-notifier/
 config/user-dirs.dirs
@@ -44,6 +51,9 @@ config/user-dirs.locale
 config/VirtualBox
 config/wireshark/
 config/zoomus.conf
+
+
+
 .DS_Store
 .goobook_cache
 mutt/cache
@@ -53,6 +63,7 @@ newsbeuter/history.cmdline
 newsbeuter/history.search
 newsbeuter/queue
 newsboat/cache.db
+newsboat/cache.db.lock
 newsboat/history.cmdline
 newsboat/history.search
 *.swp
