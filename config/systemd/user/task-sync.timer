@@ -1,0 +1,13 @@
+[Unit]
+Description=Run my task service every 10 minutes
+RefuseManualStart=no 
+RefuseManualStop=no
+
+[Timer]
+Persistent=false 
+OnBootSec=80 
+OnCalendar=*:0/10 #Run every 10 minutes
+Unit=task-sync.service
+
+[Install]
+WantedBy=timers.target

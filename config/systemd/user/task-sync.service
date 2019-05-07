@@ -1,0 +1,7 @@
+[Unit]
+Description=Run task sync every few minutes
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/task sync
+NoNewPrivileges=true
