@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+cd $HOME/src && auracle download --recurse "$1"
+builddir="$_"
+cd "$builddir" && ${EDITOR:-vi} PKGBUILD
+makepkg -si && cd - &>/dev/null
+rm -Rf "$builddir"
