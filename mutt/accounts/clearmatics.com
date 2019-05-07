@@ -2,7 +2,11 @@
 source ~/.mutt/authentication/go@clearmatics.com                 
 source ~/.mutt/colors/mutt-colors-solarized-dark-256.muttrc
 
-set pgp_sign_as     =   "C8520BF2"
+set pgp_sign_as     =   "04E1DF458DA032A0"
+set pgp_default_key =   "34638605FC36E53F"
+set pgp_use_gpg_agent = yes
+set pgp_autosign    = yes
+
 set signature       =   "~/.mutt/signatures/clearmatics.com.txt"
 set header_cache    =   ~/.mutt/cache/clearmatics/headers
 set message_cachedir =  ~/.mutt/cache/clearmatics/bodies
@@ -63,3 +67,5 @@ macro index <F9> \
 macro index <F6> \
 "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt tag -inbox<enter>" \
 "notmuch: remove message from inbox"
+
+macro index t "<pipe-message>mutttotask<enter>"
