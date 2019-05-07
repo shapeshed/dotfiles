@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/task add +email +work +do due:eod E-mail: $(grep 'Subject' $* | awk -F: '{print $2}')
