@@ -35,3 +35,13 @@ function wifi {
 }
 
 
+# Print a summary for standup
+function standup {
+  if [[ $(date '+%a') == "Mon" ]]; then
+      task end:today-3days completed +work
+  else
+      task end:yesterday completed +work
+  fi
+  task end:today completed
+  task +work
+}
