@@ -1,4 +1,4 @@
-source ~/.mutt/accounts/shapeshed.com
+# source ~/.mutt/accounts/shapeshed.com
 source ~/.mutt/accounts/clearmatics.com
 # source ~/.mutt/accounts/gmail.com
 #  source ~/.mutt/accounts/pebblecode.com
@@ -7,7 +7,7 @@ source /etc/Muttrc.gpg.dist
 
 
 macro index 1 '<sync-mailbox><enter-command>source ~/.mutt/accounts/clearmatics.com<enter><change-folder>!<enter>'
-macro index 2 '<sync-mailbox><enter-command>source ~/.mutt/accounts/shapeshed.com<enter><change-folder>!<enter>'
+# macro index 2 '<sync-mailbox><enter-command>source ~/.mutt/accounts/shapeshed.com<enter><change-folder>!<enter>'
 #macro index 3 '<sync-mailbox><enter-command>source ~/.mutt/accounts/gmail.com<enter><change-folder>!<enter>'
 macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 set pager_index_lines=10
