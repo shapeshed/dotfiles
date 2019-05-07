@@ -8,6 +8,8 @@ bind-key g home
 bind-key G end
 bind-key h quit
 
+articlelist-format  "%4i %f %D   %?T?|%-17T|  ?%t"
+notify-format       "%d new articles (%n unread articles, %f unread feeds)"
 
 browser             $BROWSER
 color background   default   default
