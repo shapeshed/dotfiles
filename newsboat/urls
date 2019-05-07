@@ -1,83 +1,83 @@
-https://blog.golang.org/feed.atom golang
-https://golangweekly.com/rss/19if8e2m golang
-https://www.reddit.com/r/golang/.rss programming "~Reddit Golang"
+######################
+# Alerts 
+######################
+#
+https://www.google.com/alerts/feeds/13776273204308157046/655784424730490655 "alerts" "~Alert - blockchain AND interoperability"
+https://www.google.com/alerts/feeds/13776273204308157046/15710432300517688269 "alerts" "~Alert - clearmatics"
 
-http://jasonwryan.com/atom.xml programming
-http://spf13.com/index.xml "~Steve Francia" programming
-http://remysharp.com/feed/ programming
-https://shapeshed.com/atom/index.xml programming
-https://scotthelme.co.uk/rss/ programming
+######################
+# Cryptocurrency
+######################
 
-https://www.youtube.com/feeds/videos.xml?channel_id=UCkf4VIqu3Acnfzuk3kRIFwA programming youtube "~gotbletu"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC3s0BtrBJpwNDaflRSoiieQ programming youtube "~Hak5"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC6Om9kAkl32dWlDSNlDS9Iw programming youtube "~DEFCONConference"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCJ6q9Ie29ajGqKApbLqfBOg programming youtube "~Black Hat"
+https://blog.0xproject.com/feed "cryptocurrency" "~0x"
+https://blog.cryptographyengineering.com/feed/ "cryptocurrency" 
+https://medium.com/feed/AugurProject "cryptocurrency" "~Augur"
+http://feeds.feedburner.com/avc "cryptocurrency"
+https://bitcoinmagazine.com/feed "cryptocurrency"
+https://www.bitguru.co.uk/feed/ "cryptocurrency" "~Bitguru"
+https://www.ccn.com/feed/ "cryptocurrency"
+https://feeds.feedburner.com/CoinDesk "cryptocurrency"
+https://cointelegraph.com/rss "cryptocurrency" "~Cointelegraph"
+https://medium.com/feed/ConsenSys "cryptocurrency" "~ConsenSys"
+https://medium.com/feed/corda "cryptocurrency" "~Corda"
+https://blog.cosmos.network/feed "cryptocurrency" "~Cosmos"
+https://cryptodisrupt.com/feed/ "cryptocurrency"
+http://cryptonewsreview.com/feed/ "cryptocurrency"
+https://diar.co/comments/feed/ "cryptocurrency" "~Diar"
+https://medium.com/feed/dfinity "cryptocurrency" "~Dfinity"
+https://medium.com/feed/eosio "cryptocurrency" "~EOS"
+https://ethresear.ch/latest.rss "cryptocurrency" "~Ethereum Research"
+https://medium.com/feed/FEhrsam "cryptocurrency" "~Fred Ehrsam"
+https://blog.golemproject.net/feed "cryptocurrency" "~Golum"
+http://www.ofnumbers.com/feed/ "cryptocurrency"
+https://www.hyperledger.org/feed "cryptocurrency" "~Hyperledger"
+https://ipfs.io/blog/index.xml "cryptocurrency" "IPFS"
+https://medium.com/feed/jacob.eliosoff "cryptocurrency" "~Jacob Eliosoff"
+https://www.newsbtc.com/feed/ "cryptocurrency"
+https://blog.omisego.network/feed "cryptocurrency" "~OmiseGO"
+https://medium.com/feed/originprotocol "cryptocurrency" "~Origin"
+https://www.parity.io/blog/rss/ "cryptocurrency"
+https://medium.com/feed/poa-network "cryptocurrency" "~PoA"
+https://medium.com/feed/polkadot-network "blockchain" "~Polkadot"
+https://www.reddit.com/r/ethereum/.rss "cryptocurrency" "~Reddit Ethereum"
+https://themerkle.com/feed/ "cryptocurrency"
+https://medium.com/feed/tron-foundation "blockchain" "~Tron"
+https://medium.com/feed/uport "cryptocurrency" "~uPort"
+https://medium.com/feed/VitalikButerin "cryptocurrency" "~Vitalik Buterin"
+https://medium.com/feed/Vlad_Zamfir "cryptocurrency" "~Vlad Zamfir"
+http://www.weekinethereum.com/rss "cryptocurrency"
+https://blog.z.cash/feed/ "cryptocurrency" "~Zcash"
 
-https://medium.com/feed/@VitalikButerin blockchain "~Vitalik Buterin"
-https://medium.com/feed/@Vlad_Zamfir blockchain "~Vlad Zamfir"
-https://medium.com/feed/@FEhrsam blockchain "~Fred Ehrsam"
-https://www.reddit.com/r/ethereum/.rss blockchain "~Reddit Ethereum"
-https://themerkle.com/feed/ "blockchain" 
-https://feeds.feedburner.com/CoinDesk "blockchain"
-https://www.ccn.com/feed/ "blockchain"
-https://bitcoinmagazine.com/feed "blockchain"
-https://www.newsbtc.com/feed/ "blockchain"
-https://cryptodisrupt.com/feed/ "blockchain"
-http://www.ofnumbers.com/feed/ "blockchain"
-http://feeds.feedburner.com/avc "blockchain"
-https://ethresear.ch/latest.rss "blockchain" "~Ethereum Research"
-https://www.bitguru.co.uk/feed/ "blockchain" "~Bitguru"
-https://blog.cosmos.network/feed "blockchain" "~Cosmos"
-https://medium.com/feed/@dfinity "blockchain" "~Dfinity"
-https://blog.omisego.network/feed "blockchain" "~OmiseGO"
-https://medium.com/feed/@ConsenSys "blockchain" "~ConsenSys"
-https://blog.golemproject.net/feed "blockchain" "~Golum"
-https://medium.com/feed/@eosio "blockchain" "~EOS"
-https://blog.z.cash/feed/ "blockchain" "~Zcash"
-http://www.weekinethereum.com/rss "blockchain" 
-https://medium.com/feed/@corda "blockchain" "~Corda"
-http://cryptonewsreview.com/feed/ "blockchain"
-https://medium.com/feed/@jacob.eliosoff "blockchain"
-https://blog.0xproject.com/feed "blockchain" "~0x"
-https://medium.com/feed/@poa-network "blockchain" "~PoA"
-https://medium.com/feed/@polkadot-network "blockchain" "~Polkadot"
-https://medium.com/feed/@AugurProject "blockchain" "~Augur"
-https://medium.com/feed/@originprotocol "blockchain" "~Origin"
-https://medium.com/feed/@uport "blockchain" "~uPort"
-https://paritytech.io/rss/ "blockchain"
-https://ipfs.io/blog/index.xml "blockchain" "IPFS"
-https://medium.com/feed/@tron-foundation "blockchain" "~Tron"
-https://www.hyperledger.org/feed "blockchain" "~Hyperledger"
-https://diar.co/comments/feed/ "finance" "~Diar"
-http://feeds.feedburner.com/zerohedge/feed "finance"  "~ZeroHedge"
+
+http://feeds.feedburner.com/zerohedge/feed "finance" "~ZeroHedge"
 https://aeon.co/feed.rss "ideas" "~Aeon"
-https://cointelegraph.com/rss "blockchain" "Cointelegraph"
-
-"query:All Ethereum:tags =~ \"blockchain\" and ( title =~ \"Ethereum\" )" "blockchain"
-"query:All Interoperability:tags =~ \"blockchain\" and ( title =~ \"exchange\" or content =~ \"Binance\" )" "blockchain"
-"query:All Privacy:tags =~ \"blockchain\" and ( title =~ \"Privacy\" or content =~ \"Privacy\" )" "blockchain"
-"query:All London:tags =~ \"blockchain\" and ( title =~ \"London\" or content =~ \"London\" )" "blockchain"
-"query:All Network Economics:tags =~ \"blockchain\" and ( title =~ \"Economics\" or content =~ \"Economics\" )" "blockchain"
-"query:All Consensus:tags =~ \"blockchain\" and ( title =~ \"Consensus\" or content =~ \"consensus\" )" "blockchain"
-"query:.Read later:flags # \"s\""
 
 
-https://medium.com/feed/usevim vim "~UseVim"
-https://groups.google.com/forum/feed/vim_announce/msgs/rss.xml vim "~Vim Announce"
+https://blog.golang.org/feed.atom "golang"
+https://golangweekly.com/rss/19if8e2m "golang"
+https://www.reddit.com/r/golang/.rss "programming" "~Reddit Golang"
+http://jasonwryan.com/atom.xml "programming"
+http://spf13.com/index.xml "~Steve Francia" "programming"
+http://remysharp.com/feed/ "programming"
+https://shapeshed.com/atom/index.xml "programming"
+https://scotthelme.co.uk/rss/ "programming"
+
+#
+https://medium.com/feed/usevim "vim" "~UseVim"
+https://groups.google.com/forum/feed/vim_announce/msgs/rss.xml "vim" "~Vim Announce"
 https://www.reddit.com/r/vim/.rss "~Reddit Vim"
+http://velonews.competitor.com/feed "cycling"
+http://feeds2.feedburner.com/cyclingnews/news "cycling" "~Cyclingnews"
+http://www.bicycling.com/rss.xml "cycling"
+http://feeds2.feedburner.com/LondonCyclist "cycling"
+http://www.cyclingweekly.co.uk/news/feed "cycling" "~Cycling Weekly"
+https://www.cyberciti.biz/feed/ "linux"
+https://www.archlinux.org/feeds/news/ "linux"
+http://planet.centos.org/atom.xml "linux"
+https://www.reddit.com/r/archlinux/.rss "linux" "~Reddit Arch Linux"
 
-http://velonews.competitor.com/feed cycling 
-http://feeds2.feedburner.com/cyclingnews/news cycling "~Cyclingnews"
-http://www.bicycling.com/rss.xml cycling
-http://feeds2.feedburner.com/LondonCyclist cycling
-http://www.cyclingweekly.co.uk/news/feed cycling "~Cycling Weekly"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCuTaETsuCOkJ0H_GAztWt0Q cycling youtube "~GCN Show" 
-https://www.youtube.com/feeds/videos.xml?channel_id=UCP7VdHbliZLl2N_5R2zNxEA cycling youtube "~Cogs and Punches" 
-https://www.youtube.com/feeds/videos.xml?channel_id=UCjcANXkXDbYqQ34F_UTql5w cycling youtube "~Juliet Elliot" 
-https://www.youtube.com/feeds/videos.xml?channel_id=UCpn6aFvwAI_hK9WuHcdvQGA cycling youtube "~The Vegan Cyclist" 
-https://www.youtube.com/feeds/videos.xml?channel_id=UCyR3pFHGQZbHTXxsqLaC-oA cycling youtube "~Durianrider" 
-
-https://www.cyberciti.biz/feed/ linux
-https://www.archlinux.org/feeds/news/ linux
-http://planet.centos.org/atom.xml linux
-https://www.reddit.com/r/archlinux/.rss linux "~Reddit Arch Linux"
+# Query Feeds
+"query:Cryptocurrency Articles:tags # \"cryptocurrency\""
+"query:Philosophy Articles:tags # \"philosophy\""
+"query:.Read later:flags # \"s\""
+"query:.Unread Articles:unread = \"yes\""
