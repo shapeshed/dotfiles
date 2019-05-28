@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Usage: slackpost <token> <channel> <message>
+
+# Enter the name of your slack host here - the thing that appears in your URL:
+# https://slackhost.slack.com/
+slackhost=clearmatics
+
+token=$1
+
+if [[ $token == "" ]]
+then
+        echo "No token specified"
+        exit 1
+fi
+
+shift
+channel=$1
+if [[ $channel == "" ]]
+then
+        echo "No channel specified"
+        exit 1
+fi
+
+shift
+
+text=$*
+
+if [[ $text == "" ]]
+then
+        echo "No text specified"
+        exit 1
+fi
+
+escapedText=$(echo $text | sed 's/"/\"/g' | sed "s/'/\'/g" )
+json="{\"channel\": \"$channel\", \"text\": \"$escapedText\", \"as_user\": \"true\", \"type\": \"message\"}"
+
+curl -s -o /dev/null -X POST -H "Authorization: Bearer $token" \
+  -H 'Content-type: application/json; charset=utf-8' \
+  --data "$json" \
+  https://slack.com/api/chat.postMessage
+
+

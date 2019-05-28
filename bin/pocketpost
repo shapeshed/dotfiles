@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Usage: pocketpost <token> <channel> <message>
+
+# Enter the name of your slack host here - the thing that appears in your URL:
+# https://slackhost.slack.com/
+#slackhost=clearmatics
+
+consumerKey=$1
+
+if [[ $consumerKey == "" ]]
+then
+        echo "No consumer key specified"
+        exit 1
+fi
+
+shift
+accessToken=$1
+if [[ $accessToken == "" ]]
+then
+        echo "No access token specified"
+        exit 1
+fi
+
+shift
+url=$1
+if [[ $url == "" ]]
+then
+        echo "No url specified"
+        exit 1
+fi
+
+escapedURL=$(echo $url | sed 's/"/\"/g' | sed "s/'/\'/g" )
+json="{\"url\":\"$escapedURL\", \"consumer_key\":\"$consumerKey\", \"access_token\":\"$accessToken\"}"
+
+curl -s -o /dev/null --insecure https://getpocket.com/v3/add -X POST -H "Content-Type: application/json" -H "X-Accept: application/json" -d "$json"
