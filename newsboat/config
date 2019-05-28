@@ -50,4 +50,4 @@ macro e set browser "tmux split-window && tmux send-keys '$EDITOR ~/.newsboat/co
 
 macro s set browser "slackpost `pass show coding/slack-token` C04MXJ62Y %u"; open-in-browser ; set browser $BROWSER %u"
 
-macro p set browser "pocketpost %u"; open-in-browser ; set browser $BROWSER %u"
+macro p set browser "pocketpost `pass show coding/pocket-ck` `pass show coding/pocket-at` %u"; open-in-browser ; set browser $BROWSER %u"
