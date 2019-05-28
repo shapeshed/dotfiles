@@ -6,7 +6,7 @@
 # Here you define a comma separated list of targets.  Each of them must have a
 # section below determining their properties, how to query them, etc.  The name
 # is just a symbol, and doesn't have any functional importance.
-targets = cm_gitlab, cm_github
+targets = cm_gitlab, cm_created_github, cm_assigned_github
 # If unspecified, the default taskwarrior config will be used.
 #taskrc = /path/to/.taskrc
 
@@ -90,12 +90,24 @@ gmail.description_template = {{gmailsubject}}
 gmail.project_template = email
 gmail.login_name = go@clearmatics.com 
 
-[cm_github]
+[cm_assigned_github]
 service = github
 github.login = shapeshed
-github.add_tags = work, do, github
+github.add_tags = work, do, github, assigned
 github.token = @oracle:eval:pass coding/github-patoken
 github.query = is:open is:issue assignee:shapeshed org:clearmatics archived:false 
+github.description_template = {{githubtitle}}
+github.include_user_issues = False
+github.include_user_repos = False
+github.import_labels_as_tags = True
+github.username = shapeshed
+
+[cm_created_github]
+service = github
+github.login = shapeshed
+github.add_tags = work, do, github, created
+github.token = @oracle:eval:pass coding/github-patoken
+github.query = is:open is:issue archived:false org:clearmatics author:shapeshed 
 github.description_template = {{githubtitle}}
 github.include_user_issues = False
 github.include_user_repos = False
