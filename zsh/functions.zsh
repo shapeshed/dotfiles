@@ -34,6 +34,10 @@ function wifi {
     sudo wpa_supplicant -c /etc/wpa_supplicant/"$*".conf -i wlp4s0 -B
 }
 
+function t {
+    task add "$*" +do +work due:eod
+}
+
 
 # Print a summary for standup
 function standup {
