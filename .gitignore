@@ -51,6 +51,7 @@ config/user-dirs.locale
 config/VirtualBox
 config/wireshark/
 config/zoomus.conf
+config/Signal/
 
 
 
