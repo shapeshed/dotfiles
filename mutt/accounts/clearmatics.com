@@ -1,6 +1,6 @@
 
 source ~/.mutt/authentication/go@clearmatics.com                 
-source ~/.mutt/colors/mutt-colors-solarized-dark-256.muttrc
+source ~/.mutt/colors/mutt-colors-solarized-dark-16.muttrc
 
 set pgp_sign_as     =   "04E1DF458DA032A0"
 set pgp_default_key =   "34638605FC36E53F"
