@@ -38,6 +38,7 @@ config/pulse/
 config/QtProject
 config/QtProject.conf
 config/rtv
+config/Signal Beta
 config/skypeforlinux
 config/spotify
 config/systemd/user/default.target.wants/
