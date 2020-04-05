@@ -1,0 +1,3 @@
+include ~/.config/sway/config.d/*
+
+default_border none
