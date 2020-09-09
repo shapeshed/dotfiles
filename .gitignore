@@ -33,6 +33,7 @@ config/mpd/state
 config/mpd/sticker.sql
 config/nautilus/
 config/neofetch/
+config/opera/
 config/pavucontrol.ini
 config/pulse/
 config/QtProject
