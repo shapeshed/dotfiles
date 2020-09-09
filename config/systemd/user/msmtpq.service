@@ -4,7 +4,7 @@ After=network.target network-online.target dbus.socket
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/msmtp-runqueue.sh -a clearmatics
+ExecStart=/usr/local/bin/msmtp-runqueue.sh -a shapeshed
 
 [Install]
 WantedBy=default.target

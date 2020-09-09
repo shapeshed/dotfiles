@@ -5,7 +5,7 @@ After=display-manager.service
 
 [Service]
 Environment=DISPLAY=:0
-ExecStart=/usr/bin/redshift
+ExecStart=/usr/bin/redshift -m wayland
 Restart=always
 RestartSec=20
 
