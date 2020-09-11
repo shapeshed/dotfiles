@@ -10,3 +10,6 @@
 [submodule "vim/pack/shapeshed/start/vim-vyper"]
 	path = vim/pack/shapeshed/start/vim-vyper
 	url = https://github.com/vyperlang/vim-vyper.git
+[submodule "vim/pack/shapeshed/start/vim-solidity"]
+	path = vim/pack/shapeshed/start/vim-solidity
+	url = https://github.com/TovarishFin/vim-solidity.git
