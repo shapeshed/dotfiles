@@ -2,7 +2,7 @@
 image/*; feh %s
 
 # PDF
-application/pdf; mupdf %s
+application/pdf; evince %s
 
 # Videos
 video/quicktime; mpv %s
