@@ -2,7 +2,11 @@ set nocompatible                      " Welcome to the future
 
 syntax on                             " Enable syntax highlighting
 filetype plugin indent on             " allow plugins to determine indentation
-color solarized                       " Use solarized dark color scheme
+"color solarized                       " Use solarized dark color scheme
+"let g:solarized_termtrans = 1 
+let g:gruvbox_contrast_light = 'hard'
+autocmd vimenter * colorscheme gruvbox
+
 
 let mapleader = ","                   " Set leader to ,
 let g:netrw_banner = 0                " disable_banner in filebrowser
@@ -39,8 +43,8 @@ set path=$PWD/**                      " Search recursively for file related task
 set ruler                             " Show line number and column number
 set scrolloff=1                       " Keep one line below the cursor
 set showmatch                         " Show matching bracket
-set shiftwidth=2                      " Number of spaces to use for (auto) indent
-set softtabstop=2                     " Number of tabs that a <Tab> counts for
+set shiftwidth=4                      " Number of spaces to use for (auto) indent
+set softtabstop=4                     " Number of tabs that a <Tab> counts for
 set smartcase                         " Override 'ignorecase' if search has uppercase
 set statusline=                       " Custom status line
 set statusline+=%#PmenuSel#           " Show git branch if it exists
