@@ -8,7 +8,9 @@ LONGLAT="51.847875,-0.664398"
 # New York
 # LONGLAT="40.758896,-73.985130"
 
-DATA=`curl -s "https://api.darksky.net/forecast/17b1e8cae7b68e290659b438557def7e/$LONGLAT?exclude=minutely,hourly,daily,alerts,flags&units=si"`
+TOKEN=$(pass show darksky.net/george@shapeshed.com/token)
+
+DATA=`curl -s "https://api.darksky.net/forecast/$TOKEN/$LONGLAT?exclude=minutely,hourly,daily,alerts,flags&units=si"`
 echo $DATA
 TEMP=`echo $DATA | jq -r '.currently.temperature'`
 ICON=`echo $DATA | jq -r '.currently.icon'`
