@@ -2,11 +2,8 @@ set nocompatible                      " Welcome to the future
 
 syntax on                             " Enable syntax highlighting
 filetype plugin indent on             " allow plugins to determine indentation
-"color solarized                       " Use solarized dark color scheme
-"let g:solarized_termtrans = 1 
 let g:gruvbox_contrast_light = 'hard'
 autocmd vimenter * colorscheme gruvbox
-
 
 let mapleader = ","                   " Set leader to ,
 let g:netrw_banner = 0                " disable_banner in filebrowser
@@ -59,7 +56,7 @@ set statusline+=\ %{&fileencoding?&fileencoding:&encoding} " File encoding
 set statusline+=\[%{&fileformat}\]    " File format
 set statusline+=\ %p%%                " Percentage through file
 set statusline+=\ %l:%c               " Line number:Column number
-set statusline+=\ 
+set statusline+=\
 set tabstop=2                         " The number of spaces that a <Tab> counts for
 set ttimeout                          " Timeout key sequences
 set ttimeoutlen=50                    " Timout after 50 milliseconds
@@ -98,6 +95,17 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|
 
+autocmd FileType solidity setlocal shiftwidth=4 softtabstop=4 ts=4
 
+let g:ale_linters = {
+\ 'javascript': ['eslint'],
+\ 'typescript': ['eslint'],
+\ 'solidity': ['solhint']
+\ }
+let g:ale_fixers = {
+\ 'javascript': ['prettier'],
+\ 'typescript': ['prettier'],
+\ 'solidity': ['remove_trailing_lines', 'trim_whitespace']
+\}
 
-
+let g:ale_fix_on_save = 1
