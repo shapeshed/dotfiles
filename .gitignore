@@ -2,6 +2,7 @@ auth
 config/airtame-application/
 config/autostart/
 config/chromium
+config/coc
 config/compiz-1/
 config/configstore
 config/dconf/
@@ -54,6 +55,24 @@ config/VirtualBox
 config/wireshark/
 config/zoomus.conf
 config/Signal/
+config/Daedalus Mainnet/
+config/Pinta/
+config/Unknown Organization/
+config/Yubico/
+config/discord/
+config/gcloud/
+config/helm/
+config/hub
+config/i3status-rs/
+config/linkchecker/
+config/mako/
+config/mono.addins/
+config/ncspot/
+config/nordvpn/
+config/vlc/
+config/xbuild/
+config/yarn/
+
 
 
 
