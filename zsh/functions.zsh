@@ -31,7 +31,7 @@ workpass() {
 }
 
 function wifi {
-    sudo wpa_supplicant -c /etc/wpa_supplicant/"$*".conf -i wlp4s0 -B
+    sudo wpa_supplicant -c /etc/wpa_supplicant/"$*".conf -i wlp2s0 -B
 }
 
 function t {
