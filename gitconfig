@@ -1,9 +1,7 @@
 [user]
   name = George Ornbo
-  #email = george@shapeshed.com
-  #signingkey = 8B63285980040E5D
-  email = go@clearmatics.com
-  signingkey = 8B4C8A62C8520BF2
+  email = george@shapeshed.com
+  signingkey = 8B63285980040E5D
 
 [github]
   user = shapeshed
@@ -18,17 +16,17 @@
 [clean]
   requireForce = false
 
-[url "git@github.com:"]
-  insteadOf = git://github.com/
+#[url "git@github.com:"]
+#  insteadOf = git://github.com/
 
-[url "git@github.com:"]
-  insteadOf = https://github.com/
+#[url "git@github.com:"]
+#  insteadOf = https://github.com/
 
 [push]
   default = simple
 
 [commit]
-  gpgsign = true
+  #gpgsign = true
 
 [merge]
   ff = no
