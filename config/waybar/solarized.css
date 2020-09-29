@@ -1,0 +1,185 @@
+/* List of colors */
+
+/* {
+    --base03:    #002b36;
+    --base02:    #073642;
+    --base01:    #586e75;
+    --base00:    #657b83;
+    --base0:     #839496;
+    --base1:     #93a1a1;
+    --base2:     #eee8d5;
+    --base3:     #fdf6e3;
+    --yellow:    #b58900;
+    --orange:    #cb4b16;
+    --red:       #dc322f;
+    --magenta:   #d33682;
+    --violet:    #6c71c4;
+    --blue:      #268bd2;
+    --cyan:      #2aa198;
+    --green:     #859900;
+} */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Hack, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #002b36;
+    color: #d33682;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+#workspaces {
+    border-bottom: 1px solid #586e75;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: #657b83;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused {
+    background-color: #073642;
+    border-bottom: 1px solid #ff0;
+}
+
+#workspaces button.urgent {
+    background-color: #d33682;
+}
+
+#mode {
+    background-color: #002b36;
+    border-bottom: 1px solid #dc322f;
+}
+
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
+    padding: 0 10px;
+    margin: 0 2px;
+    color: #657b83;
+}
+/*
+#clock {
+    background-color: #073642;
+}
+*/
+#battery {
+    background-color: #073642;
+}
+
+#battery.charging {
+    color: #eee8d5;
+    background-color: #859900;
+}
+
+@keyframes blink {
+    to {
+        background-color: #d33682;
+        color: #93a1a1;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #dc322f;
+    color: #93a1a1;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #073642;
+}
+
+#cpu {
+    background-color: #073642;
+}
+
+#memory {
+    background-color: #073642;
+}
+
+#backlight {
+    background-color: #073642;
+}
+
+#network {
+    background-color: #073642;
+}
+
+#network.disconnected {
+    background-color: #002b36;
+}
+
+#pulseaudio {
+    background-color: #073642;
+}
+
+#pulseaudio.muted {
+    background-color: #002b36;
+}
+
+#custom-media {
+    background-color: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+
+#temperature {
+    background-color: #073642;
+}
+
+#temperature.critical {
+    background-color: #dc322f;
+}
+
+#tray {
+    background-color: #002b36;
+}
+
+#idle_inhibitor {
+    background-color: #002b36;
+}
+
+#idle_inhibitor.activated {
+    background-color: #073642;
+}
