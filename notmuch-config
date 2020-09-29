@@ -11,7 +11,7 @@
 # configured here named ".notmuch".
 #
 [database]
-path=/home/go/.mail
+path=/home/go/Maildir
 
 # User configuration
 #
@@ -30,8 +30,8 @@ path=/home/go/.mail
 #
 [user]
 name=George Ornbo
-primary_email=go@clearmatics.com
-other_email=ops@clearmatics.com;
+primary_email=george@shapeshed.com
+other_email=hello@shapeshed.com
 
 # Configuration for "notmuch new"
 #
