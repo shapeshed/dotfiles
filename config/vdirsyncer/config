@@ -1,0 +1,69 @@
+# An example configuration for vdirsyncer.
+#
+# Move it to ~/.vdirsyncer/config or ~/.config/vdirsyncer/config and edit it.
+# Run `vdirsyncer --help` for CLI usage.
+#
+# Optional parameters are commented out.
+# This file doesn't document all available parameters, see
+# http://vdirsyncer.pimutils.org/ for the rest of them.
+
+[general]
+# A folder where vdirsyncer can store some metadata about each pair.
+status_path = "~/.vdirsyncer/status/"
+
+# CARDDAV
+[pair shapeshed_contacts]
+# A `[pair <name>]` block defines two storages `a` and `b` that should be
+# synchronized. The definition of these storages follows in `[storage <name>]`
+# blocks. This is similar to accounts in OfflineIMAP.
+a = "shapeshed_contacts_local"
+b = "shapeshed_contacts_remote"
+
+# Synchronize all collections that can be found.
+# You need to run `vdirsyncer discover` if new calendars/addressbooks are added
+# on the server.
+
+collections = ["from a", "from b"]
+
+# Synchronize the "display name" property into a local file (~/.contacts/displayname).
+#metadata = ["displayname"]
+
+# To resolve a conflict the following values are possible:
+#   `null` - abort when collisions occur (default)
+#   `"a wins"` - assume a's items to be more up-to-date
+#   `"b wins"` - assume b's items to be more up-to-date
+#conflict_resolution = null
+
+[storage shapeshed_contacts_local]
+# A storage references actual data on a remote server or on the local disk.
+# Similar to repositories in OfflineIMAP.
+type = "filesystem"
+path = "/home/go/.local/share/shapeshed/aec0356d-e864-a5ae-f1c4-c0c2321ce72a/"
+fileext = ".vcf"
+
+[storage shapeshed_contacts_remote]
+type = "carddav"
+url = "https://mail.shapeshed.com/george%40shapeshed.com/aec0356d-e864-a5ae-f1c4-c0c2321ce72a/"
+username = "george@shapeshed.com"
+password.fetch = ["command", "pass", "mail.shapeshed.com/george@shapeshed.com/password"]
+
+# CALDAV
+[pair shapeshed_calendar]
+a = "shapeshed_calendar_local"
+b = "shapeshed_calendar_remote"
+collections = ["from a", "from b"]
+
+# Calendars also have a color property
+metadata = ["displayname", "color"]
+
+[storage shapeshed_calendar_local]
+type = "filesystem"
+path = "/home/go/.local/share/shapeshed"
+
+fileext = ".ics"
+
+[storage shapeshed_calendar_remote]
+type = "caldav"
+url = "https://mail.shapeshed.com/george%40shapeshed.com/5a7485fa-b4cc-c8de-05ba-b7ed374c3deb/"
+username = "george@shapeshed.com"
+password.fetch = ["command", "pass", "mail.shapeshed.com/george@shapeshed.com/password"]
