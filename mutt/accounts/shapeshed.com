@@ -1,15 +1,18 @@
 # source ~/.mutt/colors/base16-gruvbox.dark.256.muttrc
 # Commands
-source "gpg --decrypt --quiet ~/.mutt/aliases/shapeshed.gpg |"
+# source "gpg --decrypt --quiet ~/.mutt/aliases/shapeshed.gpg |"
 alternates ^george\+.*@shapeshed\.com$
 # auto_view text/html
 alternative_order text/plain text/enriched text/html
-bind editor ^T complete
+bind editor <Tab> complete-query
+bind editor ^T    complete
 bind editor <space> noop
 bind pager v view-attachments
 bind pager j next-line
 bind pager k previous-line
 bind pager q exit
+
+
 color attachment  color109 color234
 color bold        color229 color234
 color error       color167 color234
@@ -320,6 +323,7 @@ set print_decode                  =   yes
 set print_split                   =   no
 set prompt_after                  =   yes
 set query_command                 =   ""
+set query_command                 =   "khard email --parsable %s"
 set query_format                  =   "%4c %t %-25.25a %-25.25n %?e?(%e)?"
 set quit                          =   yes
 set quote_regexp                  =   "^([ \t]*[|>:}#])+"
