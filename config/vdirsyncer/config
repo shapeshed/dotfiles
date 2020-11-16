@@ -38,7 +38,7 @@ collections = ["from a", "from b"]
 # A storage references actual data on a remote server or on the local disk.
 # Similar to repositories in OfflineIMAP.
 type = "filesystem"
-path = "/home/go/.local/share/shapeshed/aec0356d-e864-a5ae-f1c4-c0c2321ce72a/"
+path = "/home/go/.local/share/shapeshed/contacts"
 fileext = ".vcf"
 
 [storage shapeshed_contacts_remote]
@@ -58,7 +58,7 @@ metadata = ["displayname", "color"]
 
 [storage shapeshed_calendar_local]
 type = "filesystem"
-path = "/home/go/.local/share/shapeshed"
+path = "/home/go/.local/share/shapeshed/calendars"
 
 fileext = ".ics"
 
