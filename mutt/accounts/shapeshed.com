@@ -505,3 +505,7 @@ macro attach F \
 <shell-escape>firefox /tmp/mutt-attach &<enter>\
 "
 
+macro index,pager C \
+        "<pipe-message>khard add-email<return>" \
+        "add the sender email address to khard"
+
