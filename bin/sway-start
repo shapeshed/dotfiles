@@ -7,4 +7,7 @@ unset QT_QPA_PLATFORM
 # do it here so all programs can run the wayland version eg keepassxc:
 export MOZ_ENABLE_WAYLAND=1
 
+export WLR_DRM_NO_MODIFIERS=1
+
 dbus-launch --sh-syntax --exit-with-session sway
+exec mako
