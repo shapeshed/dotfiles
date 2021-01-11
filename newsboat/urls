@@ -37,6 +37,7 @@ https://cryptonewsreview.com/feed/ "crypto-press" "!Crypto News Review"
 ######################
 https://blog.0xproject.com/feed "cryptocurrency" "!0x"
 https://medium.com/feed/AugurProject "cryptocurrency" "!Augur"
+https://iohk.io/feed.xml "cryptocurrency" "!Cardano"
 https://medium.com/feed/ConsenSys "cryptocurrency" "!ConsenSys"
 https://medium.com/feed/corda "cryptocurrency" "!Corda"
 https://blog.cosmos.network/feed "cryptocurrency" "!Cosmos"
@@ -56,6 +57,12 @@ https://medium.com/feed/uport "cryptocurrency" "!uPort"
 http://www.weekinethereum.com/rss "cryptocurrency" "!Week in Ethereum"
 https://blog.z.cash/feed/ "cryptocurrency" "!Zcash"
 
+######################
+# Cryptocurrency
+######################
+https://medium.com/feed/iearn "defi"  "!Yearn Finance"
+https://medium.com/feed/aave "defi" "!Aave"
+
 http://feeds.feedburner.com/zerohedge/feed "finance" "!ZeroHedge"
 https://aeon.co/feed.rss "philosophy" "!Aeon"
 
@@ -67,6 +74,7 @@ https://www.archlinux.org/feeds/news/ "linux" "!Arch Linux"
 "query:Crypto People:tags # \"crypto-people\""
 "query:Crypto Press:tags # \"crypto-press\""
 "query:Cryptocurrency:tags # \"cryptocurrency\""
+"query:DeFi:tags # \"defi\""
 "query:Finance:tags # \"finance\""
 "query:Linux:tags # \"linux\""
 "query:Philosophy Articles:tags # \"philosophy\""
