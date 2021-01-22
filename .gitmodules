@@ -19,9 +19,6 @@
 [submodule "vim/pack/shapeshed/start/typescript-vim"]
 	path = vim/pack/shapeshed/start/typescript-vim
 	url = git@github.com:leafgarland/typescript-vim.git
-[submodule "vim/pack/shapeshed/start/coc.nvim"]
-	path = vim/pack/shapeshed/start/coc.nvim
-	url = git@github.com:neoclide/coc.nvim.git
 [submodule "vim/pack/shapeshed/start/ale"]
 	path = vim/pack/shapeshed/start/ale
 	url = git@github.com:dense-analysis/ale.git
