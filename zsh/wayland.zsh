@@ -1,0 +1,9 @@
+export BEMENU_OPTS='--tb "#002B36" --tf "#cb4b16" --fb "#073642" --ff "#b58900" --nb "#586e75" --nf "#93a1a1" --hb "#657b83" --hf "#eee8d5" --sb "#839496" --sf "#2aa198" --scb "#93a1a1" --scf "#fdf6e3"'
+export MOZ_ENABLE_WAYLAND=1
+export _JAVA_AWT_WM_NONREPARENTING=1
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_QPA_PLATFORM=wayland
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+ # GDK_BACKEND=wayland
+export MOZ_WEBRENDER=1
+export MOZ_ACCELERATED=1
