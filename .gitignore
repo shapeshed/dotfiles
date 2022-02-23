@@ -73,6 +73,25 @@ config/vlc/
 config/xbuild/
 config/yarn/
 
+config/Android Open Source Project/
+config/Google/
+config/Keybase/
+config/PlantUML Editor/
+config/Slack/
+config/ardour6/
+config/brinkervii/
+config/chrome-flags.conf
+config/chromium-flags.conf
+config/glib-2.0/
+config/go/
+config/hardhat-nodejs/
+config/keybase/
+config/mozilla/
+config/rmapi/
+config/todoman/
+config/truffle-nodejs/
+
+
 
 
 
