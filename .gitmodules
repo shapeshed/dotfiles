@@ -28,6 +28,6 @@
 [submodule "vim/pack/shapeshed/start/vim-terraform"]
 	path = vim/pack/shapeshed/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
-[submodule "vim/pack/plugins/start/rust.vim"]
-	path = vim/pack/plugins/start/rust.vim
+[submodule "vim/pack/shapeshed/start/rust.vim"]
+	path = vim/pack/shapeshed/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim
