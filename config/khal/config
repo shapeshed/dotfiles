@@ -1,7 +1,7 @@
 [calendars]
 
 [[shapeshed]]
-path = /home/go/.local/share/shapeshed/calendars/5a7485fa-b4cc-c8de-05ba-b7ed374c3deb 
+path = /home/go/.local/share/shapeshed/calendars/6c3ece98-644f-8d05-97a2-a1992c0a58c3
 type = discover
 color = light magenta 
 
@@ -22,4 +22,4 @@ agenda_event_format = {calendar-color}{cancelled}{start-end-time-style} {title}{
 frame = color
 
 [default]
-default_calendar = 5a7485fa-b4cc-c8de-05ba-b7ed374c3deb
+default_calendar = 6c3ece98-644f-8d05-97a2-a1992c0a58c3
