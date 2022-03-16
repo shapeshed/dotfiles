@@ -64,6 +64,6 @@ fileext = ".ics"
 
 [storage shapeshed_calendar_remote]
 type = "caldav"
-url = "https://mail.shapeshed.com/george%40shapeshed.com/5a7485fa-b4cc-c8de-05ba-b7ed374c3deb/"
+url = "https://mail.shapeshed.com/george%40shapeshed.com/6c3ece98-644f-8d05-97a2-a1992c0a58c3/"
 username = "george@shapeshed.com"
 password.fetch = ["command", "pass", "mail.shapeshed.com/george@shapeshed.com/password"]
