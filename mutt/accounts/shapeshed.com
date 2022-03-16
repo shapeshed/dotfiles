@@ -1,4 +1,4 @@
-# source ~/.mutt/colors/base16-gruvbox.dark.256.muttrc
+source ~/.mutt/colors/colors-gruvbox-shuber.muttrc 
 # Commands
 # source "gpg --decrypt --quiet ~/.mutt/aliases/shapeshed.gpg |"
 alternates ^george\+.*@shapeshed\.com$
@@ -13,67 +13,11 @@ bind pager k previous-line
 bind pager q exit
 
 
-color attachment  color109 color234
-color bold        color229 color234
-color error       color167 color234
-color hdrdefault  color246 color234
-color indicator   color223 color237
-color markers     color243 color234
-color normal      color223 color234
-color quoted      color250 color234
-color quoted1     color108 color234
-color quoted2     color250 color234
-color quoted3     color108 color234
-color quoted4     color250 color234
-color quoted5     color108 color234
-color search      color234 color208
-color signature   color108 color234
-color status      color245 color235
-color tilde       color243 color234
-color tree        color142 color234
-color underline   color223 color239
-
-color sidebar_divider    color250 color234
-color sidebar_new        color142 color234
-
-color index color142 color234 ~N
-color index color108 color234 ~O
-color index color109 color234 ~P
-color index color214 color234 ~F
-color index color175 color234 ~Q
-color index color167 color234 ~=
-color index color234 color223 ~T
-color index color234 color167 ~D
-
-color header color214 color234 "^(To:|From:)"
-color header color142 color234 "^Subject:"
-color header color108 color234 "^X-Spam-Status:"
-color header color108 color234 "^Received:"
-
-color body color142 color234 "[a-z]{3,256}://[-a-zA-Z0-9@:%._\\+~#=/?&,]+"
-color body color142 color234 "[a-zA-Z]([-a-zA-Z0-9_]+\\.){2,256}[-a-zA-Z0-9_]{2,256}"
-color body color208 color234 "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
-color body color208 color234 "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
-color body color234 color214 "[;:]-*[)>(<lt;|]"
-color body color229 color234 "\\*[- A-Za-z]+\\*"
-
-color body color214 color234 "^-.*PGP.*-*"
-color body color142 color234 "^gpg: Good signature from"
-color body color167 color234 "^gpg: Can't.*$"
-color body color214 color234 "^gpg: WARNING:.*$"
-color body color167 color234 "^gpg: BAD signature from"
-color body color167 color234 "^gpg: Note: This key has expired!"
-color body color214 color234 "^gpg: There is no indication that the signature belongs to the owner."
-color body color214 color234 "^gpg: can't handle these multiple signatures"
-color body color214 color234 "^gpg: signature verification suppressed"
-color body color214 color234 "^gpg: invalid node with packet of type"
 hdr_order Date From To Cc Date
 ignore *
 unignore from date subject to cc
 lists dovecot k-9-mail users@spamassassin.apache.org postfix-users@postfix.org
 subscribe dovecot k-9-mail users@spamassassin.apache.org postfix-users@postfix.org
-
-
 
 set abort_noattach                =   yes 
 set abort_noattach_regexp         =   "attach"
@@ -509,3 +453,8 @@ macro index,pager C \
         "<pipe-message>khard add-email<return>" \
         "add the sender email address to khard"
 
+bind index,pager i noop
+macro index,pager ia '<pipe-entry>mutt-itip accept "Accept iCal invitation"
+macro index,pager id '<pipe-entry>mutt-itip decline "Decline iCal invitation"
+macro index,pager it '<pipe-entry>mutt-itip tentative "Tentatively accept iCal invitation"
+macro index,pager it '<pipe-entry>mutt-itip update "Update / Delete iCal invitation"
