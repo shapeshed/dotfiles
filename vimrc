@@ -96,16 +96,7 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|
 
 autocmd FileType solidity setlocal shiftwidth=4 softtabstop=4 ts=4
-
-let g:ale_linters = {
-\ 'javascript': ['eslint'],
-\ 'typescript': ['eslint'],
-\ 'solidity': ['solhint']
-\ }
-let g:ale_fixers = {
-\ 'javascript': ['prettier'],
-\ 'typescript': ['prettier'],
-\ 'solidity': ['remove_trailing_lines', 'trim_whitespace']
-\}
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yaml setl indentkeys-=<:>
 
 let g:ale_fix_on_save = 1
