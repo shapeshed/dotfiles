@@ -1,8 +1,8 @@
 color=false
 loglevel=warn
 sign-git-tag=true
-init.author.name=George Ornbo
-init.author.email=george@shapeshed.com
-init.author.url=http://shapeshed.com/
+init.author-name=George Ornbo
+init.author-email=george@shapeshed.com
+init.author-url=http://shapeshed.com/
 email=george@shapeshed.com
 python=python2
