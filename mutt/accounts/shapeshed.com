@@ -16,8 +16,8 @@ bind pager q exit
 hdr_order Date From To Cc Date
 ignore *
 unignore from date subject to cc
-lists dovecot k-9-mail users@spamassassin.apache.org postfix-users@postfix.org
-subscribe dovecot k-9-mail users@spamassassin.apache.org postfix-users@postfix.org
+lists dovecot k-9-mail users@spamassassin.apache.org postfix-users@postfix.org password-store@lists.zx2c4.com
+subscribe dovecot k-9-mail users@spamassassin.apache.org postfix-users@postfix.org password-store@lists.zx2c4.com
 
 set abort_noattach                =   yes 
 set abort_noattach_regexp         =   "attach"
