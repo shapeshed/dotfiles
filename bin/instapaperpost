@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -o pipefail
+
+username=$1
+password=$2
+url=$3
+
+if [[ $username == "" ]]
+then
+    echo "No username specified"
+    exit 1
+fi
+
+if [[ $password == "" ]]
+then
+    echo "No password specified"
+    exit 1
+fi
+
+if [[ $url == "" ]]
+then
+    echo "No password specified"
+    exit 1
+fi
+
+curl -s -o /dev/null -X POST \
+    -u $username:$password  \
+    -d url="$url" https://www.instapaper.com/api/add
