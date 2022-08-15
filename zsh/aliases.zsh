@@ -24,14 +24,6 @@ alias playbbcr6="mpv 'http://a.files.bbci.co.uk/media/live/manifesto/audio/simul
 # Node.js
 alias grunt='grunt --stack'
 
-# Platform specific aliases
-if [[ `uname` == 'Linux' ]]; then
-  alias ls='ls --color'
-  alias less='less -R'
-  alias cb='xclip -selection clipboard' 
-elif [[ `uname` == 'Darwin' ]]; then
-  alias update='brew update && brew upgrade && getchromium'
-  alias cb='pbcopy' 
-fi
-
-
+alias awsume=". awsume"
+alias k="kubectl"
+alias kl="kubectl logs"
