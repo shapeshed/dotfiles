@@ -1,40 +1,31 @@
-######################
-# Alerts 
-######################
-#
-https://www.google.com/alerts/feeds/13776273204308157046/655784424730490655 "alerts" "!blockchain AND interoperability"
-https://www.google.com/alerts/feeds/13776273204308157046/15710432300517688269 "alerts" "!clearmatics"
+# Alerts
+https://www.google.co.uk/alerts/feeds/09921663692746895687/8465141578698173234 "alerts" "!Ethereum"
 
-######################
+# Central Banks
+https://www.bis.org/doclist/rss_all_categories.rss "central-banks" "!BIS all" "~BIS All"
+https://www.bankofengland.co.uk/rss/speeches "central-banks" "!BOE speeches" "~BOE speeches"
+https://www.bankofengland.co.uk/rss/publications "central-banks" "!BOE publications" "~BOE publications"
+http://www.bankingsupervision.europa.eu/rss/press.html "central-banks" "!ECB press" "~ECB press"
+http://www.bankingsupervision.europa.eu/rss/pub.html "central-banks" "!ECB publications" "~ECB publications"
+https://www.federalreserve.gov/feeds/press_all.xml "central-banks" "!Fed press" "~Fed Press"
+https://www.federalreserve.gov/feeds/working_papers.xml "central-banks" "!Fed publications" "~Fed publications"
+
+
 # Crypto People
-######################
-http://feeds.feedburner.com/avc "crypto-people" "!AVC"
-https://medium.com/feed/FEhrsam "cryptocurrency" "!Fred Ehrsam"
-https://blog.cryptographyengineering.com/feed/ "crypto-people" "!Matthew Green"
-https://www.tonysheng.com/feed.xml "crypto-people" "!Tony Sheng"
-http://www.ofnumbers.com/feed/ "crypto-people" "!Tim Swanson"
-https://medium.com/feed/jacob.eliosoff "crypto-people" "!Jacob Eliosoff"
-https://medium.com/feed/vaibhavsaini_67863 "crypto-people" "!Vasa"
-https://medium.com/feed/VitalikButerin "crypto-people" "!Vitalik"
-https://medium.com/feed/Vlad_Zamfir "crypto-people" "!Vlad"
+https://vitalik.ca/feed.xml "crypto-people" "!Vitalik"
 
-######################
 # Crypto Press
-######################
-https://feeds.feedburner.com/CoinDesk "crypto-press" "!CoinDesk"
-https://cointelegraph.com/rss "crypto-press" "!Cointelegraph"
-https://www.theblockcrypto.com/rss.xml "crypto-press" "!The Block"
-https://www.ccn.com/feed/ "crypto-press" "!CNN"
-https://www.newsbtc.com/feed/ "crypto-press" "!NewsBTC"
-https://bitcoinmagazine.com/feed/ "crypto-press" "!Bitcoin Magazine"
-https://diar.co/feed/ "crypto-press" "!Diar"
-https://themerkle.com/feed/ "crypto-press" "!The Merkle"
-https://cryptodisrupt.com/feed/ "crypto-press" "!Crypto Disrupt"
-https://cryptonewsreview.com/feed/ "crypto-press" "!Crypto News Review"
+https://www.theblockcrypto.com/rss.xml "crypto-press" "!The Block" "~The Block"
+https://www.coindesk.com/arc/outboundfeeds/rss/?outputType=xml "crypto-press" "!CoinDesk" "~CoinDesk"
+https://cointelegraph.com/rss "crypto-press" "!Cointelegraph" "~Cointelegraph"
+https://cryptobriefing.com/feed/ "crypto-press" "!Crypto Briefing" "~Crypto Briefing"
+https://decrypt.co/feed "crypto-press" "!Decrypt" "~Decrypt"
+https://dailyhodl.com/feed/ "crypto-press" "!The Daily Hodl" "~Decrypt"
+https://themerkle.com/feed/ "crypto-press" "!The Merkle" "~The Merkle"
+https://web3isgoinggreat.com/feed.xml "crypto-press" "!web3 is going great" "~web3 is going great"
 
-######################
 # Cryptocurrency
-######################
+https://www.reddit.com/r/Cryptocurrency/top/.rss "cryptocurrency" "!r/Cryptocurrency" "~r/Cryptocurrency"
 https://blog.0xproject.com/feed "cryptocurrency" "!0x"
 https://medium.com/feed/AugurProject "cryptocurrency" "!Augur"
 https://iohk.io/feed.xml "cryptocurrency" "!Cardano"
@@ -56,21 +47,39 @@ https://medium.com/feed/tron-foundation "blockchain" "!Tron"
 https://medium.com/feed/uport "cryptocurrency" "!uPort"
 http://www.weekinethereum.com/rss "cryptocurrency" "!Week in Ethereum"
 https://blog.z.cash/feed/ "cryptocurrency" "!Zcash"
+https://thedailygwei.substack.com/feed "cryptocurrency" "!Daily Gwei" "!Daily Gwei"
 
-######################
 # Cryptocurrency
-######################
 https://medium.com/feed/iearn "defi"  "!Yearn Finance"
 https://medium.com/feed/aave "defi" "!Aave"
 
-http://feeds.feedburner.com/zerohedge/feed "finance" "!ZeroHedge"
-https://aeon.co/feed.rss "philosophy" "!Aeon"
+# Security
+https://bugalert.org/feeds/critical-severity.atom.xml "security" "!Bug Alert" "~Bug Alert"
 
-https://www.cyberciti.biz/feed/ "linux" "!Cyberciti"
+# Linux
 https://www.archlinux.org/feeds/news/ "linux" "!Arch Linux"
+https://github.com/openwrt/openwrt/releases.atom "linux" "!OpenWRT Releases"
+
+# Politics
+https://www.reddit.com/r/ukpolitics/top/.rss "ukpolitics" "!r/ukpolitics" "~r/ukpolitics"
+
+# Economics
+https://bankunderground.co.uk/feed/ "economics" "!Bank Underground" "~Bank Underground"
+https://www.coppolacomment.com/feeds/posts/default "economics" "!Coppola Comment" "~Coppola Comment"
+https://www.pragcap.com/feed/ "economics" "!Pragmatic Capitalism" "~Pragmatic Capitalism"
+#https://www.ft.com/alphaville?format=rss "economics" "!FT Alphaville" "~FT Alphaville"
+https://www.concertedaction.com/feed/ "economics" "!Concerted Action" "~Concerted Action"
+https://mainlymacro.blogspot.com/feeds/posts/default "economics" "!Mainly Macro" "~Mainly Macro"
+https://stumblingandmumbling.typepad.com/stumbling_and_mumbling/atom.xml "economics" "!Stumbling and Mumbling" "~Stumbling and Mumbling"
+https://www.interfluidity.com/feed "economics" "!Interfluidity" "~Interfluidity"
+
+# Hacker News
+https://hnrss.org/best "hackernews" "!Hacker News Best" "!~Hacker News Best"
+
 
 # Query Feeds
 "query:Alerts:tags # \"alerts\""
+"query:Central Banks:tags # \"central-banks\""
 "query:Crypto People:tags # \"crypto-people\""
 "query:Crypto Press:tags # \"crypto-press\""
 "query:Cryptocurrency:tags # \"cryptocurrency\""
@@ -78,3 +87,7 @@ https://www.archlinux.org/feeds/news/ "linux" "!Arch Linux"
 "query:Finance:tags # \"finance\""
 "query:Linux:tags # \"linux\""
 "query:Philosophy Articles:tags # \"philosophy\""
+"query:Security:tags # \"security\""
+"query:UK Politics:tags # \"ukpolitics\""
+"query:Economics:tags # \"economics\""
+"query:Hacker News:tags # \"hackernews\""
