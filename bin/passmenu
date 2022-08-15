@@ -10,7 +10,6 @@ if [[ $1 == "--type" ]]; then
 fi
 
 if [[ -n $WAYLAND_DISPLAY ]]; then
-  LD_LIBRARY_PATH=/usr/local/lib/ 
 	dmenu="bemenu"
 	xdotool="ydotool type --file -"
 elif [[ -n $DISPLAY ]]; then
