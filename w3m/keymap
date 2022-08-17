@@ -1,2 +1,3 @@
 keymap C-d NEXT_PAGE
 keymap C-u PREV_PAGE
+keymap  \\\r    COMMAND "READ_SHELL 'readable $W3M_URL -p html-title,html-content > /tmp/readable.html';  LOAD /tmp/readable.html"
