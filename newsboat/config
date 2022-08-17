@@ -43,8 +43,8 @@ reload-time 15
 
 player "mpv"
 
-macro r set browser "tmux split-window && tmux send-keys 'rtv %u && tmux kill-pane\n'"; open-in-browser ; set browser "$BROWSER %u"
 macro r set browser "readable -q %u | w3m -T text/html"; open-in-browser ; set browser "$BROWSER %u"
+macro t set browser "tmux split-window && tmux send-keys 'tuir %u && tmux kill-pane\n'"; open-in-browser ; set browser "$BROWSER %u"
 macro y set browser "mpv %u"; open-in-browser ; set browser "$BROWSER %u"
 macro d set browser "youtube-dl %u"; open-in-browser ; set browser "$BROWSER %u"
 macro o set browser "w3m %u"; open-in-browser ; set browser "$BROWSER %u"
