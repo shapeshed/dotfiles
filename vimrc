@@ -2,8 +2,9 @@ set nocompatible                      " Welcome to the future
 
 syntax on                             " Enable syntax highlighting
 filetype plugin indent on             " allow plugins to determine indentation
-let g:gruvbox_contrast_light = 'hard'
-autocmd vimenter * colorscheme gruvbox
+let g:gruvbox_contrast_light = 'medium'
+let g:gruvbox_contrast_dark = 'medium'
+autocmd vimenter * ++nested colorscheme gruvbox
 
 let mapleader = ","                   " Set leader to ,
 let g:netrw_banner = 0                " disable_banner in filebrowser
@@ -29,7 +30,6 @@ set grepprg=git\ grep\ -n\ $*         " Use git grep for searching
 set ignorecase                        " Ignore case when searching
 set incsearch                         " Show matches when searching
 set laststatus=2                      " Show statusbar all the time
-set swapfile                          " Save a swapfile
 "set backupdir=/tmp                    " Location for backup files
 "set dir=/tmp                          " Location for swapfiles
 "set listchars=tab:>-                 " Set tab character
@@ -57,7 +57,9 @@ set statusline+=\[%{&fileformat}\]    " File format
 set statusline+=\ %p%%                " Percentage through file
 set statusline+=\ %l:%c               " Line number:Column number
 set statusline+=\
+set swapfile                          " Save a swapfile
 set tabstop=2                         " The number of spaces that a <Tab> counts for
+set termguicolors
 set ttimeout                          " Timeout key sequences
 set ttimeoutlen=50                    " Timout after 50 milliseconds
 set wildignore+=*node_modules/**      " Ignore node_modules
