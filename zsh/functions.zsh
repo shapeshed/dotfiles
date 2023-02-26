@@ -21,7 +21,7 @@ function weather {
 
 # Saves repeating ps aux | grep foo
 function psg {
-  ps wwwaux | egrep "($1|%CPU)" | grep -v grep
+  ps wwwaux | grep -E "($1|%CPU)" | grep -v grep
 }
 
 compdef _pass workpass
