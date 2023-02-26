@@ -1,7 +1,7 @@
 {
   "layer": "bottom",
   "modules-left": [
-    "sway/workspaces", 
+    "sway/workspaces",
     "sway/mode"
   ],
   "modules-right": [
@@ -47,7 +47,7 @@
   },
   "disk": {
     "interval": 30,
-    "format": "{path} {percentage_used}%", 
+    "format": "{path} {percentage_used}%",
     "path": "/home"
   },
   "clock": {
@@ -66,7 +66,7 @@
   "network": {
     "format-wifi": "{essid} ({signalStrength}%) ",
     "format-ethernet": "{ifname} ",
-    "format-disconnected": "Disconnected", 
+    "format-disconnected": "Disconnected",
     "tooltip-format": "{ifname}",
     "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
     "tooltip-format-ethernet": "{ifname} ",
