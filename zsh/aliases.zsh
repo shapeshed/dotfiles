@@ -4,7 +4,7 @@ alias v="vim"
 # Always edit crontab with Vim
 alias crontab="VIM_CRONTAB=true crontab"
 
-# Git 
+# Git
 alias g='git'
 alias gs='git status'
 alias ga='git add .'
@@ -14,15 +14,14 @@ alias gc='git commit'
 alias gd='git diff'
 alias git commit='git commit -S'
 
-# Radio 
+# Radio
 alias playbbcr1="mpv 'http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_one.m3u8'"
 alias playbbcr4="mpv 'http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_fourfm.m3u8'"
 alias playbbcr5l="mpv 'http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_five_live.m3u8'"
 alias playbbcr5lsx="mpv 'http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_five_live_sports_extra.m3u8'"
 alias playbbcr6="mpv 'http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_6music.m3u8'"
-
-# Node.js
-alias grunt='grunt --stack'
+alias playtalksport2="mpv 'http://radio.talksport.com/stream2?awparams=platform:ts-web&amsparams=playerid:ts-web;'"
+alias playtalksport="mpv 'http://radio.talksport.com/stream?aisGetOriginalStream=true'"
 
 alias awsume=". awsume"
 alias k="kubectl"
