@@ -73,6 +73,7 @@ if has("autocmd")
   " Open file at last saved position
   augroup templates
     autocmd BufNewFile  *.sh	0r ~/.vim/templates/skeleton.sh
+    autocmd BufNewFile  *.md	0r ~/.vim/templates/skeleton.md
   augroup END
   augroup resCur
     autocmd!
@@ -109,5 +110,17 @@ let g:ale_lint_on_text_changed = 'never'
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'yaml': ['prettier']
+\   'javascript': ['prettier', 'eslint'],
+\   'terraform': ['terraform'],
+\   'yaml': ['prettier'],
+\   'markdown': ['prettier'],
+\   'sh': ['shfmt'],
+\}
+
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'terraform': ['tfsec', 'tflint'],
+\   'yaml': ['yamllint'],
+\   'markdown': ['markdownlint'],
+\   'sh': ['shellcheck'],
 \}
