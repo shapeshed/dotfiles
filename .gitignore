@@ -12,6 +12,7 @@ config/enchant/
 config/evince/
 config/evolution/
 config/gatsby/
+config/gh/
 config/GIMP/
 config/gconf/
 config/google-chrome
