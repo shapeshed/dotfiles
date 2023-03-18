@@ -17,12 +17,6 @@
 [clean]
   requireForce = false
 
-#[url "git@github.com:"]
-#  insteadOf = git://github.com/
-
-#[url "git@github.com:"]
-#  insteadOf = https://github.com/
-
 [push]
   default = simple
 
@@ -36,8 +30,4 @@
   autosetuprebase = always
 [init]
   defaultBranch = main
-
-[includeIf "gitdir:~/src/gitlab.com/fn-local-uk/"]
-    path = ~/.gitconfig-fnality
-[includeIf "gitdir:~/src/gitlab.com/fnality-international/"]
-    path = ~/.gitconfig-fnality
+	templateDir = /home/go/.git-template
