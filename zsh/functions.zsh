@@ -6,46 +6,39 @@
 # /some/path/that/does/not/exist
 #
 function mkdircd {
-    mkdir -p "$*"
-    cd "$*"
+	mkdir -p "$*"
+	cd "$*"
 }
 
 # gr - search recursively with grep
 function gr {
-    grep -R "$*" .
+	grep -R "$*" .
 }
 
 function weather {
-  curl wttr.in/$1
+	curl wttr.in/$1
 }
 
 # Saves repeating ps aux | grep foo
 function psg {
-  ps wwwaux | grep -E "($1|%CPU)" | grep -v grep
-}
-
-compdef _pass workpass
-zstyle ':completion::complete:workpass::' prefix "$HOME/.work-password-store"
-workpass() {
-  PASSWORD_STORE_DIR=$HOME/.work-password-store/ pass $@
+	ps wwwaux | grep -E "($1|%CPU)" | grep -v grep
 }
 
 function wifi {
-    sudo wpa_supplicant -c /etc/wpa_supplicant/"$*".conf -i wlp0s20f3 -B
+	sudo wpa_supplicant -c /etc/wpa_supplicant/"$*".conf -i wlp0s20f3 -B
 }
 
 function t {
-    task add "$*" +do +work due:eod
+	task add "$*" +do +work due:eod
 }
-
 
 # Print a summary for standup
 function standup {
-  if [[ $(date '+%a') == "Mon" ]]; then
-      task end:today-3days completed +work
-  else
-      task end:yesterday completed +work
-  fi
-  task end:today completed
-  task +work
+	if [[ $(date '+%a') == "Mon" ]]; then
+		task end:today-3days completed +work
+	else
+		task end:yesterday completed +work
+	fi
+	task end:today completed
+	task +work
 }
