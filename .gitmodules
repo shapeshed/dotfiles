@@ -22,12 +22,12 @@
 [submodule "vim/pack/shapeshed/start/ale"]
 	path = vim/pack/shapeshed/start/ale
 	url = git@github.com:dense-analysis/ale.git
-[submodule "vim/pack/shapeshed/start/coc.nvim"]
-	path = vim/pack/shapeshed/start/coc.nvim
-	url = https://github.com/neoclide/coc.nvim.git
 [submodule "vim/pack/shapeshed/start/vim-terraform"]
 	path = vim/pack/shapeshed/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
 [submodule "vim/pack/shapeshed/start/rust.vim"]
 	path = vim/pack/shapeshed/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim
+[submodule "vim/pack/shapeshed/start/coc.nvim"]
+	path = vim/pack/shapeshed/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git
