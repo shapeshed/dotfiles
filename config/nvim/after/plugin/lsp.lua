@@ -11,10 +11,13 @@ lsp.format_on_save({
 	servers = {
 		["null-ls"] = {
 			"javascript",
+			"rust",
+			"css",
 			"html",
 			"typescript",
 			"sh",
 			"lua",
+			"markdown",
 		},
 	},
 })
@@ -25,7 +28,15 @@ lsp.format_mapping("gq", {
 		timeout_ms = 10000,
 	},
 	servers = {
-		["null-ls"] = { "javascript", "typescript", "lua" },
+		["null-ls"] = {
+			"javascript",
+			"rust",
+			"html",
+			"typescript",
+			"sh",
+			"lua",
+			"markdown",
+		},
 	},
 })
 
@@ -40,7 +51,9 @@ null_ls.register({
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.diagnostics.tidy,
 		null_ls.builtins.diagnostics.stylelint,
+		null_ls.builtins.diagnostics.markdownlint,
 		null_ls.builtins.diagnostics.eslint,
+		null_ls.builtins.formatting.rustfmt,
 		null_ls.builtins.formatting.trim_newlines,
 		null_ls.builtins.formatting.trim_whitespace,
 		null_ls.builtins.formatting.stylua,
