@@ -1,71 +1,76 @@
--- Only required if you have packer configured as `opt`
-vim.cmd([[packadd packer.nvim]])
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require("packer").startup(function(use)
-	-- Packer can manage itself
-	use("wbthomason/packer.nvim")
+local plugins = {
+  "dstein64/vim-startuptime",
 
-	--use({ 'rose-pine/neovim', as = 'rose-pine' })
-	use({ "catppuccin/nvim", as = "catppuccin" })
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = true,
+  },
 
-	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.1",
-		-- or                            , branch = '0.1.x',
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
 
-	-- Lua
-	use({
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("trouble").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
-		end,
-	})
+  {
+    "nvim-treesitter/nvim-treesitter",
+    config = function()
+      vim.cmd.TSUpdate()
+    end,
+  },
 
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			require("null-ls").setup()
-		end,
-		requires = {
-			{ "nvim-lua/plenary.nvim" },
-			{ "jay-babu/mason-null-ls.nvim" },
-		},
-	})
+  {
+    "folke/trouble.nvim",
+    dependencies = {
+      "kyazdani42/nvim-web-devicons",
+    },
+  },
 
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = function()
-			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-			ts_update()
-		end,
-	})
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    despendencies = {
+      "nvim-lua/plenary.nvim",
+      "jay-babu/mason-null-ls.nvim",
+    },
+  },
 
-	use({
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v2.x",
-		requires = {
-			-- LSP Support
-			{ "neovim/nvim-lspconfig" }, -- Required
-			{
-				-- Optional
-				"williamboman/mason.nvim",
-				run = function()
-					pcall(vim.cmd, "MasonUpdate")
-				end,
-			},
-			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v2.x",
+    dependencies = {
+      -- LSP Support
+      { "neovim/nvim-lspconfig" }, -- Required
+      { -- Optional
+        "williamboman/mason.nvim",
+        build = function()
+          pcall(vim.cmd, "MasonUpdate")
+        end,
+      },
+      { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
-			-- Autocompletion
-			{ "hrsh7th/nvim-cmp" }, -- Required
-			{ "hrsh7th/cmp-nvim-lsp" }, -- Required
-			{ "L3MON4D3/LuaSnip" }, -- Required
-		},
-	})
-end)
+      -- Autocompletion
+      { "hrsh7th/nvim-cmp" }, -- Required
+      { "hrsh7th/cmp-nvim-lsp" }, -- Required
+      { "L3MON4D3/LuaSnip" }, -- Required
+    },
+  },
+}
+
+local opts = {}
+
+require("lazy").setup(plugins, opts)
