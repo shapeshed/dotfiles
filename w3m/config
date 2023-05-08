@@ -71,34 +71,35 @@ decode_cte 0
 auto_uncompress 0
 preserve_timestamp 1
 keymap_file keymap
-document_root 
-personal_document_root 
-cgi_bin 
-index_file 
+document_root
+personal_document_root
+cgi_bin  ~/.w3m/cgi-bin
+index_file
 mime_types ~/.mime.types, /usr/etc/mime.types
 mailcap ~/.w3m/mailcap, /usr/etc/w3m/mailcap
-urimethodmap ~/.w3m/urimethodmap, /usr/etc/w3m/urimethodmap
+# urimethodmap ~/.w3m/urimethodmap, /usr/etc/w3m/urimethodmap
+urimethodmap ~/.w3m/urimethodmap
 editor /usr/bin/vi
 mailto_options 1
 mailer /usr/bin/mail
 extbrowser /usr/bin/firefox
-extbrowser2 
-extbrowser3 
-extbrowser4 
-extbrowser5 
-extbrowser6 
-extbrowser7 
-extbrowser8 
-extbrowser9 
+extbrowser2
+extbrowser3
+extbrowser4
+extbrowser5
+extbrowser6
+extbrowser7
+extbrowser8
+extbrowser9
 bgextviewer 1
 use_lessopen 0
 passwd_file ~/.w3m/passwd
 disable_secret_security_check 0
-ftppasswd 
+ftppasswd
 ftppass_hostnamegen 1
 pre_form_file ~/.w3m/pre_form
 siteconf_file ~/.w3m/siteconf
-user_agent 
+user_agent Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
 no_referer 0
 cross_origin_referer 1
 accept_language en;q=1.0
@@ -111,33 +112,33 @@ follow_redirection 10
 meta_refresh 0
 localhost_only 0
 dns_order 0
-nntpserver 
-nntpmode 
+nntpserver
+nntpmode
 max_news 50
 use_proxy 1
-http_proxy 
-https_proxy 
-gopher_proxy 
-ftp_proxy 
-no_proxy 
+http_proxy
+https_proxy
+gopher_proxy
+ftp_proxy
+no_proxy
 noproxy_netaddr 1
 no_cache 0
-ssl_forbid_method 
-ssl_min_version 
-ssl_cipher 
+ssl_forbid_method
+ssl_min_version
+ssl_cipher
 ssl_verify_server 0
-ssl_cert_file 
-ssl_key_file 
-ssl_ca_path 
-ssl_ca_file 
+ssl_cert_file
+ssl_key_file
+ssl_ca_path
+ssl_ca_file
 ssl_ca_default 1
 use_cookie 1
 show_cookie 1
 accept_cookie 1
 accept_bad_cookie 0
-cookie_reject_domains 
-cookie_accept_domains 
-cookie_avoid_wrong_number_of_dots 
+cookie_reject_domains
+cookie_accept_domains
+cookie_avoid_wrong_number_of_dots
 display_charset UTF-8
 document_charset UTF-8
 auto_detect 2
