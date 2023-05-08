@@ -1,0 +1,5 @@
+#url m!^https?://([a-z]+\.)?twitter\.com/!
+#user_agent Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+
+#url m!^https?://([a-z]+\.)?localhost/!
+#substitute_url "file:///cgi-bin/test.cgi?"
