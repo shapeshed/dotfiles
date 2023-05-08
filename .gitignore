@@ -92,6 +92,10 @@ config/mozilla/
 config/rmapi/
 config/todoman/
 config/truffle-nodejs/
+config/calibre/
+config/fontforge/
+config/gthumb/
+config/inkscape/
 
 
 
