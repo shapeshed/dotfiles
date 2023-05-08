@@ -1,5 +1,6 @@
 # Vim
 alias v="vim"
+alias vim="nvim"
 
 # Always edit crontab with Vim
 alias crontab="VIM_CRONTAB=true crontab"
@@ -20,8 +21,10 @@ alias playbbcr4="mpv 'http://a.files.bbci.co.uk/media/live/manifesto/audio/simul
 alias playbbcr5l="mpv 'http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_five_live.m3u8'"
 alias playbbcr5lsx="mpv 'http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_five_live_sports_extra.m3u8'"
 alias playbbcr6="mpv 'http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_6music.m3u8'"
+alias playbbcrnorfolk="mpv 'http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_med/ak/bbc_radio_norfolk.m3u8'"
 alias playtalksport2="mpv 'http://radio.talksport.com/stream2?awparams=platform:ts-web&amsparams=playerid:ts-web;'"
 alias playtalksport="mpv 'http://radio.talksport.com/stream?aisGetOriginalStream=true'"
 
+# K8S
 alias k="kubectl"
 alias kl="kubectl logs"
