@@ -1,17 +1,17 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 BUCKET=$1
-CWD=$(pwd)
 
-if [[ -n $1 ]]; then
-  aws s3 sync s3://$BUCKET/cf-logs .
-  cat *.gz > combined.log.gz
-  find $CWD ! -name 'combined.log.gz' -name '*.gz' -type f -exec rm -f {} +
-  gzip -d combined.log.gz
-  sed -i '/^#/ d' combined.log
+if [ "$1" ]; then
+  # Get the gzipped log files from aws
+  aws s3 sync s3://"$BUCKET" .
+  # Decompress, remove first two lines and combine
+  zcat ./*.gz >combined.log
+  # Cleanup by removing .gzip files
+  # find "$(pwd)" ! -name 'combined.log' -name '*.gz' -type f -exec rm -f {} +
+  goaccess combined.log
   exit 0
 else
   echo "Error: no bucket name provided"
   exit 1
 fi
-
