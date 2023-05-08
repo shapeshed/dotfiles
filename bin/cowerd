@@ -1,7 +1,11 @@
 #!/usr/bin/env sh
 
 cd $HOME/src && cower -d "$1"
+
 builddir="$_"
 cd "$builddir" && ${EDITOR:-vi} PKGBUILD
-makepkg -si && cd - &>/dev/null
+makepkg -si && cd - &
+>/dev/null
 rm -Rf "$builddir"
+
+# vi: ft=sh
