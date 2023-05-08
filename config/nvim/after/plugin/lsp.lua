@@ -66,7 +66,9 @@ local null_ls = require("null-ls")
 
 local sources = {
   -- Replace these with the tools you have installed
-  null_ls.builtins.formatting.shfmt,
+  null_ls.builtins.formatting.shfmt.with({
+    extra_args = { "-i", "2", "-ci" },
+  }),
   null_ls.builtins.formatting.prettier,
   --null_ls.builtins.diagnostics.tidy,
   null_ls.builtins.diagnostics.stylelint,
