@@ -1,3 +1,5 @@
 require("shapeshed.set")
 require("shapeshed.plugins")
 require("shapeshed.statusline")
+require("shapeshed.keymap")
+require("shapeshed.autocmd")
