@@ -11,3 +11,4 @@ vim.o.termguicolors = true
 
 vim.keymap.set("n", "<C-h>", ":bprevious<CR>")
 vim.keymap.set("n", "<C-l>", ":bnext<CR>")
+vim.keymap.set("n", "<C-x>", ":close<CR>")
