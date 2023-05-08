@@ -7,5 +7,9 @@
             "filetypes": ["terraform", "tf"],
             "initializationOptions": {}
         }
+    },
+    "yaml.schemas": {
+        "kubernetes": "/*.yml"
     }
+
 }
