@@ -25,42 +25,27 @@ https://themerkle.com/feed/ "crypto-press" "!The Merkle" "~The Merkle"
 https://web3isgoinggreat.com/feed.xml "crypto-press" "!web3 is going great" "~web3 is going great"
 
 # Crypto research
-https://ethresear.ch/latest.rss "crypto-research" "!Ethereum Research"
+https://eips.ethereum.org/rss/all.xml "crypto-research" "!EIPs" "~EIPs"
+https://eips.ethereum.org/rss/last-call.xml "crypto-research" "!Ethereum Research" "~EIPs"
 https://ethereum-magicians.org/latest.rss "crypto-research" "!Ethereum Magicians" "~Ethereum Magicians"
+
 # Cryptocurrency
-https://www.reddit.com/r/Cryptocurrency/top/.rss "cryptocurrency" "!r/Cryptocurrency" "~r/Cryptocurrency"
-https://blog.0xproject.com/feed "cryptocurrency" "!0x"
-https://medium.com/feed/AugurProject "cryptocurrency" "!Augur"
-https://iohk.io/feed.xml "cryptocurrency" "!Cardano"
-https://medium.com/feed/ConsenSys "cryptocurrency" "!ConsenSys"
-https://medium.com/feed/corda "cryptocurrency" "!Corda"
-https://blog.cosmos.network/feed "cryptocurrency" "!Cosmos"
-https://medium.com/feed/dfinity "cryptocurrency" "!Dfinity"
-https://medium.com/feed/eosio "cryptocurrency" "!EOS"
-https://blog.golemproject.net/feed "cryptocurrency" "!Golum"
-https://www.hyperledger.org/feed "cryptocurrency" "!Hyperledger"
-https://ipfs.io/blog/index.xml "cryptocurrency" "!IPFS"
-https://blog.omisego.network/feed "cryptocurrency" "!OmiseGO"
-https://medium.com/feed/originprotocol "cryptocurrency" "!Origin"
-https://www.parity.io/blog/rss/ "cryptocurrency" "!Parity"
-https://medium.com/feed/poa-network "cryptocurrency" "!PoA"
-https://medium.com/feed/polkadot-network "blockchain" "!Polkadot"
-https://medium.com/feed/tron-foundation "blockchain" "!Tron"
-https://medium.com/feed/uport "cryptocurrency" "!uPort"
 http://www.weekinethereum.com/rss "cryptocurrency" "!Week in Ethereum"
-https://blog.z.cash/feed/ "cryptocurrency" "!Zcash"
 https://thedailygwei.substack.com/feed "cryptocurrency" "!Daily Gwei" "!Daily Gwei"
 
 # Cryptocurrency
-https://medium.com/feed/iearn "defi"  "!Yearn Finance"
-https://medium.com/feed/aave "defi" "!Aave"
 
 # Security
 https://bugalert.org/feeds/critical-severity.atom.xml "security" "!Bug Alert" "~Bug Alert"
 
 # Linux
-https://www.archlinux.org/feeds/news/ "linux" "!Arch Linux"
-https://github.com/openwrt/openwrt/releases.atom "linux" "!OpenWRT Releases"
+https://www.archlinux.org/feeds/news/ "linux" "!Arch Linux" "~Arch Linux"
+https://github.com/openwrt/openwrt/releases.atom "linux" "!OpenWRT Releases" "~OpenWRT Releases"
+https://github.com/newsboat/newsboat/tags.atom "linux" "!Newsboat Releases" "~Newsboat Releases"
+https://github.com/muttmua/mutt/tags.atom "linux" "!Mutt Releases" "~Mutt Releases"
+https://github.com/tmux/tmux/releases.atom "linux" "!tmux Releases" "~tmux Releases"
+https://github.com/vim/vim/tags "linux" "!vim Releases" "~vim Releases"
+https://github.com/gohugoio/hugo/releases.atom "linux" "!hugo Releases" "~hugo Releases"
 
 # Politics
 https://www.reddit.com/r/ukpolitics/top/.rss "ukpolitics" "!r/ukpolitics" "~r/ukpolitics"
@@ -78,6 +63,12 @@ https://www.interfluidity.com/feed "economics" "!Interfluidity" "~Interfluidity"
 # Hacker News
 https://hnrss.org/best "hackernews" "!Hacker News Best" "!~Hacker News Best"
 
+# Opinion
+https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/opinion/rss.xml "opinion" "!NYT Opinion" "~NYT Opinion"
+https://www.theguardian.com/uk/commentisfree/rss "opinion" "!Guardian Opinion" "~Guardian Opinion"
+https://www.economist.com/leaders/rss.xml "opinion" "!Economist Leaders" "~Economist Leaders"
+https://www.ft.com/opinion?format=rss "opinion" "!FT Opinion" "~FT Opinion"
+
 
 # Query Feeds
 "query:Alerts:tags # \"alerts\""
@@ -94,3 +85,4 @@ https://hnrss.org/best "hackernews" "!Hacker News Best" "!~Hacker News Best"
 "query:UK Politics:tags # \"ukpolitics\""
 "query:Economics:tags # \"economics\""
 "query:Hacker News:tags # \"hackernews\""
+"query:Opinion:tags # \"opinion\""

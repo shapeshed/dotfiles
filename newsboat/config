@@ -11,8 +11,8 @@ bind-key h quit
 articlelist-format  "%4i %f %D   %?T?|%-17T|  ?%t"
 notify-format       "%d new articles (%n unread articles, %f unread feeds)"
 
-# browser             $BROWSER
-browser            "readable -q %u | w3m -T text/html"
+browser             $BROWSER
+# browser            "readable -q %u | w3m -T text/html"
 color background   default   default
 color listnormal   default   default
 color listfocus    black     yellow
