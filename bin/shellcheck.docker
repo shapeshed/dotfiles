@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+# vi: ft=sh
+
+exec sudo docker run -i --rm -v "$(pwd):/code" pipelinecomponents/shellcheck "$@"
