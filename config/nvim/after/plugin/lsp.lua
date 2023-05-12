@@ -12,6 +12,7 @@ lsp.ensure_installed({
   "jsonls",
   "rust_analyzer",
   "tsserver",
+  "gopls",
 })
 
 lsp.configure("lua_ls", {
@@ -38,6 +39,7 @@ lsp.format_on_save({
       "sh",
       "lua",
       "markdown",
+      "go",
     },
   },
 })
@@ -56,6 +58,7 @@ lsp.format_mapping("gq", {
       "sh",
       "lua",
       "markdown",
+      "go",
     },
   },
 })
