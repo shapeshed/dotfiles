@@ -1,4 +1,4 @@
-export BEMENU_OPTS='--tb "#002B36" --tf "#cb4b16" --fb "#073642" --ff "#b58900" --nb "#586e75" --nf "#93a1a1" --hb "#657b83" --hf "#eee8d5" --sb "#839496" --sf "#2aa198" --scb "#93a1a1" --scf "#fdf6e3"'
+export BEMENU_OPTS='-l 0 --fn "RobotoMono Nerd Font Regular 11" --fb "#1e1e2e" --ff "#94e2d5" --nb "#1e1e2e" --nf "#f5e0dc" --tb "#1e1e2e" --hb "#1e1e2e" --tf "#cba6f7" --hf "#89b4fa" --nf "#f5e0dc" --af "#f5e0dc" --ab "#1e1e2e"'
 export MOZ_ENABLE_WAYLAND=1
 export _JAVA_AWT_WM_NONREPARENTING=1
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
