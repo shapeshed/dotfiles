@@ -2,6 +2,7 @@ local builtin = require("telescope.builtin")
 local lazy = require("lazy")
 local gitsigns = require("gitsigns")
 local dap = require("dap")
+local dapui = require("dapui")
 
 local function setMapping(mode, lhs, rhs, desc)
   vim.keymap.set(mode, lhs, rhs, { silent = true, desc = desc })
@@ -315,6 +316,18 @@ local mappings = {
   },
   {
     "n",
+    "<leader>dB",
+    function()
+      vim.ui.input({ prompt = "Condition: " }, function(expr)
+        if expr then
+          dap.toggle_breakpoint(expr)
+        end
+      end)
+    end,
+    "Conditional breakpoint",
+  },
+  {
+    "n",
     "<leader>di",
     function()
       dap.step_into()
@@ -335,6 +348,7 @@ local mappings = {
     function()
       dap.step_over()
     end,
+    "Step Over",
   },
   {
     "n",
@@ -367,6 +381,42 @@ local mappings = {
       dap.restart_frame()
     end,
     "Restart Debugger",
+  },
+  {
+    "n",
+    "<leader>dE",
+    function()
+      vim.ui.input({ prompt = "Expression: " }, function(expr)
+        if expr then
+          dapui.eval(expr)
+        end
+      end)
+    end,
+    "Evaluate Input",
+  },
+  {
+    "v",
+    "<leader>dE",
+    function()
+      dapui.eval()
+    end,
+    "Evaluate Input",
+  },
+  {
+    "n",
+    "<leader>du",
+    function()
+      dapui.toggle()
+    end,
+    "Toggle Debugger UI",
+  },
+  {
+    "n",
+    "<leader>dh",
+    function()
+      dapui.hover()
+    end,
+    "Debugger Hover",
   },
 }
 
