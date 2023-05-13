@@ -97,4 +97,5 @@ wk.register({
   f = { name = "󰍉 Find" },
   g = { name = "󰊢 Git" },
   l = { name = " LSP" },
+  p = { desc = "󰏖 Packages" },
 }, { prefix = "<leader>" })

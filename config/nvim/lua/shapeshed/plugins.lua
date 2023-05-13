@@ -27,6 +27,12 @@ local plugins = {
     end,
   },
   {
+    "lewis6991/gitsigns.nvim",
+  },
+  {
+    "mfussenegger/nvim-dap",
+  },
+  {
     "numToStr/Comment.nvim",
     config = function()
       require("Comment").setup()

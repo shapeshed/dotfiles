@@ -1,6 +1,6 @@
-require("shapeshed.set")
 require("shapeshed.plugins")
+require("shapeshed.set")
+require("shapeshed.keymaps")
 require("shapeshed.statusline")
-require("shapeshed.keymap")
 require("shapeshed.autocmd")
 require("shapeshed.filetype")
