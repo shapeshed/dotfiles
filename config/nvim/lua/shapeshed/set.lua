@@ -1,6 +1,6 @@
 -- stylua: ignore start
-vim.g.mapleader         = ","           -- Set leader to ,
-vim.g.netrw_banner      = 0             -- Disable banner in filebrowser
+vim.g.mapleader         = " "               -- Set leader to SPACE
+vim.g.netrw_banner      = 0                 -- Disable banner in filebrowser
 
 vim.opt.clipboard       = "unnamedplus"     -- Use system clipboard
 vim.opt.cursorline      = true              -- Highlight cursor line
