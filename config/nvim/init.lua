@@ -15,8 +15,8 @@ vim.g.mapleader = " " -- Set leader to SPACE, needed before lazy
 
 require("lazy").setup("plugins")
 
-require("set")
--- require("shapeshed.keymaps")
-require("statusline")
--- require("shapeshed.autocmd")
--- require("shapeshed.filetype")
+require("config.keymaps")
+require("config.statusline")
+require("config.set")
+require("config.autocmd")
+require("config.filetype")
