@@ -4,6 +4,15 @@ local dap = require("dap")
 local dapui = require("dapui")
 local helpers = require("utils.helpers")
 
+-- Mappings ordered under <leader> in a logical namespace
+-- for use with which-key (my memory fades..)
+-- * b - Buffers
+-- * d - Debugger
+-- * f - Find
+-- * g - Git
+-- * l - LSP
+-- * p - Packages
+
 local mappings = {
   -- Top level useful commands
   { "n", "<leader><leader>", "<C-^>", "Open last buffer" },
@@ -14,11 +23,6 @@ local mappings = {
   { "n", "<C-l>", ":bnext<CR>", "Next buffer" },
   { "n", "<C-h>", ":bprevious<CR>", "Previous buffer" },
   { "n", "<C-x>", ":bdelete<CR>", "Close buffer" },
-
-  -- Buffers
-  { "n", "<leader>bc", ":bdelete<CR>", "Close buffer" },
-  { "n", "<leader>bn", ":bnext<CR>", "Next buffer" },
-  { "n", "<leader>bp", ":bprevious<CR>", "Previous buffer" },
 
   -- Comment/Uncomment in insert and visual mode
   {
@@ -38,102 +42,12 @@ local mappings = {
     "Comment line",
   },
 
-  -- For Find Keymaps under the <leader>f namespace
-  -- see plugins/telescope.lua
+  -- Buffers
+  { "n", "<leader>bc", ":bdelete<CR>", "Close buffer" },
+  { "n", "<leader>bn", ":bnext<CR>", "Next buffer" },
+  { "n", "<leader>bp", ":bprevious<CR>", "Previous buffer" },
 
-  -- Packages
-  {
-    "n",
-    "<leader>pi",
-    function()
-      lazy.install()
-    end,
-    "Plugins install",
-  },
-  {
-    "n",
-    "<leader>ps",
-    function()
-      lazy.home()
-    end,
-    "Plugins Status",
-  },
-  {
-    "n",
-    "<leader>pS",
-    function()
-      lazy.sync()
-    end,
-    "Plugins Sync",
-  },
-  {
-    "n",
-    "<leader>pu",
-    function()
-      lazy.check()
-    end,
-    "Plugins Check Updates",
-  },
-  {
-    "n",
-    "<leader>pU",
-    function()
-      lazy.update()
-    end,
-    "Plugins Update",
-  },
-  -- LSP
-  { "n", "<leader>li", ":LspInfo<CR>", "LSP Information" },
-  { "n", "<leader>lI", ":NullLsInfo<CR>", "NullLs Information" },
-  {
-    "n",
-    "<leader>ld",
-    function()
-      vim.lsp.buf.definition()
-    end,
-    "Go to Definition",
-  },
-  {
-    "n",
-    "<leader>lD",
-    function()
-      builtin.diagnostics()
-    end,
-    "Search diagnostics",
-  },
-  {
-    "n",
-    "<leader>ls",
-    function()
-      builtin.lsp_document_symbols()
-    end,
-    "Search symbols",
-  },
-  {
-    "n",
-    "<leader>lk",
-    function()
-      vim.lsp.buf.hover()
-    end,
-    "Hover information",
-  },
-  {
-    "n",
-    "<leader>lr",
-    function()
-      vim.lsp.buf.rename()
-    end,
-    "Rename string",
-  },
-  {
-    "n",
-    "<leader>lS",
-    function()
-      vim.lsp.buf.signature_help()
-    end,
-    "Signature help",
-  },
-  -- Debugger
+  -- Debugger (D) namespace
   {
     "n",
     "<leader>dc",
@@ -253,6 +167,174 @@ local mappings = {
       dapui.hover()
     end,
     "Debugger Hover",
+  },
+
+  -- Find (F) namespace
+  {
+    "n",
+    "<leader>f'",
+    function()
+      builtin.marks()
+    end,
+    "Find marks",
+  },
+  {
+    "n",
+    "<leader>fb",
+    function()
+      builtin.buffers()
+    end,
+    "Find buffers",
+  },
+  {
+    "n",
+    "<leader>fc",
+    function()
+      builtin.grep_string()
+    end,
+    "Find word under cursor",
+  },
+  {
+    "n",
+    "<leader>fC",
+    function()
+      builtin.commands()
+    end,
+    "Find commands",
+  },
+  {
+    "n",
+    "<leader>ff",
+    function()
+      builtin.find_files()
+    end,
+    "Find files",
+  },
+  {
+    "n",
+    "<leader>fF",
+    function()
+      builtin.find_files()({ hidden = true, no_ignore = true })
+    end,
+    "Find all files",
+  },
+  {
+    "n",
+    "<leader>fg",
+    function()
+      builtin.live_grep()
+    end,
+    "Find words",
+  },
+  {
+    "n",
+    "<leader>fh",
+    function()
+      builtin.help_tags()
+    end,
+    "Find help",
+  },
+  {
+    "n",
+    "<leader>fm",
+    function()
+      builtin.man_pages()
+    end,
+    "Find man",
+  },
+
+  -- LSP (L) namespace
+  { "n", "<leader>li", ":LspInfo<CR>", "LSP Information" },
+  { "n", "<leader>lI", ":NullLsInfo<CR>", "NullLs Information" },
+  {
+    "n",
+    "<leader>ld",
+    function()
+      vim.lsp.buf.definition()
+    end,
+    "Go to Definition",
+  },
+  {
+    "n",
+    "<leader>lD",
+    function()
+      builtin.diagnostics()
+    end,
+    "Search diagnostics",
+  },
+  {
+    "n",
+    "<leader>ls",
+    function()
+      builtin.lsp_document_symbols()
+    end,
+    "Search symbols",
+  },
+  {
+    "n",
+    "<leader>lk",
+    function()
+      vim.lsp.buf.hover()
+    end,
+    "Hover information",
+  },
+  {
+    "n",
+    "<leader>lr",
+    function()
+      vim.lsp.buf.rename()
+    end,
+    "Rename string",
+  },
+  {
+    "n",
+    "<leader>lS",
+    function()
+      vim.lsp.buf.signature_help()
+    end,
+    "Signature help",
+  },
+
+  -- Packages (P) namespace
+  {
+    "n",
+    "<leader>pi",
+    function()
+      lazy.install()
+    end,
+    "Plugins install",
+  },
+  {
+    "n",
+    "<leader>ps",
+    function()
+      lazy.home()
+    end,
+    "Plugins Status",
+  },
+  {
+    "n",
+    "<leader>pS",
+    function()
+      lazy.sync()
+    end,
+    "Plugins Sync",
+  },
+  {
+    "n",
+    "<leader>pu",
+    function()
+      lazy.check()
+    end,
+    "Plugins Check Updates",
+  },
+  {
+    "n",
+    "<leader>pU",
+    function()
+      lazy.update()
+    end,
+    "Plugins Update",
   },
 }
 
