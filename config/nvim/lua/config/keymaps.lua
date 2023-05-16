@@ -20,14 +20,14 @@ vim.keymap.set(
 local mappings = {
   -- Top level useful commands
   { "n", "<LEADER><LEADER>", "<C-^>", "Open last buffer" },
-  { "n", "<LEADER>w", "<cmd>write<CR>", "Save" },
-  { "n", "<LEADER>q", "<cmd>q<CR>", "Quit" },
-  { "n", "<LEADER>e", "<cmd>Lexplore %:p:h<CR>", "Open File Explorer" },
-  { "n", "<LEADER>t", "<cmd>TroubleToggle<CR>", "Toggle Trouble" },
-  { "n", "<C-l>", "<cmd>bnext<CR>", "Next buffer" },
-  { "n", "<C-h>", "<cmd>bprevious<CR>", "Previous buffer" },
-  { "n", "<C-x>", "<cmd>bdelete<CR>", "Close buffer" },
-  { "n", "<LEADER>T", "<cmd>terminal<CR>", "Open terminal" },
+  { "n", "<LEADER>w", "<CMD>write<CR>", "Save" },
+  { "n", "<LEADER>q", "<CMD>q<CR>", "Quit" },
+  { "n", "<LEADER>e", "<CMD>Lexplore %:p:h<CR>", "Open File Explorer" },
+  { "n", "<LEADER>t", "<CMD>TroubleToggle<CR>", "Toggle Trouble" },
+  { "n", "<C-l>", "<CMD>bnext<CR>", "Next buffer" },
+  { "n", "<C-h>", "<CMD>bprevious<CR>", "Previous buffer" },
+  { "n", "<C-x>", "<CMD>bdelete<CR>", "Close buffer" },
+  { "n", "<LEADER>T", "<CMD>terminal<CR>", "Open terminal" },
 
   -- Comment/Uncomment in insert and visual mode
   {
@@ -48,28 +48,28 @@ local mappings = {
   },
 
   -- Buffers
-  { "n", "<LEADER>bc", "<cmd>bdelete<CR>", "Close buffer" },
-  { "n", "<LEADER>bn", "<cmd>bnext<CR>", "Next buffer" },
-  { "n", "<LEADER>bp", "<cmd>bprevious<CR>", "Previous buffer" },
+  { "n", "<LEADER>bc", "<CMD>bdelete<CR>", "Close buffer" },
+  { "n", "<LEADER>bn", "<CMD>bnext<CR>", "Next buffer" },
+  { "n", "<LEADER>bp", "<CMD>bprevious<CR>", "Previous buffer" },
 
   -- Debugger (D) namespace
-  { "n", "<LEADER>do", "<cmd>Termdebug<CR>", "Open debugger" },
-  { "n", "<LEADER>db", "<cmd>Break<CR>", "Add breakpoint" },
-  { "n", "<LEADER>dc", "<cmd>Clear<CR>", "Clear breakpoint" },
-  { "n", "<LEADER>dr", "<cmd>Run<CR>", "Run the program" },
-  { "n", "<LEADER>ds", "<cmd>Step<CR>", "Step (gdb step)" },
-  { "n", "<LEADER>dO", "<cmd>Over<CR>", "Over (gdb next)" },
-  { "n", "<LEADER>dC", "<cmd>Continue<CR>", "Continue" },
-  { "n", "<LEADER>de", "<cmd>Evaluate<CR>", "Evaluate expression under cursor" },
-  { "n", "<LEADER>dg", "<cmd>Gdb<CR>", "Jump to gdb window" },
+  { "n", "<LEADER>do", "<CMD>Termdebug<CR>", "Open debugger" },
+  { "n", "<LEADER>db", "<CMD>Break<CR>", "Add breakpoint" },
+  { "n", "<LEADER>dc", "<CMD>Clear<CR>", "Clear breakpoint" },
+  { "n", "<LEADER>dr", "<CMD>Run<CR>", "Run the program" },
+  { "n", "<LEADER>ds", "<CMD>Step<CR>", "Step (gdb step)" },
+  { "n", "<LEADER>dO", "<CMD>Over<CR>", "Over (gdb next)" },
+  { "n", "<LEADER>dC", "<CMD>Continue<CR>", "Continue" },
+  { "n", "<LEADER>de", "<CMD>Evaluate<CR>", "Evaluate expression under cursor" },
+  { "n", "<LEADER>dg", "<CMD>Gdb<CR>", "Jump to gdb window" },
 
   -- Find (F) namespace
-  { "n", "<LEADER>f'", "<cmd>Telescope marks<CR>", "Find marks" },
-  { "n", "<LEADER>fb", "<cmd>Telescope buffers<CR>", "Find buffers" },
-  { "n", "<LEADER>fb", "<cmd>Telescope grep_string<CR>", "Find word under cursor" },
-  { "n", "<LEADER>fC", "<cmd>Telescope commands<CR>", "Find commands" },
-  { "n", "<LEADER>ff", "<cmd>Telescope find_files<CR>", "Find files" },
-  { "n", "<LEADER>ff", "<cmd>Telescope find_files<CR>", "Find files" },
+  { "n", "<LEADER>f'", "<CMD>Telescope marks<CR>", "Find marks" },
+  { "n", "<LEADER>fb", "<CMD>Telescope buffers<CR>", "Find buffers" },
+  { "n", "<LEADER>fb", "<CMD>Telescope grep_string<CR>", "Find word under cursor" },
+  { "n", "<LEADER>fC", "<CMD>Telescope commands<CR>", "Find commands" },
+  { "n", "<LEADER>ff", "<CMD>Telescope find_files<CR>", "Find files" },
+  { "n", "<LEADER>ff", "<CMD>Telescope find_files<CR>", "Find files" },
   {
     "n",
     "<LEADER>fF",
@@ -78,9 +78,9 @@ local mappings = {
     end,
     "Find all files",
   },
-  { "n", "<LEADER>fg", "<cmd>Telescope live_grep<CR>", "Find words" },
-  { "n", "<LEADER>fh", "<cmd>Telescope help_tags<CR>", "Find help" },
-  { "n", "<LEADER>fm", "<cmd>Telescope man_pages<CR>", "Find man" },
+  { "n", "<LEADER>fg", "<CMD>Telescope live_grep<CR>", "Find words" },
+  { "n", "<LEADER>fh", "<CMD>Telescope help_tags<CR>", "Find help" },
+  { "n", "<LEADER>fm", "<CMD>Telescope man_pages<CR>", "Find man" },
 
   -- LSP (L) namespace
   { "n", "<LEADER>li", "<CMD>LspInfo<CR>", "LSP information" },
