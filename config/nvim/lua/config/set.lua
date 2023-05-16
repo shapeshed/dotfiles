@@ -1,6 +1,10 @@
+vim.cmd("packadd termdebug")
 -- stylua: ignore start
 vim.g.mapleader       = " "           -- Set leader to SPACE
 vim.g.netrw_banner    = 0             -- Disable banner in filebrowser
+vim.g.termdebug_wide  = 1
+vim.g.termdebug_disasm_window = 1
+vim.g.termdebugger    = "rust-gdb"
 
 vim.opt.clipboard     = "unnamedplus" -- Use system clipboard
 vim.opt.cursorline    = true          -- Highlight cursor line

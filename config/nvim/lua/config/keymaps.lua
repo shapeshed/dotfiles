@@ -1,6 +1,4 @@
 local builtin = require("telescope.builtin")
-local dap = require("dap")
-local dapui = require("dapui")
 local helpers = require("utils.helpers")
 
 -- Mappings ordered under <LEADER> in a logical namespace
@@ -12,6 +10,13 @@ local helpers = require("utils.helpers")
 -- * l - LSP
 -- * p - Packages
 
+vim.keymap.set(
+  "t",
+  "<ESC>",
+  "<C-\\><C-n>",
+  { silent = true, desc = "Escape from Terminal mode", noremap = true }
+)
+
 local mappings = {
   -- Top level useful commands
   { "n", "<LEADER><LEADER>", "<C-^>", "Open last buffer" },
@@ -22,6 +27,7 @@ local mappings = {
   { "n", "<C-l>", "<cmd>bnext<CR>", "Next buffer" },
   { "n", "<C-h>", "<cmd>bprevious<CR>", "Previous buffer" },
   { "n", "<C-x>", "<cmd>bdelete<CR>", "Close buffer" },
+  { "n", "<LEADER>T", "<cmd>terminal<CR>", "Open terminal" },
 
   -- Comment/Uncomment in insert and visual mode
   {
@@ -41,59 +47,24 @@ local mappings = {
     "Comment line",
   },
 
+  -- Terminal
+  { "t", "<LEADER>bc", "<cmd>bdelete<CR>", "Close buffer" },
+
   -- Buffers
   { "n", "<LEADER>bc", "<cmd>bdelete<CR>", "Close buffer" },
   { "n", "<LEADER>bn", "<cmd>bnext<CR>", "Next buffer" },
   { "n", "<LEADER>bp", "<cmd>bprevious<CR>", "Previous buffer" },
 
   -- Debugger (D) namespace
-  { "n", "<LEADER>dc", "<cmd>DapContinue<CR>", "Continue" },
-  { "n", "<LEADER>db", "<cmd>DapToggleBreakpoint<CR>", "Toggle breakpoint" },
-  {
-    "n",
-    "<LEADER>dB",
-    function()
-      vim.ui.input({ prompt = "Condition: " }, function(expr)
-        if expr then
-          dap.toggle_breakpoint(expr)
-        end
-      end)
-    end,
-    "Conditional breakpoint",
-  },
-  { "n", "<LEADER>di", "<cmd>DapStepInto<CR>", "Step into" },
-  { "n", "<LEADER>dO", "<cmd>DapStepOut<CR>", "Step out" },
-  { "n", "<LEADER>do", "<cmd>DapStepOver<CR>", "Step over" },
-  { "n", "<LEADER>dq", "<cmd>DapTerminate<CR>", "Close session" },
-  { "n", "<LEADER>dR", "<cmd>DapRestartFrame<CR>", "Restart debugger" },
-  {
-    "n",
-    "<LEADER>dE",
-    function()
-      vim.ui.input({ prompt = "Expression: " }, function(expr)
-        if expr then
-          dapui.eval(expr)
-        end
-      end)
-    end,
-    "Evaluate Input",
-  },
-  {
-    "n",
-    "<LEADER>du",
-    function()
-      dapui.toggle()
-    end,
-    "Toggle Debugger UI",
-  },
-  {
-    "n",
-    "<LEADER>dh",
-    function()
-      dapui.hover()
-    end,
-    "Debugger Hover",
-  },
+  { "n", "<LEADER>do", "<cmd>Termdebug<CR>", "Open debugger" },
+  { "n", "<LEADER>db", "<cmd>Break<CR>", "Add breakpoint" },
+  { "n", "<LEADER>dc", "<cmd>Clear<CR>", "Clear breakpoint" },
+  { "n", "<LEADER>dr", "<cmd>Run<CR>", "Run the program" },
+  { "n", "<LEADER>ds", "<cmd>Step<CR>", "Step (gdb step)" },
+  { "n", "<LEADER>dO", "<cmd>Over<CR>", "Over (gdb next)" },
+  { "n", "<LEADER>dC", "<cmd>Continue<CR>", "Continue" },
+  { "n", "<LEADER>de", "<cmd>Evaluate<CR>", "Evaluate expression under cursor" },
+  { "n", "<LEADER>dg", "<cmd>Gdb<CR>", "Jump to gdb window" },
 
   -- Find (F) namespace
   { "n", "<LEADER>f'", "<cmd>Telescope marks<CR>", "Find marks" },
