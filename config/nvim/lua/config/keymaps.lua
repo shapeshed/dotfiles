@@ -47,9 +47,6 @@ local mappings = {
     "Comment line",
   },
 
-  -- Terminal
-  { "t", "<LEADER>bc", "<cmd>bdelete<CR>", "Close buffer" },
-
   -- Buffers
   { "n", "<LEADER>bc", "<cmd>bdelete<CR>", "Close buffer" },
   { "n", "<LEADER>bn", "<cmd>bnext<CR>", "Next buffer" },
