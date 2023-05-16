@@ -9,6 +9,7 @@ local M = {
         null_ls.builtins.formatting.shfmt.with({
           extra_args = { "-i", "2", "-ci" },
         }),
+        null_ls.builtins.code_actions.gitsigns,
         null_ls.builtins.diagnostics.markdownlint,
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.trim_newlines,
@@ -24,7 +25,6 @@ local M = {
             group = augroup,
             buffer = bufnr,
             callback = function()
-              -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
               vim.lsp.buf.format({ bufnr = bufnr })
             end,
           })

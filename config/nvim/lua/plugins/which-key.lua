@@ -1,5 +1,6 @@
 return {
   "folke/which-key.nvim",
+  event = "VeryLazy",
   opts = {
     plugins = {
       marks = true, -- shows a list of your marks on ' and `
@@ -92,8 +93,8 @@ return {
   config = function(_, opts)
     vim.o.timeout = true
     vim.o.timeoutlen = 300
-    require("which-key").setup(opts)
     local wk = require("which-key")
+    require("which-key").setup(opts)
 
     wk.register({
       b = { name = "󰓩 Buffers" },
