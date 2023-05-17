@@ -100,7 +100,6 @@ return {
       b = { name = "󰓩 Buffers" },
       d = { name = " Debugger" },
       f = { name = "󰍉 Find" },
-      g = { name = "󰊢 Git" },
       l = { name = " LSP" },
       p = { desc = "󰏖 Packages" },
     }, { prefix = "<leader>" })

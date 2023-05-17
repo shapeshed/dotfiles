@@ -1,5 +1,0 @@
-return {
-  {
-    "numToStr/Comment.nvim",
-  },
-}

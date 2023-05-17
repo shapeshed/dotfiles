@@ -6,7 +6,6 @@ local helpers = require("utils.helpers")
 -- * b - Buffers
 -- * d - Debugger
 -- * f - Find
--- * g - Git
 -- * l - LSP
 -- * p - Packages
 
@@ -23,29 +22,10 @@ local mappings = {
   { "n", "<LEADER>w", "<CMD>write<CR>", "Save" },
   { "n", "<LEADER>q", "<CMD>q<CR>", "Quit" },
   { "n", "<LEADER>e", "<CMD>Lexplore %:p:h<CR>", "Open File Explorer" },
-  { "n", "<LEADER>t", "<CMD>TroubleToggle<CR>", "Toggle Trouble" },
   { "n", "<C-l>", "<CMD>bnext<CR>", "Next buffer" },
   { "n", "<C-h>", "<CMD>bprevious<CR>", "Previous buffer" },
   { "n", "<C-x>", "<CMD>bdelete<CR>", "Close buffer" },
   { "n", "<LEADER>T", "<CMD>terminal<CR>", "Open terminal" },
-
-  -- Comment/Uncomment in insert and visual mode
-  {
-    "n",
-    "<LEADER>/",
-    function()
-      require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)
-    end,
-    "Comment line",
-  },
-  {
-    "v",
-    "<LEADER>/",
-    function()
-      require("Comment.api").toggle.linewise(vim.fn.visualmode())
-    end,
-    "Comment line",
-  },
 
   -- Buffers
   { "n", "<LEADER>bc", "<CMD>bdelete<CR>", "Close buffer" },

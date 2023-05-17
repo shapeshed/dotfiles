@@ -19,3 +19,12 @@ vim.api.nvim_create_autocmd("BufRead", {
     })
   end,
 })
+
+-- Populates qflist with diangostics
+vim.api.nvim_create_augroup("diagnostics", { clear = true })
+vim.api.nvim_create_autocmd("DiagnosticChanged", {
+  group = "diagnostics",
+  callback = function()
+    vim.diagnostic.setqflist({ open = false })
+  end,
+})
