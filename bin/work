@@ -1,21 +1,18 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 set -eEu -o pipefail
 
 tmux new -s work -d
-# tmux new-window -n mail -t work:1
-# tmux send-keys -t mail "mutt" C-m
-# tmux split-window -v -t mail
+tmux new-window -n mail -t work:1
+tmux send-keys -t mail "mutt" C-m
 tmux new-window -n todo -t work:2
 tmux send-keys -t todo "vim ~/todo.md" C-m
-# tmux new-window -n cal -t work:3
-# tmux send-keys -t cal "ikhal" C-m
-#tmux new-window -n cal -t work:2
-#tmux send-keys -t cal "ikhal" C-m
+tmux new-window -n cal -t work:3
+tmux send-keys -t cal "ikhal" C-m
 tmux new-window -n news -t work:4
 tmux send-keys -t news "newsboat" C-m
-# tmux new-window -n chat -t work:5
-# tmux send-keys -t chat "weechat" C-m
+tmux new-window -n audio -t work:5
+tmux send-keys -t audio "ncspot" C-m
 tmux select-window -t 0
 
 tmux attach -t work

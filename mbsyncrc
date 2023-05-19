@@ -1,7 +1,9 @@
 IMAPAccount shapeshed
-Host mail.shapeshed.com
+Host imap.gmail.com
 User george@shapeshed.com
-PassCmd "pass show mail.shapeshed.com/george@shapeshed.com/password"
+AuthMechs XOAUTH2
+PassCmd "/home/go/.mutt/oauth/mutt_oauth2.py /home/go/.mutt/oauth/george@shapeshed.com"
+#PassCmd "pass show mail.shapeshed.com/george@shapeshed.com/password"
 SSLType IMAPS
 
 IMAPStore shapeshed-remote
@@ -13,10 +15,13 @@ Inbox ~/Maildir/INBOX
 Subfolders Verbatim
 
 Channel shapeshed
-Master :shapeshed-remote:
-Slave :shapeshed-local:
-Create Slave
-Expunge Slave
+MaxMessages 1000
+Far :shapeshed-remote:
+Near :shapeshed-local:
+# Patterns * ![Gmail]* "[Gmail]/All Mail"
+Patterns "[Gmail]/All Mail" "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Bin" "[Gmail]/Spam" INBOX ARCHIVED
+Create Near
+Expunge Near
+ExpireUnread yes
 Sync All
-Patterns * !virtual/* 
 SyncState *

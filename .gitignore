@@ -122,3 +122,7 @@ w3m/w3mcache*
 w3m/w3msrc*
 w3m/w3mtmp*
 zsh/gvm.zsh
+
+config/vdirsyncer/george@shapeshed.com-calendar
+config/vdirsyncer/george@shapeshed.com-contacts
+

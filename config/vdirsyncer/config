@@ -42,10 +42,14 @@ path = "/home/go/.local/share/shapeshed/contacts"
 fileext = ".vcf"
 
 [storage shapeshed_contacts_remote]
-type = "carddav"
-url = "https://mail.shapeshed.com/george%40shapeshed.com/aec0356d-e864-a5ae-f1c4-c0c2321ce72a/"
-username = "george@shapeshed.com"
-password.fetch = ["command", "pass", "mail.shapeshed.com/george@shapeshed.com/password"]
+# type = "carddav"
+type = "google_contacts"
+token_file = "/home/go/.config/vdirsyncer/george@shapeshed.com-contacts"
+client_id.fetch = ["command", "pass", "show", "vdirsyncer.local/client_id"]
+client_secret.fetch = ["command", "pass", "show", "vdirsyncer.local/client_secret"]
+# url = "https://mail.shapeshed.com/george%40shapeshed.com/aec0356d-e864-a5ae-f1c4-c0c2321ce72a/"
+# username = "george@shapeshed.com"
+# password.fetch = ["command", "pass", "mail.shapeshed.com/george@shapeshed.com/password"]
 
 # CALDAV
 [pair shapeshed_calendar]
@@ -63,7 +67,11 @@ path = "/home/go/.local/share/shapeshed/calendars"
 fileext = ".ics"
 
 [storage shapeshed_calendar_remote]
-type = "caldav"
-url = "https://mail.shapeshed.com/george%40shapeshed.com/6c3ece98-644f-8d05-97a2-a1992c0a58c3/"
-username = "george@shapeshed.com"
-password.fetch = ["command", "pass", "mail.shapeshed.com/george@shapeshed.com/password"]
+#type = "caldav"
+#url = "https://mail.shapeshed.com/george%40shapeshed.com/6c3ece98-644f-8d05-97a2-a1992c0a58c3/"
+#username = "george@shapeshed.com"
+#password.fetch = ["command", "pass", "mail.shapeshed.com/george@shapeshed.com/password"]
+type = "google_calendar"
+token_file = "/home/go/.config/vdirsyncer/george@shapeshed.com-calendar"
+client_id.fetch = ["command", "pass", "show", "vdirsyncer.local/client_id"]
+client_secret.fetch = ["command", "pass", "show", "vdirsyncer.local/client_secret"]

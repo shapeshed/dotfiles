@@ -1,4 +1,4 @@
-source ~/.mutt/colors/colors-gruvbox-shuber.muttrc 
+source ~/.mutt/colors/catppuccin-mocha.muttrc
 # Commands
 # source "gpg --decrypt --quiet ~/.mutt/aliases/shapeshed.gpg |"
 alternates ^george\+.*@shapeshed\.com$
@@ -11,6 +11,10 @@ bind pager v view-attachments
 bind pager j next-line
 bind pager k previous-line
 bind pager q exit
+set imap_authenticators = "oauthbearer:xoauth2"
+set imap_oauth_refresh_command = "~/.mutt/oauth/mutt_oauth2.py ~/mutt/oauth/oath2_token_file"
+set smtp_authenticators = ${imap_authenticators}
+set smtp_oauth_refresh_command = ${imap_oauth_refresh_command}
 
 
 hdr_order Date From To Cc Date
@@ -19,7 +23,7 @@ unignore from date subject to cc
 lists dovecot k-9-mail users@spamassassin.apache.org postfix-users@postfix.org password-store@lists.zx2c4.com
 subscribe dovecot k-9-mail users@spamassassin.apache.org postfix-users@postfix.org password-store@lists.zx2c4.com
 
-set abort_noattach                =   yes 
+set abort_noattach                =   yes
 set abort_noattach_regexp         =   "attach"
 set abort_nosubject               =   ask-yes
 set abort_unmodified              =   yes
@@ -98,7 +102,7 @@ set dsn_notify                    =   ""
 set dsn_return                    =   ""
 set duplicate_threads             =   yes
 set edit_headers                  =   no
-set editor                        =   "vim -c 'set spell spelllang=en_gb'"
+set editor                        =   "nvim -c 'set spell spelllang=en_gb'"
 set encode_from                   =   no
 set entropy_file                  =   ""
 set envelope_from_address         =   ""
@@ -115,8 +119,8 @@ set folder_format                 =   "%2C %t %N %F %2l %-8.8u %-8.8g %8s %d %f"
 set followup_to                   =   yes
 set force_name                    =   no
 set forward_attachments           =   ask-yes
-set forward_attribution_intro     =   "----- Forwarded message from %f -----" 
-set forward_attribution_trailer   =   "----- End forwarded message -----" 
+set forward_attribution_intro     =   "----- Forwarded message from %f -----"
+set forward_attribution_trailer   =   "----- End forwarded message -----"
 set forward_decode                =   yes
 set forward_decrypt               =   yes
 set forward_edit                  =   yes
@@ -217,7 +221,7 @@ set new_mail_command              =   "notify-send 'New Email in %f' '%n new mes
 set pager                         =   "builtin"
 set pager_context                 =   3
 set pager_format                  =   "%-20.20n   %s%*  %P"
-set pager_index_lines             =   "0" 
+set pager_index_lines             =   "0"
 set pager_stop                    =   yes
 set pgp_auto_decode               =   yes
 set pgp_autoinline                =   no
@@ -257,7 +261,8 @@ set pop_reconnect                 =   ask-yes
 set pop_user                      =   ""
 set post_indent_string            =   ""
 set postpone                      =   ask-yes
-set postponed                     =   "=Draft"
+# set postponed                     =   "=Draft"
+set postponed                     =   "+[Gmail]/Drafts"
 set postpone_encrypt              =   no
 set postpone_encrypt_as           =   ""
 set preconnect                    =   ""
@@ -275,7 +280,8 @@ set read_inc                      =   10
 set read_only                     =   no
 set realname                      =   "George Ornbo"
 set recall                        =   "ask-yes"
-set record                        =   "=Sent"
+# set record                        =   "=Sent"
+set record                        =   "/dev/null"
 set reflow_space_quotes           =   yes
 set reflow_text                   =   yes
 set reflow_wrap                   =   78
@@ -360,7 +366,8 @@ set sort_aux                      =   reverse-date-received
 set sort_browser                  =   alpha
 set sort_re                       =   yes
 set spam_separator                =   ","
-set spoolfile                     =   "=INBOX"
+# set spoolfile                     =   "=INBOX"
+set spoolfile                     =   "+INBOX"
 # set ssl_ca_certificates_file      =   ""
 set ssl_client_cert               =   ""
 set ssl_force_tls                 =   no
@@ -390,7 +397,8 @@ set time_inc                      =   0
 set timeout                       =   600
 # set tempdir                     =   ""
 set to_chars                      =   " +TCFL"
-set trash                         =   "=Trash"
+# set trash                         =   "=Trash"
+set trash                         =   "+[Gmail]/Bin"
 set ts_icon_format                =   "M%?n?AIL&ail?"
 set ts_enabled                    =   no
 set ts_status_format              =   "Mutt with %?m?%m messages&no messages?%?n? [%n NEW]?"
@@ -434,11 +442,11 @@ macro index <F6> \
 "notmuch: remove message from inbox"
 
 macro index,pager A \
-        ":set confirmappend=no delete=yes auto_tag=yes\n<save-message>~/Maildir/All\n<sync-mailbox>:set confirmappend=yes delete=ask-yes<enter>"  \
+        ":set confirmappend=no delete=yes auto_tag=yes\n<save-message>~/Maildir/[Gmail]/All\ Mail/\n<sync-mailbox>:set confirmappend=yes delete=ask-yes<enter>"  \
         "move message to the archive"
 
 macro index,pager J \
-        ":set confirmappend=no delete=yes auto_tag=yes\n<save-message>~/Maildir/Junk\n<sync-mailbox>:set confirmappend=yes delete=ask-yes<enter>"  \
+        ":set confirmappend=no delete=yes auto_tag=yes\n<save-message>~/Maildir/[Gmail]/Spam/\n<sync-mailbox>:set confirmappend=yes delete=ask-yes<enter>"  \
         "move message to junk"
 
 macro attach F \
