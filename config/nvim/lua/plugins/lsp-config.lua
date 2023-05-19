@@ -26,5 +26,10 @@ return {
     lspconfig.rust_analyzer.setup({
       capabilities = capabilities,
     })
+
+    -- Bash Lanaguage Server
+    lspconfig.bashls.setup({
+      capabilities = capabilities,
+    })
   end,
 }
