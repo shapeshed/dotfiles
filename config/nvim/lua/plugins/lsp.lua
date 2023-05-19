@@ -9,7 +9,13 @@ local M = {
         null_ls.builtins.formatting.shfmt.with({
           extra_args = { "-i", "2", "-ci" },
         }),
-        null_ls.builtins.code_actions.gitsigns,
+        null_ls.builtins.diagnostics.shellcheck,
+        null_ls.builtins.diagnostics.proselint.with({
+          filetypes = { "markdown", "mail" },
+        }),
+        null_ls.builtins.code_actions.proselint.with({
+          filetypes = { "markdown", "mail" },
+        }),
         null_ls.builtins.diagnostics.markdownlint,
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.trim_newlines,
