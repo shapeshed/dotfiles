@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
-for update in `auracle sync -q`; do
-  auracled $update
+for update in $(auracle sync -q); do
+  auracled "$update"
 done
