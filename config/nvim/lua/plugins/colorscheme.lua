@@ -1,4 +1,4 @@
-return {
+local M = {
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -10,3 +10,5 @@ return {
     end,
   },
 }
+
+return M
