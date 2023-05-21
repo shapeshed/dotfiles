@@ -1,5 +1,5 @@
-return {
-  {
-    "tpope/vim-commentary",
-  },
+local M = {
+  "tpope/vim-commentary",
 }
+
+return M

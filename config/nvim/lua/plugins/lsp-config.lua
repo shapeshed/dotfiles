@@ -1,4 +1,4 @@
-return {
+local M = {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
@@ -33,3 +33,5 @@ return {
     })
   end,
 }
+
+return M

@@ -10,19 +10,16 @@ local M = {
           extra_args = { "-i", "2", "-ci" },
         }),
         null_ls.builtins.diagnostics.shellcheck,
-        null_ls.builtins.diagnostics.proselint.with({
-          filetypes = { "markdown", "mail" },
-        }),
-        null_ls.builtins.code_actions.proselint.with({
-          filetypes = { "markdown", "mail" },
-        }),
         null_ls.builtins.diagnostics.markdownlint,
+        null_ls.builtins.completion.spell.with({
+          filetypes = { "markdown", "mail" },
+        }),
         null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.trim_newlines,
-        null_ls.builtins.formatting.trim_whitespace,
         null_ls.builtins.formatting.prettier.with({
           filetypes = { "html", "css", "yaml", "markdown", "json" },
         }),
+        null_ls.builtins.formatting.trim_newlines,
+        null_ls.builtins.formatting.trim_whitespace,
       },
       on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then

@@ -1,4 +1,4 @@
-return {
+local M = {
   "folke/which-key.nvim",
   event = "VeryLazy",
   opts = {
@@ -105,3 +105,5 @@ return {
     }, { prefix = "<leader>" })
   end,
 }
+
+return M
