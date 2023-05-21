@@ -1,0 +1,35 @@
+[user]
+    name = George Ornbo
+    email = george@shapeshed.com
+    signingkey = 8B63285980040E5D
+  # signingkey = AD794A0DCDE6FFD240D33A5D36EF205191A837C0
+
+[github]
+    user = shapeshed
+    token = `gpg -d ~/.auth/github_token.gpg`
+[core]
+	editor = /usr/bin/nvim
+
+[color]
+    ui = true
+
+[pull]
+    rebase = true
+
+[clean]
+    requireForce = false
+
+[push]
+    default = simple
+
+[commit]
+    gpgsign = true
+
+[merge]
+    ff = no
+    commit = no
+[branch]
+    autosetuprebase = always
+[init]
+    defaultBranch = main
+    templateDir = /home/go/.git-template
