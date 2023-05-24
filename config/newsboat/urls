@@ -1,5 +1,5 @@
 # Alerts
-https://www.google.co.uk/alerts/feeds/09921663692746895687/8465141578698173234 "alerts" "!Ethereum"
+# https://www.google.co.uk/alerts/feeds/09921663692746895687/8465141578698173234 "alerts" "!Ethereum"
 
 # Central Banks
 https://www.bis.org/doclist/rss_all_categories.rss "central-banks" "!BIS all" "~BIS All"
@@ -20,7 +20,7 @@ https://www.coindesk.com/arc/outboundfeeds/rss/?outputType=xml "crypto-press" "!
 https://cointelegraph.com/rss "crypto-press" "!Cointelegraph" "~Cointelegraph"
 https://cryptobriefing.com/feed/ "crypto-press" "!Crypto Briefing" "~Crypto Briefing"
 https://decrypt.co/feed "crypto-press" "!Decrypt" "~Decrypt"
-https://dailyhodl.com/feed/ "crypto-press" "!The Daily Hodl" "~Decrypt"
+https://dailyhodl.com/feed/ "crypto-press" "!The Daily Hodl" "~Daily Hodl"
 https://themerkle.com/feed/ "crypto-press" "!The Merkle" "~The Merkle"
 https://web3isgoinggreat.com/feed.xml "crypto-press" "!web3 is going great" "~web3 is going great"
 
@@ -44,7 +44,7 @@ https://github.com/openwrt/openwrt/releases.atom "linux" "!OpenWRT Releases" "~O
 https://github.com/newsboat/newsboat/tags.atom "linux" "!Newsboat Releases" "~Newsboat Releases"
 https://github.com/muttmua/mutt/tags.atom "linux" "!Mutt Releases" "~Mutt Releases"
 https://github.com/tmux/tmux/releases.atom "linux" "!tmux Releases" "~tmux Releases"
-https://github.com/vim/vim/tags "linux" "!vim Releases" "~vim Releases"
+https://github.com/vim/vim/tags.atom "linux" "!vim Releases" "~vim Releases"
 https://github.com/gohugoio/hugo/releases.atom "linux" "!hugo Releases" "~hugo Releases"
 
 # Politics
@@ -69,6 +69,8 @@ https://www.theguardian.com/uk/commentisfree/rss "opinion" "!Guardian Opinion" "
 https://www.economist.com/leaders/rss.xml "opinion" "!Economist Leaders" "~Economist Leaders"
 https://www.ft.com/opinion?format=rss "opinion" "!FT Opinion" "~FT Opinion"
 
+# Me
+https://shapeshed.com/index.xml "me" "!shapeshed"
 
 # Query Feeds
 "query:Alerts:tags # \"alerts\""
@@ -86,3 +88,4 @@ https://www.ft.com/opinion?format=rss "opinion" "!FT Opinion" "~FT Opinion"
 "query:Economics:tags # \"economics\""
 "query:Hacker News:tags # \"hackernews\""
 "query:Opinion:tags # \"opinion\""
+"query:Me:tags # \"me\""

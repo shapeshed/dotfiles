@@ -40,6 +40,8 @@ feed-sort-order     title-desc
 
 auto-reload yes
 reload-time 15
+reload-threads 100
+# download-full-page yes
 
 player "mpv"
 
