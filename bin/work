@@ -6,7 +6,7 @@ tmux new -s work -d
 tmux new-window -n mail -t work:1
 tmux send-keys -t mail "mutt" C-m
 tmux new-window -n todo -t work:2
-tmux send-keys -t todo "vim ~/todo.md" C-m
+tmux send-keys -t todo "vim ~/Documents/todo.md" C-m
 tmux new-window -n cal -t work:3
 tmux send-keys -t cal "ikhal" C-m
 tmux new-window -n news -t work:4

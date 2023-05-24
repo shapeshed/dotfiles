@@ -7,7 +7,7 @@ vim.g.termdebug_disasm_window = 1
 vim.g.termdebugger    = "rust-gdb"
 
 vim.opt.clipboard     = "unnamedplus" -- Use system clipboard
-vim.opt.cursorline    = true          -- Highlight cursor line
+vim.opt.cursorline    = true          -- Highdark cursor line
 vim.opt.expandtab     = true          -- In insert mode add spaces for a tab
 vim.opt.ignorecase    = true          -- Ignore case in search
 vim.opt.number        = true          -- Show line numbers
@@ -17,5 +17,6 @@ vim.opt.shiftwidth    = 4
 vim.opt.tabstop       = 4
 vim.opt.signcolumn    = "yes"
 vim.opt.termguicolors = true -- Enable 24-bit RGB color
+vim.opt.background    = "dark"
 
 -- stylua: ignore end

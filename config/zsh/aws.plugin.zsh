@@ -1,0 +1,1 @@
+/home/go/src/github.com/ohmyzsh/ohmyzsh/plugins/aws/aws.plugin.zsh

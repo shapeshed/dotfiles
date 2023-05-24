@@ -125,4 +125,5 @@ zsh/gvm.zsh
 
 config/vdirsyncer/george@shapeshed.com-calendar
 config/vdirsyncer/george@shapeshed.com-contacts
-
+mutt/oauth/mutt_oauth2.py
+mutt/oauth/george@shapeshed.com

@@ -1,4 +1,0 @@
-source ~/.mutt/accounts/shapeshed.com
-source ~/.mutt/gpg/gpgrc
-# source /etc/Muttrc.gpg.dist
-macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'

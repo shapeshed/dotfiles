@@ -1,14 +1,3 @@
-# Images
-image/*; feh %s
-
-# PDF
-application/pdf; evince %s
-
-# Videos
-video/quicktime; mpv %s
-
-# ical
-application/ics; mutttocal %s
-
-# text/html
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
+application/pdf; evince %s
+image/jpeg; imv %s
