@@ -7,7 +7,9 @@ VIMCONF=${XDG_CONFIG_HOME}/nvim/lua/config/set.lua
 ALACRITTYCONF=${XDG_CONFIG_HOME}/alacritty/alacritty.yml
 TMUXCONF=${XDG_CONFIG_HOME}/tmux/tmux.conf
 
-if [ "$1" = "light" ]; then
+CURRENT_MODE=$( gsettings get org.gnome.desktop.interface color-scheme )
+
+if [ "$1" = "light" ] || [ -z ${1+x} ] && [ "$CURRENT_MODE" = "'prefer-dark'" ]; then
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
   sed -i 's/'"$DARKTHEME"'/'"$LIGHTTHEME"'/' "$ALACRITTYCONF"
   sed -i 's/'"$DARKTHEME"'/'"$LIGHTTHEME"'/' "$TMUXCONF"
@@ -18,7 +20,7 @@ if [ "$1" = "light" ]; then
     xargs -I PANE tmux send-keys -t PANE ESCAPE ":set background=light" ENTER
 fi
 
-if [ "$1" = "dark" ]; then
+if [ "$1" = "dark" ] || [ -z ${1+x} ] && [ "$CURRENT_MODE" = "'prefer-light'" ]; then
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
   sed -i 's/'"$LIGHTTHEME"'/'"$DARKTHEME"'/' "$ALACRITTYCONF"
   sed -i 's/'"$LIGHTTHEME"'/'"$DARKTHEME"'/' "$TMUXCONF"
