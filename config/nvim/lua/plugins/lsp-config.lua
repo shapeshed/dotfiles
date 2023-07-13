@@ -25,6 +25,13 @@ local M = {
     -- Rust Analyser
     lspconfig.rust_analyzer.setup({
       capabilities = capabilities,
+      settings = {
+        ["rust-analyzer"] = {
+          rustfmt = {
+            extraArgs = { "+nightly" },
+          },
+        },
+      },
     })
 
     -- Bash Lanaguage Server

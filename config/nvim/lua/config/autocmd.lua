@@ -28,3 +28,15 @@ vim.api.nvim_create_autocmd("DiagnosticChanged", {
     vim.diagnostic.setqflist({ open = false })
   end,
 })
+
+vim.api.nvim_create_augroup("Whitespace", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = "Whitespace",
+  command = "if !&binary | call format#TrimWhitespace() | endif",
+})
+
+vim.api.nvim_create_augroup("Format", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = "Format",
+  command = "if !&binary | call format#FormatFile() | endif",
+})
