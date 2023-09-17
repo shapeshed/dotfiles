@@ -25,6 +25,9 @@ local M = {
     -- Rust Analyser
     lspconfig.rust_analyzer.setup({
       capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = true
+      end,
       settings = {
         ["rust-analyzer"] = {
           rustfmt = {
@@ -37,6 +40,26 @@ local M = {
     -- Bash Lanaguage Server
     lspconfig.bashls.setup({
       capabilities = capabilities,
+    })
+
+    -- Typescript
+    lspconfig.tsserver.setup({
+      capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+      end,
+    })
+
+    -- Eslint
+    lspconfig.eslint.setup({
+      capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = true
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          command = "EslintFixAll",
+        })
+      end,
     })
   end,
 }

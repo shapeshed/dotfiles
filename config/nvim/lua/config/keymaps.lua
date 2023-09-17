@@ -8,6 +8,7 @@ local helpers = require("utils.helpers")
 -- * f - Find
 -- * l - LSP
 -- * p - Packages
+--
 
 vim.keymap.set(
   "t",
@@ -22,8 +23,8 @@ local mappings = {
   { "n", "<LEADER>w", "<CMD>write<CR>", "Save" },
   { "n", "<LEADER>q", "<CMD>q<CR>", "Quit" },
   { "n", "<LEADER>e", "<CMD>Lexplore %:p:h<CR>", "Open File Explorer" },
-  { "n", "<C-l>", "<CMD>bnext<CR>", "Next buffer" },
-  { "n", "<C-h>", "<CMD>bprevious<CR>", "Previous buffer" },
+  --  { "n", "<C-l>", "<CMD>bnext<CR>", "Next buffer" },
+  --  { "n", "<C-h>", "<CMD>bprevious<CR>", "Previous buffer" },
   { "n", "<C-x>", "<CMD>bdelete<CR>", "Close buffer" },
   { "n", "<LEADER>T", "<CMD>terminal<CR>", "Open terminal" },
 
@@ -46,9 +47,8 @@ local mappings = {
   -- Find (F) namespace
   { "n", "<LEADER>f'", "<CMD>Telescope marks<CR>", "Find marks" },
   { "n", "<LEADER>fb", "<CMD>Telescope buffers<CR>", "Find buffers" },
-  { "n", "<LEADER>fb", "<CMD>Telescope grep_string<CR>", "Find word under cursor" },
+  { "n", "<LEADER>fw", "<CMD>Telescope grep_string<CR>", "Find word under cursor" },
   { "n", "<LEADER>fC", "<CMD>Telescope commands<CR>", "Find commands" },
-  { "n", "<LEADER>ff", "<CMD>Telescope find_files<CR>", "Find files" },
   { "n", "<LEADER>ff", "<CMD>Telescope find_files<CR>", "Find files" },
   {
     "n",
@@ -66,6 +66,7 @@ local mappings = {
   { "n", "<LEADER>li", "<CMD>LspInfo<CR>", "LSP information" },
   { "n", "<LEADER>lI", "<CMD>NullLsInfo<CR>", "NullLs information" },
   { "n", "<LEADER>ld", vim.lsp.buf.definition, "Go to definition" },
+  { "n", "K", vim.lsp.buf.hover, "Hover info" },
   { "n", "<LEADER>lD", "<CMD>Telescope diagnostics<CR>", "Search diagnostics" },
   { "n", "<LEADER>ls", "<CMD>Telescope lsp_document_symbols<CR>", "Search symbols" },
   { "n", "<LEADER>lk", vim.lsp.buf.hover, "Hover information" },

@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd("BufRead", {
   end,
 })
 
--- Populates qflist with diangostics
+-- Populates qflist with diagostics
 vim.api.nvim_create_augroup("diagnostics", { clear = true })
 vim.api.nvim_create_autocmd("DiagnosticChanged", {
   group = "diagnostics",
@@ -33,6 +33,12 @@ vim.api.nvim_create_augroup("Whitespace", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = "Whitespace",
   command = "if !&binary | call format#TrimWhitespace() | endif",
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  callback = function()
+    vim.lsp.buf.format({ async = false })
+  end,
 })
 
 vim.api.nvim_create_augroup("Format", { clear = true })

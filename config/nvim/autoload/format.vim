@@ -19,7 +19,7 @@ function! format#FormatFile() abort
   call winrestview(curw)
 endfunction
 
-" Trim trailing whitespace, and trailing blank lines.
+" " Trim trailing whitespace, and trailing blank lines.
 function! format#TrimWhitespace() abort
   let curw = winsaveview()
   keepjumps keeppatterns %s/\s\+$//e
