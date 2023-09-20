@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+set -e
+
+ECONOMIST="https://access.acast.com/rss/theeconomistmorningbriefing"
+FTNEWSBRIEFING="https://play.acast.com/s/ftnewsbriefing"
+REUTERS="https://prod-mediatools-google.global.reuters.tv/mediatools/google/google-audiosafe-us-5minaudio.rss"
+
+# Skip ads on reuters
+# Can't get this working with per file options
+# https://mpv.io/manual/stable/#per-file-options
+mpv --ytdl-raw-options=playlist-start=1,playlist-end=1 \
+  --speed=1.4 --start=00:00:30 \
+  "${REUTERS}"
+
+echo \
+  "${ECONOMIST}" \
+  "${FTNEWSBRIEFING}" |
+  xargs mpv --speed=1.4 --ytdl-raw-options=playlist-start=1,playlist-end=1
