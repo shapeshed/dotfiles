@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-set -eEu -o pipefail
+set -e
 
 tmux new -s work -d
 tmux new-window -n mail -t work:1
