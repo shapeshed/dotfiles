@@ -1,0 +1,64 @@
+#compdef power
+
+local -a subcommands
+local -a query_subcommands
+local -a execute_subcommands
+
+subcommands=(
+    'query:Query the Power contract'
+    'execute:Execute the Power contract'
+    'version:Show version information.'
+    'help:Show this text'
+)
+
+query_subcommands=(
+    'config:Show the contract config'
+    'state:Show the contract state'
+    'owner:Query the contract owner'
+    'get_normalisation_factor:Query the normalisation factor'
+    'get_denormalised_mark_funding:Query the denormalised mark funding'
+    'get_vault:Query a vault'
+    'check_vault:Query a vault status'
+)
+
+execute_subcommands=(
+    'set_open:Set the contract to open'
+    'mint_power_perp:Mint a power perpetual'
+    'burn_power_perp:Burn a power perpetual'
+    'deposit:Deposit into a vault'
+    'withdraw:Withdraw from a vault'
+    'liquidate:Liquidate a vault'
+    'apply_funding:Apply the funding rate'
+    'update_config:Update the contract config'
+    'update_owner:Update the contract owner'
+    'pause:Pause the contract'
+    'unpause:Unpause the contract'
+)
+
+case $state in
+    (subcommands)
+        _describe -t subcommands "power subcommands" subcommands && return
+        ;;
+    (query_subcommands)
+        _describe -t query_subcommands "power query subcommands" query_subcommands && return
+        ;;
+    (execute_subcommands)
+        _describe -t execute_subcommands "power execute subcommands" execute_subcommands && return
+        ;;
+esac
+
+if (( CURRENT == 2 )); then
+    _describe -t subcommands "power subcommands" subcommands
+elif (( CURRENT == 3 )); then
+    case $words[2] in
+        query)
+            _describe -t query_subcommands "power query subcommands" query_subcommands
+            ;;
+        execute)
+            _describe -t execute_subcommands "power execute subcommands" execute_subcommands
+            ;;
+        *)
+            _default
+            ;;
+    esac
+fi
