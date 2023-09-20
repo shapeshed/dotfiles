@@ -1,0 +1,304 @@
+#!/usr/bin/env sh
+
+VERSION=0.0.1
+POWER=osmo1cnj84q49sp4sd3tsacdw9p4zvyd8y46f2248ndq2edve3fqa8krs9jds9g
+ACCOUNT=bot-2
+POWER_DENOM=factory/osmo1qc5pen6am58wxuj58vw97m72vv5tp74remsul7/uosmoexp
+BASE_DENOM=uosmo
+
+_execute() {
+  cmd="osmosisd tx wasm execute $POWER '$1' --from $ACCOUNT --yes --output json"
+
+  if [ -n "$FEES" ]; then
+    cmd="$cmd --fees=$FEES"
+  fi
+
+  if [ -n "$GAS" ]; then
+    cmd="$cmd --gas $GAS"
+  fi
+
+  if [ -n "$AMOUNT" ]; then
+    cmd="$cmd --amount=$AMOUNT"
+  fi
+
+  eval "$cmd" |
+    jq -r .txhash |
+    xargs -I{} bash -c 'sleep 6 && osmosisd query tx {} --output json | jq -C . | less -R'
+
+  unset "$FEES" "$GAS"
+}
+
+_query() {
+  osmosisd query wasm contract-state smart "$POWER" "$1" --output=json | jq .
+}
+
+_query_config() {
+  _query '{"config": { }}'
+}
+
+_query_state() {
+  _query '{"state": { }}'
+}
+
+_query_owner() {
+  _query '{"owner": { }}'
+}
+
+_query_get_normalisation_factor() {
+  _query '{"get_normalisation_factor": { }}'
+}
+_query_get_denormalised_mark() {
+  _query '{"get_denormalised_mark": { "period": 0 }}'
+}
+_query_get_vault() {
+  _query "{\"get_vault\": { \"vault_id\": $1 }}"
+}
+_query_check_vault() {
+  _query "{\"check_vault\": { \"vault_id\": $1 }}"
+}
+
+query_usage() {
+  cat <<EOF
+  $PROGRAM query config
+    Show the contract config
+  $PROGRAM query state
+    Show the contract state
+  $PROGRAM query owner
+    Query the contract owner
+  $PROGRAM query get_normalisation_factor
+    Query the normalisation factor
+  $PROGRAM query get_denormalised_mark_funding
+    Query the denormalised mark funding
+  $PROGRAM query get_vault vault_id
+    Query a vault
+  $PROGRAM query check_vault vault_id
+    Query a vault status
+EOF
+}
+
+_execute_set_open() {
+  FEES=875uosmo
+  GAS=350000
+  _execute '{"set_open": { }}'
+}
+
+_execute_mint_power_perp() {
+  FEES=800000uosmo
+  GAS=800000
+  AMOUNT=5000000uosmo
+  if [ -n "$2" ]; then
+    VAULT="$2"
+  else
+    VAULT="null"
+  fi
+  _execute "{\"mint_power_perp\": { \"amount\": \"$1\", \"rebase\": true, \"vault_id\": $VAULT }}"
+}
+
+_execute_burn_power_perp() {
+  FEES=1500uosmo
+  GAS=600000
+  AMOUNT=$2$POWER_DENOM
+  _execute "{\"burn_power_perp\": { \"vault_id\": $1, \"amount\": \"$2\" }}"
+}
+_execute_deposit() {
+  FEES=1500uosmo
+  GAS=600000
+  AMOUNT=$2$BASE_DENOM
+  _execute "{\"deposit\": { \"vault_id\": $1 }}"
+}
+_execute_withdraw() {
+  FEES=1500uosmo
+  GAS=600000
+  AMOUNT=$2$BASE_DENOM
+  _execute "{\"withdraw\": { \"vault_id\": $1, \"amount\": \"$2\"}}"
+}
+
+_execute_liquidate() {
+  FEES=1500uosmo
+  GAS=600000
+  _execute "{\"liquidate\": { \"vault_id\": $1, \"max_debt_amount\": \"$2\" }}"
+}
+
+_execute_apply_funding() {
+  FEES=1500uosmo
+  GAS=600000
+  _execute '{"apply_funding": { }}'
+}
+
+_execute_update_config() {
+  FEES=1500uosmo
+  GAS=600000
+  _execute "{\"update_config\": { \"fee_rate\": \"$1\", \"fee_pool\": \"$2\" }}"
+}
+
+_execute_update_owner() {
+  FEES=1500uosmo
+  GAS=600000
+  _execute "{\"update_owner\": { \"new_owner\": \"$1\" }}"
+}
+
+_execute_pause() {
+  FEES=1500uosmo
+  GAS=350000
+  _execute '{"pause": { }}'
+}
+_execute_unpause() {
+  FEES=1500uosmo
+  GAS=350000
+  _execute '{"un_pause": { }}'
+}
+
+execute_usage() {
+  cat <<EOF
+  $PROGRAM execute set_open
+    Set the contract to open
+  $PROGRAM execute mint_power_perp amount rebase
+    Mint a power perpetual
+  $PROGRAM execute burn_power_perp vault_id amount
+    Burn a power perpetual
+  $PROGRAM execute deposit vault_id amount
+    Deposit into a vault
+  $PROGRAM execute withdraw vault_id amount
+    Deposit into a vault
+  $PROGRAM liquidate vault_id max_debt_amount
+    Liquidate a vault
+  $PROGRAM apply_funding
+    Apply the funding rate
+  $PROGRAM update_config fee_rate fee_pool
+    Update the contract config
+  $PROGRAM update_owner owner
+    Update the contract owner
+  $PROGRAM pause
+    Pause the contract
+  $PROGRAM unpause
+    Unpause the contract
+EOF
+}
+
+cmd_execute() {
+  case "$1" in
+    set_open | so)
+      shift
+      _execute_set_open
+      ;;
+    mint_power_perp | mpp)
+      shift
+      _execute_mint_power_perp "$@"
+      ;;
+    burn_power_perp | bpp)
+      shift
+      _execute_burn_power_perp "$@"
+      ;;
+    deposit | d)
+      shift
+      _execute_deposit "$@"
+      ;;
+    withdraw | w)
+      shift
+      _execute_withdraw "$@"
+      ;;
+    liquidate | l)
+      shift
+      _execute_liquidate "$@"
+      ;;
+    apply_funding | af)
+      shift
+      _execute_apply_funding "$@"
+      ;;
+    update_config | uc)
+      shift
+      _execute_update_config "$@"
+      ;;
+    update_owner | uo)
+      shift
+      _execute_update_owner "$@"
+      ;;
+    pause)
+      shift
+      _execute_pause "$@"
+      ;;
+    unpause)
+      shift
+      _execute_unpause "$@"
+      ;;
+    *) execute_usage "$@" ;;
+  esac
+  exit 0
+}
+
+cmd_query() {
+  case "$1" in
+    config | c)
+      shift
+      _query_config
+      ;;
+    state | s)
+      shift
+      _query_state
+      ;;
+    owner | o)
+      shift
+      _query_owner
+      ;;
+    get_normalisation_factor | gnf)
+      shift
+      _query_get_normalisation_factor
+      ;;
+    get_denormalised_mark_funding | gdmf)
+      shift
+      _query_get_denormalised_mark
+      ;;
+    get_vault | gv)
+      shift
+      _query_get_vault "$1"
+      ;;
+    check_vault | cv)
+      shift
+      _query_check_vault "$1"
+      ;;
+    *) query_usage "$@" ;;
+  esac
+  exit 0
+}
+
+cmd_version() {
+  cat <<EOF
+$VERSION
+EOF
+}
+
+cmd_usage() {
+  cat <<EOF
+  $PROGRAM help
+    Show this text
+  $PROGRAM version
+    Show version information.
+  $PROGRAM query
+    Query the Power contract
+  $PROGRAM execute
+    Execute the Power contract
+EOF
+}
+
+PROGRAM="${0##*/}"
+
+case "$1" in
+  help | --help | -h)
+    shift
+    cmd_usage
+    ;;
+  version | --version | -v)
+    shift
+    cmd_version "$@"
+    ;;
+  query)
+    shift
+    cmd_query "$@"
+    ;;
+  execute)
+    shift
+    cmd_execute "$@"
+    ;;
+  *) cmd_usage "$@" ;;
+esac
+exit 0
