@@ -1,101 +1,106 @@
 auth
+config/Android Open Source Project/
+config/Daedalus Mainnet/
+config/GIMP/
+config/Google/
+config/Keybase/
+config/Ledger Live/
+config/Mist
+config/Pinta/
+config/PlantUML Editor/
+config/QtProject
+config/QtProject.conf
+config/Signal Beta
+config/Signal/
+config/Slack/
+config/Unknown Organization/
+config/VirtualBox
+config/Yubico/
 config/airtame-application/
-config/autostart/
+config/ardour6/
 config/audacity/
+config/autostart/
+config/brinkervii/
+config/calibre/
+config/chrome-flags.conf
 config/chromium
+config/chromium-flags.conf
 config/coc
 config/compiz-1/
 config/configstore
 config/dconf/
+config/discord/
 config/easytag/
 config/enchant/
 config/evince/
 config/evolution/
+config/fontforge/
 config/gatsby/
-config/gh/
-config/GIMP/
+config/gcloud/
 config/gconf/
+config/gh/
+config/glib-2.0/
+config/go/
 config/google-chrome
+config/gthumb/
 config/gtk-2.0
 config/gtk-3.0/
+config/hardhat-nodejs/
+config/helm/
 config/heroku
 config/htop
+config/hub
+config/i3status-rs/
 config/ibus/
+config/inkscape/
+config/keybase/
 config/khard/
-config/Ledger Live/
+config/lazygit/
 config/libaccounts-glib/
 config/libreoffice/
+config/linkchecker/
+config/mako/
 config/menus
 config/mimeapps.list
-config/Mist
+config/mono.addins/
+config/mozilla/
 config/mpd/database
 config/mpd/log
 config/mpd/pid
 config/mpd/playlists/podcasts.m3u
 config/mpd/state
 config/mpd/sticker.sql
+config/mpv/watch_later
+config/mutt/oauth/
 config/nautilus/
+config/ncmpcpp/error.log
+config/ncspot/
 config/neofetch/
+config/nordvpn/
 config/opera/
 config/pavucontrol.ini
 config/pulse/
-config/QtProject
-config/QtProject.conf
+config/rmapi/
 config/rtv
-config/Signal Beta
 config/skypeforlinux
 config/spotify
 config/systemd/user/default.target.wants/
 config/systemd/user/timers.target.wants/
+config/tmux/plugins/
+config/todoman/
 config/transmission/
+config/truffle-nodejs/
 config/truffle/
 config/unity/
 config/update-notifier/
 config/user-dirs.dirs
 config/user-dirs.locale
-config/VirtualBox
-config/wireshark/
-config/zoomus.conf
-config/Signal/
-config/Daedalus Mainnet/
-config/Pinta/
-config/Unknown Organization/
-config/Yubico/
-config/discord/
-config/gcloud/
-config/helm/
-config/hub
-config/i3status-rs/
-config/linkchecker/
-config/mako/
-config/mono.addins/
-config/ncspot/
-config/nordvpn/
 config/vlc/
+config/weechat
+config/wireshark/
 config/xbuild/
 config/yarn/
-
-config/Android Open Source Project/
-config/Google/
-config/Keybase/
-config/PlantUML Editor/
-config/Slack/
-config/ardour6/
-config/brinkervii/
-config/chrome-flags.conf
-config/chromium-flags.conf
-config/glib-2.0/
-config/go/
-config/hardhat-nodejs/
-config/keybase/
-config/mozilla/
-config/rmapi/
-config/todoman/
-config/truffle-nodejs/
-config/calibre/
-config/fontforge/
-config/gthumb/
-config/inkscape/
+config/zoomus.conf
 
 
 
