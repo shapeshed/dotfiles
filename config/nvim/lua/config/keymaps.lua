@@ -49,7 +49,7 @@ local mappings = {
   { "n", "<LEADER>fb", "<CMD>Telescope buffers<CR>", "Find buffers" },
   { "n", "<LEADER>fw", "<CMD>Telescope grep_string<CR>", "Find word under cursor" },
   { "n", "<LEADER>fC", "<CMD>Telescope commands<CR>", "Find commands" },
-  { "n", "<LEADER>ff", "<CMD>Telescope find_files<CR>", "Find files" },
+  { "n", "<LEADER>ff", "<CMD>Telescope git_files<CR>", "Find files" },
   {
     "n",
     "<LEADER>fF",
