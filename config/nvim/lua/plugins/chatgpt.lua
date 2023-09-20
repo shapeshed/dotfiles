@@ -3,7 +3,7 @@ local M = {
   event = "VeryLazy",
   config = function()
     require("chatgpt").setup({
-      api_key_cmd = "echo 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",
+      api_key_cmd = "pass show openai.com/george@shapeshed.com/api-key",
     })
   end,
   dependencies = {
