@@ -28,9 +28,9 @@ function wifi {
 	sudo wpa_supplicant -c /etc/wpa_supplicant/"$*".conf -i wlp0s20f3 -B
 }
 
-function t {
-	task add "$*" +do +work due:eod
-}
+# function t {
+# 	task add "$*" +do +work due:eod
+# }
 
 # Print a summary for standup
 function standup {
