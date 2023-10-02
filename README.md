@@ -1,9 +1,15 @@
 # Dotfiles
 
-This repo holds my dotfiles. They are specific to my needs but if you are a Ruby, JavaScript or UNIX hacker you might find something useful here.
+My dotfiles.
+
+Aims to follow the [XDG Base Directory Specification][1].
 
 ## Installation
 
-    bash install.sh
+```sh
+./install.sh
+```
 
 This symlinks the dotfiles folders and files into your home folder.
+
+[1]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
