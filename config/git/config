@@ -32,4 +32,3 @@
     autosetuprebase = always
 [init]
     defaultBranch = main
-    templateDir = /home/go/.git-template
