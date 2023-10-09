@@ -10,6 +10,7 @@ right = [
   "spinner",
   "spacer",
   "diagnostics",
+  "workspace-diagnostics",
   "position-percentage",
   "position",
   "file-encoding",

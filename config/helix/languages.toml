@@ -8,8 +8,6 @@ documentFormatting = true
 ltex.language = "en-GB"
 
 [language-server.rust-analyzer.config]
-cargo.features = "all"
-checkOnSave.command = "clippy"
 rustfmt.extraArgs = ["+nightly"]
 
 [[language]]
