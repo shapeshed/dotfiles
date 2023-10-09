@@ -1,0 +1,7 @@
+color=false
+loglevel=warn
+init-author-email=george@shapeshed.com
+init-author-name=George Ornbo
+init-author-url=https://shapeshed.com
+sign-git-commit=true
+sign-git-tag=true
