@@ -1,0 +1,72 @@
+#!/usr/bin/env sh
+
+# Resolve DOTFILES_DIR to the script's source directory, following symlinks
+# This ensures the script works regardless of where it's called from or whether it's symlinked
+get_script_path() {
+    local SCRIPT_PATH="$0"
+    while [ -L "$SCRIPT_PATH" ]; do
+        SCRIPT_PATH="$(readlink "$SCRIPT_PATH")"
+    done
+    echo "$(dirname "$SCRIPT_PATH")"
+}
+
+DOTFILES_DIR="$(cd "$(get_script_path)/../.." && pwd)"
+
+# Function to link files from a source directory to a destination directory.
+# Usage: link_files SOURCE_DIR DEST_DIR
+link_files() {
+  src_dir="$1"
+  dest_dir="$2"
+
+  if [ ! -d "$src_dir" ]; then
+    echo "Source directory $src_dir does not exist!"
+    return
+  fi
+
+  mkdir -p "$dest_dir"
+
+  for f in "$src_dir"/*; do
+    if [ -e "$f" ]; then
+      target="$dest_dir/$(basename "$f")"
+      [ -L "$target" ] && rm "$target"
+      if [ ! -e "$target" ]; then
+        ln -s "$f" "$target"
+      else
+        echo "Skipping $target - target exists and is not a symlink"
+      fi
+    fi
+  done
+}
+
+# Function to unlink files in a destination directory that point to a source directory.
+# Usage: unlink_files SOURCE_DIR DEST_DIR
+unlink_files() {
+  src_dir="$1"
+  dest_dir="$2"
+
+  for f in "$src_dir"/*; do
+    target="$dest_dir/$(basename "$f")"
+    if [ -L "$target" ] && [ "$(readlink "$target")" = "$f" ]; then
+      rm "$target"
+    fi
+  done
+}
+
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+XDG_BIN_HOME="$HOME/.local/bin"
+
+case "$1" in
+  install)
+    link_files "$DOTFILES_DIR/config" "$XDG_CONFIG_HOME"
+    link_files "$DOTFILES_DIR/local/bin" "$XDG_BIN_HOME"
+    ;;
+  uninstall)
+    unlink_files "$DOTFILES_DIR/config" "$XDG_CONFIG_HOME"
+    unlink_files "$DOTFILES_DIR/local/bin" "$XDG_BIN_HOME"
+    ;;
+  *)
+    echo "Usage: $0 {install|uninstall}"
+    exit 1
+    ;;
+esac
+
