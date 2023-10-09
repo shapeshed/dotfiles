@@ -1,2 +1,22 @@
 theme = "catppuccin_mocha"
 
+[editor]
+cursorline = true
+color-modes = true
+
+[editor.statusline]
+left = ["mode", "spacer", "version-control", "file-name", "file-modification-indicator"]
+right = [
+  "spinner",
+  "spacer",
+  "diagnostics",
+  "position-percentage",
+  "position",
+  "file-encoding",
+  "file-type",
+]
+
+[editor.indent-guides]
+render = true
+[editor.soft-wrap]
+enable = true

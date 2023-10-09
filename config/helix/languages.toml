@@ -1,0 +1,32 @@
+[language-server.efm]
+command = "efm-langserver"
+
+[language-server.efm.config]
+documentFormatting = true
+
+[language-server.ltex-ls.config]
+ltex.language = "en-GB"
+
+[language-server.rust-analyzer.config]
+cargo.features = "all"
+checkOnSave.command = "clippy"
+rustfmt.extraArgs = ["+nightly"]
+
+[[language]]
+name = "markdown"
+auto-format = true
+language-servers = [
+  { name = "efm", only-features = [ "diagnostics", "format" ] },
+  { name = "ltex-ls" }
+]
+
+[[language]]
+name = "bash"
+formatter = { command = 'shfmt', args = ["-i", "2", "-ci"] }
+auto-format = true
+
+[[language]]
+name = "git-commit"
+language-servers = [ { name ="ltex-ls" } ]
+formatter = { command = "fold" , args = ["-w", "72", "-s"] }
+auto-format = true
