@@ -1,10 +1,14 @@
+" XDG Layout
+set directory=$XDG_CACHE_HOME/vim,~/,/tmp
+set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
+set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
+let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+
 set nocompatible                      " Welcome to the future
 
 syntax on                             " Enable syntax highlighting
 filetype plugin indent on             " allow plugins to determine indentation
-let g:gruvbox_contrast_light = 'medium'
-let g:gruvbox_contrast_dark = 'medium'
-autocmd vimenter * ++nested colorscheme gruvbox
 
 let mapleader = ","                   " Set leader to ,
 let g:netrw_banner = 0                " disable_banner in filebrowser
@@ -17,6 +21,8 @@ function! StatuslineGit()
   let l:branchname = GitBranch()
   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 endfunction
+
+colorscheme catppuccin_mocha
 
 set autoindent                        " Copy indent from current line on <CR>
 set background=dark                   " Set dark background
@@ -97,30 +103,3 @@ inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|
-
-autocmd FileType solidity setlocal shiftwidth=4 softtabstop=4 ts=4
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType yaml setl indentkeys-=<:>
-
-let g:ale_fix_on_save = 1
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
-let g:ale_lint_on_text_changed = 'never'
-
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier', 'eslint'],
-\   'terraform': ['terraform'],
-\   'yaml': ['prettier'],
-\   'markdown': ['prettier'],
-\   'sh': ['shfmt'],
-\}
-
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'terraform': ['tfsec', 'tflint'],
-\   'yaml': ['yamllint'],
-\   'markdown': ['markdownlint'],
-\   'sh': ['shellcheck'],
-\}
