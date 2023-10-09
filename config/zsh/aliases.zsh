@@ -15,6 +15,9 @@ alias gc='git commit'
 alias gd='git diff'
 alias git commit='git commit -S'
 
+alias castget='castget -C ~/.config/castget/castgetrc'
+alias goaccess='goaccess -p ~/.config/goaccess/goaccessrc'
+
 # Radio
 alias playbbcr1="mpv 'http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_one.m3u8'"
 alias playbbcr4="mpv 'http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_fourfm.m3u8'"
