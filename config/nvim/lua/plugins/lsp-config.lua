@@ -50,6 +50,14 @@ local M = {
       end,
     })
 
+    require("lspconfig").efm.setup({
+      init_options = { documentFormatting = true },
+      filetypes = { "markdown" },
+      settings = {
+        rootMarkers = { ".git/" },
+      },
+    })
+
     -- Eslint
     lspconfig.eslint.setup({
       capabilities = capabilities,
