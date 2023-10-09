@@ -1,0 +1,23 @@
+---
+version: 2
+root-markers:
+  - .git/
+tools:
+  markdownlint-lint: &markdownlint-lint
+    lint-command: "markdownlint --stdin"
+    lint-stdin: true
+    lint-formats:
+      - "%f:%l:%c MD%n/%*[^ ] %m"
+      - "%f:%l MD%n/%*[^ ] %m"
+    commands:
+      - command: "markdownlint --fix ${INPUT}"
+        title: "markdownlint fix"
+
+  prettier-format: &prettier-format
+    format-command: "prettier --stdin-filepath ${INPUT}"
+    format-stdin: true
+
+languages:
+  markdown:
+    - <<: *markdownlint-lint
+    - <<: *prettier-format
