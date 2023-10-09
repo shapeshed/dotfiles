@@ -1,0 +1,15 @@
+{
+    "diagnostic.displayByAle": true,
+    "languageserver": {
+        "terraform": {
+            "command": "terraform-ls",
+            "args": ["serve"],
+            "filetypes": ["terraform", "tf"],
+            "initializationOptions": {}
+        }
+    },
+    "yaml.schemas": {
+        "kubernetes": "/*.yml"
+    }
+
+}
