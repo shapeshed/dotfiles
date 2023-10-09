@@ -4,7 +4,7 @@ from george@shapeshed.com
 user george@shapeshed.com
 auth oauthbearer
 # passwordeval pass show mail.shapeshed.com/george@shapeshed.com/password
-passwordeval /home/go/.mutt/oauth/mutt_oauth2.py /home/go/.mutt/oauth/george@shapeshed.com
+passwordeval /home/go/.config/mutt/oauth/mutt_oauth2.py /home/go/.config/mutt/oauth/george@shapeshed.com
 tls on
 tls_trust_file /etc/ssl/certs/ca-certificates.crt
 port 587
