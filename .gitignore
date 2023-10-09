@@ -121,11 +121,11 @@ newsboat/history.search
 *.swp
 vim/.netrwhist
 vim/spell
-w3m/cookie
-w3m/history
-w3m/w3mcache*
-w3m/w3msrc*
-w3m/w3mtmp*
+config/w3m/cookie
+config/w3m/history
+config/w3m/w3mcache*
+config/w3m/w3msrc*
+config/w3m/w3mtmp*
 zsh/gvm.zsh
 
 config/vdirsyncer/george@shapeshed.com-calendar
@@ -133,3 +133,5 @@ config/vdirsyncer/george@shapeshed.com-contacts
 mutt/oauth/mutt_oauth2.py
 mutt/oauth/george@shapeshed.com
 config/mutt/cache/shapeshed/headers
+
+config/zsh/.zcompdump
