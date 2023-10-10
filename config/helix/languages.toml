@@ -20,11 +20,15 @@ language-servers = [
 
 [[language]]
 name = "bash"
-formatter = { command = 'shfmt', args = ["-i", "2", "-ci"] }
 auto-format = true
+formatter = { command = 'shfmt', args = ["-i", "2", "-ci"] }
 
 [[language]]
 name = "git-commit"
+auto-format = true
 language-servers = [ { name ="ltex-ls" } ]
 formatter = { command = "fold" , args = ["-w", "72", "-s"] }
+
+[[language]]
+name = "typescript"
 auto-format = true
