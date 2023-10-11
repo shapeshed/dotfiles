@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -eEu -o pipefail
+
+PRICE=$(curl -s "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD" | jq -r '.DISPLAY.BTC.USD | .PRICE + " " + .CHANGEPCTDAY')
+
+if [[ $PRICE = *"-"* ]]; then
+  echo "#[fg=red]$PRICE 🡻"
+else
+  echo "#[fg=cyan]$PRICE 🡹"
+fi
