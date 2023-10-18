@@ -1,0 +1,32 @@
+#!/usr/bin/env sh
+
+# Check if required programs are installed
+if ! command -v rg > /dev/null 2>&1; then
+  echo "Error: 'ripgrep' (rg) is not installed. Please install it."
+  exit 1
+fi
+
+if ! command -v fzf > /dev/null 2>&1; then
+  echo "Error: 'fzf' is not installed. Please install it."
+  exit 1
+fi
+
+if ! command -v bat > /dev/null 2>&1; then
+  echo "Error: 'bat' is not installed. Please install it."
+  exit 1
+fi
+
+# Check if the script is running within a tmux session
+if [ -n "$TMUX" ]; then
+  # The script is running within tmux, so use fzf-tmux
+  fzf_cmd="fzf-tmux"
+else
+  # The script is not running within tmux, so use fzf without tmux integration
+  fzf_cmd="fzf"
+fi
+
+# Use ripgrep to find files, including hidden ones
+files=$(rg --files --hidden)
+
+# Use fzf for interactive file selection with a preview using bat
+echo "$files" | "$fzf_cmd" -p 90% --preview="bat -n --color=always {}" --preview-window=right:70%

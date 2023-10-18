@@ -1,27 +1,34 @@
-# Options, highlighters, etc.
+#-------------------------------
+# Colors
+#-------------------------------
 colorscheme catppuccin_mocha
 
-# set global indentwidth 2
-# set global ui_options terminal_assistant=none
-# set global tabstop 2
-# set global indentwidth 2
+set global modelinefmt %{
+    %val{bufname} [%opt{filetype}]
+    · %val{cursor_line}:%val{cursor_char_column}
+    · {{context_info}} {{mode_info}}
+}
 
-# add-highlighter global/git-diff flag-lines Default git_diff_flags
-#add-highlighter global/number-lines number-lines -hlcursor
-# add-highlighter global/hl-col-120 column 120 default,black+d
+#-------------------------------
+# Plugins
+#-------------------------------
+eval %sh{ kak-tree-sitter -dks --session $kak_session }
+eval %sh{ kak-lsp --kakoune -s $kak_session }
 
+#-------------------------------
+# UI
+#-------------------------------
+add-highlighter global/ number-lines -hlcursor
+add-highlighter global/matching_char show-matching
+
+#-------------------------------
+# Hooks
+#-------------------------------
 hook global BufCreate .*[.](ts|tsx) %{
     set buffer filetype typescript
 }
-
-## Git support
-declare-option str git_branch_name
-hook global NormalIdle .* %{
-  # Update git diff column signs
-  try %{ git update-diff }
-
-  # Update branch name
-  set-option global git_branch_name %sh{ git rev-parse --is-inside-work-tree &> /dev/null && echo " $(git rev-parse --abbrev-ref HEAD)"}
+hook global BufCreate .*[.](rs) %{
+    set buffer filetype rust
 }
 
 hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|yaml|html) %{
@@ -29,60 +36,57 @@ hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|
     hook buffer -group format BufWritePre .* format
 }
 
+hook global WinSetOption filetype=sh %{
+    set-option buffer formatcmd "shfmt -i 2 -sr -ci"
+    hook buffer -group format BufWritePre .* format
+}
 
-# ## Some specific filetypes I see at work / spare-time
-# hook global WinCreate .*\.bzl %{ set-option buffer filetype python }
-# hook global WinCreate .*\.zprofile %{ set-option buffer filetype sh }
-# hook global WinCreate .*\.(bazel|bzl) %{ set-option buffer filetype python }
-# hook global WinCreate .*\.nu %{ set-option buffer filetype nu }
+hook global BufWritePost .* %{ git show-diff }
+hook global BufReload    .* %{ git show-diff }
 
+hook global WinCreate ^[^*]+$ %{editorconfig-load}
+
+#-------------------------------
 # Commands
+#-------------------------------
+define-command find-buffer -docstring 'Switch to a buffer' %{ evaluate-commands %sh{
+    BUFFER=$(eval set -- "$kak_buflist"; for buf in "$@"; do echo "$buf"; done | \
+    fzf-tmux -p 90% \
+    --preview="bat -n --color=always {}" \
+    --preview-window=right:70%)
+    [ -n "$BUFFER" ] && echo "eval -client '$kak_client' 'buffer $BUFFER'" | kak -p "$kak_session"
+} }
 
-# window mode
-# declare-user-mode window
+define-command find-word -docstring 'Find word' %{ evaluate-commands %sh{
+    RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case"
+    INITIAL_QUERY="${*:-}"
+    FILE=$(: | fzf-tmux -p 90% --ansi --disabled --query "$INITIAL_QUERY" \
+    --bind "start:reload:$RG_PREFIX {q}" \
+    --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
+    --delimiter : \
+    --preview 'bat --color=always {1} --highlight-line {2}' \
+    --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
+    --bind 'enter:become(echo {1} {2})')
+    [ -n "$FILE" ] && echo "eval -client '$kak_client' 'edit ${FILE}'" | kak -p ${kak_session}
+} }
 
-## kitty integration
-# define-command -hidden kitty-split -params 1 -docstring 'split the current window according to the param (vsplit / hsplit)' %{
-#   nop %sh{
-#     kitty @ launch --no-response --location $1 kak -c $kak_session
-#   }
-# }
+define-command -docstring 'Open a file' -params 0 find-file %{
+evaluate-commands %sh{
+    FILE=$(find-file)
+    [ -n "$FILE" ] && echo "eval -client '$kak_client' 'edit ${FILE}'" | kak -p ${kak_session}
+  }
+}
 
-## zellij integration
-# define-command -hidden zellij-split -params 1 -docstring 'split (down / right)' %{
-#   nop %sh{
-#     zellij action new-pane -cd $1 -- kak -c $kak_session
-#   }
-# }
 
-# define-command -hidden zellij-move-pane -params 1 -docstring 'move to pane' %{
-#   nop %sh{
-#     zellij action move-focus $1
-#   }
-# }
-
-## tmux integration
-# define-command tmux-split -params 1 -docstring 'split (down / right)' %{
-#   nop %sh{
-#     tmux split-window $1 kak -c $kak_session
-#   }
-# }
-
-# define-command tmux-select-pane -params 1 -docstring 'select pane' %{
-#   nop %sh{
-#     tmux select-pane $1
-#   }
-# }
-
-## Some pickers
 define-command -hidden open_buffer_picker %{
   prompt buffer: -menu -buffer-completion %{
     buffer %val{text}
   }
 }
 
+
 define-command -hidden open_file_picker %{
-  prompt file: -menu -shell-script-candidates 'fd --type=file' %{
+    prompt file: -menu -shell-script-candidates 'fd --type=file' %{
     edit -existing %val{text}
   }
 }
@@ -98,124 +102,16 @@ define-command -hidden open_rg_picker %{
   }
 }
 
-## match mode
-# define-command -hidden match-delete-surround -docstring 'delete surrounding key' %{
-#   on-key %{
-#     match-delete-surround-key %val{key}
-#   }
-# }
+define-command edit-kakrc %{ e ~/.config/kak/kakrc }
 
-# define-command -hidden match-delete-surround-key -params 1 %{
-#   execute-keys -draft "<a-a>%arg{1}i<del><esc>a<backspace><esc>"
-# }
-
-## surround mode
-# define-command surround-key -docstring 'surround key' %{
-#   on-key %{
-#     add-surrounding-pair %val{key} %val{key}
-#   }
-# }
-
-# define-command surround-tag -docstring 'surround tag' %{
-#   prompt surround-tag: %{
-#     add-surrounding-pair "<%val{text}>" "</%val{text}>"
-#   }
-# }
-
-# define-command -override add-surrounding-pair -params 2 -docstring 'add surrounding pairs left and right to selection' %{
-#   evaluate-commands -no-hooks -save-regs '"' %{
-#     set-register '"' %arg{1}
-#     execute-keys -draft P
-#     set-register '"' %arg{2}
-#     execute-keys -draft p
-#   }
-# }
-
-# define-command surround-replace -docstring 'prompt for a surrounding pair and replace it with another' %{
-#   on-key %{
-#     surround-replace-sub %val{key}
-#   }
-# }
-
-# define-command -hidden surround-replace-sub -params 1 %{
-# 	on-key %{
-#     evaluate-commands -no-hooks -draft %{
-#       execute-keys "<a-a>%arg{1}"
-
-#       # select the surrounding pair and add the new one around it
-#       enter-user-mode surround-add
-#       execute-keys %val{key}
-#     }
-
-#     # delete the old one
-#     match-delete-surround-key %arg{1}
-# 	}
-# }
-
-# declare-user-mode match
-# map global match a '<a-a>'                               -docstring 'match around'
-# map global match d ':match-delete-surround<ret>'         -docstring 'delete surround'
-# map global match i '<a-i>'                               -docstring 'match inside'
-# map global match m m                                     -docstring 'select other matching delimiter'
-# map global match s ':enter-user-mode surround-add<ret>'  -docstring 'add surrounding pairs'
-# map global match r ':surround-replace<ret>'              -docstring 'replace surrounding pairs'
-
-# declare-user-mode match-extend
-# map global match-extend a '<A-a>'                        -docstring 'extend around'
-# map global match-extend i '<A-i>'                        -docstring 'extend inside'
-# map global match-extend m M                              -docstring 'extend other matching delimiter'
-
-# # surround-add mode; support most of the useful delimiters
-# declare-user-mode surround-add
-# map global surround-add "'" ":add-surrounding-pair ""'"" ""'""<ret>" -docstring 'surround selections with quotes'
-# map global surround-add ' ' ':add-surrounding-pair " " " "<ret>'     -docstring 'surround selections with pipes'
-# map global surround-add '"' ':add-surrounding-pair ''"'' ''"''<ret>' -docstring 'surround selections with double quotes'
-# map global surround-add '(' ':add-surrounding-pair ( )<ret>'         -docstring 'surround selections with curved brackets'
-# map global surround-add ')' ':add-surrounding-pair ( )<ret>'         -docstring 'surround selections with curved brackets'
-# map global surround-add '*' ':add-surrounding-pair * *<ret>'         -docstring 'surround selections with stars'
-# map global surround-add '<' ':add-surrounding-pair < ><ret>'         -docstring 'surround selections with chevrons'
-# map global surround-add '>' ':add-surrounding-pair < ><ret>'         -docstring 'surround selections with chevrons'
-# map global surround-add '[' ':add-surrounding-pair [ ]<ret>'         -docstring 'surround selections with square brackets'
-# map global surround-add ']' ':add-surrounding-pair [ ]<ret>'         -docstring 'surround selections with square brackets'
-# map global surround-add '_' ':add-surrounding-pair "_" "_"<ret>'     -docstring 'surround selections with underscores'
-# map global surround-add '{' ':add-surrounding-pair { }<ret>'         -docstring 'surround selections with angle brackets'
-# map global surround-add '|' ':add-surrounding-pair | |<ret>'         -docstring 'surround selections with pipes'
-# map global surround-add '}' ':add-surrounding-pair { }<ret>'         -docstring 'surround selections with angle brackets'
-# map global surround-add '«' ':add-surrounding-pair « »<ret>'         -docstring 'surround selections with French chevrons'
-# map global surround-add '»' ':add-surrounding-pair « »<ret>'         -docstring 'surround selections with French chevrons'
-# map global surround-add ` ':add-surrounding-pair ` `<ret>'           -docstring 'surround selections with ticks'
-# map global surround-add t ':surround-tag<ret>'                       -docstring 'surround selections with a <tag>'
-
-# ## yank mode
-# define-command extra-yank-buffile -docstring 'yank the path of the current buffer' %{
-#   set-register p %val{buffile}
-# }
-
-# declare-user-mode extra-yank
-# map global user y ':enter-user-mode extra-yank<ret>' -docstring 'extra yank'
-# map global extra-yank p ':extra-yank-buffile<ret>'   -docstring 'yank buffer path'
-
-
-## bookmarks
-
-# Tree-sitter
-eval %sh{ kak-tree-sitter -dks --session $kak_session }
-
-# Modeline
-# set-face global StatusLineBlack black
-# set-face global StatusLineGit "%opt{kts_red}"
-# set-option global modelinefmt '{DiagnosticError} %opt{lsp_diagnostic_error_count} {DiagnosticWarning} %opt{lsp_diagnostic_warning_count} {DiagnosticInfo} %opt{lsp_diagnostic_info_count} {DiagnosticHint} %opt{lsp_diagnostic_hint_count} {StatusLineGit}%opt{git_branch_name}{StatusLine} %val{bufname} {StatusLineBlack}(%val{cursor_line}:%val{cursor_char_column} {StatusLineBlack}%val{buf_line_count}L){{context_info}} {{mode_info}} {ts_comment}%val{client}@[%val{session}]'
-
+#-------------------------------
 # LSP
-eval %sh{ kak-lsp --kakoune -s $kak_session }
-
-## common options
+#-------------------------------
 lsp-auto-signature-help-enable
 set-option global lsp_hover_anchor true
 set-option global lsp_auto_show_code_actions true
 
-## main hook for languages
-hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
+hook global WinSetOption filetype=(rust|typescript|sh|latex|go) %{
   lsp-enable-window
 
   lsp-diagnostic-lines-disable window
@@ -224,122 +120,36 @@ hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %
   lsp-inlay-hints-enable window
   lsp-inlay-code-lenses-enable window
 
+}
+hook global WinSetOption filetype=(rust|typescript|latex|go) %{
   hook window BufWritePre .* lsp-formatting-sync
-  #hook window -group semantic-tokens BufReload .* lsp-semantic-tokens
-  #hook window -group semantic-tokens NormalIdle .* lsp-semantic-tokens
-  #hook window -group semantic-tokens InsertIdle .* lsp-semantic-tokens
-  #hook -once -always window WinSetOption filetype=.* %{
-  #    remove-hooks window semantic-tokens
-  #}
 }
 
-# faces / colorschemes
-## inlay hints (type annotations, etc.)
-# set-face global PrimaryCursor "black,%opt{kts_mauve}+i"
-# set-face global PrimaryCursorEol "default,%opt{kts_red}"
-# set-face global SecondaryCursor "black,white"
-# set-face global SecondaryCursorEol "default,%opt{kts_yellow}"
-# set-face global PrimarySelection "default,black+i"
-# set-face global SecondarySelection "default,black"
-# set-face global MenuForeground "black,%opt{kts_mauve}"
-# set-face global MenuInfo "%opt{kts_green},black"
-# set-face global Information "%opt{kts_peach},default"
-# set-face global StatusLine "%opt{kts_mauve},rgb:1e2030"
-# set-face global StatusLineMode "%opt{kts_green}"
-# set-face global StatusLineInfo "%opt{kts_teal}"
-# set-face global StatusLineValue "%opt{kts_peach}"
-# set-face global StatusCursor "black,%opt{kts_mauve}"
-# set-face global Prompt "%opt{kts_peach}"
-# set-face global InlayHint black+i
-# set-face global DiagnosticInfo "%opt{kts_blue}"
-# set-face global DiagnosticHint "%opt{kts_mauve}"
-# set-face global DiagnosticWarning "%opt{kts_peach}"
-# set-face global DiagnosticError "%opt{kts_red}"
+#-------------------------------
+# Mappings
+#-------------------------------
+map global normal <c-h> :bp<ret>
+map global normal <c-l> :bn<ret>
+map global normal <c-x> :delete-buffer<ret>
 
-# keybindings
 
-## bépo remapping
-# map global normal c h # left
-# map global normal t j # down
-# map global normal s k # up
-# map global normal r l # right
-# map global normal C H # extend left
-# map global normal T J # extend down
-# map global normal S K # extend up
-# map global normal R L # extend right
-# map global normal h t # until
-# map global normal <a-h> <a-t>
-# map global normal j r # replace
-# map global normal k s # select
-# map global normal l c # change
-# map global normal H T # extend to next char
-# map global normal <a-H> <a-T>
-# map global normal J R # replace with yanked
-# map global normal K S # split
-# map global normal L C # duplicate selection downwards
-# map global insert ' ' ' '
-# map global insert '<tab>' '  '
-# map global goto c h -docstring 'line begin'
-# map global goto t j -docstring 'buffer bottom'
-# map global goto s k -docstring 'buffer top'
-# map global goto r l -docstring 'line end'
-# map global view c h -docstring 'scroll left'
-# map global view t j -docstring 'scroll up'
-# map global view s k -docstring 'scroll down'
-# map global view r l -docstring 'scroll right'
+map global user b ':find-buffer<ret>' 		-docstring '󰓩 buffers'
+map global user f ':find-file<ret>'       	-docstring '󰍉 find file'
+map global user / ':find-word<ret>'       	-docstring '󰍉 search project'
+map global user y '<a-|>wl-copy<ret>' 		-docstring 'yank to system clipboard'
 
-## anchor / cursor
-# map global user <space> '<a-;>'
+# Surround mode
+map global user s ':surround<ret>'		-docstring 'surround mode'
 
-## insert mode C-w
-# map global insert <c-w> '<esc>:execute-keys bd<ret>i'
-
-## convenience
-# map global user $ ':e -existing ~/.config/kak/kakrc<ret>' -docstring 'edit Kakoune configuration'
-# map global user s '|sort<ret>' -docstring 'sort selections'
-
-## pickers
-map global user / ':open_rg_picker<ret>'     -docstring 'search project'
-map global user b ':open_buffer_picker<ret>' -docstring 'pick buffer'
-map global user f ':open_file_picker<ret>'   -docstring 'pick file'
-
-## match
-# map global normal M ':enter-user-mode match-extend<ret>' -docstring 'match mode (extend)'
-# map global normal m ':enter-user-mode match<ret>'        -docstring 'match mode'
-
-## window management
-# map global user w ':enter-user-mode window-tmux<ret>' -docstring 'window mode'
-
-# declare-user-mode window-tmux
-# map global window-tmux Q ':q!<ret>'                  -docstring 'close window (force)'
-# map global window-tmux c ':tmux-select-pane -L<ret>' -docstring 'move left'
-# map global window-tmux o ':tmux-split -v<ret>'       -docstring 'horizontal split'
-# map global window-tmux q ':q<ret>'                   -docstring 'close window'
-# map global window-tmux r ':tmux-select-pane -R<ret>' -docstring 'move right'
-# map global window-tmux s ':tmux-select-pane -U<ret>' -docstring 'move up'
-# map global window-tmux t ':tmux-select-pane -D<ret>' -docstring 'move down'
-# map global window-tmux v ':tmux-split -h<ret>'       -docstring 'vertical split'
-
-## git
+# Git Mode
 declare-user-mode git
 map global user g ':enter-user-mode git<ret>' -docstring 'git mode'
 map global git n ':git next-hunk<ret>'        -docstring 'goto next hunk'
 map global git p ':git prev-hunk<ret>'        -docstring 'goto previous hunk'
-hook global WinDisplay   .* %{ evaluate-commands %sh{
-    cd "$(dirname "$kak_buffile")"
-    project_dir="$(git rev-parse --show-toplevel 2>/dev/null)"
-    [ -n "$project_dir" ] && dir="$project_dir" || dir="${PWD%/.git}"
-    printf "cd %%{%s}\n" "$dir"
-    [ -n "$project_dir" ] && [ "$kak_buffile" = "${kak_buffile#\*}" ] && printf "git show-diff"
-} }
 
-hook global BufWritePost .* %{ git show-diff }
-hook global BufReload    .* %{ git show-diff }
-
-## LSP
+# LSP Mode
 declare-user-mode user-lsp
 map global user l ':enter-user-mode user-lsp<ret>'       -docstring 'lsp mode'
-# map global user n ':enter-user-mode kak-notes<ret>'      -docstring 'notes'
 map global user-lsp ( ':lsp-previous-function<ret>'      -docstring 'jump to the previous function'
 map global user-lsp ) ':lsp-next-function<ret>'          -docstring 'jump to the next function'
 map global user-lsp I ':lsp-implementation<ret>'         -docstring 'list implementations'

@@ -1,1 +1,0 @@
-/usr/share/kak/rc/tools/comment.kak
