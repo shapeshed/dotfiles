@@ -6,10 +6,10 @@
   ],
   "modules-right": [
     "idle_inhibitor",
-    "pulseaudio",
+    "wireplumber",
     "network",
     "battery",
-    "clock"
+    "clock",
   ],
   "sway/window": {
     "max-length": 50
@@ -21,6 +21,12 @@
       "deactivated": ""
     }
   },
+  "wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-muted": "",
+    "on-click": "helvum",
+    "format-icons": ["", "", ""]
+   },
   "pulseaudio": {
     "format": "{volume}% {icon}",
     "format-bluetooth": "{volume}% {icon}",
