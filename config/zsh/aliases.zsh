@@ -28,8 +28,9 @@ alias playbbcrnorfolk="mpv 'http://a.files.bbci.co.uk/media/live/manifesto/audio
 alias playtalksport2="mpv 'http://radio.talksport.com/stream2?awparams=platform:ts-web&amsparams=playerid:ts-web;'"
 alias playtalksport="mpv 'http://radio.talksport.com/stream?aisGetOriginalStream=true'"
 
+alias k="kak"
 # K8S
-alias k="kubectl"
-alias kl="kubectl logs"
+# alias k="kubectl"
+#alias kl="kubectl logs"
 
 alias ls="ls --color"
