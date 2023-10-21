@@ -3,6 +3,9 @@
 #-------------------------------
 colorscheme catppuccin_mocha
 
+#-------------------------------
+# Statusline
+#-------------------------------
 set global modelinefmt %{
     %val{bufname} [%opt{filetype}]
     · %val{cursor_line}:%val{cursor_char_column}
@@ -18,19 +21,16 @@ eval %sh{ kak-lsp --kakoune -s $kak_session }
 #-------------------------------
 # UI
 #-------------------------------
-add-highlighter global/ number-lines -hlcursor
-add-highlighter global/matching_char show-matching
+set-option global scrolloff 5,1
+add-highlighter global/match_brackets show-matching
+add-highlighter global/line_numbers number-lines -hlcursor -separator ' '
+add-highlighter global/search ref search
+add-highlighter global/selected_text ref selected_text
+add-highlighter global/current-line line '%val{cursor_line}' CursorLine
 
 #-------------------------------
 # Hooks
 #-------------------------------
-hook global BufCreate .*[.](ts|tsx) %{
-    set buffer filetype typescript
-}
-hook global BufCreate .*[.](rs) %{
-    set buffer filetype rust
-}
-
 hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|yaml|html) %{
     set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
     hook buffer -group format BufWritePre .* format
@@ -41,8 +41,9 @@ hook global WinSetOption filetype=sh %{
     hook buffer -group format BufWritePre .* format
 }
 
+hook global WinCreate .* %{ git show-diff }
 hook global BufWritePost .* %{ git show-diff }
-hook global BufReload    .* %{ git show-diff }
+hook global BufReload .* %{ git show-diff }
 
 hook global WinCreate ^[^*]+$ %{editorconfig-load}
 
@@ -77,13 +78,26 @@ evaluate-commands %sh{
   }
 }
 
+define-command -docstring 'Pick a git file' -params 0 pick-git-file %{
+evaluate-commands %sh{
+    FILE=$(pick-git-file)
+    [ -n "$FILE" ] && echo "eval -client '$kak_client' 'edit ${FILE}'" | kak -p ${kak_session}
+  }
+}
+
+define-command -docstring 'Open a file picker' -params 0 file-picker %{
+evaluate-commands %sh{
+    tmux display-popup -w90% -h90% -b rounded -E 'nnn -p - -- | \
+    xargs printf "eval -client '$kak_client' edit '%s';" | \
+    kak -p '${kak_session}''
+  }
+}
 
 define-command -hidden open_buffer_picker %{
   prompt buffer: -menu -buffer-completion %{
     buffer %val{text}
   }
 }
-
 
 define-command -hidden open_file_picker %{
     prompt file: -menu -shell-script-candidates 'fd --type=file' %{
@@ -111,17 +125,16 @@ lsp-auto-signature-help-enable
 set-option global lsp_hover_anchor true
 set-option global lsp_auto_show_code_actions true
 
-hook global WinSetOption filetype=(rust|typescript|sh|latex|go) %{
+hook global WinSetOption filetype=(rust|typescript|sh|markdown|latex|go|c) %{
   lsp-enable-window
-
   lsp-diagnostic-lines-disable window
   lsp-inline-diagnostics-disable window
   lsp-inlay-diagnostics-enable window
   lsp-inlay-hints-enable window
   lsp-inlay-code-lenses-enable window
-
 }
-hook global WinSetOption filetype=(rust|typescript|latex|go) %{
+
+hook global WinSetOption filetype=(rust|latex|go) %{
   hook window BufWritePre .* lsp-formatting-sync
 }
 
