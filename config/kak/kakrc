@@ -12,6 +12,8 @@ set global modelinefmt %{
     · {{context_info}} {{mode_info}}
 }
 
+set-option global spell_lang en
+
 #-------------------------------
 # Plugins
 #-------------------------------
