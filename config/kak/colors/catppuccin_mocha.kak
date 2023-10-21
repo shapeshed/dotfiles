@@ -70,6 +70,7 @@ set-face	global	Whitespace					"%opt{gray1},%opt{background}+f"
 set-face	global	WrapMarker					Whitespace
 set-face	global	BufferPadding				"%opt{background},%opt{background}"
 set-face	global	CursorLine					"%opt{white},%opt{black3}"
+set-face	global	Ruler								"%opt{white},%opt{gray0}"
 
 # Code
 set-face	global	value			"%opt{orange}"

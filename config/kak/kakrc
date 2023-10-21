@@ -31,6 +31,13 @@ add-highlighter global/current-line line '%val{cursor_line}' CursorLine
 #-------------------------------
 # Hooks
 #-------------------------------
+hook global WinSetOption filetype=(git-commit) %{
+    add-highlighter global/title column 50 Ruler
+    add-highlighter global/body column 72 Ruler
+    set-option buffer formatcmd "fold -w 72"
+    hook buffer -group format BufWritePre .* format
+}
+
 hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|yaml|html) %{
     set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
     hook buffer -group format BufWritePre .* format
