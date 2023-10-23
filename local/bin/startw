@@ -1,3 +1,18 @@
 #!/bin/sh
-XDG_SESSION_TYPE=wayland dbus-run-session dwl
-exec mako
+export GDK_BACKEND=wayland
+export MOZ_ENABLE_WAYLAND=1
+export QT_QPA_PLATFORM="wayland-egl"
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export QT_WAYLAND_FORCE_DPI=96
+export QUTE_SKIP_WAYLAND_CHECK=1
+export WLR_NO_HARDWARE_CURSORS=1
+export XDG_CURRENT_DESKTOP='dwl'
+export XDG_SESSION_TYPE=wayland
+
+dbus-daemon --session --address=unix:path="${XDG_RUNTIME_DIR}"/bus &
+dbus-update-activation-environment --all > /dev/null 2>&1
+mako &
+
+dwl -s 'somebar' &
+sleep 5
+exec someblocks
