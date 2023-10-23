@@ -119,7 +119,7 @@ newsboat/cache.db.lock
 newsboat/history.cmdline
 newsboat/history.search
 *.swp
-vim/.netrwhist
+config/vim/.netrwhist
 vim/spell
 config/w3m/cookie
 config/w3m/history
