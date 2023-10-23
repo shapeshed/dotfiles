@@ -190,3 +190,18 @@ map global user-lsp p ':lsp-workspace-symbol-incr<ret>'  -docstring 'pick worksp
 map global user-lsp r ':lsp-references<ret>'             -docstring 'list references'
 map global user-lsp s ':lsp-goto-document-symbol<ret>'   -docstring 'pick document symbol'
 map global user-lsp x ':lsp-find-error<ret>'             -docstring 'jump to the prev/next error'
+
+#spell
+declare-user-mode spell
+map global spell a -docstring 'add to dictionary' ": spell-add<ret>"
+map global spell e -docstring 'enable'  ": spell-enable<ret>"
+map global spell r -docstring 'replace' ": spell-replace<ret>"
+map global spell n -docstring 'next'    ": spell-next<ret>"
+map global spell c -docstring 'clear'   ": spell-clear<ret>"
+map global user s -docstring 'spell' ": enter-user-mode -lock spell<ret>"
+declare-option str language en-UK
+define-command spell-enable %{
+    hook window BufWritePost .* %{
+    	spell %opt{language}
+    }
+}
