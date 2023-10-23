@@ -34,3 +34,5 @@ alias k="kak"
 #alias kl="kubectl logs"
 
 alias ls="ls --color"
+
+alias neomutt="TERM=xterm-direct neomutt"
