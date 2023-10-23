@@ -50,6 +50,10 @@ hook global WinSetOption filetype=sh %{
     hook buffer -group format BufWritePre .* format
 }
 
+hook global WinSetOption filetype=markdown %{
+    hook window BufWritePre .* spell
+}
+
 hook global WinCreate .* %{ git show-diff }
 hook global BufWritePost .* %{ git show-diff }
 hook global BufReload .* %{ git show-diff }
