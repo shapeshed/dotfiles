@@ -1,17 +1,17 @@
 #!/usr/bin/env sh
-#
-# Fuzzy find files with a preview pane
+
+# Fuzzy find git files with a preview pane
 # Returns the path to the file
 
 # Commands used by this script
-COMMANDS="rg fzf bat"
+COMMANDS="git fzf bat"
 
 # Set the command used to find files
-FILES=$(rg --files --hidden)
+FILES=$(git ls-tree --full-tree --name-only -r HEAD)
 
 # Set FZF options with a preview using bat
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"'
-    --border-label="󰍉 Find file"
+    --border-label="Find git file"
     --preview='"'bat {} --color=always'"'
     --reverse --preview-window=right:70%
     --bind ctrl-j:preview-down,ctrl-k:preview-up

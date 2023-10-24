@@ -93,7 +93,7 @@ evaluate-commands %sh{
 
 define-command -docstring 'Pick a git file' -params 0 pick-git-file %{
 evaluate-commands %sh{
-    FILE=$(pick-git-file)
+    FILE=$(find-git-file)
     [ -n "$FILE" ] && echo "eval -client '$kak_client' 'edit ${FILE}'" | kak -p ${kak_session}
   }
 }
