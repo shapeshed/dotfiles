@@ -1,11 +1,19 @@
 [language-server.efm]
 command = "efm-langserver"
 
+[language-server.vscode-markdown-language-server]
+command = "/usr/bin/vscode-markdown-language-server"
+args = ["--stdio"]
+config = { provideFormatter = true }
+
+
 [language-server.efm.config]
 documentFormatting = true
 
 [language-server.ltex-ls.config]
 ltex.language = "en-GB"
+ltex.dictionary = { "en-GB" = ["builtin"] }
+#ltex.disabledRules = { "en-GB" = ["PROFANITY"] }
 
 [language-server.rust-analyzer.config]
 rustfmt.extraArgs = ["+nightly"]
@@ -14,21 +22,31 @@ rustfmt.extraArgs = ["+nightly"]
 name = "markdown"
 auto-format = true
 language-servers = [
-  { name = "efm", only-features = [ "diagnostics", "format" ] },
-  { name = "ltex-ls" }
+# { name = "efm", only-features = [
+#         "diagnostics",
+#         "format",
+#     ] },
+    { name = "ltex-ls" },
 ]
+formatter = { command = "dprint", args = ["fmt", "--stdin", "md"]}
 
-[[language]]
-name = "bash"
-auto-format = true
-formatter = { command = 'shfmt', args = ["-i", "2", "-ci"] }
+#[[language]]
+#name = "bash"
+#auto-format = true
+#formatter = { command = 'shfmt', args = ["-i", "2", "-ci"] }
 
 [[language]]
 name = "git-commit"
+rulers = [50, 72]
 auto-format = true
-language-servers = [ { name ="ltex-ls" } ]
-formatter = { command = "fold" , args = ["-w", "72", "-s"] }
+language-servers = [{ name = "ltex-ls" }]
+formatter = { command = "fold", args = ["-w", "72", "-s"] }
 
 [[language]]
 name = "typescript"
 auto-format = true
+
+#[[language]]
+#name = "toml"
+#formatter = { command = "taplo", args = ["fmt", "-"] }
+#auto-format = true

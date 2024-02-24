@@ -4,8 +4,17 @@ theme = "catppuccin_mocha"
 cursorline = true
 color-modes = true
 
+[editor.soft-wrap]
+enable = true
+
 [editor.statusline]
-left = ["mode", "spacer", "version-control", "file-name", "file-modification-indicator"]
+left = [
+  "mode",
+  "spacer",
+  "version-control",
+  "file-name",
+  "file-modification-indicator",
+]
 right = [
   "spinner",
   "spacer",
@@ -19,5 +28,3 @@ right = [
 
 [editor.indent-guides]
 render = true
-[editor.soft-wrap]
-enable = true
