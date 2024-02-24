@@ -50,6 +50,10 @@ local M = {
       end,
     })
 
+    lspconfig.gopls.setup({
+      capabilities = capabilities,
+    })
+
     require("lspconfig").efm.setup({
       init_options = { documentFormatting = true },
       filetypes = { "markdown" },
