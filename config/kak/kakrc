@@ -6,10 +6,7 @@ colorscheme catppuccin_mocha
 #-------------------------------
 # Statusline
 #-------------------------------
-set global modelinefmt %{
-    %val{bufname} [%opt{filetype}]
-    · %val{cursor_line}:%val{cursor_char_column}
-    · {{context_info}} {{mode_info}}
+set global modelinefmt %{{DiagnosticError}%sh{[ $kak_opt_lsp_diagnostic_error_count -gt 0 ] && echo "● $kak_opt_lsp_diagnostic_error_count "''}{DiagnosticWarning}%sh{[ $kak_opt_lsp_diagnostic_warning_count -gt 0 ] && echo "● $kak_opt_lsp_diagnostic_warning_count "''}{StatusLine}%val{bufname} %val{cursor_line}:%val{cursor_char_column} %opt{filetype} {{context_info}} {{mode_info}}
 }
 
 set-option global spell_lang en
@@ -25,7 +22,7 @@ eval %sh{ kak-lsp --kakoune -s $kak_session }
 #-------------------------------
 set-option global scrolloff 5,1
 add-highlighter global/match_brackets show-matching
-add-highlighter global/line_numbers number-lines -hlcursor -separator ' '
+add-highlighter global/line_numbers number-lines -hlcursor -separator '  '
 add-highlighter global/search ref search
 add-highlighter global/selected_text ref selected_text
 add-highlighter global/current-line line '%val{cursor_line}' CursorLine
@@ -48,6 +45,11 @@ hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|
 hook global WinSetOption filetype=sh %{
     set-option buffer formatcmd "shfmt -i 2 -sr -ci"
     hook buffer -group format BufWritePre .* format
+}
+
+hook global WinSetOption filetype=go %{
+    set-option buffer lintcmd 'golangci-lint run'
+    hook buffer -group format BufWritePre .* lint
 }
 
 hook global WinSetOption filetype=markdown %{
@@ -135,13 +137,21 @@ define-command edit-kakrc %{ e ~/.config/kak/kakrc }
 # LSP
 #-------------------------------
 lsp-auto-signature-help-enable
+lsp-diagnostic-lines-enable global
+set-option global lsp_diagnostic_line_error_sign " ● "
+set-option global lsp_diagnostic_line_hint_sign " ● "
+set-option global lsp_diagnostic_line_info_sign " ● "
+set-option global lsp_diagnostic_line_warning_sign " ● "
 set-option global lsp_hover_anchor true
 set-option global lsp_auto_show_code_actions true
 
 hook global WinSetOption filetype=(rust|typescript|sh|markdown|latex|go|c) %{
+  # map global normal <a-i> :lsp-selection-range<ret>
   lsp-enable-window
-  lsp-diagnostic-lines-disable window
-  lsp-inline-diagnostics-disable window
+  #lsp-diagnostic-lines-disable window
+  #lsp-inline-diagnostics-disable window
+  lsp-diagnostic-lines-enable window
+  lsp-inline-diagnostics-enable window
   lsp-inlay-diagnostics-enable window
   lsp-inlay-hints-enable window
   lsp-inlay-code-lenses-enable window
@@ -174,6 +184,7 @@ alias global sp split
 map global normal <c-h> :bp<ret>
 map global normal <c-l> :bn<ret>
 map global normal <c-x> :delete-buffer<ret>
+
 
 
 map global user b ':find-buffer<ret>' 		-docstring '󰓩 buffers'
