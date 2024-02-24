@@ -1,0 +1,50 @@
+#!/bin/sh
+
+# Function to check if a command exists for preflight checks
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# List of required commands
+required_commands="tmux find zoxide awk"
+
+# Check for required commands and exit if any are missing
+for cmd in $required_commands; do
+    if ! command_exists "$cmd"; then
+        echo "Error: Required command '$cmd' not found. Please install it and try again."
+        exit 1
+    fi
+done
+
+# Check for arguments
+if [ $# -eq 1 ]; then
+    selected=$1
+else
+    # Use zoxide in combination with fzf for directory selection
+    selected=$(zoxide query -l | fzf --height 40% --border | awk '{print $NF}')
+fi
+
+# Exit if no selection is made
+if [ -z "$selected" ]; then
+    exit 0
+fi
+
+# Directly use the basename of the selected directory for the session name
+selected_name="$(basename "$selected" | tr . _)"
+
+# Check if tmux is running
+tmux_running=$(pgrep tmux)
+
+# If not inside a tmux session and tmux is not running, start a new tmux session
+if [ -z "$TMUX" ] && [ -z "$tmux_running" ]; then
+    tmux new-session -s "$selected_name" -c "$selected"
+    exit 0
+fi
+
+# If the session does not exist, create it detached
+if ! tmux has-session -t="$selected_name" 2> /dev/null; then
+    tmux new-session -ds "$selected_name" -c "$selected"
+fi
+
+# Attach or switch to the tmux session
+tmux switch-client -t "$selected_name"
