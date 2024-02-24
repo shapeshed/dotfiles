@@ -3,6 +3,7 @@ theme = "catppuccin_mocha"
 [editor]
 cursorline = true
 color-modes = true
+true-color = true
 
 [editor.soft-wrap]
 enable = true
