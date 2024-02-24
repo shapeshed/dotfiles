@@ -101,6 +101,9 @@ config/wireshark/
 config/xbuild/
 config/yarn/
 config/zoomus.conf
+config/helix/runtime/
+config/neomutt/
+
 
 
 
