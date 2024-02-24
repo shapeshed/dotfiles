@@ -24,7 +24,7 @@
   "wireplumber": {
     "format": "{volume}% {icon}",
     "format-muted": "",
-    "on-click": "helvum",
+    "on-click": "pavucontrol",
     "format-icons": ["", "", ""]
    },
   "pulseaudio": {
