@@ -7,8 +7,6 @@
 [github]
     user = shapeshed
     token = `gpg -d ~/.auth/github_token.gpg`
-[core]
-	editor = /usr/bin/kak
 
 [color]
     ui = true
