@@ -1,0 +1,20 @@
+#compdef wenmoon
+
+_wenmoon() {
+    local -a options
+    local curcontext="$curcontext" state line
+    typeset -A opt_args
+
+    _arguments -C \
+        '-c[specify configuration file]:configuration file:_files -W ~/.config/wenmoon/' \
+        '*:: :->args'
+
+    case $state in
+    args)
+        # Handle other positional arguments if necessary
+        ;;
+    esac
+}
+
+_wenmoon "$@"
+

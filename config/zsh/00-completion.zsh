@@ -1,4 +1,5 @@
-fpath+=~/.zfunc
+# fpath+=~/.zfunc
+fpath+=($HOME/.config/zsh/completions $fpath)
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit
 zstyle ':completion:*' menu select

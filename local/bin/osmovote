@@ -1,0 +1,44 @@
+#!/bin/sh
+
+BINARY="osmosisd"
+CHAIN_ID="osmosis-1"
+FROM="osmosis-1-validator-operator"
+GAS="auto"
+GAS_ADJUSTMENT="1.25"
+GAS_PRICES="0.0025uosmo"
+KEYRING_BACKEND="pass"
+NODE="https://rpc.margined.io:443"
+OUTPUT="json"
+
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <vote_number> <yes/no/no_with_veto/abstain>"
+    exit 1
+fi
+
+# Assign arguments to variables for clarity
+VOTE_NUMBER="$1"
+VOTE_OPTION="$2"
+
+# Check if vote option is valid
+case "$VOTE_OPTION" in
+    yes|no|no_with_veto|abstain)
+        # Valid option, proceed with the command
+        ;;
+    *)
+        echo "Error: Vote option must be 'yes', 'no', 'no_with_veto', or 'abstain'"
+        exit 1
+        ;;
+esac
+
+# Construct and execute the command
+$BINARY tx gov vote \
+    "$VOTE_NUMBER" "$VOTE_OPTION" \
+    --chain-id $CHAIN_ID \
+    --from $FROM \
+    --gas $GAS \
+    --gas-adjustment $GAS_ADJUSTMENT \
+    --gas-prices $GAS_PRICES \
+    --keyring-backend $KEYRING_BACKEND \
+    --node $NODE \
+    --output $OUTPUT \
+    --yes
