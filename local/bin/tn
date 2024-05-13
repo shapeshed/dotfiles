@@ -18,7 +18,7 @@ done
 
 # Check for arguments
 if [ $# -eq 1 ]; then
-    selected=$1
+    selected=$(zoxide query "$1")
 else
     # Use zoxide in combination with fzf for directory selection
     selected=$(zoxide query -l | fzf --height 40% --border | awk '{print $NF}')
