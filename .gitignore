@@ -59,7 +59,6 @@ config/lazygit/
 config/libaccounts-glib/
 config/libreoffice/
 config/linkchecker/
-config/mako/
 config/menus
 config/mimeapps.list
 config/mono.addins/

@@ -1,0 +1,23 @@
+default-timeout=5000
+margin=20,20,60
+padding=20,10
+border-size=1
+border-radius=2
+# anchor=bottom-right
+
+font=RobotoMono Nerd Font 10
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#f5e0dc
+progress-color=over #313244
+
+[urgency=normal]
+text-color=#fab387
+border-color=#fab387
+
+[urgency=critical]
+text-color=#f38ba8
+border-color=#f38ba8
+
+[mode=dnd]
+invisible=1
