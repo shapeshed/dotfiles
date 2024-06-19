@@ -6,7 +6,7 @@
 LIGHTTHEME="catppuccin-latte"
 DARKTHEME="catppuccin-mocha"
 VIMCONF="${XDG_CONFIG_HOME}/nvim/lua/config/set.lua"
-ALACRITTYCONF="${XDG_CONFIG_HOME}/alacritty/alacritty.yml"
+ALACRITTYCONF="${XDG_CONFIG_HOME}/alacritty/alacritty.toml"
 TMUXCONF="${XDG_CONFIG_HOME}/tmux/tmux.conf"
 CURRENT_MODE=$(gsettings get org.gnome.desktop.interface color-scheme)
 
