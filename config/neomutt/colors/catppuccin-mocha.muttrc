@@ -1,0 +1,47 @@
+set color_directcolor = true
+
+# Simple colors
+color attachment	#161B22 #1E1E2E         # pink / base
+color bold	        #161B22 #1E1E2E         # pink / base
+color error		    #F38BA8 #1E1E2E         # red / base
+color hdrdefault	#FAB387 #1E1E2E         # peach / base
+color indicator	    #CDD6F4 #313244         # surface0 / main headline
+color markers 	    #0D1117 #1E1E2E         # lavendar / base
+color message 	    #94E2D5 #1E1E2E         # teal / base
+color normal	    #CDD6F4 #1E1E2E         # body copy / base
+color options    	#CDD6F4 #1E1E2E         # body copy / base
+color progress    	#FAB387 #1E1E2E         # peach / base
+color prompt    	#CDD6F4 #1E1E2E         # body copy / base
+color search		#CDD6F4 #F38BA8         # body copy / teal
+color status		#CDD6F4 #181825         # body copy / mantle
+color signature	  	#A6ADC8 #1E1E2E         # subtext / base
+color tilde 	  	#7E839B #1E1E2E         # overlay 1 / base
+color tree 	  	    #7E839B #1E1E2E         # overlay 1 / base
+color underline 	#F38BA8 #1E1E2E         # red / base
+color warning 	  	#F9E2AF #1E1E2E         # yellow / base
+
+# Simple sidebar colors
+color sidebar_flagged   color1 default    # Mailboxes with flagged mails are Red
+color sidebar_new       color10 default   # Mailboxes with new mail are Green
+
+# Simple Compose Colours
+
+# Quoted email colors
+color quoted		#A6ADC8 #1E1E2E         # subtext 0 / base
+color quoted1		#BAC2DE #1E1E2E         # subtext 1 / base
+color quoted2		#6C7086 #1E1E2E         # overlay 0 / base
+color quoted3		#0D1117 #1E1E2E         # overlay 1 / base
+color quoted4		#9298B1 #1E1E2E         # overlay 2 / base
+color quoted5		#A6ADC8 #1E1E2E         # subtext 0 / base
+
+# Color regex lists
+color index		    #A6E3A1 #1E1E2E ~N      # New messages - green / base
+color index		    #94E2D5 #1E1E2E ~F      # Flagged messages - teal / base
+color index		    #94E2D5 #1E1E2E ~T      # Tagged Messages teal / base
+color index		    #F38BA8 #1E1E2E ~D      # Messages to delete red / base
+
+color body		    #89B4FA #1E1E2E		[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+               # email addresses Green
+color body	  	    #89B4FA #1E1E2E		(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+        # blue / base
+color body		color4 default		(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$) # *bold* text Blue
+color body		color4 default		(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)     # _underlined_ text Blue
+color body		color4 default		(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)     # /italic/ text Blue

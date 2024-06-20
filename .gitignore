@@ -101,7 +101,7 @@ config/xbuild/
 config/yarn/
 config/zoomus.conf
 config/helix/runtime/
-config/neomutt/
+config/neomutt/oauth
 
 
 
