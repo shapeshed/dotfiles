@@ -1,11 +1,25 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-set -eEu -o pipefail
+# This script fetches the current Bitcoin price and 24-hour price change percentage from the Binance API,
+# as well as the long-short ratio from Binance Futures. It formats this data for display in a tmux status bar.
+# The last price is color-coded: red if the price change percentage is negative and cyan if positive.
 
-PRICE=$(curl -s "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD" | jq -r '.DISPLAY.BTC.USD | .PRICE + " " + .CHANGEPCTDAY')
+set -eu
 
-if [[ $PRICE = *"-"* ]]; then
-  echo "#[fg=red]$PRICE 🡻"
+# Get the price change percentage and last price from Binance API
+PRICE_DATA=$(curl -s "https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT")
+LAST_PRICE=$(echo "$PRICE_DATA" | jq -r .lastPrice) || exit 1
+PRICE_CHANGE_PERCENT=$(echo "$PRICE_DATA" | jq -r .priceChangePercent) || exit 1
+
+# Trim any non-numeric characters before LAST_PRICE and format it to two decimal places
+LAST_PRICE=$(echo "$LAST_PRICE" | sed 's/[^0-9.]//g' | awk '{printf "%.2f", $1}') || exit 1
+
+# Fetch the long-short ratio
+LONG_SHORT_RATIO=$(curl -s "https://fapi.binance.com/futures/data/topLongShortAccountRatio?symbol=BTCUSDT&period=1h&limit=1" | jq -r '.[0].longShortRatio') || exit 1
+
+# Set color based on whether the price change percentage is negative or positive
+if echo "$PRICE_CHANGE_PERCENT" | grep -q '^-'; then
+  echo "#[fg=red]\$ $LAST_PRICE $PRICE_CHANGE_PERCENT% 🡻 | $LONG_SHORT_RATIO"
 else
-  echo "#[fg=cyan]$PRICE 🡹"
+  echo "#[fg=cyan]\$ $LAST_PRICE $PRICE_CHANGE_PERCENT% 🡹 | $LONG_SHORT_RATIO"
 fi
