@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+
+gh pr list | fzf \
+  --ansi \
+  --height=100% \
+  --border=sharp \
+  --preview 'NO_COLOR=1 GH_FORCE_TTY=$FZF_PREVIEW_COLUMNS gh pr view {1}' \
+  --bind="enter:become(gh pr checkout {1})"

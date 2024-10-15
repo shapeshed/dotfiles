@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Display a notes menu with options to create, open, and search notes.
+tmux display-menu -T "#[align=centre]Notes" \
+  "New note" n \
+    "command-prompt -p 'Enter note title:' 'display-popup -E -w 80% -h 85% \"notes new %%\"'" \
+  "Open note" o \
+    "display-popup -E -w 80% -h 85% 'fzf --preview \"bat --style=numbers --color=always --line-range=:500 {}\" --preview-window=up:60% --bind \"enter:execute($EDITOR {})+abort\" --height=90% --layout=reverse --border=sharp --ansi --color=16 --border=rounded < <(find ~/Documents/notes -type f -name \"*.md\" -exec stat --format=\"%X %n\" {} + | sort -nr | cut -d\" \" -f2-)'" \
+  "Search notes by content" s \
+    "display-popup -E -w 80% -h 85% 'rg --color=always --line-number --no-heading --smart-case \"\" ~/Documents/notes/*.md | fzf --delimiter=: --preview \"bat --style=numbers --color=always --line-range=:500 {1}\" --preview-window=up:60% --bind \"enter:execute($EDITOR {1})+abort\" --height=90% --layout=reverse --ansi'"
+

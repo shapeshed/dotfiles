@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# Display a Git menu with common Git commands in tmux.
+tmux display-menu -T "#[align=centre]Git" \
+  "Show status" s \
+    "display-popup -E -w 80% -h 85% 'git status; exec zsh'" \
+  "Show log" l \
+    "display-popup -E -w 80% -h 85% 'tig'" \
+  "Show diff" d \
+    "display-popup -E -w 80% -h 85% 'git diff | bat --paging=always'" \
+  "Show staged changes" t \
+    "display-popup -E -w 80% -h 85% 'git diff --staged | bat --paging=always'" \
+  "" \
+  "Stage changes" a \
+    "display-popup -E -w 80% -h 85% 'git add -p'" \
+  "Unstage changes" e \
+    "display-popup -E -w 80% -h 85% 'git reset; exec zsh'" \
+  "Pull changes" p \
+    "display-popup -E -w 80% -h 85% 'git pull; exec zsh'" \
+  "Push changes" c \
+    "display-popup -E -w 80% -h 85% 'git push; exec zsh'" \
+  "" \
+  "Checkout (Branch)" b \
+    "display-popup -B -E -w 80% -h 85% 'git checkout $(git branch -a | fzf --border=sharp --height=100% --no-preview)'" \
+  "Checkout (Pull request)" r \
+    "display-popup -B -E -w 80% -h 85% '~/.bin/checkout-pr'" \
+  "New branch" n \
+    "command-prompt -p 'Branch:' 'run-shell \"git checkout -b %%\"'" \
+  "Delete branch" D \
+    "display-popup -B -E -w 80% -h 85% 'git branch -d $(git branch -a | fzf --border=sharp --height=100% --no-preview)'" \
+  "" \
+  "Quit menu" q ""
+
