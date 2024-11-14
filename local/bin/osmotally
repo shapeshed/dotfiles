@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# Check if a proposal number is provided
+if [ -z "$1" ]; then
+  echo "Usage: osmoprop <proposal_number>"
+  exit 1
+fi
+
+# Set the proposal number
+PROPOSAL_NUMBER="$1"
+
+# Set default gRPC address and insecure option (can be overridden)
+GRPC_ADDR="${GRPC_ADDR:-osmosis-grpc.polkachu.com:12590}"
+GRPC_INSECURE="${GRPC_INSECURE:-true}"
+
+# Query the tally results for the proposal
+tally_json=$(osmosisd query gov tally "$PROPOSAL_NUMBER" \
+  --grpc-addr="$GRPC_ADDR" \
+  --grpc-insecure="$GRPC_INSECURE" \
+  --output json)
+
+# Extract counts from JSON
+yes_count=$(echo "$tally_json" | jq -r '.tally.yes_count' | awk '{printf "%.0f", $1}')
+abstain_count=$(echo "$tally_json" | jq -r '.tally.abstain_count' | awk '{printf "%.0f", $1}')
+no_count=$(echo "$tally_json" | jq -r '.tally.no_count' | awk '{printf "%.0f", $1}')
+no_with_veto_count=$(echo "$tally_json" | jq -r '.tally.no_with_veto_count' | awk '{printf "%.0f", $1}')
+
+# Calculate total votes
+total_votes=$((yes_count + abstain_count + no_count + no_with_veto_count))
+
+# Calculate percentages
+yes_percentage=$(awk "BEGIN {printf \"%.2f\", ($yes_count / $total_votes) * 100}")
+abstain_percentage=$(awk "BEGIN {printf \"%.2f\", ($abstain_count / $total_votes) * 100}")
+no_percentage=$(awk "BEGIN {printf \"%.2f\", ($no_count / $total_votes) * 100}")
+no_with_veto_percentage=$(awk "BEGIN {printf \"%.2f\", ($no_with_veto_count / $total_votes) * 100}")
+
+# Display results
+echo "Proposal $PROPOSAL_NUMBER"
+echo "Yes: $yes_percentage%"
+echo "Abstain: $abstain_percentage%"
+echo "No: $no_percentage%"
+echo "No with Veto: $no_with_veto_percentage%"
+
