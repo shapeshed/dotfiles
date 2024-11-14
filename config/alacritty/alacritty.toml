@@ -1,4 +1,3 @@
-import = ["/home/go/.config/alacritty/themes/catppuccin/catppuccin-mocha.toml"]
 
 [env]
 TERM = "xterm-256color"
@@ -18,3 +17,6 @@ mods = "Control"
 action = "DecreaseFontSize"
 key = "Minus"
 mods = "Control"
+
+[general]
+import = ["/home/go/.config/alacritty/themes/catppuccin/catppuccin-mocha.toml"]
