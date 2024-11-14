@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Check if a proposal number is provided
+if [ -z "$1" ]; then
+  echo "Usage: osmoprop <proposal_number>"
+  exit 1
+fi
+
+# Set the proposal number
+PROPOSAL_NUMBER="$1"
+
+# Set default gRPC address and insecure option (can be overridden)
+GRPC_ADDR="${GRPC_ADDR:-osmosis-grpc.polkachu.com:12590}"
+GRPC_INSECURE="${GRPC_INSECURE:-true}"
+
+# Query the proposal and format the summary
+osmosisd query gov proposal "$PROPOSAL_NUMBER" \
+  --grpc-addr="$GRPC_ADDR" \
+  --grpc-insecure="$GRPC_INSECURE" \
+  --output json | \
+  jq -r .proposal.summary | \
+  prettier --parser markdown --print-width 80 --prose-wrap always | \
+  glow
+
