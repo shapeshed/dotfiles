@@ -19,6 +19,5 @@ osmosisd query gov proposal "$PROPOSAL_NUMBER" \
   --grpc-insecure="$GRPC_INSECURE" \
   --output json | \
   jq -r .proposal.summary | \
-  prettier --parser markdown --print-width 80 --prose-wrap always | \
   glow
 
