@@ -11,6 +11,8 @@ text-color=#cdd6f4
 border-color=#f5e0dc
 progress-color=over #313244
 
+on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
+
 [urgency=normal]
 text-color=#fab387
 border-color=#fab387
@@ -21,3 +23,8 @@ border-color=#f38ba8
 
 [mode=dnd]
 invisible=1
+on-notify=exec true
+
+[mode=default]
+invisible=0
+on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga

@@ -27,7 +27,7 @@ tmux display-menu -T "#[align=centre]Git" \
   "New branch" n \
     "command-prompt -p 'Branch:' 'run-shell \"git checkout -b %%\"'" \
   "Delete branch" D \
-    "display-popup -B -E -w 80% -h 85% 'git branch -d $(git branch -a | fzf --border=sharp --height=100% --no-preview)'" \
+    "display-popup -B -E -w 80% -h 85% 'sh -c \"git branch -d \$(git branch -a | fzf --border=sharp --height=100% --no-preview)\"'" \
   "" \
   "Quit menu" q ""
 
