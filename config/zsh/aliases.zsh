@@ -19,12 +19,12 @@ alias castget='castget -C ~/.config/castget/castgetrc'
 alias goaccess='goaccess -p ~/.config/goaccess/goaccessrc'
 
 # Radio
-alias playbbcr1="mpv 'https://as-hls-uk-live.akamaized.net/pool_01505109/live/uk/bbc_radio_one/bbc_radio_one.isml/bbc_radio_one-audio%3d320000.norewind.m3u8'"
-alias playbbcr4="mpv 'https://as-hls-uk-live.akamaized.net/pool_55057080/live/uk/bbc_radio_fourfm/bbc_radio_fourfm.isml/bbc_radio_fourfm-audio%3d320000.norewind.m3u8'"
-alias playbbcr5l="mpv 'https://as-hls-uk-live.akamaized.net/pool_89021708/live/uk/bbc_radio_five_live/bbc_radio_five_live.isml/bbc_radio_five_live-audio%3d320000.norewind.m3u8'"
-alias playbbcr5lsx="mpv 'http://as-hls-uk-live.akamaized.net/pool_01505109/live/uk/bbc_radio_five_live_sports_extra/bbc_radio_five_live_sports_extra.isml/bbc_radio_five_live_sports_extra-audio%3d96000.norewind.m3u8'"
-alias playbbcr6="mpv 'https://as-hls-uk-live.akamaized.net/pool_47700285/live/uk/bbc_radio_five_live_sports_extra/bbc_radio_five_live_sports_extra.isml/bbc_radio_five_live_sports_extra-audio%3d320000.norewind.m3u8'"
-alias playbbcrnorfolk="mpv 'https://as-hls-uk-live.akamaized.net/pool_61510571/live/uk/bbc_radio_norfolk/bbc_radio_norfolk.isml/bbc_radio_norfolk-audio%3d320000.norewind.m3u8'"
+alias playbbcr1="mpv 'http://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/hls/uk/pc_hd_abr_v2/ak/bbc_radio_one.m3u8'"
+alias playbbcr4="mpv 'http://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/hls/uk/pc_hd_abr_v2/ak/bbc_radio_fourfm.m3u8'"
+alias playbbcr5l="mpv 'http://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/hls/uk/pc_hd_abr_v2/ak/bbc_radio_five_live.m3u8'"
+alias playbbcr5lsx="mpv 'http://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/hls/uk/pc_hd_abr_v2/ak/bbc_radio_five_live_sports_extra.m3u8'"
+alias playbbcr6="mpv 'http://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/hls/uk/pc_hd_abr_v2/ak/bbc_6music.m3u8'"
+alias playbbcrnorfolk="mpv 'http://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/hls/uk/pc_hd_abr_v2/ak/bbc_radio_norfolk.m3u8'"
 alias playtalksport2="mpv 'http://radio.talksport.com/stream2?awparams=platform:ts-web&amsparams=playerid:ts-web;'"
 alias playtalksport="mpv 'http://radio.talksport.com/stream?aisGetOriginalStream=true'"
 
