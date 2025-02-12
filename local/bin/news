@@ -1,19 +1,27 @@
 #!/usr/bin/env sh
-
 set -e
 
+# Podcast URLs
 ECONOMIST="https://access.acast.com/rss/theeconomistmorningbriefing"
 FTNEWSBRIEFING="https://play.acast.com/s/ftnewsbriefing"
 REUTERS="https://prod-mediatools-google.global.reuters.tv/mediatools/google/google-audiosafe-us-5minaudio.rss"
 
-# Skip ads on reuters
-# Can't get this working with per file options
-# https://mpv.io/manual/stable/#per-file-options
-mpv --ytdl-raw-options=playlist-start=1,playlist-end=1 \
-  --speed=1.4 --start=00:00:30 \
-  "${REUTERS}"
+# A function to play a podcast with the common options.
+# The first argument is the start time, the second is the URL.
+play_podcast() {
+  start="$1"
+  url="$2"
+  mpv --ytdl-raw-options=playlist-start=1,playlist-end=1 \
+      --profile=podcast \
+      --speed=1.4 --start="$start" "$url"
+}
 
-echo \
-  "${ECONOMIST}" \
-  "${FTNEWSBRIEFING}" |
-  xargs mpv --speed=1.4 --ytdl-raw-options=playlist-start=1,playlist-end=1
+# Reuters (skipping ads by starting at 00:00:20)
+play_podcast "00:00:20" "$REUTERS"
+
+# The Economist (start at 00:00:40)
+play_podcast "00:00:40" "$ECONOMIST"
+
+# FT News Briefing (start at 00:00:30)
+play_podcast "00:00:30" "$FTNEWSBRIEFING"
+
