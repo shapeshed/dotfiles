@@ -1,14 +1,21 @@
 default-timeout=5000
+width=350
+height=200
 margin=20,20,60
-padding=20,10
+padding=10,10
 border-size=1
-border-radius=2
+border-radius=5
+# anchor=bottom-right
+
+# [app-name="Chromium"]
 # anchor=bottom-right
 
 font=RobotoMono Nerd Font 10
+
 background-color=#1e1e2e
 text-color=#cdd6f4
 border-color=#f5e0dc
+
 progress-color=over #313244
 
 on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
