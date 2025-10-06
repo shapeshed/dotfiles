@@ -1,38 +1,19 @@
 #!/usr/bin/env sh
+# 
 set -eu
 
-# Create session only if missing
+# If session 'work' doesn't exist, create and set it up
 if ! tmux has-session -t work 2>/dev/null; then
-  tmux new -d -s work
+  tmux new-session -d -s work
 
-  # Build windows only on first creation
-  tmux new-window -n mail -t work:1
+  # Window 1: mail + todo split
+  tmux new-window -t work:1 -n mail
   tmux send-keys -t work:mail 'neomutt' C-m
-
   tmux split-window -v -t work:mail
-  tmux send-keys -t work:mail "${EDITOR:-hx} ~/Documents/todo.md" C-m
+  tmux send-keys -t work:mail.2 "$EDITOR ~/Documents/todo.md" C-m
+  tmux select-layout -t work:mail main-vertical
 
-  tmux select-layout -t mail main-vertical
 fi
 
 exec tmux attach -t work
 
-#!/usr/bin/env sh
-
-# set -e
-
-# tmux new -s work -d
-# tmux new-window -n mail -t work:1
-# tmux send-keys -t mail "neomutt" C-m
-# tmux split-window -v -t mail
-# tmux send-keys -t mail "$EDITOR ~/Documents/todo.md" C-m
-# tmux select-layout -t mail main-vertical
-# tmux new-window -n cal -t work:2
-# tmux send-keys -t cal "ikhal" C-m
-# tmux new-window -n news -t work:4
-# tmux send-keys -t news "newsboat" C-m
-#tmux new-window -n audio -t work:3
-#tmux send-keys -t audio "ncspot" C-m
-#tmux select-window -t 0
-
-#tmux attach -t work

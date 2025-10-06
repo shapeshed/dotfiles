@@ -2,7 +2,8 @@
   border: 0;
   border-radius: 5px;
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: "RobotoMono Nerd Font";
+  /* font-family: "RobotoMono Nerd Font"; */
+  font-family: "Adwaita Sans";
   font-size: 12px;
   min-height: 0;
 }

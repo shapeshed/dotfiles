@@ -2,6 +2,7 @@
 Description=dwl compositor
 Wants=graphical-session.target dbus.service seatd.service
 After=graphical-session.target dbus.service seatd.service
+Wants=dwl-session.target
 
 [Service]
 Type=simple
@@ -23,7 +24,7 @@ Environment=XDG_CURRENT_DESKTOP=dwl
 # Environment=DISPLAY=
 # Environment=WAYLAND_DISPLAY=
 # UnsetEnvironment=DISPLAY WAYLAND_DISPLAY DBUS_SESSION_BUS_ADDRESS
-UnsetEnvironment=DISPLAY WAYLAND_DISPLAY
+UnsetEnvironment=DISPLAY
 
 # 1) Nuke any stale wayland sockets from previous runs (safe: only your runtime dir)
 ExecStartPre=/usr/bin/find %t -maxdepth 1 -type s -name 'wayland-*' -user %u -delete
@@ -39,6 +40,7 @@ ExecStartPre=/usr/bin/dbus-update-activation-environment --systemd \
 ExecStart=/usr/bin/dwl -s %h/.local/bin/dwl-startup.sh
 # ExecStart=/bin/sh -lc '/usr/local/bin/slstatus -s | exec /home/go/src/codeberg.org/dwl/dwl/dwl -s /home/go/.local/bin/dwl-startup.sh'
 
+# ExecStartPost=systemctl --user start dwl-session.target
 
 # ExecStart=/usr/local/bin/dwl
 # 
@@ -46,6 +48,8 @@ ExecStart=/usr/bin/dwl -s %h/.local/bin/dwl-startup.sh
 # Keep things tidy on exit so next start is clean
 ExecStopPost=/usr/bin/systemctl --user unset-environment DISPLAY WAYLAND_DISPLAY
 # ExecStopPost=/usr/bin/systemctl --user stop dwl-session.target
+ExecStopPost=/usr/bin/systemctl --user stop dwl-session.target
+ExecStopPost=/usr/bin/systemctl --user unset-environment DISPLAY WAYLAND_DISPLAY
 
 Restart=on-failure
 RestartSec=1
@@ -54,44 +58,3 @@ TimeoutStopSec=5
 
 [Install]
 WantedBy=graphical-session.target
-
-# [Unit]
-# Description=dwl compositor
-# Wants=graphical-session.target dbus.service
-# After=graphical-session.target dbus.service
-
-# [Service]
-# Type=simple
-# Environment=SEATD_SOCK=/run/seatd.sock
-# Environment=LIBSEAT_BACKEND=seatd
-# # Environment=WLR_BACKENDS=drm
-# Environment=WLR_LOG=debug
-# Environment=XDG_RUNTIME_DIR=%t
-# Environment=XDG_SESSION_TYPE=wayland
-# Environment=XDG_CURRENT_DESKTOP=dwl
-
-# # DO NOT blank these; let dwl set WAYLAND_DISPLAY and clients inherit DISPLAY if present
-# # Environment=DISPLAY=
-# # Environment=WAYLAND_DISPLAY=
-
-
-
-# # Make sure user-systemd + dbus know our GUI env each launch (idempotent)
-# # ExecStartPre=/usr/bin/systemctl --user unset-environment DISPLAY WAYLAND_DISPLAY DBUS_SESSION_BUS_ADDRESS
-# # ExecStartPre=/usr/bin/dbus-update-activation-environment --systemd XDG_RUNTIME_DIR DBUS_SESSION_BUS_ADDRESS XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
-
-# ExecStartPre=/usr/bin/systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_SESSION_TYPE XDG_CURRENT_DESKTOP XDG_RUNTIME_DIR
-# ExecStartPre=/usr/bin/dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_SESSION_TYPE XDG_CURRENT_DESKTOP XDG_RUNTIME_DIR DBUS_SESSION_BUS_ADDRESS
-
-# # Start compositor (no dbus-run-session!)
-# ExecStart=/usr/local/bin/dwl -s %h/.local/bin/dwl-startup.sh
-# # ExecStart=/usr/local/bin/dwl
-# ExecStartPost=/usr/bin/systemctl --user start dwl-session.target
-
-# Restart=on-failure
-# RestartSec=1
-# ExecStop=/usr/bin/pkill -TERM dwl
-# TimeoutStopSec=5
-
-# [Install]
-# WantedBy=graphical-session.target

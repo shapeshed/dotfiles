@@ -1,0 +1,14 @@
+[Unit]
+Description=Dynamic output configuration for Wayland compositors
+Documentation=https://gitlab.freedesktop.org/emersion/kanshi
+After=dwl-session.target
+PartOf=dwl-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/kanshi
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=dwl-session.target

@@ -48,8 +48,8 @@ other_email=hello@shapeshed.com
 #		in the mail store.
 #
 [new]
-tags=unread;inbox;
-ignore=
+tags=inbox;unread;new
+ignore=[Gmail]/Spam [Gmail]/Bin
 
 # Search configuration
 #

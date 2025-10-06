@@ -1,8 +1,7 @@
 [Unit]
 Description=Alacritty terminal with tmux "work" session
-After=dwl.service
+After=dwl-session.target
 PartOf=dwl-session.target
-Requires=dwl.service  
 
 [Service]
 Type=simple

@@ -1,38 +1,64 @@
-default-timeout=2000
-ignore-timeout=1
-width=350
-height=200
-margin=20,20,60
-padding=10,10
-border-size=1
-border-radius=5
-# anchor=bottom-right
+# Global
+max-history=5
+sort=-time
+# include=
 
-# [app-name="Chromium"]
-# anchor=bottom-right
-
-font=RobotoMono Nerd Font 10
-
-background-color=#1e1e2e
-text-color=#cdd6f4
-border-color=#f5e0dc
-
-progress-color=over #313244
-
+# Binding options
+on-button-left=invoke-default-action
+# on-button-middle=
+on-button-right=dismiss
 on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
 
-[urgency=normal]
-text-color=#fab387
-border-color=#fab387
+# Style 
+font=Adawaita Sans 10
+width=350
+height=200
+outer-margin=0
+# margin=20,20,60
+padding=20,10
+border-size=1
+border-radius=10
+icons=1
+max-icon-size=64
+icon-path=""
+icon-location=left
+icon-border-radius=0
+markup=1
+history=1
+text-alignment=left
+default-timeout=5000
+ignore-timeout=0
+max-visible=5
+output=""
+layer=top
+anchor=top-right
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#94e2d5
+progress-color=over #313244
 
+# Lavender
+[urgency=low]
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#b4befe
+progress-color=over #313244
+
+# Teal
+[urgency=normal]
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#94e2d5
+progress-color=over #313244
+
+# Red
 [urgency=critical]
-text-color=#f38ba8
+background-color=#1e1e2e
+text-color=#cdd6f4
 border-color=#f38ba8
+progress-color=over #313244
 
 [mode=dnd]
 invisible=1
 on-notify=exec true
 
-[mode=default]
-invisible=0
-on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga

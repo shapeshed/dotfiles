@@ -4,7 +4,7 @@ User george@shapeshed.com
 AuthMechs XOAUTH2
 PassCmd "/home/go/.config/mutt/oauth/mutt_oauth2.py /home/go/.config/mutt/oauth/george@shapeshed.com"
 #PassCmd "pass show mail.shapeshed.com/george@shapeshed.com/password"
-SSLType IMAPS
+TLSType IMAPS
 
 IMAPStore shapeshed-remote
 Account shapeshed

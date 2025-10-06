@@ -1,25 +1,64 @@
 [calendars]
 
-[[shapeshed]]
-path = /home/go/.local/share/shapeshed/calendars/george@shapeshed.com/
-type = discover
-color = light magenta 
+[[home]]
+path = /home/go/.local/share/shapeshed/calendars/george@shapeshed.com
+color = light blue
+readonly = False
 
-[locale]
-timeformat = %H:%M
-dateformat = %Y-%m-%d
-longdateformat = %Y-%m-%d
-datetimeformat = %Y-%m-%d %H:%M
-longdatetimeformat = %Y-%m-%d %H:%M
-unicode_symbols = false
+[[work]]
+path = /home/go/.local/share/shapeshed/calendars/shapeshed.com_eqdfh09ehe3gpso09480hba65k@group.calendar.google.com
+color = light magenta
+readonly = False
 
-[view]
-event_view_weighting = 2
-dynamic_days = false
-theme = dark
-event_view_always_visible = true
-agenda_event_format = {calendar-color}{cancelled}{start-end-time-style} {title}{repeat-symbol}{reset}
-frame = color
+[[google_virtual_1]]
+path = /home/go/.local/share/shapeshed/calendars/cln2qpr25phmgsj9edq6iobe4dk6ur39chgnig37e9nnas1eeon66obccln68obi5pjmurr7dhiisorfdk@virtual
+color = yellow
+readonly = True
+
+[[google_virtual_2]]
+path = /home/go/.local/share/shapeshed/calendars/cln2stbb4dk6ur39chgnig37e9nnas1eeon66obccln68obi5pjmurr7dhiisorfdk@virtual
+color = yellow
+readonly = True
+
 
 [default]
-default_calendar = george@shapeshed.com
+default_calendar = home
+
+[locale]
+local_timezone = Europe/London
+default_timezone = Europe/London
+timeformat = %H:%M
+dateformat = %Y-%m-%d
+longdateformat = %A %d %B %Y
+datetimeformat = %Y-%m-%d %H:%M
+firstweekday = 0  # Monday
+
+# [view]
+# event_view_weighting = 2
+# dynamic_days = false
+# theme = dark
+# event_view_always_visible = true
+# agenda_event_format = {calendar-color}{cancelled}{start-end-time-style} {title}{repeat-symbol}{reset}
+# frame = color
+
+[view]
+bold_for_light_color = False
+dynamic_days = False
+event_view_always_visible = True
+frame = width
+
+
+[palette]
+button         = dark cyan, ''
+button focused = white, light blue
+dayname        = dark gray, ''
+edit           = black, dark gray
+edit focus     = '', ''
+footer         = dark gray, ''
+frame focus    = '', ''
+header         = dark gray, ''
+monthname      = dark gray, ''
+popupbg        = black, dark cyan
+popupper       = dark cyan, ''
+today          = black, light cyan
+today focus    = black, dark cyan

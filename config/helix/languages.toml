@@ -4,7 +4,7 @@ ltex.dictionary = { "en-GB" = ["builtin"] }
 ltex.disabledRules = { "en-GB" = ["PROFANITY"] }
 
 [language-server.rust-analyzer.config]
-rustfmt.extraArgs = ["+nightly"]
+rustfmt = { extraArgs = ["+nightly"] }
 
 [language-server.solidity-language-server]
 command = "nomicfoundation-solidity-language-server"
@@ -39,3 +39,6 @@ auto-format = true
 formatter = { command = "forge", args = ["fmt", "--raw", "-"] }
 language-servers = [ { name = "solidity-language-server" } ]
 
+[[language]]
+name = "rust"
+auto-format = true
