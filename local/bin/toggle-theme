@@ -5,6 +5,10 @@
 
 LIGHTTHEME="catppuccin-latte"
 DARKTHEME="catppuccin-mocha"
+HELIXLIGHTTHEME="catppuccin_latte"
+HELIXDARKTHEME="catppuccin_mocha"
+
+HELIXCONF="${XDG_CONFIG_HOME}/helix/config.toml"
 VIMCONF="${XDG_CONFIG_HOME}/nvim/lua/config/set.lua"
 ALACRITTYCONF="${XDG_CONFIG_HOME}/alacritty/alacritty.toml"
 TMUXCONF="${XDG_CONFIG_HOME}/tmux/tmux.conf"
@@ -24,11 +28,13 @@ switch_vim_theme() {
 if [ "$CURRENT_MODE" = "'prefer-dark'" ]; then
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
   sed -i "s/${DARKTHEME}/${LIGHTTHEME}/" "$ALACRITTYCONF" "$TMUXCONF"
+  sed -i "s/${HELIXDARKTHEME}/${HELIXLIGHTTHEME}/" "$HELIXCONF"
   sed -i 's/dark/light/' "$VIMCONF"
   switch_vim_theme "light"
 else
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
   sed -i "s/${LIGHTTHEME}/${DARKTHEME}/" "$ALACRITTYCONF" "$TMUXCONF"
+  sed -i "s/${HELIXLIGHTTHEME}/${HELIXDARKTHEME}/" "$HELIXCONF"
   sed -i 's/light/dark/' "$VIMCONF"
   switch_vim_theme "dark"
 fi

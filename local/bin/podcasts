@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-find ~/music/podcasts ! -name 'playlist' -type f -printf '%T+ %p\n' | \
+find ~/Podcasts ! -name 'playlist' -type f -printf '%T+ %p\n' | \
   sort -nr | \
   head  -n 5 | \
   cut -d " " -f 2 | \

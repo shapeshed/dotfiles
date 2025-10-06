@@ -1,0 +1,1 @@
+/home/go/src/github.com/ohmyzsh/ohmyzsh/plugins/kubectl/kubectl.plugin.zsh

@@ -1,0 +1,6 @@
+#EXTM3U
+
+#EXTINF:-1, BBC Radio - Four FM
+#EXTALB: Live Broadcast
+#EXTGENRE: Live Radio [bbc-off]
+http://as-hls-uk-live.akamaized.net/pool_55057080/live/uk/bbc_radio_fourfm/bbc_radio_fourfm.isml/bbc_radio_fourfm-audio%3d320000.norewind.m3u8

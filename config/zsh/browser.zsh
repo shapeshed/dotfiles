@@ -1,2 +1,2 @@
 export BROWSER="w3m";
-export GUI_BROWSER="firefox";
+export GUI_BROWSER="chromium";

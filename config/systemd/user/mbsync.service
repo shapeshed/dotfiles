@@ -4,6 +4,8 @@ After=network.target network-online.target dbus.socket
 
 [Service]
 Type=oneshot
+Environment=XDG_RUNTIME_DIR=%t
+Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=%t/bus
 ExecStart=/usr/bin/mbsync -c "/home/go/.config/isync/mbsyncrc" -Va
 ExecStartPost=/usr/bin/notmuch new
 

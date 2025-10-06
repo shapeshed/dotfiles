@@ -457,14 +457,6 @@ macro index,pager J \
         ":set confirmappend=no delete=yes auto_tag=yes\n<save-message>~/Maildir/[Gmail]/Spam/\n<sync-mailbox>:set confirmappend=yes delete=ask-yes<enter>"  \
         "move message to junk"
 
-macro attach F \
-"\
-<enter-command>unset wait_key<enter>\
-<shell-escape>rm -f /tmp/mutt-attach<enter>\
-<save-entry><kill-line>/tmp/mutt-attach<enter>\
-<shell-escape>firefox /tmp/mutt-attach &<enter>\
-"
-
 macro index,pager C \
         "<pipe-message>khard add-email<return>" \
         "add the sender email address to khard"

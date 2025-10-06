@@ -1,0 +1,5 @@
+[Unit]
+Description=dwl compositor session
+Documentation=man:systemd.special
+BindsTo=dwl.service
+After=dwl.service

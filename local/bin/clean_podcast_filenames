@@ -1,0 +1,11 @@
+#!/bin/sh
+
+PODCAST_DIR="$HOME/Podcasts"
+
+for dir in "$PODCAST_DIR"/*; do
+  if [ -d "$dir" ]; then
+    echo "Cleaning filenames in $dir"
+    (cd "$dir" && /home/go/.local/bin/clean_filenames)
+  fi
+done
+

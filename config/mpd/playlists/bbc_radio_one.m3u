@@ -1,0 +1,6 @@
+#EXTM3U
+
+#EXTINF:-1, BBC Radio - One
+#EXTALB: Live Broadcast
+#EXTGENRE: Live Radio [bbc-off]
+http://as-hls-uk-live.akamaized.net/pool_01505109/live/uk/bbc_radio_one/bbc_radio_one.isml/bbc_radio_one-audio%3d320000.norewind.m3u8

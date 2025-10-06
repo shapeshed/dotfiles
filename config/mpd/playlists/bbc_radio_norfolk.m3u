@@ -1,0 +1,6 @@
+#EXTM3U
+
+#EXTINF:-1, BBC Radio - Norfolk
+#EXTALB: Live Broadcast
+#EXTGENRE: Live Radio [bbc-off]
+http://as-hls-uk-live.akamaized.net/pool_61510571/live/uk/bbc_radio_norfolk/bbc_radio_norfolk.isml/bbc_radio_norfolk-audio%3d320000.norewind.m3u8

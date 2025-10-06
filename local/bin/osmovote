@@ -5,9 +5,9 @@ CHAIN_ID="osmosis-1"
 FROM="osmosis-1-validator-operator"
 GAS="auto"
 GAS_ADJUSTMENT="1.25"
-GAS_PRICES="0.0025uosmo"
+GAS_PRICES="0.1uosmo"
 KEYRING_BACKEND="pass"
-NODE="https://rpc.margined.io:443"
+NODE="https://rpc.osmosis.zone:443"
 OUTPUT="json"
 
 if [ "$#" -ne 2 ]; then

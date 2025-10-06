@@ -1,0 +1,12 @@
+# ~/.config/systemd/user/swayidle.path
+[Unit]
+Description=Start swayidle when Wayland socket appears
+PartOf=dwl.service
+After=dwl.service
+
+[Path]
+PathExistsGlob=%t/wayland-*
+
+[Install]
+WantedBy=graphical-session.target
+

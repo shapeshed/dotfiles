@@ -1,0 +1,6 @@
+#EXTM3U
+
+#EXTINF:-1, BBC Radio - Five Live Sports Extra 2
+#EXTALB: Live Broadcast
+#EXTGENRE: Live Radio [bbc-off]
+http://as-hls-uk-live.akamaized.net/pool_24041977/live/uk/bbc_radio_five_sports_extra_2/bbc_radio_five_sports_extra_2.isml/bbc_radio_five_sports_extra_2-audio%3d320000.norewind.m3u8

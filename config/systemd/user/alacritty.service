@@ -1,0 +1,20 @@
+[Unit]
+Description=Alacritty terminal with tmux "work" session
+After=dwl.service
+PartOf=dwl-session.target
+Requires=dwl.service  
+
+[Service]
+Type=simple
+Environment=XDG_CONFIG_HOME=%h/.config
+Environment=XDG_RUNTIME_DIR=%t
+KillMode=process
+# ExecStart=/usr/bin/alacritty -e /bin/sh -lc '/home/go/.local/bin/work'
+ExecStart=/usr/bin/alacritty -e /usr/bin/zsh -lic 'source ~/.config/zsh/path.zsh; /home/go/.local/bin/work'
+# ExecStart=/usr/bin/alacritty -e /bin/sh -lc 'tmux attach -t work || tmux new -s work'
+# ExecStart=/usr/bin/alacritty -e /usr/bin/zsh -lic 'tmux attach -t work || tmux new -s work'
+Restart=on-failure
+RestartSec=1
+
+[Install]
+WantedBy=dwl-session.target

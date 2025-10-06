@@ -1,0 +1,120 @@
+#!/usr/bin/env bash
+#
+# go-switch: Manage multiple Go versions installed via golang.org/dl
+#
+# Usage:
+#   go-switch list
+#   go-switch download <goVersion>     # e.g., go1.10.7
+#   go-switch use <goVersion>          # e.g., go1.10.7
+#   go-switch system                   # revert to system Go
+#
+# Typically you do:
+#   source go-switch use <version>
+# so that your current shell environment is updated.
+
+# Directory where the downloaded versions are placed by default:
+GO_SDK_DIR="$HOME/sdk"
+
+function usage {
+  cat <<EOF
+Usage:
+  $0 list
+  $0 download <goVersion>   # e.g. go1.10.7
+  $0 use <goVersion>        # e.g. go1.10.7
+  $0 system
+
+Examples:
+  $0 list
+  $0 download go1.10.7
+  source $0 use go1.10.7
+  source $0 system
+EOF
+}
+
+# List installed Go versions in ~/sdk (golang.org/dl mechanism)
+function list_versions {
+  echo "Installed Go versions under $GO_SDK_DIR:"
+  ls -1 "$GO_SDK_DIR" | grep '^go[0-9]'
+}
+
+# Download a new Go version (e.g., go1.10.7).
+function download_version {
+  local version="$1"
+  if [[ -z "$version" ]]; then
+    echo "Error: no version specified. e.g., go1.10.7"
+    exit 1
+  fi
+
+  # Install the special "dl" module
+  echo "Installing $version via 'go install golang.org/dl/$version@latest'..."
+  go install "golang.org/dl/$version@latest"
+
+  echo "Running '$version download' to fetch the SDK..."
+  # This places the SDK into ~/sdk/$version
+  "$version" download
+
+  echo "Done. You can now run:"
+  echo "  source $0 use $version"
+}
+
+# Generate the "export PATH" line needed to use the selected version in the current shell.
+function use_version {
+  local version="$1"
+  if [[ -z "$version" ]]; then
+    echo "Error: no version specified. e.g., go1.10.7"
+    exit 1
+  fi
+
+  local sdk_path="$GO_SDK_DIR/$version/bin"
+
+  # Check if the directory exists
+  if [[ ! -d "$sdk_path" ]]; then
+    echo "Error: $sdk_path does not exist. Did you 'go-switch download $version' first?"
+    exit 1
+  fi
+
+  # We can't modify the parent shell's PATH from a non-sourced script,
+  # so we echo an export command. Usage: `source go-switch use go1.10.7`
+  echo "echo \"Using $version (in $sdk_path) for this shell.\""
+  echo "export PATH=\"$sdk_path:\$PATH\""
+}
+
+# Switch back to system Go
+function use_system {
+  # Here we can't know your original system PATH, so we typically remove $HOME/sdk/* from PATH.
+  # A simpler approach is to just run `unset` or instruct user to open a new shell.
+  # Or we can forcibly remove occurrences from PATH.
+
+  # We'll do a minimal approach: produce lines to remove sdk dirs from PATH.
+  cat <<EOF
+echo "Reverting to system Go by removing ~/sdk/ from PATH."
+export PATH="\$(echo "\$PATH" | sed 's#$HOME/sdk/[^:]*/bin:##g')"
+EOF
+}
+
+# ----------------------------
+# Main entry point
+# ----------------------------
+
+subcommand="$1"
+shift || true
+
+case "$subcommand" in
+  list)
+    list_versions
+    ;;
+  download)
+    download_version "$1"
+    ;;
+  use)
+    use_version "$1"
+    ;;
+  system)
+    use_system
+    ;;
+  *)
+    usage
+    exit 1
+    ;;
+esac
+

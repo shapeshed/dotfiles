@@ -1,0 +1,14 @@
+# ~/.config/systemd/user/swayidle.service
+[Unit]
+Description=Swayidle
+After=dwl.service
+PartOf=dwl.service
+
+[Service]
+Type=simple
+Environment=XDG_RUNTIME_DIR=%t
+ExecStart=/usr/bin/swayidle -w timeout 300 'swaylock -f -c 000000'
+Restart=on-failure
+
+[Install]
+WantedBy=dwl-session.target

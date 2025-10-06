@@ -1,0 +1,10 @@
+[Unit]
+Description=Start Waybar when Wayland socket appears
+PartOf=dwl.service
+After=dwl.service
+
+[Path]
+PathExistsGlob=%t/wayland-*
+
+[Install]
+WantedBy=graphical-session.target

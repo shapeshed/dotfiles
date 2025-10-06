@@ -1,3 +1,3 @@
-text/html; w3m -I %{charset} -T text/html; copiousoutput;
-application/pdf; evince %s
-image/jpeg; imv %s
+text/html; /usr/bin/chromium -- %s; test=test -n "$DISPLAY$WAYLAND_DISPLAY"; nametemplate=%s.html
+application/pdf; /usr/bin/evince %s
+image/jpeg; /usr/bin/imv %s

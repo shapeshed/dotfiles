@@ -1,10 +1,14 @@
 [language-server.ltex-ls.config]
-ltex.language = "en-GB"
+ltex.language     = "en-GB"
 ltex.dictionary = { "en-GB" = ["builtin"] }
 ltex.disabledRules = { "en-GB" = ["PROFANITY"] }
 
 [language-server.rust-analyzer.config]
 rustfmt.extraArgs = ["+nightly"]
+
+[language-server.solidity-language-server]
+command = "nomicfoundation-solidity-language-server"
+args = [ "--stdio" ]
 
 [[language]]
 name = "markdown"
@@ -16,7 +20,6 @@ name = "git-commit"
 rulers = [50, 72]
 auto-format = true
 language-servers = [{ name = "ltex-ls" }]
-formatter = { command = "fold", args = ["-w", "72", "-s"] }
 
 [[language]]
 name = "typescript"
@@ -25,3 +28,14 @@ auto-format = true
 [[language]]
 name = "toml"
 auto-format = true
+
+[[language]]
+name = "yaml"
+auto-format = true
+
+[[language]]
+name = "solidity"
+auto-format = true
+formatter = { command = "forge", args = ["fmt", "--raw", "-"] }
+language-servers = [ { name = "solidity-language-server" } ]
+

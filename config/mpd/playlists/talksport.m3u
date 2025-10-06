@@ -1,0 +1,6 @@
+#EXTM3U
+
+#EXTINF:-1, TalkSport
+#EXTALB: Live Broadcast
+#EXTGENRE: Live Radio
+http://radio.talksport.com/stream?aisGetOriginalStream=true

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# ~/.config/notmuch/hooks/post-new
+
+# Query for just-added unread messages in inbox
+QUERY='tag:new AND tag:unread AND tag:inbox'
+
+notmuch show --format=json --entire-thread=false "$QUERY" |
+jq -r '
+  ..|objects
+  | select(has("headers"))
+  | "From: \(.headers.from // "Unknown")\nSubject: \(.headers.subject // "(no subject)")"
+' |
+while IFS= read -r body; do
+    notify-send -u low "New mail" "$body"
+done
+
+# Mark them so we don't notify again next run
+notmuch tag -new +notified "$QUERY" >/dev/null
+
