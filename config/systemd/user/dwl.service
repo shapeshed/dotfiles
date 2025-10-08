@@ -30,11 +30,13 @@ UnsetEnvironment=DISPLAY
 ExecStartPre=/usr/bin/find %t -maxdepth 1 -type s -name 'wayland-*' -user %u -delete
 
 # 2) Make sure the user manager has a clean env
-ExecStartPre=/usr/bin/systemctl --user unset-environment DISPLAY WAYLAND_DISPLAY DBUS_SESSION_BUS_ADDRESS
+# ExecStartPre=/usr/bin/systemctl --user unset-environment DISPLAY WAYLAND_DISPLAY DBUS_SESSION_BUS_ADDRESS
 
 # 3) Publish correct env to user-systemd (DBUS pinned to %t/bus above)
 ExecStartPre=/usr/bin/dbus-update-activation-environment --systemd \
   XDG_RUNTIME_DIR DBUS_SESSION_BUS_ADDRESS XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+
+PassEnvironment=WAYLAND_DISPLAY DBUS_SESSION_BUS_ADDRESS XDG_SESSION_TYPE XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP
 
 # Launch dwl (with your startup script if you like)
 ExecStart=/usr/bin/dwl -s %h/.local/bin/dwl-startup.sh
