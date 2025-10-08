@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# ~/bin/newsboat-notify
+
+# The message passed from Newsboat
+MESSAGE="$1"
+
+# Choose an icon — any PNG/SVG path or system icon name works
+ICON="/usr/share/icons/hicolor/scalable/apps/newsboat.svg"
+
+# Send the notification
+notify-send \
+  --app-name="Newsboat" \
+  --icon="$ICON" \
+  --urgency=normal \
+  "Newsboat" \
+  "$MESSAGE"
+

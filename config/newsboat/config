@@ -10,6 +10,8 @@ bind-key h quit
 
 articlelist-format  "%4i %f %D   %?T?|%-17T|  ?%t"
 notify-format       "%d new articles (%n unread articles, %f unread feeds)"
+notify-program      ~/.local/bin/newsboat-notify
+notify-always       yes
 
 browser             $BROWSER
 # browser            "readable -q %u | w3m -T text/html"
