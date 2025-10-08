@@ -36,6 +36,7 @@ color quoted5		#A6ADC8 #1E1E2E         # subtext 0 / base
 
 # Color regex lists
 color index		    #A6E3A1 #1E1E2E ~N      # New messages - green / base
+color index         #A6E3A1 #1E1E2E ~U
 color index		    #94E2D5 #1E1E2E ~F      # Flagged messages - teal / base
 color index		    #94E2D5 #1E1E2E ~T      # Tagged Messages teal / base
 color index		    #F38BA8 #1E1E2E ~D      # Messages to delete red / base
