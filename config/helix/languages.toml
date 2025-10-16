@@ -23,6 +23,7 @@ language-servers = [{ name = "ltex-ls" }]
 
 [[language]]
 name = "typescript"
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
