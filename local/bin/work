@@ -6,12 +6,18 @@ set -eu
 if ! tmux has-session -t work 2>/dev/null; then
   tmux new-session -d -s work
 
-  # Window 1: mail + todo split
   tmux new-window -t work:1 -n mail
-  tmux send-keys -t work:mail 'neomutt' C-m
-  tmux split-window -v -t work:mail
-  tmux send-keys -t work:mail.2 "$EDITOR ~/Documents/todo.md" C-m
-  tmux select-layout -t work:mail main-vertical
+  tmux send-keys -t work:mail.0 'neomutt' C-m
+  tmux split-window -h -p 20 -t work:mail.0
+  tmux send-keys -t work:mail.1 "$EDITOR ~/Documents/todo.md" C-m
+  # tmux select-layout -t work:mail main-vertical
+  tmux new-window -t work:2 -n news
+  tmux send-keys -t work:news.0 "newsboat" C-m
+  tmux new-window -t work:3 -n music
+  tmux send-keys -t work:music.0 "ncmpcpp" C-m
+
+  tmux select-window -t work:mail
+  tmux select-pane -t work:mail.0
 
 fi
 
