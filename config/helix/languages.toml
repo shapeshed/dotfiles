@@ -6,10 +6,6 @@ ltex.disabledRules = { "en-GB" = ["PROFANITY"] }
 [language-server.rust-analyzer.config]
 rustfmt = { extraArgs = ["+nightly"] }
 
-[language-server.solidity-language-server]
-command = "nomicfoundation-solidity-language-server"
-args = [ "--stdio" ]
-
 [[language]]
 name = "markdown"
 auto-format = true
@@ -35,11 +31,20 @@ name = "yaml"
 auto-format = true
 
 [[language]]
-name = "solidity"
+name = "rust"
 auto-format = true
-formatter = { command = "forge", args = ["fmt", "--raw", "-"] }
-language-servers = [ { name = "solidity-language-server" } ]
 
 [[language]]
-name = "rust"
+name = "mail"
+file-types = [
+  { glob = "mutt-*"},
+  { glob = "neomutt-*"},
+  { glob = "*.eml" },
+  { glob = "*.mail" }
+]
+language-servers = ["ltex-ls"]
+soft-wrap.enable = true
+text-width = 80
+rulers = [80]
+formatter = { command = "fold", args = ["-s" ,"-w", "80"] }
 auto-format = true

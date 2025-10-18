@@ -122,7 +122,7 @@ set dsn_notify                    =   ""
 set dsn_return                    =   ""
 set duplicate_threads             =   yes
 set edit_headers                  =   no
-set editor                        =   "nvim -c 'set spell spelllang=en_gb'"
+set editor                        =   "hx"
 set encode_from                   =   no
 set envelope_from_address         =   ""
 set escape                        =   "~"
