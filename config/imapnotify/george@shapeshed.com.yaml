@@ -1,0 +1,13 @@
+configurations:
+  - host: imap.gmail.com
+    port: 993
+    tls: true
+    username: george@shapeshed.com
+    passwordCMD: "/home/go/.config/mutt/oauth/mutt_oauth2.py /home/go/.config/mutt/oauth/george@shapeshed.com"
+    xoAuth2: true
+    idleLogoutTimeout: 1740
+    wait: 1
+    boxes:
+      - mailbox: "INBOX"
+    onNewMail: "/usr/bin/mbsync -c ~/.config/isync/mbsyncrc --pull-new --pull-flags shapeshed:INBOX && /usr/bin/notmuch new"
+    # onNewMailPost: "afew -tn"    # optional, runs after onNewMail
