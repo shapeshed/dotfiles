@@ -26,6 +26,5 @@ alias kl="kubectl logs"
 alias ls="ls --color"
 
 alias neomutt="TERM=xterm-direct neomutt"
-
-alias start-dwl-and-sync='dbus-run-session dwl -s ~/.config/dwl/autostart.sh & sleep 6 && eval "export DBUS_SESSION_BUS_ADDRESS=\$(systemctl --user show-environment | grep DBUS_SESSION_BUS_ADDRESS | cut -d= -f2-)" && echo "D-Bus synced!" && wait'
+alias se='sudoedit'
 
