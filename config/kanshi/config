@@ -1,0 +1,12 @@
+output "BNQ BenQ EW3270U K2L01581019" alias $BENQ
+output "AU Optronics 0xD291 Unknown" alias $INTERNAL
+
+profile dual {
+  output $BENQ     enable mode 3840x2160@60 position 0,0    scale 1.5
+  output $INTERNAL enable mode 1920x1200@60  position 2560,0 scale 1
+}
+
+profile laptop_only {
+  output $INTERNAL enable mode 1920x1200@60 position 0,0 scale 1
+  output $BENQ disable
+}
