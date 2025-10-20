@@ -14,7 +14,7 @@ if ! tmux has-session -t work 2>/dev/null; then
   tmux new-window -t work:2 -n news
   tmux send-keys -t work:news.0 "newsboat" C-m
   tmux new-window -t work:3 -n music
-  tmux send-keys -t work:music.0 "ncmpcpp" C-m
+  tmux send-keys -t work:music.0 "mpc playlist" C-m
 
   tmux select-window -t work:mail
   tmux select-pane -t work:mail.0
