@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "catppuccin",
+    "mode": "system"
+  },
+  "session": {
+    "permissions": "prompt"
+  },
+  "diffs": {
+    "wrap": "word"
+  },
+  "prompt": {
+    "paste": "compact"
+  }
+}

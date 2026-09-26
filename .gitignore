@@ -76,6 +76,8 @@ config/ncmpcpp/error.log
 config/ncspot/
 config/neofetch/
 config/nordvpn/
+config/opencode/auth.json
+config/opencode/service.json
 config/opera/
 config/pavucontrol.ini
 config/pulse/

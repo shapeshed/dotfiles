@@ -1,0 +1,122 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  // ---------------------------------------------------------------------
+  // Models
+  // ---------------------------------------------------------------------
+  // Without an explicit `model`, the session falls back to whatever is in
+  // ~/.local/share/opencode/model.json recents, which means a new project
+  // can silently start on a different model. Pin it here instead.
+  "model": "opencode-go/space-bunny-free",
+  // Cheap model for titles/summaries. Falls back to a cheap provider model
+  // automatically, but pin it so it never lands on the main model.
+  "small_model": "opencode/deepseek-v4.1-flash",
+
+  // ---------------------------------------------------------------------
+  // Runtime
+  // ---------------------------------------------------------------------
+  // "notify" | "auto" | "disable". Project-level values are ignored, so this
+  // only needs setting once, globally. Note: "auto" does not restart a
+  // running server, so "notify" is the lower-surprise choice.
+  "update": "notify",
+
+  "shell": "/bin/zsh",
+
+  // ---------------------------------------------------------------------
+  // Quality gates -- both are OFF by default, which is the main reason a
+  // fresh install feels sloppier than it should.
+  // ---------------------------------------------------------------------
+  // Reformat files after write/edit/patch. `true` enables the built-ins.
+  "formatter": true,
+  // Enable language-server diagnostics.
+  "lsp": true,
+
+  // ---------------------------------------------------------------------
+  // Context management
+  // ---------------------------------------------------------------------
+  // Pin these instead of riding the defaults; long sessions with subagents
+  // are where the difference shows up.
+  "compaction": {
+    "auto": true,
+    "keep": { "tokens": 15000 },
+    "buffer": 20000,
+  },
+  "tool_output": {
+    "max_lines": 2000,
+    "max_bytes": 51200,
+  },
+
+  // ---------------------------------------------------------------------
+  // Watcher -- stop build output from waking the file watcher.
+  // ---------------------------------------------------------------------
+  "watcher": {
+    "ignore": [
+      "**/node_modules/**",
+      "**/.git/**",
+      "**/dist/**",
+      "**/build/**",
+      "**/.gradle/**",
+      "**/target/**",
+    ],
+  },
+
+  // ---------------------------------------------------------------------
+  // Permissions (v2 shape: an ordered array, NOT the v1 `permission` object)
+  // ---------------------------------------------------------------------
+  // The shipped base policy is `allow` on everything, with `ask` only for
+  // external_directory and .env reads. Last matching rule wins, so broad
+  // rules go first and specific exceptions go after.
+  //
+  // Routine work stays unattended on purpose -- an `ask` on every shell call
+  // trains you to approve reflexively, which is worse than no prompt at all.
+  // Only genuinely unrecoverable operations are hard-denied, and publishing
+  // gets a single deliberate gate.
+  "permissions": [
+    // --- hard denies: irreversible, no confirmation prompt ---
+    // These cannot be overridden by an "Allow always", and there is no
+    // recovery path, so they must be genuinely catastrophic-only.
+    //
+    // Deliberately NOT a blanket `rm -rf *` deny: that also blocks routine
+    // work like `rm -rf node_modules`. Root/home targets are blocked
+    // instead, and everything else falls through to the `ask` below.
+    // Both flag orders are covered. Note that shell resources are raw
+    // command text, so `~` is matched literally and never home-expanded.
+    { "action": "shell", "resource": "rm -rf /", "effect": "deny" },
+    { "action": "shell", "resource": "rm -rf /*", "effect": "deny" },
+    { "action": "shell", "resource": "rm -rf ~", "effect": "deny" },
+    { "action": "shell", "resource": "rm -rf ~/*", "effect": "deny" },
+    { "action": "shell", "resource": "rm -fr /", "effect": "deny" },
+    { "action": "shell", "resource": "rm -fr /*", "effect": "deny" },
+    { "action": "shell", "resource": "rm -fr ~", "effect": "deny" },
+    { "action": "shell", "resource": "rm -fr ~/*", "effect": "deny" },
+    { "action": "shell", "resource": "rm -rf .", "effect": "deny" },
+    // fork bomb
+    { "action": "shell", "resource": ":(){:|:&};:", "effect": "deny" },
+
+    { "action": "shell", "resource": "git push --force*", "effect": "deny" },
+    { "action": "shell", "resource": "git push -f *", "effect": "deny" },
+    { "action": "shell", "resource": "git reset --hard*", "effect": "deny" },
+    { "action": "shell", "resource": "git clean -*", "effect": "deny" },
+    { "action": "shell", "resource": "sudo *", "effect": "deny" },
+    { "action": "shell", "resource": "dd if=*", "effect": "deny" },
+    { "action": "shell", "resource": "mkfs*", "effect": "deny" },
+
+    // --- deliberate gates: one-way doors, approvable but never silent ---
+    // Recursive delete outside root/home. This is the rule that an
+    // `ask`-then-approve workflow handles well: rare, obvious, and a
+    // mistake is visible in the prompt text.
+    { "action": "shell", "resource": "rm -rf *", "effect": "ask" },
+    { "action": "shell", "resource": "rm -fr *", "effect": "ask" },
+    { "action": "shell", "resource": "rm -r *", "effect": "ask" },
+    // Publishing is irreversible.
+    { "action": "shell", "resource": "git push *", "effect": "ask" },
+
+    // --- keep secrets out of reach ---
+    // (Base policy already asks on .env reads; these are belt-and-braces for
+    // the common key-file names it does not cover.)
+    { "action": "read", "resource": "*.pem", "effect": "deny" },
+    { "action": "read", "resource": "*id_rsa*", "effect": "deny" },
+    { "action": "read", "resource": "*id_ed25519*", "effect": "deny" },
+    { "action": "read", "resource": "*.keystore", "effect": "deny" },
+  ],
+}
