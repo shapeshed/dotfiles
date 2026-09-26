@@ -40,9 +40,10 @@
 
 ; Keywords
 
+; the grammar tokenises "else if" as separate "else" and "if" nodes,
+; there is no "else if" anonymous node
 [
     "else"
-    "else if"
     "if"
     "with"
 ] @conditional

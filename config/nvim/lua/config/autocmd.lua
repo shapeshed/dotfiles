@@ -35,11 +35,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   command = "if !&binary | call format#TrimWhitespace() | endif",
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  callback = function()
-    vim.lsp.buf.format({ async = false })
-  end,
-})
+-- Formatting is handled by conform.nvim (see lua/plugins/conform.lua), which
+-- registers its own BufWritePre hook.
 
 vim.api.nvim_create_augroup("Format", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {

@@ -19,4 +19,16 @@ vim.opt.signcolumn    = "yes"
 vim.opt.termguicolors = true -- Enable 24-bit RGB color
 vim.opt.background    = "dark"
 
+-- Built-in catppuccin (ships with Neovim, so no plugin needed). It only
+-- provides the Latte and Mocha flavours and picks between them from
+-- 'background', so this must come after the line above. Use
+-- `set background=light` for Latte.
+vim.cmd([[colorscheme catppuccin]])
+
+-- Native LSP completion (vim.lsp.completion). "noselect" means the first
+-- candidate is not auto-accepted; pick one with <C-y>.
+--   <C-x><C-n>  keywords in the current buffer (replaces cmp-buffer)
+--   <C-x><C-f>  file names (replaces cmp-path)
+vim.opt.completeopt   = "menuone,noselect,popup"
+
 -- stylua: ignore end

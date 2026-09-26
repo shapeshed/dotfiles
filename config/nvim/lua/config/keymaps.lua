@@ -22,7 +22,6 @@ local mappings = {
   { "n", "<LEADER><LEADER>", "<C-^>", "Open last buffer" },
   { "n", "<LEADER>w", "<CMD>write<CR>", "Save" },
   { "n", "<LEADER>q", "<CMD>q<CR>", "Quit" },
-  { "n", "<LEADER>e", "<CMD>Lexplore %:p:h<CR>", "Open File Explorer" },
   --  { "n", "<C-l>", "<CMD>bnext<CR>", "Next buffer" },
   --  { "n", "<C-h>", "<CMD>bprevious<CR>", "Previous buffer" },
   { "n", "<C-x>", "<CMD>bdelete<CR>", "Close buffer" },
@@ -64,7 +63,6 @@ local mappings = {
 
   -- LSP (L) namespace
   { "n", "<LEADER>li", "<CMD>LspInfo<CR>", "LSP information" },
-  { "n", "<LEADER>lI", "<CMD>NullLsInfo<CR>", "NullLs information" },
   { "n", "<LEADER>ld", vim.lsp.buf.definition, "Go to definition" },
   { "n", "K", vim.lsp.buf.hover, "Hover info" },
   { "n", "<LEADER>lD", "<CMD>Telescope diagnostics<CR>", "Search diagnostics" },
@@ -80,6 +78,31 @@ local mappings = {
   { "n", "<LEADER>pu", "<CMD>Lazy check<CR>", "Plugins check updates" },
   { "n", "<LEADER>pU", "<CMD>Lazy update<CR>", "Plugins update" },
 }
+
+-- Native snippet tabstop navigation (vim.snippet), previously LuaSnip via
+-- nvim-cmp. Falls through to a literal tab when no snippet is active.
+for _, map in ipairs({
+  { "<Tab>", 1 },
+  { "<S-Tab>", -1 },
+}) do
+  vim.keymap.set("i", map[1], function()
+    if vim.snippet.active({ direction = map[2] }) then
+      vim.snippet.jump(map[2])
+    else
+      return map[1] == "<Tab>" and "\t"
+        or vim.api.nvim_replace_termcodes("<S-Tab>", true, false, true)
+    end
+  end, { expr = true, desc = "Next/previous snippet tabstop" })
+end
+
+-- Native diagnostics, previously trouble.nvim (which was installed but never
+-- bound to a key).
+vim.keymap.set("n", "<LEADER>lq", function()
+  vim.diagnostic.setqflist({ open = true })
+end, { desc = "Diagnostics quickfix list" })
+vim.keymap.set("n", "<LEADER>ll", function()
+  vim.diagnostic.jump({ count = 0, float = true })
+end, { desc = "Toggle showing all diagnostics" })
 
 for _, v in pairs(mappings) do
   helpers.setMapping(v[1], v[2], v[3], v[4])
