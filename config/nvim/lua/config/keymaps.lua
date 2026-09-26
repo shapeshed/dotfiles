@@ -79,8 +79,7 @@ local mappings = {
   { "n", "<LEADER>pU", "<CMD>Lazy update<CR>", "Plugins update" },
 }
 
--- Native snippet tabstop navigation (vim.snippet), previously LuaSnip via
--- nvim-cmp. Falls through to a literal tab when no snippet is active.
+-- Falls through to a literal tab when no snippet is active.
 for _, map in ipairs({
   { "<Tab>", 1 },
   { "<S-Tab>", -1 },
@@ -95,8 +94,6 @@ for _, map in ipairs({
   end, { expr = true, desc = "Next/previous snippet tabstop" })
 end
 
--- Native diagnostics, previously trouble.nvim (which was installed but never
--- bound to a key).
 vim.keymap.set("n", "<LEADER>lq", function()
   vim.diagnostic.setqflist({ open = true })
 end, { desc = "Diagnostics quickfix list" })

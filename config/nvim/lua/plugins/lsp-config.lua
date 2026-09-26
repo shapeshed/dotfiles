@@ -2,23 +2,15 @@ local M = {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
-    -- Native client capabilities. Previously this came from
-    -- cmp_nvim_lsp.default_capabilities() back when nvim-cmp was in use.
     local capabilities = vim.lsp.protocol.make_client_capabilities()
 
     -- Lua Language Server
     vim.lsp.config("lua_ls", {
       capabilities = capabilities,
-      on_attach = function(client, _)
-        client.server_capabilities.documentFormattingProvider = false
-      end,
       settings = {
         Lua = {
           diagnostics = {
             globals = { "vim" },
-          },
-          editor = {
-            formatOnSave = false,
           },
         },
       },
@@ -27,9 +19,6 @@ local M = {
     -- Rust Analyser
     vim.lsp.config("rust_analyzer", {
       capabilities = capabilities,
-      on_attach = function(client, _)
-        client.server_capabilities.documentFormattingProvider = true
-      end,
       settings = {
         ["rust-analyzer"] = {
           rustfmt = {
@@ -44,18 +33,48 @@ local M = {
       capabilities = capabilities,
     })
 
-    -- Typescript
-    -- `ts_ls` is typescript-language-server, which wraps tsserver. The old
-    -- `tsserver` name is a deprecated alias and is removed in lspconfig 3.0.0.
+    -- Typescript. ts_ls is typescript-language-server, which wraps tsserver.
+    -- `tsserver` is a deprecated alias, removed in lspconfig 3.0.0.
     vim.lsp.config("ts_ls", {
       capabilities = capabilities,
-      on_attach = function(client, _)
-        client.server_capabilities.documentFormattingProvider = false
-      end,
     })
 
     vim.lsp.config("gopls", {
       capabilities = capabilities,
+    })
+
+    -- These all format over LSP with no extra configuration.
+    vim.lsp.config("yamlls", {
+      capabilities = capabilities,
+    })
+
+    vim.lsp.config("jsonls", {
+      capabilities = capabilities,
+    })
+
+    vim.lsp.config("html", {
+      capabilities = capabilities,
+    })
+
+    vim.lsp.config("cssls", {
+      capabilities = capabilities,
+    })
+
+    vim.lsp.config("panache", {
+      capabilities = capabilities,
+    })
+
+    vim.lsp.config("tombi", {
+      capabilities = capabilities,
+    })
+
+    -- Solidity, via the Solar language server embedded in Foundry. Reads
+    -- foundry.toml itself, so no extra binary is needed. Formatting is left
+    -- to `forge fmt`, see the BufWritePost hook below.
+    vim.lsp.config("solidity_ls", {
+      capabilities = capabilities,
+      cmd = { "forge", "lsp" },
+      root_markers = { "foundry.toml", ".git" },
     })
 
     -- Eslint
@@ -69,8 +88,7 @@ local M = {
       end,
     })
 
-    -- `vim.lsp.enable` resolves the config in lspconfig's `lsp/` directory and
-    -- starts the server lazily, the first time a matching filetype is opened.
+    -- Starts each server the first time a matching filetype is opened.
     vim.lsp.enable({
       "lua_ls",
       "rust_analyzer",
@@ -78,13 +96,17 @@ local M = {
       "ts_ls",
       "gopls",
       "eslint",
+      "yamlls",
+      "jsonls",
+      "html",
+      "cssls",
+      "panache",
+      "tombi",
+      "solidity_ls",
     })
 
-    -- Native completion, replacing nvim-cmp and its sources. Clients get
-    -- enabled per buffer as they attach. `omnifunc` is what makes <C-x><C-o>
-    -- work, and is also what applies snippet side effects on <C-y>.
     vim.api.nvim_create_autocmd("LspAttach", {
-      group = vim.api.nvim_create_augroup("lsp.completion", { clear = true }),
+      group = vim.api.nvim_create_augroup("lsp", { clear = true }),
       callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
         if not client then
@@ -92,6 +114,21 @@ local M = {
         end
         vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
         vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+        -- See :help lsp-lint. Servers with textDocument/willSaveWaitUntil
+        -- format as part of the save and need no autocmd.
+        if
+          not client:supports_method("textDocument/willSaveWaitUntil")
+          and client:supports_method("textDocument/formatting")
+        then
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            group = vim.api.nvim_create_augroup("lsp.format", { clear = false }),
+            buffer = ev.buf,
+            callback = function()
+              vim.lsp.buf.format({ bufnr = ev.buf, id = client.id, timeout_ms = 1000 })
+            end,
+          })
+        end
       end,
     })
   end,

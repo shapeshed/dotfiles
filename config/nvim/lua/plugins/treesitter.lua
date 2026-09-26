@@ -18,6 +18,7 @@ return {
       "javascript",
       "lua",
       "rust",
+      "solidity",
       "typescript",
     }
 
