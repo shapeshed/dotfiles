@@ -19,7 +19,7 @@ LONG_SHORT_RATIO=$(curl -s "https://fapi.binance.com/futures/data/topLongShortAc
 
 # Set color based on whether the price change percentage is negative or positive
 if echo "$PRICE_CHANGE_PERCENT" | grep -q '^-'; then
-  echo "#[fg=red]\$ $LAST_PRICE $PRICE_CHANGE_PERCENT% 🡻 | $LONG_SHORT_RATIO"
+  echo "#[fg=red]\$ $LAST_PRICE $PRICE_CHANGE_PERCENT% ↓ | $LONG_SHORT_RATIO"
 else
-  echo "#[fg=cyan]\$ $LAST_PRICE $PRICE_CHANGE_PERCENT% 🡹 | $LONG_SHORT_RATIO"
+  echo "#[fg=cyan]\$ $LAST_PRICE $PRICE_CHANGE_PERCENT% ↑ | $LONG_SHORT_RATIO"
 fi
